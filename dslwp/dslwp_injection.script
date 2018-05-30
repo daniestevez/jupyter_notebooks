@@ -1,0 +1,292 @@
+%----------------------------------------------------------------------------
+%---------- Simulate DSLWP-B mid-course correction and lunar orbit injection
+%----------------------------------------------------------------------------
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+% Initial element from program_tracking_dslwp-a_20180520_window1.txt
+% DSLWP-B after trans-lunar injection
+Create Spacecraft DSLWP_B_TLI
+DSLWP_B_TLI.DateFormat = UTCModJulian
+DSLWP_B_TLI.Epoch = '28259.413090277776'
+DSLWP_B_TLI.CoordinateSystem = EarthFixed
+DSLWP_B_TLI.X = -6633.271172
+DSLWP_B_TLI.Y = -802.293973
+DSLWP_B_TLI.Z = -538.972574
+DSLWP_B_TLI.VX = 0.029033
+DSLWP_B_TLI.VY = -9.016021
+DSLWP_B_TLI.VZ = -5.164087
+DSLWP_B_TLI.DryMass = 45
+DSLWP_B_TLI.Cd = 2.2
+DSLWP_B_TLI.Cr = 1.8
+DSLWP_B_TLI.DragArea = 0.25
+DSLWP_B_TLI.SRPArea = 0.25
+
+% Initial element from program_tracking_dslwp-b_20180526.txt
+% DSLWP-B in lunar orbit
+Create Spacecraft DSLWP_B_orbit
+DSLWP_B_orbit.DateFormat = UTCModJulian
+DSLWP_B_orbit.Epoch = '28264.5'
+DSLWP_B_orbit.CoordinateSystem = EarthFixed
+DSLWP_B_orbit.X = 303527.4363
+DSLWP_B_orbit.Y = -255336.4971
+DSLWP_B_orbit.Z = -38291.07068
+DSLWP_B_orbit.VX = -17.836844
+DSLWP_B_orbit.VY = -21.171093
+DSLWP_B_orbit.VZ = -0.471039
+DSLWP_B_orbit.DryMass = 45
+DSLWP_B_orbit.Cd = 2.2
+DSLWP_B_orbit.Cr = 1.8
+DSLWP_B_orbit.DragArea = 0.25
+DSLWP_B_orbit.SRPArea = 0.25
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel EarthProp_ForceModel
+EarthProp_ForceModel.CentralBody = Earth
+EarthProp_ForceModel.PrimaryBodies = {Earth}
+EarthProp_ForceModel.PointMasses = {Jupiter, Luna, Mars, Neptune, Saturn, Sun, Uranus, Venus}
+EarthProp_ForceModel.SRP = On
+EarthProp_ForceModel.RelativisticCorrection = On
+EarthProp_ForceModel.ErrorControl = RSSStep
+EarthProp_ForceModel.GravityField.Earth.Degree = 10
+EarthProp_ForceModel.GravityField.Earth.Order = 10
+EarthProp_ForceModel.GravityField.Earth.StmLimit = 100
+EarthProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof'
+EarthProp_ForceModel.GravityField.Earth.TideModel = 'None'
+EarthProp_ForceModel.SRP.Flux = 1367
+EarthProp_ForceModel.SRP.SRPModel = Spherical
+EarthProp_ForceModel.SRP.Nominal_Sun = 149597870.691
+EarthProp_ForceModel.Drag.AtmosphereModel = JacchiaRoberts
+EarthProp_ForceModel.Drag.HistoricWeatherSource = 'ConstantFluxAndGeoMag'
+EarthProp_ForceModel.Drag.PredictedWeatherSource = 'ConstantFluxAndGeoMag'
+EarthProp_ForceModel.Drag.CSSISpaceWeatherFile = 'SpaceWeather-All-v1.2.txt'
+EarthProp_ForceModel.Drag.SchattenFile = 'SchattenPredict.txt'
+EarthProp_ForceModel.Drag.F107 = 150
+EarthProp_ForceModel.Drag.F107A = 150
+EarthProp_ForceModel.Drag.MagneticIndex = 3
+EarthProp_ForceModel.Drag.SchattenErrorModel = 'Nominal'
+EarthProp_ForceModel.Drag.SchattenTimingModel = 'NominalCycle'
+
+Create ForceModel LunaProp_ForceModel
+LunaProp_ForceModel.CentralBody = Luna
+LunaProp_ForceModel.PrimaryBodies = {Luna}
+LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus}
+LunaProp_ForceModel.Drag = None
+LunaProp_ForceModel.SRP = On
+LunaProp_ForceModel.RelativisticCorrection = On
+LunaProp_ForceModel.ErrorControl = RSSStep
+LunaProp_ForceModel.GravityField.Luna.Degree = 10
+LunaProp_ForceModel.GravityField.Luna.Order = 10
+LunaProp_ForceModel.GravityField.Luna.StmLimit = 100
+LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof'
+LunaProp_ForceModel.GravityField.Luna.TideModel = 'None'
+LunaProp_ForceModel.SRP.Flux = 1367
+LunaProp_ForceModel.SRP.SRPModel = Spherical
+LunaProp_ForceModel.SRP.Nominal_Sun = 149597870.691
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator EarthProp
+EarthProp.FM = EarthProp_ForceModel
+EarthProp.Type = RungeKutta89
+EarthProp.InitialStepSize = 1
+EarthProp.Accuracy = 9.999999999999999e-12
+EarthProp.MinStep = 1
+EarthProp.MaxStep = 1
+EarthProp.MaxStepAttempts = 50
+EarthProp.StopIfAccuracyIsViolated = true
+
+Create Propagator LunaProp
+LunaProp.FM = LunaProp_ForceModel
+LunaProp.Type = RungeKutta89
+LunaProp.InitialStepSize = 10
+LunaProp.Accuracy = 9.999999999999999e-12
+LunaProp.MinStep = 1
+LunaProp.MaxStep = 10
+LunaProp.MaxStepAttempts = 50
+LunaProp.StopIfAccuracyIsViolated = true
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial
+LunaInertial.Origin = Luna
+LunaInertial.Axes = BodyInertial
+
+Create CoordinateSystem DSLWP_B_TLI_VNB
+DSLWP_B_TLI_VNB.Origin = DSLWP_B_TLI
+DSLWP_B_TLI_VNB.Axes = ObjectReferenced
+DSLWP_B_TLI_VNB.XAxis = V
+DSLWP_B_TLI_VNB.YAxis = N
+DSLWP_B_TLI_VNB.Primary = Luna
+DSLWP_B_TLI_VNB.Secondary = DSLWP_B_TLI
+
+
+%----------------------------------------------------
+% --------- Burns
+%----------------------------------------------------
+
+Create ImpulsiveBurn Correction
+Correction.CoordinateSystem   = Local
+Correction.Origin             = Earth
+Correction.Axes               = VNB
+
+Create ImpulsiveBurn LOI
+LOI.CoordinateSystem = Local
+LOI.Origin = Luna
+LOI.Axes = VNB
+
+%----------------------------------------------------
+% --------- Variables
+%----------------------------------------------------
+
+Create Variable correctionEpoch
+
+%----------------------------------------------------
+% --------- Solvers
+%----------------------------------------------------
+
+Create DifferentialCorrector DC
+DC.ShowProgress = true
+DC.ReportStyle = Normal
+DC.ReportFile = 'DifferentialCorrectorDC1.data'
+DC.MaximumIterations = 25
+DC.DerivativeMethod = ForwardDifference
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView EarthLunaView
+EarthLunaView.ShowPlot = true
+EarthLunaView.SolverIterations = All
+EarthLunaView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ]
+EarthLunaView.Size = [ 0.9926470588235294 0.9552023121387283 ]
+EarthLunaView.RelativeZOrder = 123
+EarthLunaView.Maximized = true
+EarthLunaView.Add = {DSLWP_B_TLI, DSLWP_B_orbit, Earth, Luna, Sun}
+EarthLunaView.CoordinateSystem = EarthMJ2000Eq
+EarthLunaView.DrawObject = [ true true true true ]
+EarthLunaView.DataCollectFrequency = 60
+EarthLunaView.UpdatePlotFrequency = 50
+EarthLunaView.NumPointsToRedraw = 0
+EarthLunaView.MaxPlotPoints = 20000
+EarthLunaView.ShowLabels = true
+EarthLunaView.ViewPointReference = Earth
+EarthLunaView.ViewPointVector = [ 0 0 30000 ]
+EarthLunaView.ViewDirection = Earth
+EarthLunaView.ViewScaleFactor = 40
+EarthLunaView.ViewUpCoordinateSystem = EarthMJ2000Eq
+EarthLunaView.ViewUpAxis = Z
+EarthLunaView.EclipticPlane = Off
+EarthLunaView.XYPlane = On
+EarthLunaView.WireFrame = Off
+EarthLunaView.Axes = On
+EarthLunaView.Grid = Off
+EarthLunaView.SunLine = Off
+EarthLunaView.UseInitialView = On
+EarthLunaView.StarCount = 7000
+EarthLunaView.EnableStars = On
+EarthLunaView.EnableConstellations = Off
+
+Create OrbitView LunaOrbitView
+LunaOrbitView.ShowPlot = true
+LunaOrbitView.SolverIterations = All
+LunaOrbitView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ]
+LunaOrbitView.Size = [ 0.9926470588235294 0.9552023121387283 ]
+LunaOrbitView.RelativeZOrder = 126
+LunaOrbitView.Maximized = true
+LunaOrbitView.Add = {DSLWP_B_TLI, DSLWP_B_orbit, Earth, Luna, Sun}
+LunaOrbitView.CoordinateSystem = LunaInertial
+LunaOrbitView.DrawObject = [ true true true true ]
+LunaOrbitView.DataCollectFrequency = 60
+LunaOrbitView.UpdatePlotFrequency = 50
+LunaOrbitView.NumPointsToRedraw = 0
+LunaOrbitView.MaxPlotPoints = 20000
+LunaOrbitView.ShowLabels = true
+LunaOrbitView.ViewPointReference = Luna
+LunaOrbitView.ViewPointVector = [ -5000 20000 -5000 ]
+LunaOrbitView.ViewDirection = Luna
+LunaOrbitView.ViewScaleFactor = 1
+LunaOrbitView.ViewUpCoordinateSystem = LunaInertial
+LunaOrbitView.ViewUpAxis = Z
+LunaOrbitView.EclipticPlane = Off
+LunaOrbitView.XYPlane = On
+LunaOrbitView.WireFrame = Off
+LunaOrbitView.Axes = On
+LunaOrbitView.Grid = Off
+LunaOrbitView.SunLine = Off
+LunaOrbitView.UseInitialView = On
+LunaOrbitView.StarCount = 7000
+LunaOrbitView.EnableStars = On
+LunaOrbitView.EnableConstellations = Off
+
+%----------------------------------------
+%---------- Reports
+%----------------------------------------
+Create ReportFile burnsReport
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+BeginScript 'Init'
+	correctionEpoch = 28261.45486111111 % 22 May 2018 22:55:00 UTC
+EndScript
+
+BeginScript 'Correction initial guesses'
+	Correction.Element1 = 0.0135414468457
+   Correction.Element2 = -0.0278871540458
+   Correction.Element3 = -0.0145043816337
+EndScript
+
+% Propagate Luna orbit back to periapsis
+Propagate BackProp LunaProp(DSLWP_B_orbit) {DSLWP_B_orbit.Luna.Periapsis}
+
+% Propagate from Earth to mid-course correction
+PenUp EarthLunaView LunaOrbitView
+Propagate EarthProp(DSLWP_B_TLI) {DSLWP_B_TLI.ElapsedSecs = 60} % this is to avoid jumps in the plots
+PenDown EarthLunaView LunaOrbitView
+Propagate EarthProp(DSLWP_B_TLI) {DSLWP_B_TLI.UTCModJulian = correctionEpoch}
+
+Target 'Target lunar periapsis' DC
+	% Vary mid-course correction parameters
+   Vary DC(Correction.Element1 = Correction.Element1, {Perturbation = 0.0001, MaxStep = 0.005})
+	Vary DC(Correction.Element2 = Correction.Element2, {Perturbation = 0.0001, MaxStep = 0.005})
+	Vary DC(Correction.Element3 = Correction.Element3, {Perturbation = 0.0001, MaxStep = 0.005})
+	
+	% Perform mid-course correction
+	Maneuver 'Mid-course correction' Correction(DSLWP_B_TLI)
+	
+	% Propagate to epoch of lunar periapsis
+	Propagate LunaProp(DSLWP_B_TLI) {DSLWP_B_TLI.UTCModJulian = DSLWP_B_orbit.UTCModJulian}
+
+	% Impose conditions of arrival to periapsis
+	Achieve DC(DSLWP_B_TLI.X = DSLWP_B_orbit.X, {Tolerance = 0.001})
+	Achieve DC(DSLWP_B_TLI.Y = DSLWP_B_orbit.Y, {Tolerance = 0.001})
+	Achieve DC(DSLWP_B_TLI.Z = DSLWP_B_orbit.Z, {Tolerance = 0.001})
+EndTarget
+
+Report 'Report mid-course correction burn' burnsReport correctionEpoch Correction.Element1 Correction.Element2 Correction.Element3
+
+BeginScript 'Setup LOI'
+	LOI.Element1 = DSLWP_B_orbit.DSLWP_B_TLI_VNB.VX - DSLWP_B_TLI.DSLWP_B_TLI_VNB.VX
+	LOI.Element2 = DSLWP_B_orbit.DSLWP_B_TLI_VNB.VY - DSLWP_B_TLI.DSLWP_B_TLI_VNB.VY
+	LOI.Element3 = DSLWP_B_orbit.DSLWP_B_TLI_VNB.VZ - DSLWP_B_TLI.DSLWP_B_TLI_VNB.VZ
+EndScript
+
+Maneuver 'Lunar orbit injection 'LOI(DSLWP_B_TLI)
+
+Report 'Report LOI burn' burnsReport DSLWP_B_TLI.UTCModJulian LOI.Element1 LOI.Element2 LOI.Element3
+
+Propagate LunaProp(DSLWP_B_TLI) {DSLWP_B_TLI.ElapsedDays = 2}
+
