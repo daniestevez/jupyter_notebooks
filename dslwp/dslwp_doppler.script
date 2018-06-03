@@ -1,0 +1,183 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+DSLWP_B.Id = 'DSLWP-B';
+DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = '28264.5';
+DSLWP_B.CoordinateSystem = LunaInertial;
+DSLWP_B.DisplayStateType = Keplerian;
+
+% State from tracking file
+%DSLWP_B.SMA = 8765.409054517644;
+%DSLWP_B.ECC = 0.7618824709853163;
+%DSLWP_B.INC = 20.80912899224475;
+%DSLWP_B.RAAN = 307.3706391221838;
+%DSLWP_B.AOP = 118.7406568683716;
+%DSLWP_B.TA = 178.2429103785479;
+
+% State from orbit determination
+DSLWP_B.SMA = 8761.0758581
+DSLWP_B.ECC = 0.768016853537
+DSLWP_B.INC = 16.9728174682
+DSLWP_B.RAAN = 295.670653562
+DSLWP_B.AOP = 130.427472407
+DSLWP_B.TA = 178.126596496
+
+
+DSLWP_B.DryMass = 45;
+DSLWP_B.DragArea = 0.25;
+DSLWP_B.SRPArea = 0.25;
+
+DSLWP_B.AddHardware = {SBandAnt, DSLWPSBand};
+
+DSLWP_B.SolveFors = {KeplerianState};
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create Antenna SBandAnt;
+Create Antenna VE7TILAntenna;
+
+Create Transponder DSLWPSBand;
+DSLWPSBand.HardwareDelay = 0;
+DSLWPSBand.PrimaryAntenna = SBandAnt;
+DSLWPSBand.TurnAroundRatio = '1/1';
+
+Create Transmitter VE7TILTransmitter;
+VE7TILTransmitter.PrimaryAntenna = VE7TILAntenna;
+VE7TILTransmitter.Frequency = 2275.222;   %MHz
+
+Create Receiver VE7TILReceiver;
+VE7TILReceiver.PrimaryAntenna = VE7TILAntenna;
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation VE7TIL;
+VE7TIL.CentralBody = Earth;
+VE7TIL.StateType = Spherical;
+VE7TIL.HorizonReference = Ellipsoid;
+VE7TIL.Location1 = 49.43479333333333;
+VE7TIL.Location2 = 236.33117;
+VE7TIL.Location3 = 0.04;
+VE7TIL.Id = 'VE7TIL';
+
+VE7TIL.AddHardware = {VE7TILTransmitter, VE7TILAntenna, VE7TILReceiver};
+VE7TIL.IonosphereModel = 'None';
+VE7TIL.TroposphereModel = 'None';
+VE7TIL.MinimumElevationAngle = 7;
+
+VE7TIL.ErrorModels = {RangeRateError};
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+LunaProp_ForceModel.CentralBody = Luna;
+LunaProp_ForceModel.PrimaryBodies = {Luna};
+LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.Drag = None;
+LunaProp_ForceModel.SRP = On;
+LunaProp_ForceModel.RelativisticCorrection = On;
+LunaProp_ForceModel.ErrorControl = None;
+LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+LunaProp_ForceModel.GravityField.Luna.Order = 10;
+LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+LunaProp.FM = LunaProp_ForceModel;
+LunaProp.Type = PrinceDormand78;
+LunaProp.InitialStepSize = 60;
+LunaProp.MinStep = 0;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+LunaInertial.Origin = Luna;
+LunaInertial.Axes = BodyInertial;
+
+Create CoordinateSystem VE7TILTopo;
+VE7TILTopo.Origin = VE7TIL;
+VE7TILTopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- ErrorModels
+%----------------------------------------
+
+Create ErrorModel RangeRateError;
+RangeRateError.Type = 'RangeRate';
+RangeRateError.NoiseSigma = 0.003; % 20Hz in S-band
+
+%----------------------------------------
+%---------- MeasurementModels
+%----------------------------------------
+
+% Tracking file for Doppler output (simulation)
+Create TrackingFileSet DopplerFile;
+DopplerFile.AddTrackingConfig = {'{{VE7TIL,DSLWP_B,VE7TIL},RangeRate}'};
+DopplerFile.FileName = {'DSLWP_Doppler.gmd'};
+DopplerFile.UseLightTime = false;
+DopplerFile.UseRelativityCorrection = false;
+DopplerFile.UseETminusTAI = false;
+DopplerFile.SimDopplerCountInterval = 160;
+
+% Tracking file for Doppler input (estimation)
+Create TrackingFileSet VE7TILFile;
+VE7TILFile.AddTrackingConfig = {'{{VE7TIL,DSLWP_B,VE7TIL},RangeRate}'};
+VE7TILFile.FileName = {'/tmp/VE7TIL.gmd'};
+VE7TILFile.UseLightTime = false;
+VE7TILFile.UseRelativityCorrection = false;
+VE7TILFile.UseETminusTAI = false;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create Simulator DopplerSim;
+DopplerSim.AddData = {DopplerFile};
+DopplerSim.Propagator = LunaProp;
+DopplerSim.EpochFormat = UTCModJulian;
+DopplerSim.InitialEpoch = '28264.5';
+DopplerSim.FinalEpoch = '28272.5';
+DopplerSim.MeasurementTimeStep = 60;
+DopplerSim.AddNoise = Off;
+
+Create BatchEstimatorInv bat
+bat.ReportFile = 'DSLWP-B_estimation_report'
+bat.Measurements               = {VE7TILFile} 
+bat.Propagator                 = LunaProp;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile VE7TILReport;
+VE7TILReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/VE7TIL.txt';
+VE7TILReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.TAIModJulian, DSLWP_B.VE7TILTopo.X, DSLWP_B.VE7TILTopo.Y, DSLWP_B.VE7TILTopo.Z, DSLWP_B.VE7TILTopo.VX, DSLWP_B.VE7TILTopo.VY, DSLWP_B.VE7TILTopo.VZ, Luna.VE7TILTopo.X, Luna.VE7TILTopo.Y, Luna.VE7TILTopo.Z, Luna.VE7TILTopo.VX, Luna.VE7TILTopo.VY, Luna.VE7TILTopo.VZ};
+VE7TILReport.WriteHeaders = false;
+VE7TILReport.WriteReport = true;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+
+% Run in simulation mode:
+RunSimulator DopplerSim;
+
+% Run in estimation mode:
+%RunEstimator bat;
