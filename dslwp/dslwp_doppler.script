@@ -18,13 +18,22 @@ DSLWP_B.DisplayStateType = Keplerian;
 %DSLWP_B.TA = 178.2429103785479;
 
 % State from orbit determination
-DSLWP_B.SMA = 8761.0758581
-DSLWP_B.ECC = 0.768016853537
-DSLWP_B.INC = 16.9728174682
-DSLWP_B.RAAN = 295.670653562
-DSLWP_B.AOP = 130.427472407
-DSLWP_B.TA = 178.126596496
 
+% 20180603
+%DSLWP_B.SMA = 8761.0758581
+%DSLWP_B.ECC = 0.768016853537
+%DSLWP_B.INC = 16.9728174682
+%DSLWP_B.RAAN = 295.670653562
+%DSLWP_B.AOP = 130.427472407
+%DSLWP_B.TA = 178.126596496
+
+% 20180610
+DSLWP_B.SMA = 8762.40279943
+DSLWP_B.ECC = 0.764697135746
+DSLWP_B.INC = 18.6101083906
+DSLWP_B.RAAN = 297.248156986
+DSLWP_B.AOP = 130.40460851
+DSLWP_B.TA = 178.09494681
 
 DSLWP_B.DryMass = 45;
 DSLWP_B.DragArea = 0.25;
@@ -85,8 +94,8 @@ LunaProp_ForceModel.Drag = None;
 LunaProp_ForceModel.SRP = On;
 LunaProp_ForceModel.RelativisticCorrection = On;
 LunaProp_ForceModel.ErrorControl = None;
-LunaProp_ForceModel.GravityField.Luna.Degree = 10;
-LunaProp_ForceModel.GravityField.Luna.Order = 10;
+LunaProp_ForceModel.GravityField.Luna.Degree = 100;
+LunaProp_ForceModel.GravityField.Luna.Order = 100;
 LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
 LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
 LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
@@ -119,7 +128,7 @@ VE7TILTopo.Axes = Topocentric;
 
 Create ErrorModel RangeRateError;
 RangeRateError.Type = 'RangeRate';
-RangeRateError.NoiseSigma = 0.003; % 20Hz in S-band
+RangeRateError.NoiseSigma = 0.01;
 
 %----------------------------------------
 %---------- MeasurementModels
@@ -151,8 +160,8 @@ DopplerSim.AddData = {DopplerFile};
 DopplerSim.Propagator = LunaProp;
 DopplerSim.EpochFormat = UTCModJulian;
 DopplerSim.InitialEpoch = '28264.5';
-DopplerSim.FinalEpoch = '28272.5';
-DopplerSim.MeasurementTimeStep = 60;
+DopplerSim.FinalEpoch = '28279';
+DopplerSim.MeasurementTimeStep = 10;
 DopplerSim.AddNoise = Off;
 
 Create BatchEstimatorInv bat
