@@ -1,0 +1,157 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+DSLWP_B.Id = 'DSLWP-B';
+DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = '28264.5';
+DSLWP_B.CoordinateSystem = LunaInertial;
+DSLWP_B.DisplayStateType = Keplerian;
+
+% State from tracking file
+%DSLWP_B.SMA = 8765.409054517644;
+%DSLWP_B.ECC = 0.7618824709853163;
+%DSLWP_B.INC = 20.80912899224475;
+%DSLWP_B.RAAN = 307.3706391221838;
+%DSLWP_B.AOP = 118.7406568683716;
+%DSLWP_B.TA = 178.2429103785479;
+
+% State from orbit determination
+
+% 20180603
+%DSLWP_B.SMA = 8761.0758581
+%DSLWP_B.ECC = 0.768016853537
+%DSLWP_B.INC = 16.9728174682
+%DSLWP_B.RAAN = 295.670653562
+%DSLWP_B.AOP = 130.427472407
+%DSLWP_B.TA = 178.126596496
+
+% 20180610
+DSLWP_B.SMA = 8762.40279943
+DSLWP_B.ECC = 0.764697135746
+DSLWP_B.INC = 18.6101083906
+DSLWP_B.RAAN = 297.248156986
+DSLWP_B.AOP = 130.40460851
+DSLWP_B.TA = 178.09494681
+
+DSLWP_B.DryMass = 45;
+DSLWP_B.DragArea = 0.25;
+DSLWP_B.SRPArea = 0.25;
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation Dwingeloo;
+Dwingeloo.CentralBody = Earth;
+Dwingeloo.StateType = Spherical;
+Dwingeloo.HorizonReference = Ellipsoid;
+Dwingeloo.Location1 = 52.81201944;
+Dwingeloo.Location2 = 6.39616944;
+Dwingeloo.Location3 = 0.025;
+Dwingeloo.Id = 'Dwingeloo';
+
+Create GroundStation Shahe;
+Shahe.CentralBody = Earth;
+Shahe.StateType = Spherical;
+Shahe.HorizonReference = Ellipsoid;
+Shahe.Location1 = 40.117519;
+Shahe.Location2 = 116.229944;
+Shahe.Location3 = 0.055;
+Shahe.Id = 'Shahe';
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+LunaProp_ForceModel.CentralBody = Luna;
+LunaProp_ForceModel.PrimaryBodies = {Luna};
+LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.Drag = None;
+LunaProp_ForceModel.SRP = On;
+LunaProp_ForceModel.RelativisticCorrection = On;
+LunaProp_ForceModel.ErrorControl = RSSStep;
+LunaProp_ForceModel.GravityField.Luna.Degree = 100;
+LunaProp_ForceModel.GravityField.Luna.Order = 100;
+LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+LunaProp.FM = LunaProp_ForceModel;
+LunaProp.Type = PrinceDormand78;
+LunaProp.Accuracy = 1e-13
+LunaProp.InitialStepSize = 1;
+LunaProp.MaxStep = 600
+LunaProp.MinStep = 0;
+
+Create Propagator LunaSec;
+LunaSec.FM = LunaProp_ForceModel;
+LunaSec.Type = PrinceDormand78;
+LunaSec.Accuracy = 1e-13
+LunaSec.InitialStepSize = 1;
+LunaSec.MaxStep = 1
+LunaSec.MinStep = 1;
+
+Create Propagator Luna10Sec;
+Luna10Sec.FM = LunaProp_ForceModel;
+Luna10Sec.Type = PrinceDormand78;
+Luna10Sec.Accuracy = 1e-13
+Luna10Sec.InitialStepSize = 1;
+Luna10Sec.MaxStep = 10
+Luna10Sec.MinStep = 1;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+LunaInertial.Origin = Luna;
+LunaInertial.Axes = BodyInertial;
+
+Create CoordinateSystem DTopo;
+DTopo.Origin = Dwingeloo;
+DTopo.Axes = Topocentric;
+
+Create CoordinateSystem STopo;
+STopo.Origin = Shahe;
+STopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile VLBIReport;
+VLBIReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/VLBI.txt';
+VLBIReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DTopo.X, DSLWP_B.DTopo.Y, DSLWP_B.DTopo.Z, DSLWP_B.DTopo.VX, DSLWP_B.DTopo.VY, DSLWP_B.DTopo.VZ, DSLWP_B.STopo.X, DSLWP_B.STopo.Y, DSLWP_B.STopo.Z, DSLWP_B.STopo.VX, DSLWP_B.STopo.VY, DSLWP_B.STopo.VZ};
+VLBIReport.WriteHeaders = false;
+VLBIReport.WriteReport = true;
+
+Create ReportFile VLBIDopplerReport;
+VLBIDopplerReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/VLBI_Doppler.txt';
+VLBIDopplerReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DTopo.X, DSLWP_B.DTopo.Y, DSLWP_B.DTopo.Z, DSLWP_B.DTopo.VX, DSLWP_B.DTopo.VY, DSLWP_B.DTopo.VZ, DSLWP_B.STopo.X, DSLWP_B.STopo.Y, DSLWP_B.STopo.Z, DSLWP_B.STopo.VX, DSLWP_B.STopo.VY, DSLWP_B.STopo.VZ};
+VLBIDopplerReport.WriteHeaders = false;
+VLBIDopplerReport.WriteReport = true;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+%Toggle VLBIReport Off
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28279.722152777777}
+%Toggle VLBIReport On
+%Propagate LunaSec(DSLWP_B) {DSLWP_B.ElapsedSecs = 20}
+
+Toggle VLBIReport Off
+Toggle VLBIDopplerReport Off
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28279.5}
+Toggle VLBIDopplerReport On
+Propagate Luna10Sec(DSLWP_B) {DSLWP_B.ElapsedDays = 1}
