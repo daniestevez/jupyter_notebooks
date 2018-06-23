@@ -79,6 +79,13 @@ def main():
     plt.savefig(output_path + '_time.png')
 
     plt.figure()
+    plt.plot(ts[tsync-25:tsync+25], np.max(acq, axis=1)[tsync-25:tsync+25], '.-')
+    plt.title('{}: sync in time (zoom) ({} SNR)'.format(label, snr_str))
+    plt.xlabel('Transmission start (s)')
+    plt.ylabel('Correlation')
+    plt.savefig(output_path + '_time_fine.png')
+
+    plt.figure()
     plt.plot(fs, acq[tsync,:])
     plt.title('{}: sync in frequency ({} SNR)'.format(label, snr_str))
     plt.xlabel('Frequency (Hz)')
