@@ -64,7 +64,7 @@ def main():
     tsync = np.argmax(np.max(acq, axis=1))
     fsync = np.argmax(acq[tsync,:])
     ts = np.arange(acq.shape[0])/2/4.375
-    fs = np.arange(-acq.shape[1]//2, acq.shape[1]//2)*4.375
+    fs = np.fft.fftshift(np.fft.fftfreq(8*rate//35, 1/rate))[:acq.shape[1]] #np.arange(-acq.shape[1]//2, acq.shape[1]//2)*4.375
 
     snr = snr_estimator(x, rate, tsync, fsync)
     snr_str = '{:.1f}dB'.format(snr)
@@ -72,7 +72,7 @@ def main():
     print('Start time: {:.2f}s\nFrequency: {:.1f}Hz\nSNR: {} in 2500Hz'.format(ts[tsync], fs[fsync], snr_str))
 
     plt.figure()
-    plt.plot(ts, np.max(acq, axis=1),'.-')
+    plt.plot(ts, np.max(acq, axis=1))
     plt.title('{}: sync in time ({} SNR)'.format(label, snr_str))
     plt.xlabel('Transmission start (s)')
     plt.ylabel('Correlation')
