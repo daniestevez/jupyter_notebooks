@@ -28,12 +28,29 @@ DSLWP_B.DisplayStateType = Keplerian;
 %DSLWP_B.TA = 178.126596496
 
 % 20180610
-DSLWP_B.SMA = 8762.40279943
-DSLWP_B.ECC = 0.764697135746
-DSLWP_B.INC = 18.6101083906
-DSLWP_B.RAAN = 297.248156986
-DSLWP_B.AOP = 130.40460851
-DSLWP_B.TA = 178.09494681
+%DSLWP_B.SMA = 8762.40279943
+%DSLWP_B.ECC = 0.764697135746
+%DSLWP_B.INC = 18.6101083906
+%DSLWP_B.RAAN = 297.248156986
+%DSLWP_B.AOP = 130.40460851
+%DSLWP_B.TA = 178.09494681
+
+% 20180623
+DSLWP_B.SMA = 8765.95638789
+DSLWP_B.ECC = 0.764479041563
+DSLWP_B.INC = 23.0301858287
+DSLWP_B.RAAN = 313.64185464
+DSLWP_B.AOP = 113.462338342
+DSLWP_B.TA = 178.5519212
+
+% 20180623 -> prop to 28288
+%DSLWP_B.Epoch = '28288';
+%DSLWP_B.SMA = 8775.0879016008
+%DSLWP_B.ECC = 0.6877298227939
+%DSLWP_B.INC = 30.328652692156
+%DSLWP_B.RAAN = 287.78038898992
+%DSLWP_B.AOP = 141.86290575304
+%DSLWP_B.TA = 46.645833906038
 
 DSLWP_B.DryMass = 45;
 DSLWP_B.DragArea = 0.25;
@@ -49,11 +66,12 @@ DSLWP_B.SolveFors = {KeplerianState};
 
 Create Antenna SBandAnt;
 Create Antenna VE7TILAntenna;
+Create Antenna GSAntenna;
 
 Create Transponder DSLWPSBand;
 DSLWPSBand.HardwareDelay = 0;
 DSLWPSBand.PrimaryAntenna = SBandAnt;
-DSLWPSBand.TurnAroundRatio = '1/1';
+DSLWPSBand.TurnAroundRatio = '240/221';
 
 Create Transmitter VE7TILTransmitter;
 VE7TILTransmitter.PrimaryAntenna = VE7TILAntenna;
@@ -61,6 +79,10 @@ VE7TILTransmitter.Frequency = 2275.222;   %MHz
 
 Create Receiver VE7TILReceiver;
 VE7TILReceiver.PrimaryAntenna = VE7TILAntenna;
+
+Create Transmitter GSTransmitter;
+GSTransmitter.PrimaryAntenna = GSAntenna;
+GSTransmitter.Frequency = 2095.1;   %MHz
 
 %----------------------------------------
 %---------- GroundStations
@@ -80,7 +102,40 @@ VE7TIL.IonosphereModel = 'None';
 VE7TIL.TroposphereModel = 'None';
 VE7TIL.MinimumElevationAngle = 7;
 
-VE7TIL.ErrorModels = {RangeRateError};
+VE7TIL.ErrorModels = {RangeRateError,TwoWayError};
+
+Create GroundStation GS;
+GS.CentralBody = Earth;
+GS.StateType = Spherical;
+GS.HorizonReference = Ellipsoid;
+% Ship
+% New Zealand
+GS.Location1 = -44;
+GS.Location2 = 170;
+% Tarawa
+%GS.Location1 = 1.459181;
+%GS.Location2 = 172.971530
+% Swakopmund
+%GS.Location1 = -22.645032;
+%GS.Location2 = 14.588824;
+% Qingdao
+%GS.Location1 = 36.290555;
+%GS.Location2 = 120.224753;
+% Kashgar
+%GS.Location1 = 39.537790
+%GS.Location2 = 76.131863
+% Nequen
+%GS.Location1 = -38.938810;
+%GS.Location2 =  291.89524;
+GS.Location3 = 0.0;
+GS.Id = 'Groundstation';
+
+GS.AddHardware = {GSTransmitter, GSAntenna};
+GS.IonosphereModel = 'None';
+GS.TroposphereModel = 'None';
+GS.MinimumElevationAngle = 7;
+
+GS.ErrorModels = {TwoWayError};
 
 %----------------------------------------
 %---------- ForceModels
@@ -122,13 +177,21 @@ Create CoordinateSystem VE7TILTopo;
 VE7TILTopo.Origin = VE7TIL;
 VE7TILTopo.Axes = Topocentric;
 
+Create CoordinateSystem GTopo;
+GTopo.Origin = GS;
+GTopo.Axes = Topocentric;
+
 %----------------------------------------
 %---------- ErrorModels
 %----------------------------------------
 
 Create ErrorModel RangeRateError;
 RangeRateError.Type = 'RangeRate';
-RangeRateError.NoiseSigma = 0.01;
+RangeRateError.NoiseSigma = 0.02;
+
+Create ErrorModel TwoWayError;
+TwoWayError.Type = 'DSN_TCP';
+TwoWayError.NoiseSigma = 10;
 
 %----------------------------------------
 %---------- MeasurementModels
@@ -142,6 +205,16 @@ DopplerFile.UseLightTime = false;
 DopplerFile.UseRelativityCorrection = false;
 DopplerFile.UseETminusTAI = false;
 DopplerFile.SimDopplerCountInterval = 160;
+
+% Tracking file for Two-way Doppler output (simulation)
+Create TrackingFileSet TwoWayFile;
+TwoWayFile.AddTrackingConfig = {'{{GS,DSLWP_B,VE7TIL},DSN_TCP}'};
+TwoWayFile.FileName = {'TwoWay_Doppler.gmd'};
+TwoWayFile.UseLightTime = false;
+TwoWayFile.UseRelativityCorrection = false;
+TwoWayFile.UseETminusTAI = false;
+TwoWayFile.SimDopplerCountInterval = 160;
+
 
 % Tracking file for Doppler input (estimation)
 Create TrackingFileSet VE7TILFile;
@@ -160,9 +233,18 @@ DopplerSim.AddData = {DopplerFile};
 DopplerSim.Propagator = LunaProp;
 DopplerSim.EpochFormat = UTCModJulian;
 DopplerSim.InitialEpoch = '28264.5';
-DopplerSim.FinalEpoch = '28279';
+DopplerSim.FinalEpoch = '28295.5';
 DopplerSim.MeasurementTimeStep = 10;
 DopplerSim.AddNoise = Off;
+
+Create Simulator TwoWaySim;
+TwoWaySim.AddData = {TwoWayFile};
+TwoWaySim.Propagator = LunaProp;
+TwoWaySim.EpochFormat = UTCModJulian;
+TwoWaySim.InitialEpoch = '28282';
+TwoWaySim.FinalEpoch = '28290';
+TwoWaySim.MeasurementTimeStep = 10;
+TwoWaySim.AddNoise = Off;
 
 Create BatchEstimatorInv bat
 bat.ReportFile = 'DSLWP-B_estimation_report'
@@ -179,14 +261,25 @@ VE7TILReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.TAIModJulian, DSLWP_B.VE7TILTo
 VE7TILReport.WriteHeaders = false;
 VE7TILReport.WriteReport = true;
 
+Create ReportFile GSReport;
+GSReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/GS.txt';
+GSReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.TAIModJulian, DSLWP_B.GTopo.X, DSLWP_B.GTopo.Y, DSLWP_B.GTopo.Z, DSLWP_B.GTopo.VX, DSLWP_B.GTopo.VY, DSLWP_B.GTopo.VZ, Luna.GTopo.X, Luna.GTopo.Y, Luna.GTopo.Z, Luna.GTopo.VX, Luna.GTopo.VY, Luna.GTopo.VZ};
+GSReport.WriteHeaders = false;
+GSReport.WriteReport = true;
+
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
 
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = '28288'};
+%Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = '28282'}
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = '28293'}
+
 % Run in simulation mode:
-RunSimulator DopplerSim;
+%RunSimulator DopplerSim;
+%RunSimulator TwoWaySim;
 
 % Run in estimation mode:
 %RunEstimator bat;
