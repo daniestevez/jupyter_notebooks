@@ -28,12 +28,31 @@ DSLWP_B.DisplayStateType = Keplerian;
 %DSLWP_B.TA = 178.126596496
 
 % 20180610
-DSLWP_B.SMA = 8762.40279943
-DSLWP_B.ECC = 0.764697135746
-DSLWP_B.INC = 18.6101083906
-DSLWP_B.RAAN = 297.248156986
-DSLWP_B.AOP = 130.40460851
-DSLWP_B.TA = 178.09494681
+%DSLWP_B.SMA = 8762.40279943
+%DSLWP_B.ECC = 0.764697135746
+%DSLWP_B.INC = 18.6101083906
+%DSLWP_B.RAAN = 297.248156986
+%DSLWP_B.AOP = 130.40460851
+%DSLWP_B.TA = 178.09494681
+
+% 20180623
+DSLWP_B.SMA = 8765.95638789
+DSLWP_B.ECC = 0.764479041563
+DSLWP_B.INC = 23.0301858287
+DSLWP_B.RAAN = 313.64185464
+DSLWP_B.AOP = 113.462338342
+DSLWP_B.TA = 178.5519212
+
+% 20180610 tracking
+%DSLWP_B.Epoch = '28280.333333333332';
+%DSLWP_B.CoordinateSystem = EarthFixed;
+%DSLWP_B.DisplayStateType = Cartesian;
+%DSLWP_B.X = -343726.3835;
+%DSLWP_B.Y = -124825.066;
+%DSLWP_B.Z = 61421.09305;
+%DSLWP_B.VX = -7.70517;
+%DSLWP_B.VY = 24.301466;
+%DSLWP_B.VZ = -0.444462;
 
 DSLWP_B.DryMass = 45;
 DSLWP_B.DragArea = 0.25;
@@ -140,6 +159,12 @@ VLBIDopplerReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DTopo.X, DSLWP_B.DTopo.Y,
 VLBIDopplerReport.WriteHeaders = false;
 VLBIDopplerReport.WriteReport = true;
 
+Create ReportFile VLBIRaDecReport;
+VLBIRaDecReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/VLBI_RaDec.txt';
+VLBIRaDecReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.EarthMJ2000Eq.RA, DSLWP_B.EarthMJ2000Eq.DEC};
+VLBIRaDecReport.WriteHeaders = false;
+VLBIRaDecReport.WriteReport = true;
+
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
@@ -152,6 +177,9 @@ BeginMissionSequence;
 
 Toggle VLBIReport Off
 Toggle VLBIDopplerReport Off
+Toggle VLBIRaDecReport Off
 Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28279.5}
+%Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28279.5}
 Toggle VLBIDopplerReport On
+Toggle VLBIRaDecReport On
 Propagate Luna10Sec(DSLWP_B) {DSLWP_B.ElapsedDays = 1}
