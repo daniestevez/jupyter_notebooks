@@ -1,0 +1,108 @@
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = '28264.5';
+DSLWP_B.CoordinateSystem = LunaInertial;
+DSLWP_B.DisplayStateType = Keplerian;
+DSLWP_B.SMA = 8765.95638789
+DSLWP_B.ECC = 0.764479041563
+DSLWP_B.INC = 23.0301858287
+DSLWP_B.RAAN = 313.64185464
+DSLWP_B.AOP = 113.462338342
+DSLWP_B.TA = 178.5519212
+DSLWP_B.DryMass = 45;
+DSLWP_B.DragArea = 0.25;
+DSLWP_B.SRPArea = 0.25;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+LunaProp_ForceModel.CentralBody = Luna;
+LunaProp_ForceModel.PrimaryBodies = {Luna};
+LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.Drag = None;
+LunaProp_ForceModel.SRP = On;
+LunaProp_ForceModel.RelativisticCorrection = On;
+LunaProp_ForceModel.ErrorControl = RSSStep;
+LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+LunaProp_ForceModel.GravityField.Luna.Order = 10;
+LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+LunaProp.FM = LunaProp_ForceModel;
+LunaProp.Type = PrinceDormand78;
+LunaProp.InitialStepSize = 1;
+LunaProp.Accuracy = 1e-13;
+LunaProp.MinStep = 0;
+LunaProp.MaxStep = 600;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+LunaInertial.Origin = Luna;
+LunaInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView LunaOrbitView;
+GMAT LunaOrbitView.SolverIterations = None;
+GMAT LunaOrbitView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT LunaOrbitView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT LunaOrbitView.RelativeZOrder = 126;
+GMAT LunaOrbitView.Maximized = true;
+GMAT LunaOrbitView.Add = {DSLWP_B, Earth, Luna, Sun};
+GMAT LunaOrbitView.CoordinateSystem = LunaInertial;
+GMAT LunaOrbitView.DrawObject = [ true true true true ];
+GMAT LunaOrbitView.DataCollectFrequency = 1;
+GMAT LunaOrbitView.UpdatePlotFrequency = 50;
+GMAT LunaOrbitView.NumPointsToRedraw = 0;
+GMAT LunaOrbitView.ShowPlot = true;
+GMAT LunaOrbitView.MaxPlotPoints = 20000;
+GMAT LunaOrbitView.ShowLabels = true;
+GMAT LunaOrbitView.ViewPointReference = Luna;
+GMAT LunaOrbitView.ViewPointVector = [ 30000 0 0 ];
+GMAT LunaOrbitView.ViewDirection = Luna;
+GMAT LunaOrbitView.ViewScaleFactor = 1;
+GMAT LunaOrbitView.ViewUpCoordinateSystem = LunaInertial;
+GMAT LunaOrbitView.ViewUpAxis = Z;
+GMAT LunaOrbitView.EclipticPlane = Off;
+GMAT LunaOrbitView.XYPlane = On;
+GMAT LunaOrbitView.WireFrame = Off;
+GMAT LunaOrbitView.Axes = On;
+GMAT LunaOrbitView.Grid = Off;
+GMAT LunaOrbitView.SunLine = Off;
+GMAT LunaOrbitView.UseInitialView = On;
+GMAT LunaOrbitView.StarCount = 7000;
+GMAT LunaOrbitView.EnableStars = On;
+GMAT LunaOrbitView.EnableConstellations = Off;
+
+Create ReportFile OrbitReport;
+OrbitReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/orbit_evolution.txt';
+OrbitReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.Luna.SMA, DSLWP_B.Luna.ECC, DSLWP_B.LunaInertial.INC, DSLWP_B.LunaInertial.RAAN, DSLWP_B.LunaInertial.AOP, DSLWP_B.Luna.MA, DSLWP_B.Luna.TA};
+OrbitReport.WriteHeaders = false;
+OrbitReport.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+PenUp LunaOrbitView;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28994.5}

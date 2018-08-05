@@ -1,0 +1,151 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2018-08-04 19:10:48
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+GMAT DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = '28327.291666666668';
+DSLWP_B.CoordinateSystem = EarthFixed;
+DSLWP_B.DisplayStateType = Cartesian;
+DSLWP_B.X = 97799.18451;
+DSLWP_B.Y = 381410.4047;
+DSLWP_B.Z = -132904.3203;
+DSLWP_B.VX = 26.375592;
+DSLWP_B.VY = -7.001739;
+DSLWP_B.VZ = 0.495267;
+GMAT DSLWP_B.DryMass = 45;
+GMAT DSLWP_B.Cd = 2.2;
+GMAT DSLWP_B.Cr = 1.8;
+GMAT DSLWP_B.DragArea = 0.25;
+GMAT DSLWP_B.SRPArea = 0.25;
+GMAT DSLWP_B.NAIFId = -10009001;
+GMAT DSLWP_B.NAIFIdReferenceFrame = -9009001;
+GMAT DSLWP_B.OrbitColor = Red;
+GMAT DSLWP_B.TargetColor = Teal;
+GMAT DSLWP_B.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT DSLWP_B.CdSigma = 1e+70;
+GMAT DSLWP_B.CrSigma = 1e+70;
+GMAT DSLWP_B.Id = 'SatId';
+GMAT DSLWP_B.Attitude = CoordinateSystemFixed;
+GMAT DSLWP_B.SPADSRPScaleFactor = 1;
+GMAT DSLWP_B.ModelFile = 'aura.3ds';
+GMAT DSLWP_B.ModelOffsetX = 0;
+GMAT DSLWP_B.ModelOffsetY = 0;
+GMAT DSLWP_B.ModelOffsetZ = 0;
+GMAT DSLWP_B.ModelRotationX = 0;
+GMAT DSLWP_B.ModelRotationY = 0;
+GMAT DSLWP_B.ModelRotationZ = 0;
+GMAT DSLWP_B.ModelScale = 1;
+GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
+GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT DSLWP_B.EulerAngleSequence = '321';
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+GMAT LunaProp_ForceModel.CentralBody = Luna;
+GMAT LunaProp_ForceModel.PrimaryBodies = {Luna};
+GMAT LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+GMAT LunaProp_ForceModel.Drag = None;
+GMAT LunaProp_ForceModel.SRP = On;
+GMAT LunaProp_ForceModel.RelativisticCorrection = On;
+GMAT LunaProp_ForceModel.ErrorControl = RSSStep;
+GMAT LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+GMAT LunaProp_ForceModel.GravityField.Luna.Order = 10;
+GMAT LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+GMAT LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+GMAT LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+GMAT LunaProp_ForceModel.SRP.Flux = 1367;
+GMAT LunaProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT LunaProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+GMAT LunaProp.FM = LunaProp_ForceModel;
+GMAT LunaProp.Type = PrinceDormand78;
+GMAT LunaProp.InitialStepSize = 1;
+GMAT LunaProp.Accuracy = 1e-13;
+GMAT LunaProp.MinStep = 0;
+GMAT LunaProp.MaxStep = 600;
+GMAT LunaProp.MaxStepAttempts = 50;
+GMAT LunaProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+GMAT LunaInertial.Origin = Luna;
+GMAT LunaInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView LunaOrbitView;
+GMAT LunaOrbitView.SolverIterations = None;
+GMAT LunaOrbitView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT LunaOrbitView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT LunaOrbitView.RelativeZOrder = 281;
+GMAT LunaOrbitView.Maximized = true;
+GMAT LunaOrbitView.Add = {DSLWP_B, Earth, Luna, Sun};
+GMAT LunaOrbitView.CoordinateSystem = LunaInertial;
+GMAT LunaOrbitView.DrawObject = [ true true true true ];
+GMAT LunaOrbitView.DataCollectFrequency = 1;
+GMAT LunaOrbitView.UpdatePlotFrequency = 50;
+GMAT LunaOrbitView.NumPointsToRedraw = 0;
+GMAT LunaOrbitView.ShowPlot = true;
+GMAT LunaOrbitView.MaxPlotPoints = 20000;
+GMAT LunaOrbitView.ShowLabels = true;
+GMAT LunaOrbitView.ViewPointReference = Luna;
+GMAT LunaOrbitView.ViewPointVector = [ 30000 0 0 ];
+GMAT LunaOrbitView.ViewDirection = Luna;
+GMAT LunaOrbitView.ViewScaleFactor = 1;
+GMAT LunaOrbitView.ViewUpCoordinateSystem = LunaInertial;
+GMAT LunaOrbitView.ViewUpAxis = Z;
+GMAT LunaOrbitView.EclipticPlane = Off;
+GMAT LunaOrbitView.XYPlane = On;
+GMAT LunaOrbitView.WireFrame = Off;
+GMAT LunaOrbitView.Axes = On;
+GMAT LunaOrbitView.Grid = Off;
+GMAT LunaOrbitView.SunLine = Off;
+GMAT LunaOrbitView.UseInitialView = On;
+GMAT LunaOrbitView.StarCount = 7000;
+GMAT LunaOrbitView.EnableStars = On;
+GMAT LunaOrbitView.EnableConstellations = Off;
+
+Create ReportFile OrbitReport;
+GMAT OrbitReport.SolverIterations = Current;
+GMAT OrbitReport.UpperLeft = [ 0 0 ];
+GMAT OrbitReport.Size = [ 0 0 ];
+GMAT OrbitReport.RelativeZOrder = 0;
+GMAT OrbitReport.Maximized = false;
+GMAT OrbitReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/orbit_evolution2.txt';
+GMAT OrbitReport.Precision = 16;
+GMAT OrbitReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.Luna.SMA, DSLWP_B.Luna.ECC, DSLWP_B.LunaInertial.INC, DSLWP_B.LunaInertial.RAAN, DSLWP_B.LunaInertial.AOP, DSLWP_B.Luna.MA, DSLWP_B.Luna.TA};
+GMAT OrbitReport.WriteHeaders = false;
+GMAT OrbitReport.LeftJustify = On;
+GMAT OrbitReport.ZeroFill = Off;
+GMAT OrbitReport.FixedWidth = true;
+GMAT OrbitReport.Delimiter = ' ';
+GMAT OrbitReport.ColumnWidth = 23;
+GMAT OrbitReport.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+PenUp LunaOrbitView;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28994.5};
