@@ -12,7 +12,7 @@ GMAT DSLWP_B.CoordinateSystem = EarthFixed;
 GMAT DSLWP_B.DisplayStateType = Cartesian;
 GMAT DSLWP_B.X = -179303.6320999998;
 GMAT DSLWP_B.Y = -314839.3811999998;
-GMAT DSLWP_B.Z = 61048.00800999995;
+GMAT DSLWP_B.Z = 61048.00800999993;
 GMAT DSLWP_B.VX = -21.62600699999997;
 GMAT DSLWP_B.VY = 12.59353799999999;
 GMAT DSLWP_B.VZ = -0.237931;
@@ -43,6 +43,7 @@ GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
 GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DSLWP_B.EulerAngleSequence = '321';
+
 
 
 
@@ -106,7 +107,7 @@ Create OrbitView CameraView;
 GMAT CameraView.SolverIterations = Current;
 GMAT CameraView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT CameraView.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT CameraView.RelativeZOrder = 47;
+GMAT CameraView.RelativeZOrder = 25;
 GMAT CameraView.Maximized = true;
 GMAT CameraView.Add = {DSLWP_B, Earth, Luna, Sun};
 GMAT CameraView.CoordinateSystem = DSLWP_Sun;
@@ -134,9 +135,29 @@ GMAT CameraView.StarCount = 7000;
 GMAT CameraView.EnableStars = On;
 GMAT CameraView.EnableConstellations = On;
 
+Create ReportFile EarthMoonPos;
+GMAT EarthMoonPos.SolverIterations = Current;
+GMAT EarthMoonPos.UpperLeft = [ 0 0 ];
+GMAT EarthMoonPos.Size = [ 0 0 ];
+GMAT EarthMoonPos.RelativeZOrder = 0;
+GMAT EarthMoonPos.Maximized = false;
+GMAT EarthMoonPos.Filename = '/home/daniel/jupyter_notebooks/dslwp/EarthMoonPosDSWLP.txt';
+GMAT EarthMoonPos.Precision = 16;
+GMAT EarthMoonPos.Add = {DSLWP_B.UTCModJulian, Earth.DSLWP_Sun.X, Earth.DSLWP_Sun.Y, Earth.DSLWP_Sun.Z, Luna.DSLWP_Sun.X, Luna.DSLWP_Sun.Y, Luna.DSLWP_Sun.Z};
+GMAT EarthMoonPos.WriteHeaders = false;
+GMAT EarthMoonPos.LeftJustify = On;
+GMAT EarthMoonPos.ZeroFill = Off;
+GMAT EarthMoonPos.FixedWidth = true;
+GMAT EarthMoonPos.Delimiter = ' ';
+GMAT EarthMoonPos.ColumnWidth = 23;
+GMAT EarthMoonPos.WriteReport = true;
+
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28433};
+Toggle EarthMoonPos Off;
+Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28397.5};
+Toggle EarthMoonPos On;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28403};
