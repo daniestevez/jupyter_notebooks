@@ -36,7 +36,7 @@ def compute_acq(x, rate):
     asm = np.conj(generate_asm_samples(rate))
     step = int((rate/baudrate)/4)
     acq = np.zeros(((x.size-asm.size)//step, asm.size))
-    for j, offset in enumerate(range(0,x.size-asm.size,step)):
+    for j, offset in enumerate(range(0,(x.size-asm.size)//step*step,step)):
         acq[j,:] = np.abs(np.fft.fftshift(np.fft.fft(x[offset:offset+asm.size] * asm)))**2
     return acq, step
 
