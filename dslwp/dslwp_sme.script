@@ -82,7 +82,7 @@ DwingelooTopo.Axes = Topocentric;
 
 Create ReportFile SMEReport;
 SMEReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/SME.txt';
-SMEReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DwingelooTopo.X, DSLWP_B.DwingelooTopo.Y, DSLWP_B.DwingelooTopo.Z, DSLWP_B.DwingelooTopo.VX, DSLWP_B.DwingelooTopo.VY, DSLWP_B.DwingelooTopo.VZ, Luna.DwingelooTopo.X, Luna.DwingelooTopo.Y, Luna.DwingelooTopo.Z, Luna.DwingelooTopo.VX, Luna.DwingelooTopo.VY, Luna.DwingelooTopo.VZ,	DSLWP_B.LunaFixed.X, DSLWP_B.LunaFixed.Y, DSLWP_B.LunaFixed.Z, DSLWP_B.LunaFixed.VX, DSLWP_B.LunaFixed.VY, DSLWP_B.LunaFixed.VZ};
+SMEReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DwingelooTopo.X, DSLWP_B.DwingelooTopo.Y, DSLWP_B.DwingelooTopo.Z, DSLWP_B.DwingelooTopo.VX, DSLWP_B.DwingelooTopo.VY, DSLWP_B.DwingelooTopo.VZ, Luna.DwingelooTopo.X, Luna.DwingelooTopo.Y, Luna.DwingelooTopo.Z, Luna.DwingelooTopo.VX, Luna.DwingelooTopo.VY, Luna.DwingelooTopo.VZ,	DSLWP_B.LunaFixed.X, DSLWP_B.LunaFixed.Y, DSLWP_B.LunaFixed.Z, DSLWP_B.LunaFixed.VX, DSLWP_B.LunaFixed.VY, DSLWP_B.LunaFixed.VZ, Dwingeloo.LunaFixed.X, Dwingeloo.LunaFixed.Y, Dwingeloo.LunaFixed.Z, Dwingeloo.LunaFixed.VX, Dwingeloo.LunaFixed.VY, Dwingeloo.LunaFixed.VZ};
 SMEReport.WriteHeaders = false;
 
 

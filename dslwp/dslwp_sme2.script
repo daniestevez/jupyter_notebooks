@@ -1,0 +1,96 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = '28410.5';
+DSLWP_B.CoordinateSystem = EarthFixed;
+DSLWP_B.DisplayStateType = Cartesian;
+DSLWP_B.X = 158222.7088;
+DSLWP_B.Y = -353528.2057;
+DSLWP_B.Z = -116839.8702;
+DSLWP_B.VX = -25.134923;
+DSLWP_B.VY = -11.848704;
+DSLWP_B.VZ = 0.223774;
+DSLWP_B.DryMass = 45;
+DSLWP_B.DragArea = 0.25;
+DSLWP_B.SRPArea = 0.25;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+LunaProp_ForceModel.CentralBody = Luna;
+LunaProp_ForceModel.PrimaryBodies = {Luna};
+LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.Drag = None;
+LunaProp_ForceModel.SRP = On;
+LunaProp_ForceModel.RelativisticCorrection = On;
+LunaProp_ForceModel.ErrorControl = RSSStep;
+LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+LunaProp_ForceModel.GravityField.Luna.Order = 10;
+LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+LunaProp.FM = LunaProp_ForceModel;
+LunaProp.Type = PrinceDormand78;
+LunaProp.InitialStepSize = 1;
+LunaProp.Accuracy = 1e-13;
+LunaProp.MinStep = 0;
+LunaProp.MaxStep = 10;
+LunaProp.MaxStepAttempts = 50;
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation Dwingeloo;
+Dwingeloo.CentralBody = Earth;
+Dwingeloo.StateType = Spherical;
+Dwingeloo.HorizonReference = Ellipsoid;
+Dwingeloo.Location1 = 52.81201944;
+Dwingeloo.Location2 = 6.39616944;
+Dwingeloo.Location3 = 0.025;
+Dwingeloo.Id = 'Dwingeloo';
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+LunaInertial.Origin = Luna;
+LunaInertial.Axes = BodyInertial;
+
+Create CoordinateSystem LunaFixed;
+LunaFixed.Origin = Luna;
+LunaFixed.Axes = BodyFixed;
+
+Create CoordinateSystem DwingelooTopo;
+DwingelooTopo.Origin = Dwingeloo;
+DwingelooTopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile SMEReport;
+SMEReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/SME2.txt';
+SMEReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DwingelooTopo.X, DSLWP_B.DwingelooTopo.Y, DSLWP_B.DwingelooTopo.Z, DSLWP_B.DwingelooTopo.VX, DSLWP_B.DwingelooTopo.VY, DSLWP_B.DwingelooTopo.VZ, Luna.DwingelooTopo.X, Luna.DwingelooTopo.Y, Luna.DwingelooTopo.Z, Luna.DwingelooTopo.VX, Luna.DwingelooTopo.VY, Luna.DwingelooTopo.VZ,	DSLWP_B.LunaFixed.X, DSLWP_B.LunaFixed.Y, DSLWP_B.LunaFixed.Z, DSLWP_B.LunaFixed.VX, DSLWP_B.LunaFixed.VY, DSLWP_B.LunaFixed.VZ, Dwingeloo.LunaFixed.X, Dwingeloo.LunaFixed.Y, Dwingeloo.LunaFixed.Z, Dwingeloo.LunaFixed.VX, Dwingeloo.LunaFixed.VY, Dwingeloo.LunaFixed.VZ};
+SMEReport.WriteHeaders = false;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28411.5};
+
