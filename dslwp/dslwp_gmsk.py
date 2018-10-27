@@ -13,7 +13,7 @@ def get_asm(baudrate):
         a = [0x03,0x47,0x76,0xC7,0x27,0x28,0x95,0xB0]
     else:
         raise ValueError
-    return np.unpackbits(np.array(a), dtype='uint8')
+    return np.unpackbits(np.array(a, dtype='uint8'))
 
 def open_wav(path):
     rate, x = scipy.io.wavfile.read(path)
