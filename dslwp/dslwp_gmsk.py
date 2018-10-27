@@ -6,7 +6,14 @@ import scipy.io.wavfile
 import scipy.signal
 import sys
 
-baudrate = 250
+def get_asm(baudrate):
+    if baudrate == 500:
+        a = [0x03, 0x47, 0x76, 0xC7, 0x27, 0x28, 0x95, 0xB0, 0xFC, 0xB8, 0x89, 0x38, 0xD8, 0xD7, 0x6A, 0x4F]
+    elif baudrate == 250:
+        a = [0x03,0x47,0x76,0xC7,0x27,0x28,0x95,0xB0]
+    else:
+        raise ValueError
+    return np.unpackbits(np.array(a), dtype='uint8')
 
 def open_wav(path):
     rate, x = scipy.io.wavfile.read(path)
@@ -19,8 +26,8 @@ def gaussian_taps(bt, samples_per_symbol, ntaps):
     taps = np.exp(-2*np.pi**2*bt**2*(np.arange(ntaps) - ntaps/2)**2/(np.log(2)*samples_per_symbol**2))
     return taps / np.sum(taps)
 
-def generate_asm_samples(rate):
-    asm = np.unpackbits(np.array([0x03,0x47,0x76,0xC7,0x27,0x28,0x95,0xB0], dtype='uint8'))
+def generate_asm_samples(rate, baudrate):
+    asm = get_asm(baudrate)
     asm_diff = asm[:-1] ^ asm[1:]
     asm_diff[1::2] ^= 1
     samples_per_symbol = rate // baudrate
@@ -32,8 +39,8 @@ def generate_asm_samples(rate):
     phase = np.cumsum(f_samps) * sensitivity
     return np.exp(1j*phase)
 
-def compute_acq(x, rate):
-    asm = np.conj(generate_asm_samples(rate))
+def compute_acq(x, rate, baudrate):
+    asm = np.conj(generate_asm_samples(rate, baudrate))
     step = int((rate/baudrate)/4)
     acq = np.zeros(((x.size-asm.size)//step, asm.size))
     for j, offset in enumerate(range(0,(x.size-asm.size)//step*step,step)):
@@ -49,23 +56,28 @@ def cn0_estimator(acq, rate, tsync, fsync):
     return 10*np.log10(c/n0)
 
 def print_usage():
-    print('Usage: {} input.wav output_path label'.format(sys.argv[0]), file=sys.stderr)
+    print('Usage: {} baudrate input.wav output_path label'.format(sys.argv[0]), file=sys.stderr)
 
 def main():
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print_usage()
         exit(1)
 
-    output_path = sys.argv[2]
-    label = sys.argv[3]
+    baudrate = int(sys.argv[1])
+    if baudrate != 250 and baudrate != 500:
+        print('Baudrate needs to be either 250 or 500')
+        exit(1)
+    
+    output_path = sys.argv[3]
+    label = sys.argv[4]
 
-    rate, x = open_wav(sys.argv[1])
+    rate, x = open_wav(sys.argv[2])
 
     if rate % baudrate != 0:
         print('Input file sample rate must be a multiple of {}'.format(baudrate), file=sys.stderr)
         exit(1)
 
-    acq, step = compute_acq(x, rate)
+    acq, step = compute_acq(x, rate, baudrate)
     tsync = np.argmax(np.max(acq, axis=1))
     fsync = np.argmax(acq[tsync,:])
     ts = np.arange(acq.shape[0]) * step / rate
