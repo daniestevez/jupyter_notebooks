@@ -68,7 +68,7 @@ def usage():
     print(f'Usage: {sys.argv[0]} tracking_file start_time end_time output_name')
     sys.exit(1)
 
-MOON_RADIUS = 1737
+MOON_RADIUS = 1737.1
     
 mjd_unixtimestamp_offset = 10587.5
 seconds_in_day = 3600 * 24
@@ -285,13 +285,26 @@ def compute_azeldist(x):
     dist = np.sqrt(np.sum(x**2, axis = 1))
     return az, el, dist
 
+def angular_radius(r, d):
+    return np.arcsin(r/d)
+
 def plot_moonview(data):
     fig, ax = plt.subplots(1, 2, **FIGPROPERTIES)
     az_dslwp, el_dslwp, dist_dslwp = compute_azeldist(data[:,1:4])
     az_luna, el_luna, dist_luna = compute_azeldist(data[:,7:10])
+    angular_radius_luna = angular_radius(MOON_RADIUS, dist_luna)
+    max_angular_radius_luna = np.max(angular_radius_luna)
+    min_angular_radius_luna = np.min(angular_radius_luna)
     az_diff = (az_dslwp - az_luna + np.pi) % (2*np.pi) - np.pi
     el_diff = (el_dslwp - el_luna + np.pi) % (2*np.pi) - np.pi
-    ax[0].add_patch(plt.Circle((0,0), 0.25, color = 'gray'))
+
+    # corrections in azimuth apparent size depending on elevation
+    azimuth_radius_luna = np.arcsin(angular_radius_luna/np.cos(el_luna))
+    min_azimuth_radius_luna = np.min(azimuth_radius_luna)
+    max_azimuth_radius_luna = np.max(azimuth_radius_luna)
+        
+    ax[0].add_patch(matplotlib.patches.Ellipse((0,0), 2*np.rad2deg(max_azimuth_radius_luna), 2*np.rad2deg(max_angular_radius_luna), color = '0.75'))
+    ax[0].add_patch(matplotlib.patches.Ellipse((0,0), 2*np.rad2deg(min_azimuth_radius_luna), 2*np.rad2deg(min_angular_radius_luna), color = 'gray'))
     ax[0].plot(np.rad2deg(az_diff), np.rad2deg(el_diff))
     ax[0].annotate('start', xy = (np.rad2deg(az_diff[0]), np.rad2deg(el_diff[0])))
     ax[0].annotate('end', xy = (np.rad2deg(az_diff[-1]), np.rad2deg(el_diff[-1])))
@@ -301,11 +314,12 @@ def plot_moonview(data):
     ax[0].set_ylabel('Elevation offset from Moon (deg)')
     ax[1].set_xlabel('Azimuth offset from Moon (deg)')
     ax[1].set_ylabel('Distance offset from Moon (km)')
-    ax[1].add_patch(matplotlib.patches.Ellipse((0,0), 0.25, MOON_RADIUS, color = 'gray'))
+    ax[1].add_patch(matplotlib.patches.Ellipse((0,0), 2*np.rad2deg(max_azimuth_radius_luna), 2*MOON_RADIUS, color = '0.75'))
+    ax[1].add_patch(matplotlib.patches.Ellipse((0,0), 2*np.rad2deg(min_azimuth_radius_luna), 2*MOON_RADIUS, color = 'gray'))
     ax[1].plot(np.rad2deg(az_diff), dist_dslwp - dist_luna)
     ax[1].annotate('start', xy = (np.rad2deg(az_diff[0]), dist_dslwp[0] - dist_luna[0]))
     ax[1].annotate('end', xy = (np.rad2deg(az_diff[-1]), dist_dslwp[-1] - dist_luna[-1]))
-    ax[1].set_aspect(0.25/MOON_RADIUS)
+    ax[1].set_aspect(np.rad2deg(min_azimuth_radius_luna)/MOON_RADIUS)
     plt.savefig(sys.argv[4] + MOONVIEW_FILE)
 
 def plot_skyplot(data):
