@@ -6,16 +6,16 @@
 %----------------------------------------
 
 Create Spacecraft DSLWP_B;
-GMAT DSLWP_B.DateFormat = UTCModJulian;
-DSLWP_B.Epoch = '28418.5';
-DSLWP_B.CoordinateSystem = EarthFixed;
-DSLWP_B.DisplayStateType = Cartesian;
-DSLWP_B.X = 316375.0010999996;
-DSLWP_B.Y = 156161.8427;
-DSLWP_B.Z = 103142.5088;
-DSLWP_B.VX = 10.454733;
-DSLWP_B.VY = -22.82947099999998;
-DSLWP_B.VZ = 0.2030899999999998;
+GMAT DSLWP_B.DateFormat = UTCGregorian;
+GMAT DSLWP_B.Epoch = '01 Nov 2018 01:00:00.000';
+GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+GMAT DSLWP_B.DisplayStateType = Keplerian;
+GMAT DSLWP_B.SMA = 8944.73000000026;
+GMAT DSLWP_B.ECC = 0.6930930000000011;
+GMAT DSLWP_B.INC = 25.43599999999962;
+GMAT DSLWP_B.RAAN = 275.8289999999993;
+GMAT DSLWP_B.AOP = 182.4319999999996;
+GMAT DSLWP_B.TA = 266.7152300202761;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -43,6 +43,8 @@ GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
 GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DSLWP_B.EulerAngleSequence = '321';
+
+
 
 
 
@@ -100,6 +102,10 @@ GMAT DSLWP_Sun.ZAxis = N;
 GMAT DSLWP_Sun.Primary = Sun;
 GMAT DSLWP_Sun.Secondary = DSLWP_B;
 
+Create CoordinateSystem LunaICRF;
+GMAT LunaICRF.Origin = Luna;
+GMAT LunaICRF.Axes = ICRF;
+
 %----------------------------------------
 %---------- Subscribers
 %----------------------------------------
@@ -108,7 +114,7 @@ Create OrbitView CameraView;
 GMAT CameraView.SolverIterations = Current;
 GMAT CameraView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT CameraView.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT CameraView.RelativeZOrder = 57;
+GMAT CameraView.RelativeZOrder = 18;
 GMAT CameraView.Maximized = true;
 GMAT CameraView.Add = {DSLWP_B, Earth, Luna, Sun};
 GMAT CameraView.CoordinateSystem = DSLWP_Sun;
@@ -157,7 +163,7 @@ Create GroundTrackPlot GroundTrack;
 GMAT GroundTrack.SolverIterations = Current;
 GMAT GroundTrack.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT GroundTrack.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT GroundTrack.RelativeZOrder = 65;
+GMAT GroundTrack.RelativeZOrder = 28;
 GMAT GroundTrack.Maximized = true;
 GMAT GroundTrack.Add = {DSLWP_B, Earth};
 GMAT GroundTrack.DataCollectFrequency = 1;
@@ -177,3 +183,5 @@ Toggle EarthMoonPos Off;
 Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28427.5};
 Toggle EarthMoonPos On;
 Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28432.5};
+
+
