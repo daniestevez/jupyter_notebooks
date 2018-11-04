@@ -308,7 +308,7 @@ def plot_moonview(data):
     ax[0].plot(np.rad2deg(az_diff), np.rad2deg(el_diff))
     ax[0].annotate('start', xy = (np.rad2deg(az_diff[0]), np.rad2deg(el_diff[0])))
     ax[0].annotate('end', xy = (np.rad2deg(az_diff[-1]), np.rad2deg(el_diff[-1])))
-    ax[0].axis('equal')
+    ax[0].set_aspect(min_azimuth_radius_luna/min_angular_radius_luna)
     fig.suptitle('Orbit view from receiving groundstation')
     ax[0].set_xlabel('Azimuth offset from Moon (deg)')
     ax[0].set_ylabel('Elevation offset from Moon (deg)')
