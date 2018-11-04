@@ -299,7 +299,7 @@ def plot_moonview(data):
     el_diff = (el_dslwp - el_luna + np.pi) % (2*np.pi) - np.pi
 
     # corrections in azimuth apparent size depending on elevation
-    azimuth_radius_luna = np.arcsin(angular_radius_luna/np.cos(el_luna))
+    azimuth_radius_luna = np.arccos((np.cos(angular_radius_luna)-np.sin(el_luna)**2)/np.cos(el_luna)**2)
     min_azimuth_radius_luna = np.min(azimuth_radius_luna)
     max_azimuth_radius_luna = np.max(azimuth_radius_luna)
         
