@@ -1,0 +1,219 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2018-11-16 17:22:19
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+Create Spacecraft Eshail2;
+GMAT Eshail2.DateFormat = TAIModJulian;
+GMAT Eshail2.Epoch = '28438.45140571';
+GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
+GMAT Eshail2.DisplayStateType = Keplerian;
+GMAT Eshail2.SMA = 25322.94123448908;
+GMAT Eshail2.ECC = 0.7401795983314532;
+GMAT Eshail2.INC = 25.01549911499024;
+GMAT Eshail2.RAAN = 199.6280975341797;
+GMAT Eshail2.AOP = 178.1842956542968;
+GMAT Eshail2.TA = 140.8161529740993;
+GMAT Eshail2.DryMass = 1000;
+GMAT Eshail2.Cd = 2.2;
+GMAT Eshail2.Cr = 1.8;
+GMAT Eshail2.DragArea = 15;
+GMAT Eshail2.SRPArea = 15;
+GMAT Eshail2.NAIFId = -10011001;
+GMAT Eshail2.NAIFIdReferenceFrame = -9011001;
+GMAT Eshail2.OrbitColor = Red;
+GMAT Eshail2.TargetColor = Teal;
+GMAT Eshail2.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Eshail2.CdSigma = 1e+70;
+GMAT Eshail2.CrSigma = 1e+70;
+GMAT Eshail2.Id = 'SatId';
+GMAT Eshail2.Attitude = CoordinateSystemFixed;
+GMAT Eshail2.SPADSRPScaleFactor = 1;
+GMAT Eshail2.ModelFile = 'aura.3ds';
+GMAT Eshail2.ModelOffsetX = 0;
+GMAT Eshail2.ModelOffsetY = 0;
+GMAT Eshail2.ModelOffsetZ = 0;
+GMAT Eshail2.ModelRotationX = 0;
+GMAT Eshail2.ModelRotationY = 0;
+GMAT Eshail2.ModelRotationZ = 0;
+GMAT Eshail2.ModelScale = 1;
+GMAT Eshail2.AttitudeDisplayStateType = 'Quaternion';
+GMAT Eshail2.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Eshail2.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Eshail2.EulerAngleSequence = '321';
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PrimaryBodies = {Earth};
+GMAT DefaultProp_ForceModel.SRP = Off;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Degree = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Order = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+GMAT DefaultProp_ForceModel.Drag.AtmosphereModel = JacchiaRoberts;
+GMAT DefaultProp_ForceModel.Drag.HistoricWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT DefaultProp_ForceModel.Drag.PredictedWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT DefaultProp_ForceModel.Drag.CSSISpaceWeatherFile = 'SpaceWeather-All-v1.2.txt';
+GMAT DefaultProp_ForceModel.Drag.SchattenFile = 'SchattenPredict.txt';
+GMAT DefaultProp_ForceModel.Drag.F107 = 150;
+GMAT DefaultProp_ForceModel.Drag.F107A = 150;
+GMAT DefaultProp_ForceModel.Drag.MagneticIndex = 3;
+GMAT DefaultProp_ForceModel.Drag.SchattenErrorModel = 'Nominal';
+GMAT DefaultProp_ForceModel.Drag.SchattenTimingModel = 'NominalCycle';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 60;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
+GMAT DefaultProp.MinStep = 0.001;
+GMAT DefaultProp.MaxStep = 1;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn ImpulsiveBurn1;
+GMAT ImpulsiveBurn1.CoordinateSystem = Local;
+GMAT ImpulsiveBurn1.Origin = Earth;
+GMAT ImpulsiveBurn1.Axes = VNB;
+GMAT ImpulsiveBurn1.Element1 = 2.461667;
+GMAT ImpulsiveBurn1.Element2 = 0;
+GMAT ImpulsiveBurn1.Element3 = 0;
+GMAT ImpulsiveBurn1.DecrementMass = false;
+GMAT ImpulsiveBurn1.Isp = 300;
+GMAT ImpulsiveBurn1.GravitationalAccel = 9.81;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create DifferentialCorrector DefaultDC;
+GMAT DefaultDC.ShowProgress = true;
+GMAT DefaultDC.ReportStyle = Normal;
+GMAT DefaultDC.ReportFile = 'DifferentialCorrectorDefaultDC.data';
+GMAT DefaultDC.MaximumIterations = 500;
+GMAT DefaultDC.DerivativeMethod = ForwardDifference;
+GMAT DefaultDC.Algorithm = NewtonRaphson;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView OrbitView1;
+GMAT OrbitView1.SolverIterations = Current;
+GMAT OrbitView1.UpperLeft = [ 0.1801470588235294 0.04948805460750853 ];
+GMAT OrbitView1.Size = [ 0.9926470588235294 0.947098976109215 ];
+GMAT OrbitView1.RelativeZOrder = 511;
+GMAT OrbitView1.Maximized = true;
+GMAT OrbitView1.Add = {Eshail2, Earth};
+GMAT OrbitView1.CoordinateSystem = EarthMJ2000Eq;
+GMAT OrbitView1.DrawObject = [ true true ];
+GMAT OrbitView1.DataCollectFrequency = 1;
+GMAT OrbitView1.UpdatePlotFrequency = 50;
+GMAT OrbitView1.NumPointsToRedraw = 0;
+GMAT OrbitView1.ShowPlot = true;
+GMAT OrbitView1.MaxPlotPoints = 20000;
+GMAT OrbitView1.ShowLabels = true;
+GMAT OrbitView1.ViewPointReference = Earth;
+GMAT OrbitView1.ViewPointVector = [ 15000 0 15000 ];
+GMAT OrbitView1.ViewDirection = Earth;
+GMAT OrbitView1.ViewScaleFactor = 1;
+GMAT OrbitView1.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT OrbitView1.ViewUpAxis = Z;
+GMAT OrbitView1.EclipticPlane = Off;
+GMAT OrbitView1.XYPlane = On;
+GMAT OrbitView1.WireFrame = Off;
+GMAT OrbitView1.Axes = On;
+GMAT OrbitView1.Grid = Off;
+GMAT OrbitView1.SunLine = Off;
+GMAT OrbitView1.UseInitialView = On;
+GMAT OrbitView1.StarCount = 7000;
+GMAT OrbitView1.EnableStars = On;
+GMAT OrbitView1.EnableConstellations = Off;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView OrbitViewFixed;
+GMAT OrbitViewFixed.SolverIterations = Current;
+GMAT OrbitViewFixed.UpperLeft = [ 0.1801470588235294 0.04948805460750853 ];
+GMAT OrbitViewFixed.Size = [ 0.9926470588235294 0.947098976109215 ];
+GMAT OrbitViewFixed.RelativeZOrder = 560;
+GMAT OrbitViewFixed.Maximized = true;
+GMAT OrbitViewFixed.Add = {Eshail2, Earth};
+GMAT OrbitViewFixed.CoordinateSystem = EarthFixed;
+GMAT OrbitViewFixed.DrawObject = [ true true ];
+GMAT OrbitViewFixed.DataCollectFrequency = 1;
+GMAT OrbitViewFixed.UpdatePlotFrequency = 50;
+GMAT OrbitViewFixed.NumPointsToRedraw = 0;
+GMAT OrbitViewFixed.ShowPlot = true;
+GMAT OrbitViewFixed.MaxPlotPoints = 20000;
+GMAT OrbitViewFixed.ShowLabels = true;
+GMAT OrbitViewFixed.ViewPointReference = Earth;
+GMAT OrbitViewFixed.ViewPointVector = [ 15000 -10000 15000 ];
+GMAT OrbitViewFixed.ViewDirection = Earth;
+GMAT OrbitViewFixed.ViewScaleFactor = 1;
+GMAT OrbitViewFixed.ViewUpCoordinateSystem = EarthFixed;
+GMAT OrbitViewFixed.ViewUpAxis = Z;
+GMAT OrbitViewFixed.EclipticPlane = Off;
+GMAT OrbitViewFixed.XYPlane = On;
+GMAT OrbitViewFixed.WireFrame = Off;
+GMAT OrbitViewFixed.Axes = On;
+GMAT OrbitViewFixed.Grid = Off;
+GMAT OrbitViewFixed.SunLine = Off;
+GMAT OrbitViewFixed.UseInitialView = On;
+GMAT OrbitViewFixed.StarCount = 7000;
+GMAT OrbitViewFixed.EnableStars = On;
+GMAT OrbitViewFixed.EnableConstellations = Off;
+
+Create GroundTrackPlot GroundTrackPlot1;
+GMAT GroundTrackPlot1.SolverIterations = Current;
+GMAT GroundTrackPlot1.UpperLeft = [ 0.1801470588235294 0.04948805460750853 ];
+GMAT GroundTrackPlot1.Size = [ 0.9926470588235294 0.947098976109215 ];
+GMAT GroundTrackPlot1.RelativeZOrder = 498;
+GMAT GroundTrackPlot1.Maximized = true;
+GMAT GroundTrackPlot1.Add = {Eshail2};
+GMAT GroundTrackPlot1.DataCollectFrequency = 1;
+GMAT GroundTrackPlot1.UpdatePlotFrequency = 50;
+GMAT GroundTrackPlot1.NumPointsToRedraw = 0;
+GMAT GroundTrackPlot1.ShowPlot = true;
+GMAT GroundTrackPlot1.MaxPlotPoints = 20000;
+GMAT GroundTrackPlot1.CentralBody = Earth;
+GMAT GroundTrackPlot1.TextureMap = 'ModifiedBlueMarble.jpg';
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate 'PropagateSES2' BackProp DefaultProp(Eshail2) {Eshail2.Earth.Periapsis, OrbitColor = [0 255 0]};
+Target DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Vary 'VaryV' DefaultDC(ImpulsiveBurn1.Element1 = -2.511430199302126, {Perturbation = 0.0001, Lower = -2.8, Upper = -2.3, MaxStep = 0.1, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Maneuver 'SES2' ImpulsiveBurn1(Eshail2);
+   Propagate 'PropagateSECO1' BackProp DefaultProp(Eshail2) {Eshail2.ElapsedSecs = -1140};
+   Achieve 'AchieveAltitude' DefaultDC(Eshail2.Earth.Altitude = 164, {Tolerance = 0.1});
+EndTarget;  % For targeter DefaultDC
+%PenUp OrbitView1 OrbitViewFixed;
+Propagate DefaultProp(Eshail2) {Eshail2.Earth.Apoapsis, OrbitColor = [255 0 255]};
