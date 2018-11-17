@@ -5,23 +5,23 @@
 %---------- Spacecraft
 %----------------------------------------
 Create Spacecraft Eshail2;
-GMAT Eshail2.DateFormat = TAIModJulian;
+GMAT Eshail2.DateFormat = UTCModJulian;
 GMAT Eshail2.Epoch = '28438.45140571';
 GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
 GMAT Eshail2.DisplayStateType = Keplerian;
-GMAT Eshail2.SMA = 25322.94123448907;
-GMAT Eshail2.ECC = 0.7401795983314525;
-GMAT Eshail2.INC = 25.01549911499026;
+GMAT Eshail2.SMA = 25322.94123448906;
+GMAT Eshail2.ECC = 0.7401795983314515;
+GMAT Eshail2.INC = 25.01549911499023;
 GMAT Eshail2.RAAN = 199.6280975341797;
 GMAT Eshail2.AOP = 178.1842956542972;
 GMAT Eshail2.TA = 140.8161529740993;
-GMAT Eshail2.DryMass = 1000;
+GMAT Eshail2.DryMass = 3000;
 GMAT Eshail2.Cd = 2.2;
 GMAT Eshail2.Cr = 1.8;
 GMAT Eshail2.DragArea = 15;
 GMAT Eshail2.SRPArea = 15;
-GMAT Eshail2.NAIFId = -10011001;
-GMAT Eshail2.NAIFIdReferenceFrame = -9011001;
+GMAT Eshail2.NAIFId = -10002001;
+GMAT Eshail2.NAIFIdReferenceFrame = -9002001;
 GMAT Eshail2.OrbitColor = Red;
 GMAT Eshail2.TargetColor = Teal;
 GMAT Eshail2.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
@@ -42,7 +42,6 @@ GMAT Eshail2.AttitudeDisplayStateType = 'Quaternion';
 GMAT Eshail2.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT Eshail2.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT Eshail2.EulerAngleSequence = '321';
-
 
 
 
@@ -95,7 +94,7 @@ Create OrbitView OrbitView1;
 GMAT OrbitView1.SolverIterations = Current;
 GMAT OrbitView1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT OrbitView1.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT OrbitView1.RelativeZOrder = 13;
+GMAT OrbitView1.RelativeZOrder = 9;
 GMAT OrbitView1.Maximized = true;
 GMAT OrbitView1.Add = {Eshail2, Earth};
 GMAT OrbitView1.CoordinateSystem = EarthMJ2000Eq;
@@ -127,7 +126,7 @@ Create GroundTrackPlot GroundTrackPlot1;
 GMAT GroundTrackPlot1.SolverIterations = Current;
 GMAT GroundTrackPlot1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT GroundTrackPlot1.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT GroundTrackPlot1.RelativeZOrder = 11;
+GMAT GroundTrackPlot1.RelativeZOrder = 5;
 GMAT GroundTrackPlot1.Maximized = true;
 GMAT GroundTrackPlot1.Add = {Eshail2};
 GMAT GroundTrackPlot1.DataCollectFrequency = 1;
@@ -147,6 +146,5 @@ PenUp OrbitView1;
 Propagate 'PropagateSES2' BackProp DefaultProp(Eshail2) {Eshail2.Earth.Periapsis, OrbitColor = [0 255 0]};
 PenDown OrbitView1;
 Propagate 'PropagateDeploy' DefaultProp(Eshail2) {Eshail2.ElapsedSecs = 330, OrbitColor = [0 0 255]};
-Stop;
 Propagate 'PropagateApogee' DefaultProp(Eshail2) {Eshail2.Earth.Apoapsis};
 Propagate 'PropagatePerigee' DefaultProp(Eshail2) {Eshail2.Earth.Periapsis};

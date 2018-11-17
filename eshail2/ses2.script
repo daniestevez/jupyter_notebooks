@@ -5,49 +5,19 @@
 %---------- Spacecraft
 %----------------------------------------
 Create Spacecraft Eshail2;
-GMAT Eshail2.DateFormat = TAIModJulian;
-GMAT Eshail2.Epoch = '28438.45140571';
-GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
-GMAT Eshail2.DisplayStateType = Keplerian;
-GMAT Eshail2.SMA = 25322.94123448908;
-GMAT Eshail2.ECC = 0.7401795983314532;
-GMAT Eshail2.INC = 25.01549911499024;
-GMAT Eshail2.RAAN = 199.6280975341797;
-GMAT Eshail2.AOP = 178.1842956542968;
-GMAT Eshail2.TA = 140.8161529740993;
-GMAT Eshail2.DryMass = 1000;
-GMAT Eshail2.Cd = 2.2;
-GMAT Eshail2.Cr = 1.8;
-GMAT Eshail2.DragArea = 15;
-GMAT Eshail2.SRPArea = 15;
-GMAT Eshail2.NAIFId = -10011001;
-GMAT Eshail2.NAIFIdReferenceFrame = -9011001;
-GMAT Eshail2.OrbitColor = Red;
-GMAT Eshail2.TargetColor = Teal;
-GMAT Eshail2.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
-GMAT Eshail2.CdSigma = 1e+70;
-GMAT Eshail2.CrSigma = 1e+70;
-GMAT Eshail2.Id = 'SatId';
-GMAT Eshail2.Attitude = CoordinateSystemFixed;
-GMAT Eshail2.SPADSRPScaleFactor = 1;
-GMAT Eshail2.ModelFile = 'aura.3ds';
-GMAT Eshail2.ModelOffsetX = 0;
-GMAT Eshail2.ModelOffsetY = 0;
-GMAT Eshail2.ModelOffsetZ = 0;
-GMAT Eshail2.ModelRotationX = 0;
-GMAT Eshail2.ModelRotationY = 0;
-GMAT Eshail2.ModelRotationZ = 0;
-GMAT Eshail2.ModelScale = 1;
-GMAT Eshail2.AttitudeDisplayStateType = 'Quaternion';
-GMAT Eshail2.AttitudeRateDisplayStateType = 'AngularVelocity';
-GMAT Eshail2.AttitudeCoordinateSystem = EarthMJ2000Eq;
-GMAT Eshail2.EulerAngleSequence = '321';
-
-
-
-
-
-
+Eshail2.DateFormat = UTCModJulian;
+Eshail2.Epoch = '28438.451405710002';
+Eshail2.CoordinateSystem = EarthMJ2000Eq;
+Eshail2.DisplayStateType = Keplerian;
+Eshail2.SMA = 25322.941234489062;
+Eshail2.ECC = 0.7401795983314514;
+Eshail2.INC = 25.015499114990234;
+Eshail2.RAAN = 199.6280975341797;
+Eshail2.AOP = 178.18429565429688;
+Eshail2.TA = 140.81615297409934;
+Eshail2.DryMass = 3000;
+Eshail2.DragArea = 15;
+Eshail2.SRPArea = 15;
 
 %----------------------------------------
 %---------- ForceModels
