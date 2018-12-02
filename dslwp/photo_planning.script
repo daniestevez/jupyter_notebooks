@@ -6,16 +6,16 @@
 %----------------------------------------
 
 Create Spacecraft DSLWP_B;
-GMAT DSLWP_B.DateFormat = UTCGregorian;
-GMAT DSLWP_B.Epoch = '01 Nov 2018 01:00:00.000';
-GMAT DSLWP_B.CoordinateSystem = LunaICRF;
-GMAT DSLWP_B.DisplayStateType = Keplerian;
-GMAT DSLWP_B.SMA = 8944.73000000026;
-GMAT DSLWP_B.ECC = 0.6930930000000011;
-GMAT DSLWP_B.INC = 25.43599999999962;
-GMAT DSLWP_B.RAAN = 275.8289999999993;
-GMAT DSLWP_B.AOP = 182.4319999999996;
-GMAT DSLWP_B.TA = 266.7152300202761;
+DSLWP_B.DateFormat = UTCModJulian;
+DSLWP_B.Epoch = 28451.0;
+DSLWP_B.CoordinateSystem = EarthFixed;
+DSLWP_B.DisplayStateType = Cartesian;
+DSLWP_B.X = -101516.2805;
+DSLWP_B.Y = -336209.5807;
+DSLWP_B.Z = 109846.9502;
+DSLWP_B.VX = -22.782858;
+DSLWP_B.VY = 7.373783;
+DSLWP_B.VZ = -0.182892;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -180,8 +180,8 @@ GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
 
 BeginMissionSequence;
 Toggle EarthMoonPos Off;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28427.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28458.5};
 Toggle EarthMoonPos On;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28432.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28460.5};
 
 
