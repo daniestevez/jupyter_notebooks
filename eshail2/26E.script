@@ -1,0 +1,205 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Eshail2;
+GMAT Eshail2.DateFormat = UTCModJulian;
+GMAT Eshail2.Epoch = '28490';
+GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
+GMAT Eshail2.DisplayStateType = Keplerian;
+GMAT Eshail2.SMA = 42164.69999999995;
+GMAT Eshail2.ECC = 2.89590420581725e-16;
+GMAT Eshail2.INC = 0.1042497526007164;
+GMAT Eshail2.RAAN = 89.1580783505821;
+GMAT Eshail2.AOP = 0;
+GMAT Eshail2.TA = 222.341874271644;
+GMAT Eshail2.DryMass = 3000;
+GMAT Eshail2.Cd = 2.2;
+GMAT Eshail2.Cr = 1.8;
+GMAT Eshail2.DragArea = 15;
+GMAT Eshail2.SRPArea = 15;
+GMAT Eshail2.NAIFId = -10022001;
+GMAT Eshail2.NAIFIdReferenceFrame = -9022001;
+GMAT Eshail2.OrbitColor = Red;
+GMAT Eshail2.TargetColor = Teal;
+GMAT Eshail2.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Eshail2.CdSigma = 1e+70;
+GMAT Eshail2.CrSigma = 1e+70;
+GMAT Eshail2.Id = 'SatId';
+GMAT Eshail2.Attitude = CoordinateSystemFixed;
+GMAT Eshail2.SPADSRPScaleFactor = 1;
+GMAT Eshail2.ModelFile = 'aura.3ds';
+GMAT Eshail2.ModelOffsetX = 0;
+GMAT Eshail2.ModelOffsetY = 0;
+GMAT Eshail2.ModelOffsetZ = 0;
+GMAT Eshail2.ModelRotationX = 0;
+GMAT Eshail2.ModelRotationY = 0;
+GMAT Eshail2.ModelRotationZ = 0;
+GMAT Eshail2.ModelScale = 1;
+GMAT Eshail2.AttitudeDisplayStateType = 'Quaternion';
+GMAT Eshail2.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Eshail2.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Eshail2.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+% Groundstations
+
+Create GroundStation EA4GPZ;
+GMAT EA4GPZ.OrbitColor = Thistle;
+GMAT EA4GPZ.TargetColor = DarkGray;
+GMAT EA4GPZ.CentralBody = Earth;
+GMAT EA4GPZ.StateType = Spherical;
+GMAT EA4GPZ.HorizonReference = Ellipsoid;
+GMAT EA4GPZ.Location1 = 40.595865;
+GMAT EA4GPZ.Location2 = 356.300931;
+GMAT EA4GPZ.Location3 = 0.8;
+GMAT EA4GPZ.Id = 'EA4GPZ';
+GMAT EA4GPZ.IonosphereModel = 'None';
+GMAT EA4GPZ.TroposphereModel = 'None';
+GMAT EA4GPZ.DataSource = 'Constant';
+GMAT EA4GPZ.Temperature = 295.1;
+GMAT EA4GPZ.Pressure = 1013.5;
+GMAT EA4GPZ.Humidity = 55;
+GMAT EA4GPZ.MinimumElevationAngle = 7;
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PointMasses = {Earth, Luna};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = Off;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = PrinceDormand78;
+GMAT DefaultProp.InitialStepSize = 60;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
+GMAT DefaultProp.MinStep = 0;
+GMAT DefaultProp.MaxStep = 60;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem EA4GPZTopo;
+GMAT EA4GPZTopo.Origin = EA4GPZ;
+GMAT EA4GPZTopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+% Report file
+
+Create ReportFile ECEFReport;
+GMAT ECEFReport.SolverIterations = Current;
+GMAT ECEFReport.UpperLeft = [ 0 0 ];
+GMAT ECEFReport.Size = [ 0 0 ];
+GMAT ECEFReport.RelativeZOrder = 0;
+GMAT ECEFReport.Maximized = false;
+GMAT ECEFReport.Filename = '/home/daniel/jupyter_notebooks/eshail2/ecef_report.txt';
+GMAT ECEFReport.Precision = 16;
+GMAT ECEFReport.Add = {Eshail2.UTCModJulian, Eshail2.EarthFixed.X, Eshail2.EarthFixed.Y, Eshail2.EarthFixed.Z, Eshail2.EarthFixed.VX, Eshail2.EarthFixed.VY, Eshail2.EarthFixed.VZ};
+GMAT ECEFReport.WriteHeaders = false;
+GMAT ECEFReport.LeftJustify = On;
+GMAT ECEFReport.ZeroFill = Off;
+GMAT ECEFReport.FixedWidth = true;
+GMAT ECEFReport.Delimiter = ' ';
+GMAT ECEFReport.ColumnWidth = 23;
+GMAT ECEFReport.WriteReport = true;
+
+Create ReportFile EA4GPZReport;
+GMAT EA4GPZReport.SolverIterations = Current;
+GMAT EA4GPZReport.UpperLeft = [ 0 0 ];
+GMAT EA4GPZReport.Size = [ 0 0 ];
+GMAT EA4GPZReport.RelativeZOrder = 0;
+GMAT EA4GPZReport.Maximized = false;
+GMAT EA4GPZReport.Filename = '/home/daniel/jupyter_notebooks/eshail2/ea4gpz_report.txt';
+GMAT EA4GPZReport.Precision = 16;
+GMAT EA4GPZReport.Add = {Eshail2.UTCModJulian, Eshail2.EA4GPZTopo.X, Eshail2.EA4GPZTopo.Y, Eshail2.EA4GPZTopo.Z, Eshail2.EA4GPZTopo.VX, Eshail2.EA4GPZTopo.VY, Eshail2.EA4GPZTopo.VZ};
+GMAT EA4GPZReport.WriteHeaders = false;
+GMAT EA4GPZReport.LeftJustify = On;
+GMAT EA4GPZReport.ZeroFill = Off;
+GMAT EA4GPZReport.FixedWidth = true;
+GMAT EA4GPZReport.Delimiter = ' ';
+GMAT EA4GPZReport.ColumnWidth = 23;
+GMAT EA4GPZReport.WriteReport = true;
+
+Create OrbitView OrbitView1;
+GMAT OrbitView1.SolverIterations = Current;
+GMAT OrbitView1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT OrbitView1.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT OrbitView1.RelativeZOrder = 665;
+GMAT OrbitView1.Maximized = true;
+GMAT OrbitView1.Add = {Eshail2, Earth, Luna};
+GMAT OrbitView1.CoordinateSystem = EarthMJ2000Eq;
+GMAT OrbitView1.DrawObject = [ true true true ];
+GMAT OrbitView1.DataCollectFrequency = 1;
+GMAT OrbitView1.UpdatePlotFrequency = 50;
+GMAT OrbitView1.NumPointsToRedraw = 0;
+GMAT OrbitView1.ShowPlot = true;
+GMAT OrbitView1.MaxPlotPoints = 20000;
+GMAT OrbitView1.ShowLabels = true;
+GMAT OrbitView1.ViewPointReference = Earth;
+GMAT OrbitView1.ViewPointVector = [ 0 0 600000 ];
+GMAT OrbitView1.ViewDirection = Earth;
+GMAT OrbitView1.ViewScaleFactor = 1;
+GMAT OrbitView1.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT OrbitView1.ViewUpAxis = Z;
+GMAT OrbitView1.EclipticPlane = Off;
+GMAT OrbitView1.XYPlane = On;
+GMAT OrbitView1.WireFrame = Off;
+GMAT OrbitView1.Axes = On;
+GMAT OrbitView1.Grid = Off;
+GMAT OrbitView1.SunLine = Off;
+GMAT OrbitView1.UseInitialView = On;
+GMAT OrbitView1.StarCount = 7000;
+GMAT OrbitView1.EnableStars = On;
+GMAT OrbitView1.EnableConstellations = On;
+
+Create GroundTrackPlot GroundTrackPlot1;
+GMAT GroundTrackPlot1.SolverIterations = Current;
+GMAT GroundTrackPlot1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT GroundTrackPlot1.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT GroundTrackPlot1.RelativeZOrder = 643;
+GMAT GroundTrackPlot1.Maximized = true;
+GMAT GroundTrackPlot1.Add = {EA4GPZ, Eshail2};
+GMAT GroundTrackPlot1.DataCollectFrequency = 1;
+GMAT GroundTrackPlot1.UpdatePlotFrequency = 50;
+GMAT GroundTrackPlot1.NumPointsToRedraw = 0;
+GMAT GroundTrackPlot1.ShowPlot = true;
+GMAT GroundTrackPlot1.MaxPlotPoints = 20000;
+GMAT GroundTrackPlot1.CentralBody = Earth;
+GMAT GroundTrackPlot1.TextureMap = 'ModifiedBlueMarble.jpg';
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(Eshail2) {Eshail2.ElapsedDays = 1};
