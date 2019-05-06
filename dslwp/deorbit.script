@@ -1,0 +1,96 @@
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+DSLWP_B.DateFormat = UTCModJulian;
+
+% before deorbit
+%DSLWP_B.Epoch = '28502.833333333332';
+%DSLWP_B.CoordinateSystem = EarthFixed;
+%DSLWP_B.DisplayStateType = Cartesian;
+%DSLWP_B.X = -280967.5302;
+%DSLWP_B.Y = -185692.6055;
+%DSLWP_B.Z = 129892.3338;
+%DSLWP_B.VX = -13.367129;
+%DSLWP_B.VY = 18.71221;
+%DSLWP_B.VZ = 0.114544;
+
+% after deorbit
+%DSLWP_B.Epoch = '28512.833333333332';
+%DSLWP_B.CoordinateSystem = EarthFixed;
+%DSLWP_B.DisplayStateType = Cartesian;
+%DSLWP_B.X = 378156.3662;
+%DSLWP_B.Y = -74553.31496;
+%DSLWP_B.Z = -100651.6548;
+%DSLWP_B.VX = -5.501538;
+%DSLWP_B.VY = -26.511569;
+%DSLWP_B.VZ = -0.395207;
+
+% most recent ephemeris
+DSLWP_B.Epoch = '28599.833333333332';
+DSLWP_B.CoordinateSystem = EarthFixed;
+DSLWP_B.DisplayStateType = Cartesian;
+DSLWP_B.X = 323445.273;
+DSLWP_B.Y = -210537.2721;
+DSLWP_B.Z = -145625.9819;
+DSLWP_B.VX = -14.43411;
+DSLWP_B.VY = -22.77805;
+DSLWP_B.VZ = -0.222205;
+
+DSLWP_B.DryMass = 45;
+DSLWP_B.DragArea = 0.25;
+DSLWP_B.SRPArea = 0.25;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+LunaProp_ForceModel.CentralBody = Luna;
+LunaProp_ForceModel.PrimaryBodies = {Luna};
+LunaProp_ForceModel.PointMasses = {Earth, Sun};
+LunaProp_ForceModel.SRP = On;
+LunaProp_ForceModel.ErrorControl = RSSStep;
+LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+LunaProp_ForceModel.GravityField.Luna.Order = 10;
+
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaProp;
+LunaProp.FM = LunaProp_ForceModel;
+LunaProp.Type = PrinceDormand78;
+LunaProp.InitialStepSize = 1;
+LunaProp.Accuracy = 1e-13;
+LunaProp.MinStep = 0;
+LunaProp.MaxStep = 600;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+LunaInertial.Origin = Luna;
+LunaInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile OrbitReport;
+OrbitReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/orbit_deorbit3.txt';
+OrbitReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.Luna.SMA, DSLWP_B.Luna.ECC, DSLWP_B.LunaInertial.INC, DSLWP_B.LunaInertial.RAAN, DSLWP_B.LunaInertial.AOP, DSLWP_B.Luna.MA, DSLWP_B.Luna.TA};
+OrbitReport.WriteHeaders = false;
+OrbitReport.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28727}
