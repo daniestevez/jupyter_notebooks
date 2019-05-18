@@ -274,7 +274,7 @@ def detect_gmsk_spectrum(spectrum, binwidth = 2000, binoffset = 0):
     bandwidths = right_edges - left_edges
     print('GMSK detector detected channels with bandwidths:', bandwidths)
     best = None
-    bw_min = [120, 325]
+    bw_min = [120, 310]
     bw_max = [300, 550]
     bw_nominal = [250, 500]
     for bw in range(2):
@@ -306,6 +306,8 @@ def process_recording(recording_path, recording_start, recording_centre_freq, tr
     run_gmat(trk, recording_start, recording_end)
     gmat_data = load_gmat_report(REPORT_PATH)
 
+    xr.Dataset({'gmat' : gmat_data}, attrs = {'tracking_file' : tracking_file_path.name}).to_netcdf(output_dir / (output_base_name + '_gmat.nc'))
+    
     print('Computing Moonbounce...')
     with ProgressBar():
         r = compute_moonbounce_range(gmat_data)
@@ -331,7 +333,6 @@ def process_recording(recording_path, recording_start, recording_centre_freq, tr
     attributes = {'frequency_offset' : freq_offset, 'gmsk_baudrate' : bandwidth, 'centre_frequency' : recording_centre_freq,\
                   'tracking_file' : tracking_file_path.name, 'recording_file' : recording_path.name,\
                   'recording_start' : str(recording_start), 'recording_end' : str(recording_end)}
-
 
     print('Computing offset-corrected direct spectrum...')
     with ProgressBar():
