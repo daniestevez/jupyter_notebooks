@@ -44,13 +44,6 @@ GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DSLWP_B.EulerAngleSequence = '321';
 
-
-
-
-
-
-
-
 %----------------------------------------
 %---------- ForceModels
 %----------------------------------------
@@ -90,98 +83,75 @@ GMAT LunaProp.StopIfAccuracyIsViolated = true;
 %---------- Coordinate Systems
 %----------------------------------------
 
-Create CoordinateSystem LunaInertial;
-GMAT LunaInertial.Origin = Luna;
-GMAT LunaInertial.Axes = BodyInertial;
+Create GroundStation Dwingeloo;
+Dwingeloo.CentralBody = Earth;
+Dwingeloo.StateType = Spherical;
+Dwingeloo.HorizonReference = Ellipsoid;
+Dwingeloo.Location1 = 52.81201944;
+Dwingeloo.Location2 = 6.39616944;
+Dwingeloo.Location3 = 0.025;
+Dwingeloo.Id = 'Dwingeloo';
 
-Create CoordinateSystem DSLWP_Sun;
-GMAT DSLWP_Sun.Origin = DSLWP_B;
-GMAT DSLWP_Sun.Axes = ObjectReferenced;
-GMAT DSLWP_Sun.XAxis = R;
-GMAT DSLWP_Sun.ZAxis = N;
-GMAT DSLWP_Sun.Primary = Sun;
-GMAT DSLWP_Sun.Secondary = DSLWP_B;
+Create GroundStation Shahe;
+Shahe.CentralBody = Earth;
+Shahe.StateType = Spherical;
+Shahe.HorizonReference = Ellipsoid;
+Shahe.Location1 = 40.1175139;
+Shahe.Location2 = 116.2299139;
+Shahe.Location3 = 0.049;
+Shahe.Id = 'Shahe';
 
-Create CoordinateSystem LunaICRF;
-GMAT LunaICRF.Origin = Luna;
-GMAT LunaICRF.Axes = ICRF;
+Create GroundStation Harbin;
+Harbin.CentralBody = Earth;
+Harbin.StateType = Spherical;
+Harbin.HorizonReference = Ellipsoid;
+Harbin.Location1 = 45.9530917;
+Harbin.Location2 = 126.8002056;
+Harbin.Location3 = 0.117;
+Harbin.Id = 'Harbin';
+
+Create GroundStation Wakayama;
+Wakayama.CentralBody = Earth;
+Wakayama.StateType = Spherical;
+Wakayama.HorizonReference = Ellipsoid;
+Wakayama.Location1 = 34.266076;
+Wakayama.Location2 = 135.151467;
+Wakayama.Location3 = 0;
+Wakayama.Id = 'Wakayama';
+
+Create CoordinateSystem DwingelooTopo;
+DwingelooTopo.Origin = Dwingeloo;
+DwingelooTopo.Axes = Topocentric;
+
+Create CoordinateSystem ShaheTopo;
+ShaheTopo.Origin = Shahe;
+ShaheTopo.Axes = Topocentric;
+
+Create CoordinateSystem HarbinTopo;
+HarbinTopo.Origin = Harbin;
+HarbinTopo.Axes = Topocentric;
+
+Create CoordinateSystem WakayamaTopo;
+WakayamaTopo.Origin = Wakayama;
+WakayamaTopo.Axes = Topocentric;
 
 %----------------------------------------
 %---------- Subscribers
 %----------------------------------------
 
-Create OrbitView CameraView;
-GMAT CameraView.SolverIterations = Current;
-GMAT CameraView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
-GMAT CameraView.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT CameraView.RelativeZOrder = 18;
-GMAT CameraView.Maximized = true;
-GMAT CameraView.Add = {DSLWP_B, Earth, Luna, Sun};
-GMAT CameraView.CoordinateSystem = DSLWP_Sun;
-GMAT CameraView.DrawObject = [ false true true true ];
-GMAT CameraView.DataCollectFrequency = 1;
-GMAT CameraView.UpdatePlotFrequency = 50;
-GMAT CameraView.NumPointsToRedraw = 0;
-GMAT CameraView.ShowPlot = true;
-GMAT CameraView.MaxPlotPoints = 20000;
-GMAT CameraView.ShowLabels = true;
-GMAT CameraView.ViewPointReference = DSLWP_B;
-GMAT CameraView.ViewPointVector = [ 0 0 0 ];
-GMAT CameraView.ViewDirection = [ 1 0 0 ];
-GMAT CameraView.ViewScaleFactor = 1;
-GMAT CameraView.ViewUpCoordinateSystem = DSLWP_Sun;
-GMAT CameraView.ViewUpAxis = Z;
-GMAT CameraView.EclipticPlane = Off;
-GMAT CameraView.XYPlane = On;
-GMAT CameraView.WireFrame = Off;
-GMAT CameraView.Axes = On;
-GMAT CameraView.Grid = Off;
-GMAT CameraView.SunLine = Off;
-GMAT CameraView.UseInitialView = On;
-GMAT CameraView.StarCount = 7000;
-GMAT CameraView.EnableStars = On;
-GMAT CameraView.EnableConstellations = On;
-
-Create ReportFile EarthMoonPos;
-GMAT EarthMoonPos.SolverIterations = Current;
-GMAT EarthMoonPos.UpperLeft = [ 0 0 ];
-GMAT EarthMoonPos.Size = [ 0 0 ];
-GMAT EarthMoonPos.RelativeZOrder = 0;
-GMAT EarthMoonPos.Maximized = false;
-GMAT EarthMoonPos.Filename = '/home/daniel/jupyter_notebooks/dslwp/EarthMoonPosDSWLP.txt';
-GMAT EarthMoonPos.Precision = 16;
-GMAT EarthMoonPos.Add = {DSLWP_B.UTCModJulian, Earth.DSLWP_Sun.X, Earth.DSLWP_Sun.Y, Earth.DSLWP_Sun.Z, Luna.DSLWP_Sun.X, Luna.DSLWP_Sun.Y, Luna.DSLWP_Sun.Z};
-GMAT EarthMoonPos.WriteHeaders = false;
-GMAT EarthMoonPos.LeftJustify = On;
-GMAT EarthMoonPos.ZeroFill = Off;
-GMAT EarthMoonPos.FixedWidth = true;
-GMAT EarthMoonPos.Delimiter = ' ';
-GMAT EarthMoonPos.ColumnWidth = 23;
-GMAT EarthMoonPos.WriteReport = true;
-
-Create GroundTrackPlot GroundTrack;
-GMAT GroundTrack.SolverIterations = Current;
-GMAT GroundTrack.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
-GMAT GroundTrack.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT GroundTrack.RelativeZOrder = 28;
-GMAT GroundTrack.Maximized = true;
-GMAT GroundTrack.Add = {DSLWP_B, Earth};
-GMAT GroundTrack.DataCollectFrequency = 1;
-GMAT GroundTrack.UpdatePlotFrequency = 50;
-GMAT GroundTrack.NumPointsToRedraw = 0;
-GMAT GroundTrack.ShowPlot = true;
-GMAT GroundTrack.MaxPlotPoints = 20000;
-GMAT GroundTrack.CentralBody = Luna;
-GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
+Create ReportFile VLBIReport;
+VLBIReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/vlbi_report.txt';
+VLBIReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.DwingelooTopo.X, DSLWP_B.DwingelooTopo.Y, DSLWP_B.DwingelooTopo.Z, DSLWP_B.ShaheTopo.X, DSLWP_B.ShaheTopo.Y, DSLWP_B.ShaheTopo.Z, DSLWP_B.HarbinTopo.X, DSLWP_B.HarbinTopo.Y, DSLWP_B.HarbinTopo.Z, DSLWP_B.WakayamaTopo.X, DSLWP_B.WakayamaTopo.Y, DSLWP_B.WakayamaTopo.Z, DSLWP_B.Earth.TA};
+VLBIReport.WriteHeaders = false;
 
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
-Toggle EarthMoonPos Off;
-Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28635.5};
-Toggle EarthMoonPos On;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28640.5};
+Toggle VLBIReport Off;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28637.5};
+Toggle VLBIReport On;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28642.5};
 
 
