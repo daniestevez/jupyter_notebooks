@@ -7,15 +7,15 @@
 
 Create Spacecraft DSLWP_B;
 DSLWP_B.DateFormat = UTCModJulian;
-DSLWP_B.Epoch = '28637.5';
+DSLWP_B.Epoch = '28652.5';
 DSLWP_B.CoordinateSystem = EarthFixed;
 DSLWP_B.DisplayStateType = Cartesian;
-DSLWP_B.X = -360200.9792;
-DSLWP_B.Y = 41811.10195;
-DSLWP_B.Z = 110216.6387;
-DSLWP_B.VX = 2.653746;
-DSLWP_B.VY = 24.884681;
-DSLWP_B.VZ = 0.481848;
+DSLWP_B.X = 367490.3959;
+DSLWP_B.Y = 61621.85336;
+DSLWP_B.Z = -156949.5755;
+DSLWP_B.VX = 4.099708;
+DSLWP_B.VY = -25.662445;
+DSLWP_B.VZ = -0.182017;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -180,8 +180,8 @@ GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
 
 BeginMissionSequence;
 Toggle EarthMoonPos Off;
-Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28635.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28665.5};
 Toggle EarthMoonPos On;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28640.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28669.5};
 
 
