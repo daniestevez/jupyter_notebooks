@@ -7,15 +7,15 @@
 
 Create Spacecraft DSLWP_B;
 DSLWP_B.DateFormat = UTCModJulian;
-DSLWP_B.Epoch = '28652.5';
+DSLWP_B.Epoch = '28664.5';
 DSLWP_B.CoordinateSystem = EarthFixed;
 DSLWP_B.DisplayStateType = Cartesian;
-DSLWP_B.X = 367490.3959;
-DSLWP_B.Y = 61621.85336;
-DSLWP_B.Z = -156949.5755;
-DSLWP_B.VX = 4.099708;
-DSLWP_B.VY = -25.662445;
-DSLWP_B.VZ = -0.182017;
+DSLWP_B.X = -283961.5011;
+DSLWP_B.Y = 229797.7095;
+DSLWP_B.Z = 100322.074;
+DSLWP_B.VX = 15.871743;
+DSLWP_B.VY = 19.876136;
+DSLWP_B.VZ = 0.365277;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -82,7 +82,7 @@ GMAT LunaProp.Type = PrinceDormand78;
 GMAT LunaProp.InitialStepSize = 1;
 GMAT LunaProp.Accuracy = 1e-13;
 GMAT LunaProp.MinStep = 0;
-GMAT LunaProp.MaxStep = 600;
+GMAT LunaProp.MaxStep = 60;
 GMAT LunaProp.MaxStepAttempts = 50;
 GMAT LunaProp.StopIfAccuracyIsViolated = true;
 
@@ -110,37 +110,37 @@ GMAT LunaICRF.Axes = ICRF;
 %---------- Subscribers
 %----------------------------------------
 
-Create OrbitView CameraView;
-GMAT CameraView.SolverIterations = Current;
-GMAT CameraView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
-GMAT CameraView.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT CameraView.RelativeZOrder = 18;
-GMAT CameraView.Maximized = true;
-GMAT CameraView.Add = {DSLWP_B, Earth, Luna, Sun};
-GMAT CameraView.CoordinateSystem = DSLWP_Sun;
-GMAT CameraView.DrawObject = [ false true true true ];
-GMAT CameraView.DataCollectFrequency = 1;
-GMAT CameraView.UpdatePlotFrequency = 50;
-GMAT CameraView.NumPointsToRedraw = 0;
-GMAT CameraView.ShowPlot = true;
-GMAT CameraView.MaxPlotPoints = 20000;
-GMAT CameraView.ShowLabels = true;
-GMAT CameraView.ViewPointReference = DSLWP_B;
-GMAT CameraView.ViewPointVector = [ 0 0 0 ];
-GMAT CameraView.ViewDirection = [ 1 0 0 ];
-GMAT CameraView.ViewScaleFactor = 1;
-GMAT CameraView.ViewUpCoordinateSystem = DSLWP_Sun;
-GMAT CameraView.ViewUpAxis = Z;
-GMAT CameraView.EclipticPlane = Off;
-GMAT CameraView.XYPlane = On;
-GMAT CameraView.WireFrame = Off;
-GMAT CameraView.Axes = On;
-GMAT CameraView.Grid = Off;
-GMAT CameraView.SunLine = Off;
-GMAT CameraView.UseInitialView = On;
-GMAT CameraView.StarCount = 7000;
-GMAT CameraView.EnableStars = On;
-GMAT CameraView.EnableConstellations = On;
+%Create OrbitView CameraView;
+%GMAT CameraView.SolverIterations = Current;
+%GMAT CameraView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+%GMAT CameraView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+%GMAT CameraView.RelativeZOrder = 18;
+%GMAT CameraView.Maximized = true;
+%GMAT CameraView.Add = {DSLWP_B, Earth, Luna, Sun};
+%GMAT CameraView.CoordinateSystem = DSLWP_Sun;
+%GMAT CameraView.DrawObject = [ false true true true ];
+%GMAT CameraView.DataCollectFrequency = 1;
+%GMAT CameraView.UpdatePlotFrequency = 50;
+%GMAT CameraView.NumPointsToRedraw = 0;
+%GMAT CameraView.ShowPlot = true;
+%GMAT CameraView.MaxPlotPoints = 20000;
+%GMAT CameraView.ShowLabels = true;
+%GMAT CameraView.ViewPointReference = DSLWP_B;
+%GMAT CameraView.ViewPointVector = [ 0 0 0 ];
+%GMAT CameraView.ViewDirection = [ 1 0 0 ];
+%GMAT CameraView.ViewScaleFactor = 1;
+%GMAT CameraView.ViewUpCoordinateSystem = DSLWP_Sun;
+%GMAT CameraView.ViewUpAxis = Z;
+%GMAT CameraView.EclipticPlane = Off;
+%GMAT CameraView.XYPlane = On;
+%GMAT CameraView.WireFrame = Off;
+%GMAT CameraView.Axes = On;
+%GMAT CameraView.Grid = Off;
+%GMAT CameraView.SunLine = Off;
+%GMAT CameraView.UseInitialView = On;
+%GMAT CameraView.StarCount = 7000;
+%GMAT CameraView.EnableStars = On;
+%GMAT CameraView.EnableConstellations = On;
 
 Create ReportFile EarthMoonPos;
 GMAT EarthMoonPos.SolverIterations = Current;
@@ -159,20 +159,20 @@ GMAT EarthMoonPos.Delimiter = ' ';
 GMAT EarthMoonPos.ColumnWidth = 23;
 GMAT EarthMoonPos.WriteReport = true;
 
-Create GroundTrackPlot GroundTrack;
-GMAT GroundTrack.SolverIterations = Current;
-GMAT GroundTrack.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
-GMAT GroundTrack.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT GroundTrack.RelativeZOrder = 28;
-GMAT GroundTrack.Maximized = true;
-GMAT GroundTrack.Add = {DSLWP_B, Earth};
-GMAT GroundTrack.DataCollectFrequency = 1;
-GMAT GroundTrack.UpdatePlotFrequency = 50;
-GMAT GroundTrack.NumPointsToRedraw = 0;
-GMAT GroundTrack.ShowPlot = true;
-GMAT GroundTrack.MaxPlotPoints = 20000;
-GMAT GroundTrack.CentralBody = Luna;
-GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
+%Create GroundTrackPlot GroundTrack;
+%GMAT GroundTrack.SolverIterations = Current;
+%GMAT GroundTrack.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+%GMAT GroundTrack.Size = [ 0.9926470588235294 0.9552023121387283 ];
+%GMAT GroundTrack.RelativeZOrder = 28;
+%GMAT GroundTrack.Maximized = true;
+%GMAT GroundTrack.Add = {DSLWP_B, Earth};
+%GMAT GroundTrack.DataCollectFrequency = 1;
+%GMAT GroundTrack.UpdatePlotFrequency = 50;
+%GMAT GroundTrack.NumPointsToRedraw = 0;
+%GMAT GroundTrack.ShowPlot = true;
+%GMAT GroundTrack.MaxPlotPoints = 20000;
+%GMAT GroundTrack.CentralBody = Luna;
+%GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
 
 %----------------------------------------
 %---------- Mission Sequence
@@ -180,8 +180,8 @@ GMAT GroundTrack.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
 
 BeginMissionSequence;
 Toggle EarthMoonPos Off;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28665.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28664.5};
 Toggle EarthMoonPos On;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28669.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28670.5};
 
 
