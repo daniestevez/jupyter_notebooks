@@ -4,15 +4,15 @@
 
 Create Spacecraft DSLWP_B;
 DSLWP_B.DateFormat = UTCModJulian;
-DSLWP_B.Epoch = '28418.5';
+DSLWP_B.Epoch = '28664.5';
 DSLWP_B.CoordinateSystem = EarthFixed;
 DSLWP_B.DisplayStateType = Cartesian;
-DSLWP_B.X = 316375.0010999996;
-DSLWP_B.Y = 156161.8427;
-DSLWP_B.Z = 103142.5088;
-DSLWP_B.VX = 10.454733;
-DSLWP_B.VY = -22.82947099999998;
-DSLWP_B.VZ = 0.2030899999999998;
+DSLWP_B.X = -283961.5011;
+DSLWP_B.Y = 229797.7095;
+DSLWP_B.Z = 100322.074;
+DSLWP_B.VX = 15.871743;
+DSLWP_B.VY = 19.876136;
+DSLWP_B.VZ = 0.365277;
 DSLWP_B.DryMass = 45;
 DSLWP_B.Cd = 2.2;
 DSLWP_B.Cr = 1.8;
@@ -84,4 +84,4 @@ ContactLocator1.Observers = {PI9CAM};
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28484.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28695.5};
