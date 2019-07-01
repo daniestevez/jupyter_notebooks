@@ -6,16 +6,25 @@
 %----------------------------------------
 
 Create Spacecraft DSLWP_B;
-DSLWP_B.DateFormat = UTCModJulian;
-DSLWP_B.Epoch = '28664.5';
-DSLWP_B.CoordinateSystem = EarthFixed;
-DSLWP_B.DisplayStateType = Cartesian;
-DSLWP_B.X = -283961.5011;
-DSLWP_B.Y = 229797.7095;
-DSLWP_B.Z = 100322.074;
-DSLWP_B.VX = 15.871743;
-DSLWP_B.VY = 19.876136;
-DSLWP_B.VZ = 0.365277;
+GMAT DSLWP_B.DateFormat = UTCGregorian;
+GMAT DSLWP_B.Epoch = '28 Jun 2019 03:00:00.000';
+GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+GMAT DSLWP_B.DisplayStateType = Keplerian;
+GMAT DSLWP_B.SMA = 8704.163;
+GMAT DSLWP_B.ECC = 0.690187;
+GMAT DSLWP_B.INC = 44.672;
+GMAT DSLWP_B.RAAN = 71.711;
+GMAT DSLWP_B.AOP = 68.006;
+GMAT DSLWP_B.TA = 176.09042928330206;
+%DSLWP_B.Epoch = '28664.5';
+%DSLWP_B.CoordinateSystem = EarthFixed;
+%DSLWP_B.DisplayStateType = Cartesian;
+%DSLWP_B.X = -283961.5011;
+%DSLWP_B.Y = 229797.7095;
+%DSLWP_B.Z = 100322.074;
+%DSLWP_B.VX = 15.871743;
+%DSLWP_B.VY = 19.876136;
+%DSLWP_B.VZ = 0.365277;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -43,6 +52,7 @@ GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
 GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DSLWP_B.EulerAngleSequence = '321';
+
 
 
 
@@ -180,8 +190,10 @@ GMAT EarthMoonPos.WriteReport = true;
 
 BeginMissionSequence;
 Toggle EarthMoonPos Off;
+%Propagate BackProp LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28662.625};
 Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28664.5};
 Toggle EarthMoonPos On;
 Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28670.5};
+
 
 
