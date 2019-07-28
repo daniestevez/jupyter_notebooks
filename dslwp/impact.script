@@ -5,18 +5,22 @@
 %---------- Spacecraft
 %----------------------------------------
 
+Create CoordinateSystem LunaICRF;
+GMAT LunaICRF.Origin = Luna;
+GMAT LunaICRF.Axes = ICRF;
+
 Create Spacecraft DSLWP_B;
 GMAT DSLWP_B.DateFormat = UTCModJulian;
-GMAT DSLWP_B.Epoch = '28599.83333333333';
-GMAT DSLWP_B.CoordinateSystem = EarthFixed;
-GMAT DSLWP_B.DisplayStateType = Cartesian;
-GMAT DSLWP_B.X = 323445.2729999999;
-GMAT DSLWP_B.Y = -210537.2720999999;
-GMAT DSLWP_B.Z = -145625.9819;
-GMAT DSLWP_B.VX = -14.43411;
-GMAT DSLWP_B.VY = -22.77804999999997;
-GMAT DSLWP_B.VZ = -0.222205;
-
+GMAT DSLWP_B.DateFormat = UTCGregorian;
+GMAT DSLWP_B.Epoch = '25 Jul 2019 02:30:00.000';
+GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+GMAT DSLWP_B.DisplayStateType = Keplerian;
+GMAT DSLWP_B.SMA = 8708.404;
+GMAT DSLWP_B.ECC = 0.747921;
+GMAT DSLWP_B.INC = 44.157;
+GMAT DSLWP_B.RAAN = 52.405;
+GMAT DSLWP_B.AOP = 86.261;
+GMAT DSLWP_B.TA = 165.00062091131025;
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -44,6 +48,7 @@ GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
 GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
 GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT DSLWP_B.EulerAngleSequence = '321';
+
 
 
 
@@ -80,7 +85,7 @@ GMAT LunaProp.Type = PrinceDormand78;
 GMAT LunaProp.InitialStepSize = 1;
 GMAT LunaProp.Accuracy = 1e-13;
 GMAT LunaProp.MinStep = 0;
-GMAT LunaProp.MaxStep = 600;
+GMAT LunaProp.MaxStep = 10;
 GMAT LunaProp.MaxStepAttempts = 50;
 GMAT LunaProp.StopIfAccuracyIsViolated = true;
 
@@ -127,7 +132,7 @@ Create OrbitView OrbitView1;
 GMAT OrbitView1.SolverIterations = Current;
 GMAT OrbitView1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT OrbitView1.Size = [ 0.9926470588235294 0.9552023121387283 ];
-GMAT OrbitView1.RelativeZOrder = 142;
+GMAT OrbitView1.RelativeZOrder = 255;
 GMAT OrbitView1.Maximized = true;
 GMAT OrbitView1.Add = {DSLWP_B, Earth, Luna};
 GMAT OrbitView1.CoordinateSystem = LunaEarth;
@@ -155,16 +160,28 @@ GMAT OrbitView1.StarCount = 7000;
 GMAT OrbitView1.EnableStars = On;
 GMAT OrbitView1.EnableConstellations = Off;
 
+Create GroundTrackPlot GroundTrackPlot1;
+GMAT GroundTrackPlot1.SolverIterations = Current;
+GMAT GroundTrackPlot1.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT GroundTrackPlot1.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT GroundTrackPlot1.RelativeZOrder = 258;
+GMAT GroundTrackPlot1.Maximized = true;
+GMAT GroundTrackPlot1.Add = {DSLWP_B, Earth};
+GMAT GroundTrackPlot1.DataCollectFrequency = 1;
+GMAT GroundTrackPlot1.UpdatePlotFrequency = 5000;
+GMAT GroundTrackPlot1.NumPointsToRedraw = 0;
+GMAT GroundTrackPlot1.ShowPlot = true;
+GMAT GroundTrackPlot1.MaxPlotPoints = 20000;
+GMAT GroundTrackPlot1.CentralBody = Luna;
+GMAT GroundTrackPlot1.TextureMap = 'Moon_HermesCelestiaMotherlode.jpg';
+
 
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
-PenUp OrbitView1;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28665};
-Propagate LunaProp(DSLWP_B) {DSLWP_B.Luna.Apoapsis};
-Maneuver ImpulsiveBurn1(DSLWP_B);
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28694};
-PenDown OrbitView1;
+PenUp GroundTrackPlot1 OrbitView1;
+Propagate LunaProp(DSLWP_B) {DSLWP_B.ElapsedDays = 6};
+PenDown GroundTrackPlot1 OrbitView1;
 Propagate LunaProp(DSLWP_B) {DSLWP_B.Luna.Altitude = 0};
