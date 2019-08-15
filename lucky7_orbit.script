@@ -1,0 +1,145 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft L7;
+L7.Id = 'Lucky-7';
+L7.DateFormat = TAIModJulian;
+L7.Epoch = '28687.087808333337';
+L7.CoordinateSystem = EarthFixed;
+L7.DisplayStateType = Cartesian;
+
+% State from TLEs
+%L7.X = 2936.51748892;
+%L7.Y = -130.58319006;
+%L7.Z = 6253.5805226;
+%L7.VX = -6.65380335;
+%L7.VY = -2.24791491;
+%L7.VZ = 3.05210206;
+
+% GPS orbital determination state
+%L7.X = 2944.85247251
+%L7.Y = -128.144052983
+%L7.Z = 6249.63390325
+%L7.VX = -6.64917785371
+%L7.VY = -2.2490359451
+%L7.VZ = 3.06170541104
+L7.X = 2944.85330493
+L7.Y = -128.143953633
+L7.Z = 6249.63347204
+L7.VX = -6.64917735783
+L7.VY = -2.24903611976
+L7.VZ = 3.0617063158
+
+L7.DryMass = 1;
+L7.DragArea = 0.01;
+L7.SRPArea = 0.01;
+L7.SolveFors = {CartesianState};
+L7.AddHardware = {GpsAntenna, GpsReceiver};
+
+Create Receiver GpsReceiver;
+GpsReceiver.PrimaryAntenna = GpsAntenna;
+GpsReceiver.ErrorModels = {GPSError};
+Create Antenna GpsAntenna;
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Earth;
+ForceModel.PrimaryBodies = {Earth};
+ForceModel.PointMasses = {Luna, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+ForceModel.Drag.AtmosphereModel = MSISE90;%JacchiaRoberts;
+ForceModel.Drag.CSSISpaceWeatherFile = '/tmp/SW-Last5Years.txt'; % Taken from https://celestrak.com/SpaceData/SW-Last5Years.txt
+ForceModel.Drag.HistoricWeatherSource = CSSISpaceWeatherFile;
+ForceModel.SRP = On;
+ForceModel.RelativisticCorrection = On;
+ForceModel.ErrorControl = None;
+ForceModel.GravityField.Earth.Degree = 360;
+ForceModel.GravityField.Earth.Order = 360;
+ForceModel.GravityField.Model = EGM96;
+ForceModel.GravityField.Earth.TideModel = SolidAndPole;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand78;
+Prop.InitialStepSize = 10;
+Prop.MaxStep = 10;
+Prop.MinStep = 0;
+
+%----------------------------------------
+%---------- ErrorModels
+%----------------------------------------
+
+Create ErrorModel GPSError;
+GPSError.Type = 'GPS_PosVec';
+GPSError.NoiseSigma = 0.008
+
+%----------------------------------------
+%---------- MeasurementModels
+%----------------------------------------
+
+Create TrackingFileSet GPSFileSim;
+GPSFileSim.AddTrackingConfig = {{L7.GpsReceiver}, 'GPS_PosVec'};
+GPSFileSim.FileName = {'/tmp/gpsl7_sim.gmd'};
+
+Create TrackingFileSet GPSFileData;
+GPSFileData.AddTrackingConfig = {{L7.GpsReceiver}, 'GPS_PosVec'};
+GPSFileData.FileName = {'/tmp/gpsl7_data.gmd'};
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create Simulator GPSSim;
+GPSSim.AddData = {GPSFileSim};
+GPSSim.Propagator = Prop;
+GPSSim.EpochFormat = UTCModJulian;
+GPSSim.InitialEpoch = '28687.087808333337';
+GPSSim.FinalEpoch = '28687.43782002339';
+GPSSim.MeasurementTimeStep = 10;
+GPSSim.AddNoise = Off;
+
+Create RejectFilter rf;
+rf.EpochFormat = TAIModJulian;
+rf.InitialEpoch = '28687.3461533566';
+
+Create BatchEstimatorInv bat
+bat.ReportFile = '/tmp/l7_estimation_report'
+bat.Measurements = {GPSFileData} 
+bat.Propagator = Prop;
+bat.OLSEMultiplicativeConstant = 4;
+bat.OLSEAdditiveConstant = 0;
+bat.DataFilters = {rf};
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create EphemerisFile OEM;
+
+OEM.Spacecraft = L7;
+OEM.Filename = '/tmp/l7_eph.oem';
+OEM.FileFormat = CCSDS-OEM;
+OEM.StepSize = 1;
+OEM.CoordinateSystem = EarthMJ2000Eq;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+
+% Run in simulation mode:
+%RunSimulator GPSSim;
+
+% Run in estimation mode:
+%RunEstimator bat;
+
+Propagate Prop(L7) {L7.TAIModJulian = '28687.43782002339'}
