@@ -1,0 +1,171 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2018-10-06 16:23:19
+
+
+%----------------------------------------
+%---------- Solar System User-Modified Values
+%----------------------------------------
+
+GMAT SolarSystem.EphemerisSource = 'DE421';
+GMAT SolarSystem.SPKFilename = '../data/planetary_ephem/spk/DE421AllPlanets.bsp'
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DSLWP_B;
+GMAT DSLWP_B.DateFormat = UTCGregorian;
+
+%GMAT DSLWP_B.Epoch = '28 Jun 2019 03:00:00.000';
+%GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+%GMAT DSLWP_B.DisplayStateType = Keplerian;
+%GMAT DSLWP_B.SMA = 8704.163;
+%GMAT DSLWP_B.ECC = 0.690187;
+%GMAT DSLWP_B.INC = 44.672;
+%GMAT DSLWP_B.RAAN = 71.711;
+%GMAT DSLWP_B.AOP = 68.006;
+%GMAT DSLWP_B.TA = 176.09042928330206;
+
+%GMAT DSLWP_B.Epoch = '18 Jul 2019 00:30:00.000';
+%GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+%GMAT DSLWP_B.DisplayStateType = Keplerian;
+%GMAT DSLWP_B.SMA = 8697.812;
+%GMAT DSLWP_B.ECC = 0.78253;
+%GMAT DSLWP_B.INC = 44.259;
+%GMAT DSLWP_B.RAAN = 60.543;
+%GMAT DSLWP_B.AOP = 79.156;
+%GMAT DSLWP_B.TA = 251.17445463820727;
+
+%GMAT DSLWP_B.Epoch = '25 Jul 2019 02:30:00.000';
+%GMAT DSLWP_B.CoordinateSystem = LunaICRF;
+%GMAT DSLWP_B.DisplayStateType = Cartesian;
+%GMAT DSLWP_B.SMA = 8708.404;
+%GMAT DSLWP_B.ECC = 0.747921;
+%GMAT DSLWP_B.INC = 44.157;
+%GMAT DSLWP_B.RAAN = 52.405;
+%GMAT DSLWP_B.AOP = 86.261;
+%GMAT DSLWP_B.TA = 165.00062091131025;
+
+GMAT DSLWP_B.DryMass = 45;
+GMAT DSLWP_B.Cd = 2.2;
+GMAT DSLWP_B.Cr = 1.8;
+GMAT DSLWP_B.DragArea = 0.25;
+GMAT DSLWP_B.SRPArea = 0.25;
+GMAT DSLWP_B.NAIFId = -10001001;
+GMAT DSLWP_B.NAIFIdReferenceFrame = -9001001;
+GMAT DSLWP_B.OrbitColor = Red;
+GMAT DSLWP_B.TargetColor = Teal;
+GMAT DSLWP_B.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT DSLWP_B.CdSigma = 1e+70;
+GMAT DSLWP_B.CrSigma = 1e+70;
+GMAT DSLWP_B.Id = 'SatId';
+GMAT DSLWP_B.Attitude = CoordinateSystemFixed;
+GMAT DSLWP_B.SPADSRPScaleFactor = 1;
+GMAT DSLWP_B.ModelFile = 'aura.3ds';
+GMAT DSLWP_B.ModelOffsetX = 0;
+GMAT DSLWP_B.ModelOffsetY = 0;
+GMAT DSLWP_B.ModelOffsetZ = 0;
+GMAT DSLWP_B.ModelRotationX = 0;
+GMAT DSLWP_B.ModelRotationY = 0;
+GMAT DSLWP_B.ModelRotationZ = 0;
+GMAT DSLWP_B.ModelScale = 1;
+GMAT DSLWP_B.AttitudeDisplayStateType = 'Quaternion';
+GMAT DSLWP_B.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT DSLWP_B.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT DSLWP_B.EulerAngleSequence = '321';
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LunaProp_ForceModel;
+GMAT LunaProp_ForceModel.CentralBody = Luna;
+GMAT LunaProp_ForceModel.PrimaryBodies = {Luna};
+GMAT LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+GMAT LunaProp_ForceModel.Drag = None;
+GMAT LunaProp_ForceModel.SRP = On;
+GMAT LunaProp_ForceModel.RelativisticCorrection = On;
+GMAT LunaProp_ForceModel.ErrorControl = RSSStep;
+GMAT LunaProp_ForceModel.GravityField.Luna.Degree = 10;
+GMAT LunaProp_ForceModel.GravityField.Luna.Order = 10;
+GMAT LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+GMAT LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+GMAT LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+GMAT LunaProp_ForceModel.SRP.Flux = 1367;
+GMAT LunaProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT LunaProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LunaPropFine;
+GMAT LunaPropFine.FM = LunaProp_ForceModel;
+GMAT LunaPropFine.Type = PrinceDormand78;
+GMAT LunaPropFine.InitialStepSize = 1;
+GMAT LunaPropFine.Accuracy = 1e-13;
+GMAT LunaPropFine.MinStep = 1;
+GMAT LunaPropFine.MaxStep = 1;
+GMAT LunaPropFine.MaxStepAttempts = 50;
+GMAT LunaPropFine.StopIfAccuracyIsViolated = true;
+
+Create Propagator LunaPropCoarse;
+GMAT LunaPropCoarse.FM = LunaProp_ForceModel;
+GMAT LunaPropCoarse.Type = PrinceDormand78;
+GMAT LunaPropCoarse.InitialStepSize = 10;
+GMAT LunaPropCoarse.Accuracy = 1e-13;
+GMAT LunaPropCoarse.MinStep = 1;
+GMAT LunaPropCoarse.MaxStep = 60;
+GMAT LunaPropCoarse.MaxStepAttempts = 50;
+GMAT LunaPropCoarse.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem LunaInertial;
+GMAT LunaInertial.Origin = Luna;
+GMAT LunaInertial.Axes = BodyInertial;
+
+Create CoordinateSystem LunaICRF;
+GMAT LunaICRF.Origin = Luna;
+GMAT LunaICRF.Axes = ICRF;
+
+Create CoordinateSystem LunaFixed;
+GMAT LunaFixed.Origin = Luna;
+GMAT LunaFixed.Axes = BodyFixed;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportFile1;
+GMAT ReportFile1.SolverIterations = Current;
+GMAT ReportFile1.UpperLeft = [ 0 0 ];
+GMAT ReportFile1.Size = [ 0 0 ];
+GMAT ReportFile1.RelativeZOrder = 0;
+GMAT ReportFile1.Maximized = false;
+GMAT ReportFile1.Filename = '/tmp/dslwp_luna_pos_18jul.txt';
+GMAT ReportFile1.Precision = 16;
+GMAT ReportFile1.Add = {DSLWP_B.UTCModJulian, DSLWP_B.LunaFixed.X, DSLWP_B.LunaFixed.Y, DSLWP_B.LunaFixed.Z};
+GMAT ReportFile1.WriteHeaders = false;
+GMAT ReportFile1.LeftJustify = On;
+GMAT ReportFile1.ZeroFill = Off;
+GMAT ReportFile1.FixedWidth = true;
+GMAT ReportFile1.Delimiter = ' ';
+GMAT ReportFile1.ColumnWidth = 23;
+GMAT ReportFile1.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Toggle ReportFile1 Off;
+Propagate LunaPropCoarse(DSLWP_B) {DSLWP_B.Luna.Altitude = 20};
+Propagate LunaPropFine(DSLWP_B) {DSLWP_B.Luna.Altitude = 10};
+Toggle ReportFile1 On;
+Propagate LunaPropFine(DSLWP_B) {DSLWP_B.Luna.Altitude = -10};
