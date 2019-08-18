@@ -134,19 +134,19 @@ def track_analysis(track, only_compute_impact = False):
     track = track.interp(time = upsample_time)
     
     dem_below_track = dem.interp(lat = track.coords['lat'], lon = track.coords['lon'])
-    clearence = track - dem_below_track
+    clearance = track - dem_below_track
     
-    m = np.argmin(np.abs(clearence))
-    if clearence[m] > 0:
+    m = np.argmin(np.abs(clearance))
+    if clearance[m] > 0:
         a = m
         b = m+1
     else:
         a = m-1
         b = m
-    zero_clearence = clearence.coords['time'][a] \
-        - clearence[a] * (clearence.coords['time'][b]-clearence.coords['time'][a]) / (clearence[b] - clearence[a])
+    zero_clearance = clearance.coords['time'][a] \
+        - clearance[a] * (clearance.coords['time'][b]-clearance.coords['time'][a]) / (clearance[b] - clearance[a])
 
-    impact_point = clearence.interp(time = zero_clearence)
+    impact_point = clearance.interp(time = zero_clearance)
     impact_lat = impact_point.coords['lat'].values
     impact_lon = impact_point.coords['lon'].values
     impact_alt = 1e3*track.interp(time = impact_point.coords['time']).values
@@ -184,13 +184,13 @@ def track_analysis(track, only_compute_impact = False):
     plt.legend()
     
     plt.figure(figsize = (12,6), facecolor = 'w')
-    clearence.plot(color = 'C1')
+    clearance.plot(color = 'C1')
     plt.axhline(0, color = 'grey')
     plt.ylim((-3,3))
     plt.grid()
     plt.xlabel('Time')
     plt.ylabel('Distance (km)')
-    plt.title('Clearence above lunar surface')
+    plt.title('Clearance above lunar surface')
 
 
 
