@@ -4,15 +4,14 @@
 
 Create Spacecraft DSLWP_B;
 DSLWP_B.DateFormat = UTCGregorian;
-DSLWP_B.Epoch = '28 Jun 2019 03:00:00.000';
+DSLWP_B.Epoch = '25 Jul 2019 02:30:00.000';
 DSLWP_B.CoordinateSystem = LunaICRF;
-DSLWP_B.DisplayStateType = Keplerian;
-DSLWP_B.SMA = 8704.163;
-DSLWP_B.ECC = 0.690187;
-DSLWP_B.INC = 44.672;
-DSLWP_B.RAAN = 71.711;
-DSLWP_B.AOP = 68.006;
-DSLWP_B.TA = 176.09042928330206;
+DSLWP_B.SMA = 8708.404;
+DSLWP_B.ECC = 0.747921;
+DSLWP_B.INC = 44.157;
+DSLWP_B.RAAN = 52.405;
+DSLWP_B.AOP = 86.261;
+DSLWP_B.TA = 165.00062091131025;
 DSLWP_B.DryMass = 45;
 DSLWP_B.Cd = 2.2;
 DSLWP_B.Cr = 1.8;
@@ -31,13 +30,9 @@ Create GroundStation PI9CAM;
 PI9CAM.CentralBody = Earth;
 PI9CAM.StateType = Spherical;
 PI9CAM.HorizonReference = Ellipsoid;
-% VE7TIL
-PI9CAM.Location1 = 49.43479333333333;
-PI9CAM.Location2 = 236.33117;
-PI9CAM.Location3 = 0.04;
-%PI9CAM.Location1 = 52.81201944;
-%PI9CAM.Location2 = 6.39616944;
-%PI9CAM.Location3 = 0.025;
+PI9CAM.Location1 = 52.81201944;
+PI9CAM.Location2 = 6.39616944;
+PI9CAM.Location3 = 0.025;
 PI9CAM.Id = 'PI9CAM Dwingeloo';
 
 %----------------------------------------
@@ -67,7 +62,7 @@ LunaProp.Type = PrinceDormand78;
 LunaProp.InitialStepSize = 1;
 LunaProp.Accuracy = 1e-13;
 LunaProp.MinStep = 0;
-LunaProp.MaxStep = 600;
+LunaProp.MaxStep = 60;
 LunaProp.MaxStepAttempts = 50;
 LunaProp.StopIfAccuracyIsViolated = true;
 
@@ -92,4 +87,4 @@ ContactLocator1.Observers = {PI9CAM};
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28695.5};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.Luna.Altitude = 10};
