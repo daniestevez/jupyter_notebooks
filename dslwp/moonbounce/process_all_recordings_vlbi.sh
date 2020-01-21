@@ -3,7 +3,7 @@
 PROCESS=./process_recording.py
 OUTPUT=output
 
-for file in $1/*_40ksps_complex.raw; do
+for file in $1/*_40ksps_complex_tagged.raw; do
     echo $file
-    $PROCESS $file $2 $OUTPUT 0
+    $PROCESS $file $2 $OUTPUT 1
 done

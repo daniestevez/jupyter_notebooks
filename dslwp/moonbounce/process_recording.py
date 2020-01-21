@@ -367,9 +367,10 @@ def select_best_tracking_file(tracking_files_path, start):
                 dist = dist_new
     return tracking_file
 
-def parse_filename(filename):
+def parse_filename(filename, tagged = False):
+    tag = '_tagged' if tagged else ''
     try:
-        m = re.match('DSLWP-B_PI9CAM_(?P<datetime>\\d+-\\d+-\\d+T\\d+(_|:)\\d+(_|:)\\d+)_(?P<frequency>\\d+(\\.\\d+)?)MHz_40ksps_complex.raw$', filename.name)
+        m = re.match(f'DSLWP-B_PI9CAM_(?P<datetime>\\d+-\\d+-\\d+T\\d+(_|:)\\d+(_|:)\\d+)_(?P<frequency>\\d+(\\.\\d+)?)MHz_40ksps_complex{tag}.raw$', filename.name)
         start = np.datetime64(m.group('datetime').replace('_',':'))
         frequency = float(m.group('frequency')) * 1e6
     except (AttributeError, ValueError):
@@ -377,19 +378,20 @@ def parse_filename(filename):
     return start, frequency
 
 def print_usage(file = sys.stdout):
-    print(f'Usage: {sys.argv[0]} DSLWP-B_PI9CAM_recording_40ksps_complex.raw tracking_files_directory output_directory', file = file)
+    print(f'Usage: {sys.argv[0]} DSLWP-B_PI9CAM_recording_40ksps_complex.raw tracking_files_directory output_directory tagged(1||0)', file = file)
 
 def main():
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print_usage(file = sys.stderr)
         exit(1)
     
     recording = pathlib.Path(sys.argv[1])
     tracking_files = pathlib.Path(sys.argv[2])
     output = pathlib.Path(sys.argv[3])
+    tagged = bool(int(sys.argv[4]))
     
     try:
-        start, freq = parse_filename(recording)
+        start, freq = parse_filename(recording, tagged)
     except TypeError:
         print('Invalid recording filename', file = sys.stderr)
         sys.exit(1)
