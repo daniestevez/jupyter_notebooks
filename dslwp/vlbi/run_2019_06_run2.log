@@ -1,0 +1,75 @@
+
+(GMAT-R2018a:12426): Gtk-CRITICAL **: 21:56:15.176: IA__gtk_widget_set_size_request: assertion 'width >= -1' failed
+Moderator is updating data files...
+Moderator is creating core engine...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Setting nutation file to ../data/planetary_coeff/NUTATION.DAT
+Setting leap seconds file to ../data/time/tai-utc.dat
+2020-01-20 21:56:15 GMAT Moderator successfully created core engine
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+2020-01-20 21:56:15 GMAT GUI successfully launched.
+
+Interpreting scripts from the file.
+***** file: /tmp/gmat_moonbounce.script
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully interpreted the script
+Running mission...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Kernel ../data/planetary_ephem/spk/DE405AllPlanets.bsp has been loaded.
+Kernel ../data/planetary_coeff/SPICEPlanetaryConstantsKernel.tpc has been loaded.
+Kernel ../data/time/SPICELeapSecondKernel.tls has been loaded.
+Kernel ../data/planetary_coeff/SPICEEarthPredictedKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICEEarthCurrentKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_latest_high_prec.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICELunaCurrentKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICELunaFrameKernel.tf has been loaded.
+Mission run completed.
+===> Total Run Time: 1.793890 seconds
+
+========================================
+
+(GMAT-R2018a:12434): Gtk-CRITICAL **: 21:56:17.309: IA__gtk_widget_set_size_request: assertion 'width >= -1' failed
+Moderator is updating data files...
+Moderator is creating core engine...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Setting nutation file to ../data/planetary_coeff/NUTATION.DAT
+Setting leap seconds file to ../data/time/tai-utc.dat
+2020-01-20 21:56:17 GMAT Moderator successfully created core engine
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+2020-01-20 21:56:17 GMAT GUI successfully launched.
+
+Interpreting scripts from the file.
+***** file: /tmp/gmat_moonbounce.script
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully interpreted the script
+Running mission...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Kernel ../data/planetary_ephem/spk/DE405AllPlanets.bsp has been loaded.
+Kernel ../data/planetary_coeff/SPICEPlanetaryConstantsKernel.tpc has been loaded.
+Kernel ../data/time/SPICELeapSecondKernel.tls has been loaded.
+Kernel ../data/planetary_coeff/SPICEEarthPredictedKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICEEarthCurrentKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/earth_latest_high_prec.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICELunaCurrentKernel.bpc has been loaded.
+Kernel ../data/planetary_coeff/SPICELunaFrameKernel.tf has been loaded.
+Mission run completed.
+===> Total Run Time: 1.804612 seconds
+
+========================================
+First sample timestamp: 2019-06-07T08:31:01.228030000
+Clock offset between 1 and 2: -4000 nanoseconds
+Doing bin 1/5
+Doing bin 2/5
+Doing bin 3/5
+Doing bin 4/5
+Doing bin 5/5
