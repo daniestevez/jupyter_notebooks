@@ -38,6 +38,8 @@ SAMPLES_CHUNKSIZE = 2**20
 FFT_SIZE = 2**14
 PWR_AVERAGE = 2**12
 
+NARROW_BANDWIDTH = 50
+
 #####################
 
 import numpy as np
@@ -253,7 +255,8 @@ def compute_spectrum(samples, freq, N = FFT_SIZE):
     return xr.DataArray(spec, dims = 'freq', coords = {'freq' : freq + np.fft.fftshift(np.fft.fftfreq(N, 1/SAMPRATE))})
 
 def filter_signal(samples, bandwidth):
-    lowpass = scipy.signal.firwin(2048, bandwidth / SAMPRATE) # filter to +- baudrate/2
+    mult = 1 if bandwidth > NARROW_BANDWIDTH else 4
+    lowpass = scipy.signal.firwin(2048 * mult, bandwidth / SAMPRATE) # filter to +- baudrate/2
     return samples.map_overlap(lambda b: scipy.signal.convolve(lowpass, b, method='fft')[:-(lowpass.size-1)], lowpass.size-1)
 
 def compute_power(samples, sample_time, bandwidth, avg_win = PWR_AVERAGE):
@@ -351,8 +354,17 @@ def process_recording(recording_path, recording_start, recording_centre_freq, tr
     with ProgressBar():
         pwr_moonbounce= compute_power(remove_doppler(samples, sample_time, doppler_moonbounce + freq_offset), sample_time, bandwidth)
 
-    xr.Dataset({'power_direct' : pwr_direct, 'power_moonbounce' : pwr_moonbounce}, attrs = attributes).to_netcdf(output_dir / (output_base_name + '_power.nc'))
-    del pwr_direct, pwr_moonbounce
+    print('Computing direct power (narrow)...')
+    with ProgressBar():
+        pwr_direct_narrow = compute_power(remove_doppler(samples, sample_time, doppler_direct + freq_offset), sample_time, NARROW_BANDWIDTH)
+    print('Computing Moonbounce power (narrow)...')
+    with ProgressBar():
+        pwr_moonbounce_narrow = compute_power(remove_doppler(samples, sample_time, doppler_moonbounce + freq_offset), sample_time, NARROW_BANDWIDTH)
+
+    xr.Dataset({'power_direct' : pwr_direct, 'power_moonbounce' : pwr_moonbounce, \
+                'power_direct_narrow' : pwr_direct_narrow, 'power_moonbounce_narrow' : pwr_moonbounce_narrow }, \
+               attrs = attributes).to_netcdf(output_dir / (output_base_name + '_power.nc'))
+    del pwr_direct, pwr_moonbounce, pwr_direct_narrow, pwr_moonbounce_narrow
 
 def select_best_tracking_file(tracking_files_path, start):
     dist = None
