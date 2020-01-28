@@ -111,6 +111,15 @@
 			  outputs_2019_07/doppler_2019_07_28_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_28_435_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_28_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_28_435_pi9cam_wakayama_2.nc
 
+# 2019-07-31 Dwingeloo, Wakayama
+# f_offset -225
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-31T06:29:59_435.4MHz_40ksps_complex_tagged.raw 1564554607.458337 PI9CAM \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-31.raw 1564553487.203739 Wakayama \
+			  435.4e6 -225 outputs_2019_07/results_2019_07_31_435_pi9cam_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_31_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_31_435_pi9cam_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_31_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_31_435_pi9cam_wakayama_2.nc
+
 # 436MHz
 
 # 2019-07-04 Dwingeloo, Shahe, Wakayama
@@ -221,3 +230,12 @@
 			  436.4e6 -261 outputs_2019_07/results_2019_07_28_436_pi9cam_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_28_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_28_436_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_28_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_28_436_pi9cam_wakayama_2.nc
+
+# 2019-07-31 Dwingeloo, Wakayama
+# f_offset -269
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-31T06:29:59_436.4MHz_40ksps_complex_tagged.raw 1564554607.458337 PI9CAM \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-31.raw 1564553487.203739 Wakayama \
+			  436.4e6 -269 outputs_2019_07/results_2019_07_31_436_pi9cam_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_31_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_31_436_pi9cam_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_31_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_31_436_pi9cam_wakayama_2.nc
