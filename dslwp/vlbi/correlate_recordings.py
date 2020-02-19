@@ -16,7 +16,8 @@ TRACKING_FILES_PATH = '../tracking_files/'
 GS_LOCATIONS = {
     'PI9CAM' : process.PI9CAM,
     'Shahe' : [40.1175139, 116.2299139, 0.049],
-    'Harbin' : [45.9530917, 126.8002056, 0.117]
+    'Harbin' : [45.9530917, 126.8002056, 0.117],
+    'Wakayama' : [34.267316, 135.150097, 0.080]
 }
 
 NUM_PARAMETERS = 13
