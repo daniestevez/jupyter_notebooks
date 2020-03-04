@@ -30,7 +30,7 @@
 			  outputs_2019_07/doppler_2019_07_03_435_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_03_435_pi9cam_harbin_2.nc \
 			  outputs_2019_07/gmat_2019_07_03_435_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_03_435_pi9cam_harbin_2.nc
 
-# 2019-07-04 Dwingeloo, Shahe, Wakayama
+# 2019-07-04 Dwingeloo, Shahe, Harbin, Wakayama
 # f_offset -254
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-04.raw 1562223867.847919 PI9CAM \
@@ -40,10 +40,22 @@
 			  outputs_2019_07/gmat_2019_07_04_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_04_435_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-04.raw 1562223867.847919 PI9CAM \
+                          /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  435.4e6 -254 outputs_2019_07/results_2019_07_04_435_pi9cam_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_04_435_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_04_435_pi9cam_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_435_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_04_435_pi9cam_harbin_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-04.raw 1562223867.847919 PI9CAM \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
 			  435.4e6 -254 outputs_2019_07/results_2019_07_04_435_pi9cam_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_04_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_435_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_04_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_435_pi9cam_wakayama_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562221500_1562229300.raw 1562221500.199090 Shahe \
+			  /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  435.4e6 -254 outputs_2019_07/results_2019_07_04_435_shahe_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_04_435_shahe_harbin_1.nc outputs_2019_07/doppler_2019_07_04_435_shahe_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_435_shahe_harbin_1.nc outputs_2019_07/gmat_2019_07_04_435_shahe_harbin_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562221500_1562229300.raw 1562221500.199090 Shahe \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
@@ -51,14 +63,14 @@
 			  outputs_2019_07/doppler_2019_07_04_435_shahe_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_435_shahe_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_04_435_shahe_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_435_shahe_wakayama_2.nc
 
-# 2019-07-05 Dwingeloo, Harbin, Shahe, Wakayama
-# f_offset -256
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
+			  435.4e6 -254 outputs_2019_07/results_2019_07_04_435_harbin_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_04_435_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_435_harbin_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_435_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_435_harbin_wakayama_2.nc
 
-./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
-			  /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
-			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_pi9cam_harbin.npy \
-			  outputs_2019_07/doppler_2019_07_05_435_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_05_435_pi9cam_harbin_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_435_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_05_435_pi9cam_harbin_2.nc
+# 2019-07-05 Dwingeloo, Shahe, Harbin, Wakayama
+# f_offset -256
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
 			  /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
@@ -67,16 +79,28 @@
 			  outputs_2019_07/gmat_2019_07_05_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_05_435_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
+			  /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
+			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_pi9cam_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_05_435_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_05_435_pi9cam_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_435_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_05_435_pi9cam_harbin_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
 			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_pi9cam_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_05_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_435_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_05_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_435_pi9cam_wakayama_2.nc
 
-./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
-			  /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
-			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_harbin_shahe.npy \
-			  outputs_2019_07/doppler_2019_07_05_435_harbin_shahe_1.nc outputs_2019_07/doppler_2019_07_05_435_harbin_shahe_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_435_harbin_shahe_1.nc outputs_2019_07/gmat_2019_07_05_435_harbin_shahe_2.nc
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
+			  /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
+			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_shahe_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_05_435_shahe_harbin_1.nc outputs_2019_07/doppler_2019_07_05_435_shahe_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_435_shahe_harbin_1.nc outputs_2019_07/gmat_2019_07_05_435_shahe_harbin_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
+			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_shahe_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_05_435_shahe_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_435_shahe_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_435_shahe_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_435_shahe_wakayama_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
@@ -84,11 +108,6 @@
 			  outputs_2019_07/doppler_2019_07_05_435_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_435_harbin_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_05_435_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_435_harbin_wakayama_2.nc
 
-./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_435_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
-			  435.4e6 -256 outputs_2019_07/results_2019_07_05_435_shahe_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_05_435_shahe_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_435_shahe_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_435_shahe_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_435_shahe_wakayama_2.nc
 
 # 2019-07-09 Dwingeloo (x2), Wakayama
 # f_offset -210 (might be wrong, DSLWP-B_PI9CAM_2019-07-09T14:30:00_435.4MHz_40ksps_complex_tagged.raw gives -900)
@@ -187,10 +206,22 @@
 			  outputs_2019_07/gmat_2019_07_04_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_04_436_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-04.raw 1562223867.847919 PI9CAM \
+                          /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  436.4e6 -291 outputs_2019_07/results_2019_07_04_436_pi9cam_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_04_436_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_04_436_pi9cam_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_436_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_04_436_pi9cam_harbin_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-04.raw 1562223867.847919 PI9CAM \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
 			  436.4e6 -291 outputs_2019_07/results_2019_07_04_436_pi9cam_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_04_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_436_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_04_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_436_pi9cam_wakayama_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562221500_1562229300.raw 1562221500.199090 Shahe \
+			  /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  436.4e6 -291 outputs_2019_07/results_2019_07_04_436_shahe_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_04_436_shahe_harbin_1.nc outputs_2019_07/doppler_2019_07_04_436_shahe_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_436_shahe_harbin_1.nc outputs_2019_07/gmat_2019_07_04_436_shahe_harbin_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562221500_1562229300.raw 1562221500.199090 Shahe \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
@@ -198,14 +229,14 @@
 			  outputs_2019_07/doppler_2019_07_04_436_shahe_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_436_shahe_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_04_436_shahe_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_436_shahe_wakayama_2.nc
 
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562221500_1562229300.raw 1562221500.224388 Harbin \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-04.raw 1562221414.427565 Wakayama \
+			  436.4e6 -291 outputs_2019_07/results_2019_07_04_436_harbin_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_04_436_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_04_436_harbin_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_04_436_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_04_436_harbin_wakayama_2.nc
+
 # 2019-07-05 Dwingeloo, Harbin, Shahe, Wakayama
 # f_offset -293
-
-./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
-			  /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
-			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_pi9cam_harbin.npy \
-			  outputs_2019_07/doppler_2019_07_05_436_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_05_436_pi9cam_harbin_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_436_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_05_436_pi9cam_harbin_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
 			  /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
@@ -214,28 +245,34 @@
 			  outputs_2019_07/gmat_2019_07_05_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_05_436_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
+			  /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
+			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_pi9cam_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_05_436_pi9cam_harbin_1.nc outputs_2019_07/doppler_2019_07_05_436_pi9cam_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_436_pi9cam_harbin_1.nc outputs_2019_07/gmat_2019_07_05_436_pi9cam_harbin_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Dwingeloo_2019-07-05.raw 1562311463.634765 PI9CAM \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
 			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_pi9cam_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_05_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_436_pi9cam_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_05_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_436_pi9cam_wakayama_2.nc
 
-./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
-			  /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
-			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_harbin_shahe.npy \
-			  outputs_2019_07/doppler_2019_07_05_436_harbin_shahe_1.nc outputs_2019_07/doppler_2019_07_05_436_harbin_shahe_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_436_harbin_shahe_1.nc outputs_2019_07/gmat_2019_07_05_436_harbin_shahe_2.nc
-
-./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
-			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_harbin_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_2.nc
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
+			  /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
+			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_shahe_harbin.npy \
+			  outputs_2019_07/doppler_2019_07_05_436_shahe_harbin_1.nc outputs_2019_07/doppler_2019_07_05_436_shahe_harbin_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_436_shahe_harbin_1.nc outputs_2019_07/gmat_2019_07_05_436_shahe_harbin_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Shahe_1562311500_1562319300.raw 1562311500.204876 Shahe \
 			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
 			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_shahe_wakayama.npy \
 			  outputs_2019_07/doppler_2019_07_05_436_shahe_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_436_shahe_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_05_436_shahe_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_436_shahe_wakayama_2.nc
+
+./correlate_recordings.py /mnt/disk/dslwp/china/c64/meta_B_436_Harbin_1562311740_1562319060.raw 1562311740.203486 Harbin \
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-05.raw 1562310127.267374 Wakayama \
+			  436.4e6 -293 outputs_2019_07/results_2019_07_05_436_harbin_wakayama.npy \
+			  outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_2.nc \
+			  outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_2.nc
 
 # 2019-07-09 Dwingeloo (x2), Wakayama
 # f_offset -259
