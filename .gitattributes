@@ -1,0 +1,6 @@
+*.c64 annex.backend=SHA1
+*.f32 annex.backend=SHA1
+*.u8 annex.backend=SHA1
+*.npy annex.backend=SHA1
+*.npz annex.backend=SHA1
+*.gz annex.backend=SHA1
