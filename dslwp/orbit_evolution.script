@@ -24,17 +24,18 @@ DSLWP_B.SRPArea = 0.25;
 
 Create ForceModel LunaProp_ForceModel;
 LunaProp_ForceModel.CentralBody = Luna;
-LunaProp_ForceModel.PrimaryBodies = {Luna};
-LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.PrimaryBodies = {};
+%LunaProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Neptune, Saturn, Sun, Uranus, Venus};
+LunaProp_ForceModel.PointMasses = {Earth, Luna};
 LunaProp_ForceModel.Drag = None;
-LunaProp_ForceModel.SRP = On;
-LunaProp_ForceModel.RelativisticCorrection = On;
+LunaProp_ForceModel.SRP = Off;
+LunaProp_ForceModel.RelativisticCorrection = Off;
 LunaProp_ForceModel.ErrorControl = RSSStep;
-LunaProp_ForceModel.GravityField.Luna.Degree = 10;
-LunaProp_ForceModel.GravityField.Luna.Order = 10;
-LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
-LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
-LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
+%LunaProp_ForceModel.GravityField.Luna.Degree = 2;
+%LunaProp_ForceModel.GravityField.Luna.Order = 2;
+%LunaProp_ForceModel.GravityField.Luna.StmLimit = 100;
+%LunaProp_ForceModel.GravityField.Luna.PotentialFile = 'LP165P.cof';
+%LunaProp_ForceModel.GravityField.Luna.TideModel = 'None';
 
 %----------------------------------------
 %---------- Propagators
@@ -93,7 +94,7 @@ GMAT LunaOrbitView.EnableStars = On;
 GMAT LunaOrbitView.EnableConstellations = Off;
 
 Create ReportFile OrbitReport;
-OrbitReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/orbit_evolution.txt';
+OrbitReport.Filename = '/home/daniel/jupyter_notebooks/dslwp/orbit_evolution3.txt';
 OrbitReport.Add = {DSLWP_B.UTCModJulian, DSLWP_B.Luna.SMA, DSLWP_B.Luna.ECC, DSLWP_B.LunaInertial.INC, DSLWP_B.LunaInertial.RAAN, DSLWP_B.LunaInertial.AOP, DSLWP_B.Luna.MA, DSLWP_B.Luna.TA};
 OrbitReport.WriteHeaders = false;
 OrbitReport.WriteReport = true;

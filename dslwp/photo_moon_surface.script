@@ -13,24 +13,25 @@ GMAT Luna.TextureMapFileName = '/home/daniel/GMAT/R2018a/data/graphics/texture/m
 
 Create Spacecraft DSLWP_B;
 GMAT DSLWP_B.DateFormat = UTCGregorian;
-GMAT DSLWP_B.Epoch = '28 Jun 2019 03:00:00.000';
-GMAT DSLWP_B.CoordinateSystem = LunaICRF;
-GMAT DSLWP_B.DisplayStateType = Keplerian;
-GMAT DSLWP_B.SMA = 8704.162999999744;
-GMAT DSLWP_B.ECC = 0.6901870000000064;
-GMAT DSLWP_B.INC = 44.67200000000133;
-GMAT DSLWP_B.RAAN = 71.71099999999876;
-GMAT DSLWP_B.AOP = 68.00599999999966;
-GMAT DSLWP_B.TA = 176.0904292833024;
-%DSLWP_B.Epoch = '28664.5';
-%DSLWP_B.CoordinateSystem = EarthFixed;
-%DSLWP_B.DisplayStateType = Cartesian;
-%DSLWP_B.X = -283961.5011;
-%DSLWP_B.Y = 229797.7095;
-%DSLWP_B.Z = 100322.074;
-%DSLWP_B.VX = 15.871743;
-%DSLWP_B.VY = 19.876136;
-%DSLWP_B.VZ = 0.365277;
+DSLWP_B.Epoch = '25 Jul 2019 02:30:00.000';
+DSLWP_B.CoordinateSystem = LunaICRF;
+DSLWP_B.SMA = 8708.404;
+DSLWP_B.ECC = 0.747921;
+DSLWP_B.INC = 44.157;
+DSLWP_B.RAAN = 52.405;
+DSLWP_B.AOP = 86.261;
+DSLWP_B.TA = 165.00062091131025;
+
+%DSLWP_B.DateFormat = UTCModJulian;
+%DSLWP_B.Epoch = 28687.6400000000;
+%DSLWP_B.CoordinateSystem = LunaICRF;
+%DSLWP_B.X = -306.71182966925;
+%DSLWP_B.Y  =   1818.8168258589
+%DSLWP_B.Z  =   1285.4737490062
+%DSLWP_B.VX =  -1.4933397156694
+%DSLWP_B.VY =  -1.1532840993283
+%DSLWP_B.VZ =   0.4890286239282
+
 GMAT DSLWP_B.DryMass = 45;
 GMAT DSLWP_B.Cd = 2.2;
 GMAT DSLWP_B.Cr = 1.8;
@@ -220,17 +221,33 @@ PenUp CameraView GroundTrack OrbitView1;
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28673.5};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28667};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28681.279860};
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28676};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28676.583333};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28679.291667};
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28695.0};
 PenDown CameraView GroundTrack OrbitView1;
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28669.850694};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28674.095139};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28667.314641};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28667.289815};
 %Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28681.5125};
-Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28676.626389};
-
-
-
-
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28676.624306};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28676.626389};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28679.375000};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28680.000000}; % 15 jul 12:00
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28681.694444}; % 17 jul 04:40
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28683.36805555555555}; % 18 jul 21:50
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28683.409722}; % 18 jul 21:50
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28683.4125}; % 18 jul 21:54
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28685.097222}; % 20 jul 14:20
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28685.729167}; % 21 jul 05:30 
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28692.655};
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28686.800694444}; % 22 jul 07:13
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28688.49097222222}; % 23 jul 23:47
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28692.6458333333333334}; % 28 jul 03:30
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28692.7048611111111112}; % 28 jul 04:55
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28693.5513888888888889}; % 29 jul 01:14
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28694.3993055555555556}; % 29 jul 21:35
+Propagate LunaProp(DSLWP_B) {DSLWP_B.UTCModJulian = 28695.2486111111111111}; % 30 jul 17:58
+%Propagate LunaProp(DSLWP_B) {DSLWP_B.Luna.Altitude = 0};
 
 
