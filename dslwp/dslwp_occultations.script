@@ -34,6 +34,7 @@ PI9CAM.Location1 = 52.81201944;
 PI9CAM.Location2 = 6.39616944;
 PI9CAM.Location3 = 0.025;
 PI9CAM.Id = 'PI9CAM Dwingeloo';
+PI9CAM.MinimumElevationAngle = 0;
 
 %----------------------------------------
 %---------- ForceModels
@@ -81,6 +82,7 @@ ContactLocator1.WriteReport = true;
 ContactLocator1.RunMode = Automatic;
 ContactLocator1.UseEntireInterval = true;
 ContactLocator1.Observers = {PI9CAM};
+
 
 %----------------------------------------
 %---------- Mission Sequence

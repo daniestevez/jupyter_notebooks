@@ -17,6 +17,7 @@ GMAT_MOON_IMAGE = GMAT_PATH + 'data/graphics/texture/Moon_HermesCelestiaMotherlo
 
 PI9CAM = [52.81201944, 6.39616944, 0.025]
 DK5LA = [54.722981, 9.634237, 0]
+EA4GPZ = [40.6, -3.7, 700]
 
 # Receiving Groundstation location
 

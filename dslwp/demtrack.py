@@ -53,14 +53,14 @@ seconds_in_day = 3600 * 24
 def mjd2unixtimestamp(m):
     return (m - mjd_unixtimestamp_offset) * seconds_in_day
 
-def load_gmat_track(path):
+def load_gmat_track(path, skip_pa2me = False):
     lunar_radius = 1737.4
     
     gmat_data = np.fromfile(path, sep = ' ').reshape((-1,4))
     
     # Read PA coordinates and rotate to MA axis
     xyz_PA = gmat_data[:,1:]
-    xyz_ME = np.einsum('ij,kj->ki', PA_to_ME, xyz_PA)
+    xyz_ME = np.einsum('ij,kj->ki', PA_to_ME, xyz_PA) if not skip_pa2me else xyz_PA
     
     # Compute time in datetime format
     time = Time(mjd2unixtimestamp(gmat_data[:,0]), format = 'unix').datetime
@@ -111,22 +111,22 @@ def track_comparison(track1, track2):
     track1.coords['lat'].plot()
     track2.coords['lat'].plot()
     plt.title('Track comparison')
-    plt.xlabel('Latitude (deg)')
-    plt.ylabel('Time')
+    plt.ylabel('Latitude (deg)')
+    plt.xlabel('Time')
     
     plt.figure(figsize = (12,6), facecolor = 'w')
     track1.coords['lon'].plot()
     track2.coords['lon'].plot()
     plt.title('Track comparison')
-    plt.xlabel('Longitude (deg)')
-    plt.ylabel('Time')
+    plt.ylabel('Longitude (deg)')
+    plt.xlabel('Time')
     
     plt.figure(figsize = (12,6), facecolor = 'w')
     track1.plot()
     track2.plot()
     plt.title('Track comparison')
-    plt.xlabel('Altitude (km)')
-    plt.ylabel('Time')
+    plt.ylabel('Altitude (km)')
+    plt.xlabel('Time')
 
 def track_analysis(track, only_compute_impact = False):
     # upsample track to 100ms sampling
