@@ -1,18 +1,29 @@
-# jupyter_notebooks
-Assorted Jupyter notebooks by Daniel Estévez
+# Assorted Jupyter notebooks by Daniel Estévez
 
-This git repository is huge, and most people will only be interested in part of it.
+Starting from 2020-04-25 this repository has been converted to use
+[git-annex](https://git-annex.branchable.com/) to store data files.
+The old version of the repository that stored all data files has been
+saved as a backup in
+[jupyter_notebooks_old](https://github.com/daniestevez/jupyter_notebooks_old).
 
-Individual Jupyter notebooks can be downloaded by using the "Raw" button when viewing the
-notebook (right click the "Raw" button and choose "Save link as..." is advised).
-
-Complete folders can be downloaded using `svn` as indicated [here](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/18194523#18194523).
-Basically, navigate to the folder you wish to download, replace `tree/master` with `trunk` and use that URL to do an `svn checkout`.
-
-Example: To download only the `eshail2` folder, the Github URL is `https://github.com/daniestevez/jupyter_notebooks/tree/master/eshail2`, so you
-should do
+To download data files you must have git-annex installed.
+After cloning the repository, do
 
 ```
-svn checkout https://github.com/daniestevez/jupyter_notebooks/trunk/eshail2
+git remote add -f eala http://eala.destevez.net/~daniel/jupyter_notebooks.git
+```
+
+to add the remote where the data files are stored. The missing data files are
+represented as broken symbolic links. Individual files can be
+downloaded by using `git annex get`, as in this example:
+
+```
+git annex get fmt.all
+```
+
+To download all the data files you can do
+
+```
+git annex sync eala --content
 ```
 
