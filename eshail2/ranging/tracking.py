@@ -49,7 +49,7 @@ def acquire(x):
             best = M
     return {'doppler' : best_doppler, 'corr' : best_corr}
 
-def track(x, code_delay, secondary_code_phase = None, el_spacing = 0.01,
+def track(x, code_delay, secondary_code_phase = None, el_spacing = 0.1,
           block_samples = int(1e-3 * fs), max_correlations = None, freq = 0):
     dll_slope = 3
     
