@@ -1,0 +1,99 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-07-23 17:40:38
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.CoordinateSystem = SunICRF;
+Tianwen1.DisplayStateType = Cartesian;
+% First set of elements
+%Tianwen1.Epoch = '23 Jul 2020 06:40:07.000';
+%Tianwen1.X = 77395324.623705;
+%Tianwen1.Y = -120028596.942956;
+%Tianwen1.Z = -52029631.885987;
+%Tianwen1.VX = 31.179136;
+%Tianwen1.VY = 15.128088;
+%Tianwen1.VZ = 7.490056;
+% Second set of elements
+Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
+Tianwen1.X = 82339427.525020;
+Tianwen1.Y = -117411231.235495;
+Tianwen1.Z = -50765981.325446;
+Tianwen1.VX = 27.983074;
+Tianwen1.VY = 15.464298;
+Tianwen1.VZ = 7.384547;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Earth;
+ForceModel.PrimaryBodies = {Earth};
+ForceModel.PointMasses = {Jupiter, Luna, Mars, Sun, Venus};
+ForceModel.Drag = None;
+ForceModel.SRP = Off;
+ForceModel.RelativisticCorrection = On;
+ForceModel.ErrorControl = RSSStep;
+ForceModel.GravityField.Earth.Degree = 20;
+ForceModel.GravityField.Earth.Order = 20;
+ForceModel.GravityField.Earth.StmLimit = 100;
+ForceModel.GravityField.Earth.PotentialFile = 'JGM3.cof';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 1;
+Prop.MinStep = 0.1;
+Prop.MaxStep = 1;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create Yukon Yukon1;
+
+%----------------------------------------
+%---------- Arrays, Variables, Strings
+%----------------------------------------
+Create Variable epoch errorPos propTime finalX finalY finalZ;
+
+% First set of elements
+%epoch = 29053.7778587963
+%propTime = 672;
+%finalX = 77416179.267271;
+%finalY = -120018414.606850;
+%finalZ = -52024602.442550;
+% Second set of elements
+epoch = 29055.82222868055
+propTime = 5088.107;
+finalX = 82481758.364358;
+finalY = -117332492.434998;
+finalZ = -50728386.158936;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Optimize Yukon1 {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Vary Yukon1(Tianwen1.UTCModJulian = epoch, {Perturbation = 0.00000001, MaxStep = 0.0000001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Propagate Prop(Tianwen1) {Tianwen1.ElapsedSecs = propTime};
+   errorPos = sqrt((Tianwen1.SunICRF.X - finalX)^2 + (Tianwen1.SunICRF.Y - finalY)^2 + (Tianwen1.SunICRF.Z - finalZ)^2);
+   Minimize Yukon1(errorPos);
+EndOptimize;  % For optimizer Yukon1
