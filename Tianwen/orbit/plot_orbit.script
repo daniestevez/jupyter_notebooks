@@ -1,0 +1,180 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-07-23 17:40:38
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.Epoch = '23 Jul 2020 06:40:07.000';
+Tianwen1.CoordinateSystem = SunICRF;
+Tianwen1.DisplayStateType = Cartesian;
+Tianwen1.X = 77395324.623705;
+Tianwen1.Y = -120028596.942956;
+Tianwen1.Z = -52029631.885987;
+Tianwen1.VX = 31.179136;
+Tianwen1.VY = 15.128088;
+Tianwen1.VZ = 7.490056;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Sun;
+DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Sun};
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = PrinceDormand45;
+DefaultProp.InitialStepSize = 60;
+DefaultProp.MinStep = 60;
+DefaultProp.MaxStep = 3600;
+
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+GMAT SunICRF.Origin = Sun;
+GMAT SunICRF.Axes = ICRF;
+
+Create CoordinateSystem SunEcliptic;
+GMAT SunEcliptic.Origin = Sun;
+GMAT SunEcliptic.Axes = MJ2000Ec;
+
+Create CoordinateSystem MarsInertial;
+GMAT MarsInertial.Origin = Mars;
+GMAT MarsInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView SolarSystemView;
+SolarSystemView.Add = {Tianwen1, Earth, Sun, Mars};
+SolarSystemView.CoordinateSystem = SunEcliptic;
+SolarSystemView.DrawObject = [ true true true true ];
+SolarSystemView.DataCollectFrequency = 1;
+SolarSystemView.UpdatePlotFrequency = 50;
+SolarSystemView.NumPointsToRedraw = 0;
+SolarSystemView.ShowPlot = true;
+SolarSystemView.MaxPlotPoints = 20000;
+SolarSystemView.ShowLabels = true;
+SolarSystemView.ViewPointReference = Sun;
+SolarSystemView.ViewPointVector = [ 0 0 1 ];
+SolarSystemView.ViewDirection = Sun;
+SolarSystemView.ViewScaleFactor = 600000000;
+SolarSystemView.ViewUpCoordinateSystem = SunEcliptic;
+SolarSystemView.ViewUpAxis = Z;
+SolarSystemView.EclipticPlane = Off;
+SolarSystemView.XYPlane = On;
+SolarSystemView.WireFrame = Off;
+SolarSystemView.Axes = On;
+SolarSystemView.Grid = Off;
+SolarSystemView.SunLine = Off;
+SolarSystemView.UseInitialView = On;
+SolarSystemView.StarCount = 7000;
+SolarSystemView.EnableStars = Off;
+SolarSystemView.EnableConstellations = Off;
+
+Create OrbitView EarthView;
+GMAT EarthView.SolverIterations = Current;
+GMAT EarthView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT EarthView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT EarthView.RelativeZOrder = 930;
+GMAT EarthView.Maximized = true;
+GMAT EarthView.Add = {Tianwen1, Earth};
+GMAT EarthView.CoordinateSystem = EarthMJ2000Eq;
+GMAT EarthView.DrawObject = [ true true ];
+GMAT EarthView.DataCollectFrequency = 1;
+GMAT EarthView.UpdatePlotFrequency = 50;
+GMAT EarthView.NumPointsToRedraw = 0;
+GMAT EarthView.ShowPlot = true;
+GMAT EarthView.MaxPlotPoints = 20000;
+GMAT EarthView.ShowLabels = true;
+GMAT EarthView.ViewPointReference = Earth;
+GMAT EarthView.ViewPointVector = [ 0 0 300000 ];
+GMAT EarthView.ViewDirection = Earth;
+GMAT EarthView.ViewScaleFactor = 1;
+GMAT EarthView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT EarthView.ViewUpAxis = Z;
+GMAT EarthView.EclipticPlane = Off;
+GMAT EarthView.XYPlane = On;
+GMAT EarthView.WireFrame = Off;
+GMAT EarthView.Axes = On;
+GMAT EarthView.Grid = Off;
+GMAT EarthView.SunLine = Off;
+GMAT EarthView.UseInitialView = On;
+GMAT EarthView.StarCount = 7000;
+GMAT EarthView.EnableStars = On;
+GMAT EarthView.EnableConstellations = On;
+
+Create OrbitView MarsView;
+GMAT MarsView.SolverIterations = Current;
+GMAT MarsView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT MarsView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT MarsView.RelativeZOrder = 928;
+GMAT MarsView.Maximized = true;
+GMAT MarsView.Add = {Tianwen1, Mars};
+GMAT MarsView.CoordinateSystem = MarsInertial;
+GMAT MarsView.DrawObject = [ true true ];
+GMAT MarsView.DataCollectFrequency = 1;
+GMAT MarsView.UpdatePlotFrequency = 50;
+GMAT MarsView.NumPointsToRedraw = 0;
+GMAT MarsView.ShowPlot = true;
+GMAT MarsView.MaxPlotPoints = 20000;
+GMAT MarsView.ShowLabels = true;
+GMAT MarsView.ViewPointReference = Mars;
+GMAT MarsView.ViewPointVector = [ 0 0 2000000 ];
+GMAT MarsView.ViewDirection = Mars;
+GMAT MarsView.ViewScaleFactor = 1;
+GMAT MarsView.ViewUpCoordinateSystem = MarsInertial;
+GMAT MarsView.ViewUpAxis = Z;
+GMAT MarsView.EclipticPlane = Off;
+GMAT MarsView.XYPlane = On;
+GMAT MarsView.WireFrame = Off;
+GMAT MarsView.Axes = On;
+GMAT MarsView.Grid = Off;
+GMAT MarsView.SunLine = Off;
+GMAT MarsView.UseInitialView = On;
+GMAT MarsView.StarCount = 7000;
+GMAT MarsView.EnableStars = On;
+GMAT MarsView.EnableConstellations = On;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Tianwen1.OrbitColor = Red;
+Propagate DefaultProp(Tianwen1) {Tianwen1.ElapsedSecs = 0};
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
+PenUp SolarSystemView EarthView MarsView;
+PenDown SolarSystemView EarthView MarsView;
+Tianwen1.OrbitColor = Yellow;
+Tianwen1.X = 82339427.525020;
+Tianwen1.Y = -117411231.235495;
+Tianwen1.Z = -50765981.325446;
+Tianwen1.VX = 27.983074;
+Tianwen1.VY = 15.464298;
+Tianwen1.VZ = 7.384547;
+Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
+Propagate BackProp DefaultProp(Tianwen1) {Tianwen1.UTCModJulian = 29053.7778587963};
+PenUp SolarSystemView EarthView MarsView;
+PenDown SolarSystemView EarthView MarsView;
+Tianwen1.X = 82339427.525020;
+Tianwen1.Y = -117411231.235495;
+Tianwen1.Z = -50765981.325446;
+Tianwen1.VX = 27.983074;
+Tianwen1.VY = 15.464298;
+Tianwen1.VZ = 7.384547;
+Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};

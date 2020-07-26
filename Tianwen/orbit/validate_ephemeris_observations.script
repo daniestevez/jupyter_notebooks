@@ -1,0 +1,171 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-07-23 17:40:38
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.CoordinateSystem = SunICRF;
+Tianwen1.DisplayStateType = Cartesian;
+% First set of elements
+%Tianwen1.Epoch = '23 Jul 2020 06:40:07.000';
+%Tianwen1.X = 77395324.623705;
+%Tianwen1.Y = -120028596.942956;
+%Tianwen1.Z = -52029631.885987;
+%Tianwen1.VX = 31.179136;
+%Tianwen1.VY = 15.128088;
+%Tianwen1.VZ = 7.490056;
+% Second set of elements
+Tianwen1.Epoch = '25 Jul 2020 09:06:40.662';
+Tianwen1.X = 82478178.937139;
+Tianwen1.Y = -117334474.639337;
+Tianwen1.Z = -50729332.489742;
+Tianwen1.VX = 27.963857;
+Tianwen1.VY = 15.485400;
+Tianwen1.VZ = 7.392959;
+     
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+% Locations precision reduced to ~10km for privacy
+
+Create GroundStation M0EYT;
+M0EYT.CentralBody = Earth;
+M0EYT.StateType = Spherical;
+M0EYT.HorizonReference = Ellipsoid;
+M0EYT.Location1 = 50.8;
+M0EYT.Location2 = 358.0;
+M0EYT.Location3 = 0.0;
+
+Create GroundStation DF2MZ;
+DF2MZ.CentralBody = Earth;
+DF2MZ.StateType = Spherical;
+DF2MZ.HorizonReference = Ellipsoid;
+DF2MZ.Location1 = 54.4;
+DF2MZ.Location2 = 10.3;
+DF2MZ.Location3 = 0.0;
+
+Create GroundStation Bochum;
+Bochum.CentralBody = Earth;
+Bochum.StateType = Spherical;
+Bochum.HorizonReference = Ellipsoid;
+Bochum.Location1 = 51.426944;
+Bochum.Location2 = 7.1925;
+Bochum.Location3 = 0.0;
+
+Create GroundStation G8FXB;
+G8FXB.CentralBody = Earth;
+G8FXB.StateType = Spherical;
+G8FXB.HorizonReference = Ellipsoid;
+G8FXB.Location1 = 51.7;
+G8FXB.Location2 = 0.4;
+G8FXB.Location3 = 0.0;
+
+Create GroundStation IW1DTU;
+IW1DTU.CentralBody = Earth;
+IW1DTU.StateType = Spherical;
+IW1DTU.HorizonReference = Ellipsoid;
+IW1DTU.Location1 = 45.3;
+IW1DTU.Location2 = 7.7;
+IW1DTU.Location3 = 0.0;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Earth;
+ForceModel.PrimaryBodies = {Earth};
+ForceModel.PointMasses = {Jupiter, Luna, Mars, Sun, Venus};
+ForceModel.Drag = None;
+ForceModel.SRP = Off;
+ForceModel.RelativisticCorrection = On;
+ForceModel.ErrorControl = RSSStep;
+ForceModel.GravityField.Earth.Degree = 20;
+ForceModel.GravityField.Earth.Order = 20;
+ForceModel.GravityField.Earth.StmLimit = 100;
+ForceModel.GravityField.Earth.PotentialFile = 'JGM3.cof';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 10;
+Prop.MinStep = 10;
+Prop.MaxStep = 60;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+Create CoordinateSystem M0EYTtopo;
+M0EYTtopo.Origin = M0EYT;
+M0EYTtopo.Axes = Topocentric;
+
+Create CoordinateSystem DF2MZtopo;
+DF2MZtopo.Origin = DF2MZ;
+DF2MZtopo.Axes = Topocentric;
+
+Create CoordinateSystem Bochumtopo;
+Bochumtopo.Origin = Bochum;
+Bochumtopo.Axes = Topocentric;
+
+Create CoordinateSystem G8FXBtopo;
+G8FXBtopo.Origin = G8FXB;
+G8FXBtopo.Axes = Topocentric;
+
+Create CoordinateSystem IW1DTUtopo;
+IW1DTUtopo.Origin = IW1DTU;
+IW1DTUtopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportM0EYT;
+ReportM0EYT.Filename = 'Tianwen1_M0EYT.txt';
+ReportM0EYT.Add = {Tianwen1.UTCModJulian, Tianwen1.M0EYTtopo.X, Tianwen1.M0EYTtopo.Y, Tianwen1.M0EYTtopo.Z, Tianwen1.M0EYTtopo.VX, Tianwen1.M0EYTtopo.VY, Tianwen1.M0EYTtopo.VZ};
+ReportM0EYT.WriteHeaders = false;
+
+Create ReportFile ReportDF2MZ;
+ReportDF2MZ.Filename = 'Tianwen1_DF2MZ.txt';
+ReportDF2MZ.Add = {Tianwen1.UTCModJulian, Tianwen1.DF2MZtopo.X, Tianwen1.DF2MZtopo.Y, Tianwen1.DF2MZtopo.Z, Tianwen1.DF2MZtopo.VX, Tianwen1.DF2MZtopo.VY, Tianwen1.DF2MZtopo.VZ};
+ReportDF2MZ.WriteHeaders = false;
+
+Create ReportFile ReportBochum;
+ReportBochum.Filename = 'Tianwen1_Bochum.txt';
+ReportBochum.Add = {Tianwen1.UTCModJulian, Tianwen1.Bochumtopo.X, Tianwen1.Bochumtopo.Y, Tianwen1.Bochumtopo.Z, Tianwen1.Bochumtopo.VX, Tianwen1.Bochumtopo.VY, Tianwen1.Bochumtopo.VZ};
+ReportBochum.WriteHeaders = false;
+
+Create ReportFile ReportG8FXB;
+ReportG8FXB.Filename = 'Tianwen1_G8FXB.txt';
+ReportG8FXB.Add = {Tianwen1.UTCModJulian, Tianwen1.G8FXBtopo.X, Tianwen1.G8FXBtopo.Y, Tianwen1.G8FXBtopo.Z, Tianwen1.G8FXBtopo.VX, Tianwen1.G8FXBtopo.VY, Tianwen1.G8FXBtopo.VZ};
+ReportG8FXB.WriteHeaders = false;
+
+Create ReportFile ReportIW1DTU;
+ReportIW1DTU.Filename = 'Tianwen1_IW1DTU.txt';
+ReportIW1DTU.Add = {Tianwen1.UTCModJulian, Tianwen1.IW1DTUtopo.X, Tianwen1.IW1DTUtopo.Y, Tianwen1.IW1DTUtopo.Z, Tianwen1.IW1DTUtopo.VX, Tianwen1.IW1DTUtopo.VY, Tianwen1.IW1DTUtopo.VZ};
+ReportIW1DTU.WriteHeaders = false;
+
+Create ReportFile ReportRADEC;
+ReportRADEC.Filename = 'Tianwen1_RADEC_RMAG.txt';
+ReportRADEC.Add = {Tianwen1.UTCModJulian, Tianwen1.EarthICRF.RA, Tianwen1.EarthICRF.DEC, Tianwen1.Earth.RMAG};
+ReportRADEC.WriteHeaders = false;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate Prop(Tianwen1) {Tianwen1.ElapsedDays = 5};
+%Propagate BackProp Prop(Tianwen1) {Tianwen1.ElapsedDays = -1.5};
