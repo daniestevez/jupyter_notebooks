@@ -9,6 +9,14 @@ Create Spacecraft Tianwen1;
 Tianwen1.DateFormat = UTCGregorian;
 Tianwen1.CoordinateSystem = SunICRF;
 Tianwen1.DisplayStateType = Cartesian;
+% Zeroth set of elements
+Tianwen1.Epoch = '23 Jul 2020 06:27:04.157';
+Tianwen1.X = 77370211.41732779;
+Tianwen1.Y = -120040665.5773057;
+Tianwen1.Z = -52035627.25877059;
+Tianwen1.VX = 31.626899470825165;
+Tianwen1.VY = 15.031561106807159;
+Tianwen1.VZ = 7.495133460502749;
 % First set of elements
 %Tianwen1.Epoch = '23 Jul 2020 06:40:07.000';
 %Tianwen1.X = 77395324.623705;
@@ -18,13 +26,13 @@ Tianwen1.DisplayStateType = Cartesian;
 %Tianwen1.VY = 15.128088;
 %Tianwen1.VZ = 7.490056;
 % Second set of elements
-Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
-Tianwen1.X = 82339427.525020;
-Tianwen1.Y = -117411231.235495;
-Tianwen1.Z = -50765981.325446;
-Tianwen1.VX = 27.983074;
-Tianwen1.VY = 15.464298;
-Tianwen1.VZ = 7.384547;
+%Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
+%Tianwen1.X = 82339427.525020;
+%Tianwen1.Y = -117411231.235495;
+%Tianwen1.Z = -50765981.325446;
+%Tianwen1.VX = 27.983074;
+%Tianwen1.VY = 15.464298;
+%Tianwen1.VZ = 7.384547;
 
 %----------------------------------------
 %---------- ForceModels
@@ -38,8 +46,8 @@ ForceModel.Drag = None;
 ForceModel.SRP = Off;
 ForceModel.RelativisticCorrection = On;
 ForceModel.ErrorControl = RSSStep;
-ForceModel.GravityField.Earth.Degree = 20;
-ForceModel.GravityField.Earth.Order = 20;
+ForceModel.GravityField.Earth.Degree = 70;
+ForceModel.GravityField.Earth.Order = 70;
 ForceModel.GravityField.Earth.StmLimit = 100;
 ForceModel.GravityField.Earth.PotentialFile = 'JGM3.cof';
 
@@ -73,6 +81,17 @@ Create Yukon Yukon1;
 %----------------------------------------
 Create Variable epoch errorPos propTime finalX finalY finalZ;
 
+% Zeroth set of elements
+epoch = 0;
+%propTime = 192.0017;
+%finalX = 77376272.11570697;
+%finalY = -120037776.50837281;
+%finalZ = -52034188.08504225;
+% Zeroth set of elements to first set of elements
+propTime = 1472.0151;
+finalX = 77416179.26727146;
+finalY = -120018414.60685001;
+finalZ = -52024602.442550;
 % First set of elements
 %epoch = 29053.7778587963
 %propTime = 672;
@@ -80,20 +99,21 @@ Create Variable epoch errorPos propTime finalX finalY finalZ;
 %finalY = -120018414.606850;
 %finalZ = -52024602.442550;
 % Second set of elements
-epoch = 29055.82222868055
-propTime = 5088.107;
-finalX = 82481758.364358;
-finalY = -117332492.434998;
-finalZ = -50728386.158936;
+%epoch = 29055.82222868055
+%propTime = 5088.107;
+%finalX = 82481758.364358;
+%finalY = -117332492.434998;
+%finalZ = -50728386.158936;
 
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
-Optimize Yukon1 {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
-   Vary Yukon1(Tianwen1.UTCModJulian = epoch, {Perturbation = 0.00000001, MaxStep = 0.0000001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+%Optimize Yukon1 {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+%   Vary Yukon1(Tianwen1.UTCModJulian = epoch, {Perturbation = 0.00000001, MaxStep = 0.0000001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
    Propagate Prop(Tianwen1) {Tianwen1.ElapsedSecs = propTime};
    errorPos = sqrt((Tianwen1.SunICRF.X - finalX)^2 + (Tianwen1.SunICRF.Y - finalY)^2 + (Tianwen1.SunICRF.Z - finalZ)^2);
-   Minimize Yukon1(errorPos);
-EndOptimize;  % For optimizer Yukon1
+	Write errorPos;
+%   Minimize Yukon1(errorPos);
+%EndOptimize;  % For optimizer Yukon1

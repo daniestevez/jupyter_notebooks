@@ -1,0 +1,72 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-07-23 17:40:38
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.Epoch = '26 Jul 2020 10:52:42.492';
+Tianwen1.CoordinateSystem = SunICRF;
+Tianwen1.DisplayStateType = Cartesian;
+% Third set of elements
+Tianwen1.X = 85150291.38521843;
+Tianwen1.Y = -115825547.7381494;
+Tianwen1.Z = -50010362.14032;
+Tianwen1.VX = 27.6141067728233;
+Tianwen1.VY = 15.89675041632358;
+Tianwen1.VZ = 7.561247260377793;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Sun;
+ForceModel.PointMasses = {Earth, Jupiter, Mars, Sun, Venus, Saturn};
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 10;
+Prop.Accuracy = 9.999999999999999e-12;
+Prop.MinStep = 10;
+Prop.MaxStep = 60;
+Prop.MaxStepAttempts = 50;
+
+Create Propagator TenMinuteProp;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 600;
+Prop.MinStep = 600;
+Prop.MaxStep = 600;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportRADEC;
+ReportRADEC.Filename = 'Tianwen1_RADEC_RMAG.txt';
+ReportRADEC.Add = {Tianwen1.UTCModJulian, Tianwen1.EarthICRF.RA, Tianwen1.EarthICRF.DEC, Tianwen1.Earth.RMAG};
+ReportRADEC.WriteHeaders = false;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate Prop(Tianwen1) {Tianwen1.ElapsedSecs = 437.508};
+Propagate Prop(Tianwen1) {Tianwen1.Mars.Periapsis};

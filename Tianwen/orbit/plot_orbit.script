@@ -7,15 +7,14 @@
 
 Create Spacecraft Tianwen1;
 Tianwen1.DateFormat = UTCGregorian;
-Tianwen1.Epoch = '23 Jul 2020 06:40:07.000';
 Tianwen1.CoordinateSystem = SunICRF;
-Tianwen1.DisplayStateType = Cartesian;
-Tianwen1.X = 77395324.623705;
-Tianwen1.Y = -120028596.942956;
-Tianwen1.Z = -52029631.885987;
-Tianwen1.VX = 31.179136;
-Tianwen1.VY = 15.128088;
-Tianwen1.VZ = 7.490056;
+Tianwen1.Epoch = '23 Jul 2020 06:27:04.157';
+Tianwen1.X = 77370211.41732779;
+Tianwen1.Y = -120040665.5773057;
+Tianwen1.Z = -52035627.25877059;
+Tianwen1.VX = 31.626899470825165;
+Tianwen1.VY = 15.031561106807159;
+Tianwen1.VZ = 7.495133460502749;
 
 %----------------------------------------
 %---------- ForceModels
@@ -23,7 +22,7 @@ Tianwen1.VZ = 7.490056;
 
 Create ForceModel DefaultProp_ForceModel;
 DefaultProp_ForceModel.CentralBody = Sun;
-DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Sun};
+DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Mars, Sun, Luna};
 
 %----------------------------------------
 %---------- Propagators
@@ -33,7 +32,7 @@ Create Propagator DefaultProp;
 DefaultProp.FM = DefaultProp_ForceModel;
 DefaultProp.Type = PrinceDormand45;
 DefaultProp.InitialStepSize = 60;
-DefaultProp.MinStep = 60;
+DefaultProp.MinStep = 10;
 DefaultProp.MaxStep = 3600;
 
 
@@ -160,21 +159,21 @@ Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
 PenUp SolarSystemView EarthView MarsView;
 PenDown SolarSystemView EarthView MarsView;
 Tianwen1.OrbitColor = Yellow;
-Tianwen1.X = 82339427.525020;
-Tianwen1.Y = -117411231.235495;
-Tianwen1.Z = -50765981.325446;
-Tianwen1.VX = 27.983074;
-Tianwen1.VY = 15.464298;
-Tianwen1.VZ = 7.384547;
-Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
-Propagate BackProp DefaultProp(Tianwen1) {Tianwen1.UTCModJulian = 29053.7778587963};
+Tianwen1.Epoch = '26 Jul 2020 10:52:42.492';
+Tianwen1.X = 85150291.38521843;
+Tianwen1.Y = -115825547.7381494;
+Tianwen1.Z = -50010362.14032;
+Tianwen1.VX = 27.6141067728233;
+Tianwen1.VY = 15.89675041632358;
+Tianwen1.VZ = 7.561247260377793;
+Propagate BackProp DefaultProp(Tianwen1) {Tianwen1.UTCModJulian = 29053.76879811342};
 PenUp SolarSystemView EarthView MarsView;
 PenDown SolarSystemView EarthView MarsView;
-Tianwen1.X = 82339427.525020;
-Tianwen1.Y = -117411231.235495;
-Tianwen1.Z = -50765981.325446;
-Tianwen1.VX = 27.983074;
-Tianwen1.VY = 15.464298;
-Tianwen1.VZ = 7.384547;
-Tianwen1.Epoch = '25 Jul 2020 07:44:00.558';
+Tianwen1.Epoch = '26 Jul 2020 10:52:42.492';
+Tianwen1.X = 85150291.38521843;
+Tianwen1.Y = -115825547.7381494;
+Tianwen1.Z = -50010362.14032;
+Tianwen1.VX = 27.6141067728233;
+Tianwen1.VY = 15.89675041632358;
+Tianwen1.VZ = 7.561247260377793;
 Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};

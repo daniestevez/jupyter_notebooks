@@ -18,19 +18,25 @@ Tianwen1.DisplayStateType = Cartesian;
 %Tianwen1.VY = 15.128088;
 %Tianwen1.VZ = 7.490056;
 % Second set of elements
-Tianwen1.Epoch = '25 Jul 2020 09:06:40.662';
-Tianwen1.X = 82478178.937139;
-Tianwen1.Y = -117334474.639337;
-Tianwen1.Z = -50729332.489742;
-Tianwen1.VX = 27.963857;
-Tianwen1.VY = 15.485400;
-Tianwen1.VZ = 7.392959;
-     
+%Tianwen1.Epoch = '25 Jul 2020 08:09:40.662';
+%Tianwen1.X = 82478178.937139;
+%Tianwen1.Y = -117334474.639337;
+%Tianwen1.Z = -50729332.489742;
+%Tianwen1.VX = 27.963857;
+%Tianwen1.VY = 15.485400;
+%Tianwen1.VZ = 7.392959;
+% Third set of elements
+Tianwen1.X = 85150291.38521843
+Tianwen1.Y = -115825547.73814942
+Tianwen1.Z = -50010362.140319996
+Tianwen1.VX = 27.6141067728233
+Tianwen1.VY = 15.896750416323576
+Tianwen1.VZ = 7.561247260377793
+Tianwen1.Epoch = '26 Jul 2020 10:52:42.492';   
+
 %----------------------------------------
 %---------- GroundStations
 %----------------------------------------
-
-% Locations precision reduced to ~10km for privacy
 
 Create GroundStation M0EYT;
 M0EYT.CentralBody = Earth;
@@ -44,25 +50,25 @@ Create GroundStation DF2MZ;
 DF2MZ.CentralBody = Earth;
 DF2MZ.StateType = Spherical;
 DF2MZ.HorizonReference = Ellipsoid;
-DF2MZ.Location1 = 54.4;
-DF2MZ.Location2 = 10.3;
-DF2MZ.Location3 = 0.0;
+DF2MZ.Location1 = 54.353222;
+DF2MZ.Location2 = 10.279056;
+DF2MZ.Location3 = 0.035;
 
 Create GroundStation Bochum;
 Bochum.CentralBody = Earth;
 Bochum.StateType = Spherical;
 Bochum.HorizonReference = Ellipsoid;
-Bochum.Location1 = 51.426944;
-Bochum.Location2 = 7.1925;
-Bochum.Location3 = 0.0;
+Bochum.Location1 = 51.426990;
+Bochum.Location2 = 7.192566;
+Bochum.Location3 = 0.15965;
 
 Create GroundStation G8FXB;
 G8FXB.CentralBody = Earth;
 G8FXB.StateType = Spherical;
 G8FXB.HorizonReference = Ellipsoid;
-G8FXB.Location1 = 51.7;
-G8FXB.Location2 = 0.4;
-G8FXB.Location3 = 0.0;
+G8FXB.Location1 = 51.660140;
+G8FXB.Location2 = 0.447860;
+G8FXB.Location3 = 0.097;
 
 Create GroundStation IW1DTU;
 IW1DTU.CentralBody = Earth;
@@ -167,5 +173,5 @@ ReportRADEC.WriteHeaders = false;
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate Prop(Tianwen1) {Tianwen1.ElapsedDays = 5};
-%Propagate BackProp Prop(Tianwen1) {Tianwen1.ElapsedDays = -1.5};
+%Propagate Prop(Tianwen1) {Tianwen1.ElapsedDays = 5};
+Propagate BackProp Prop(Tianwen1) {Tianwen1.ElapsedDays = -3.5};
