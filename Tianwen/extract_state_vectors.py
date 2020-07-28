@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-import numpy as np
-import struct
-from construct import *
+# Copyright 2018-2019 Daniel Estevez <daniel@destevez.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+import ccsds
 
 import sys
 from datetime import datetime, timedelta
-
-AOSPrimaryHeader = BitStruct('transfer_frame_version_number' / BitsInteger(2),
-                                 'spacecraft_id' / BitsInteger(8),
-                                 'virtual_channel_id' / BitsInteger(6),
-                                 'virtual_channel_frame_count' / BitsInteger(24),
-                                 'replay_flag' / Flag,
-                                 'vc_frame_count_usage_flag' / Flag,
-                                 'rsvd_spare' / BitsInteger(2),
-                                 'vc_framecount_cycle' / BitsInteger(4))
-
-
-
+import struct
+import functools
 
 def usage():
     print(f'Usage: {sys.argv[0]} input_file format')
@@ -31,6 +25,15 @@ parity check bytes (which are ignored here).
 Short indicates a file format which is a concatenation of 220 byte
 frames composed only by the useful data.""")
 
+def read_frame(f, frame_type):
+    frame_size = 220 if frame_type == 'short' else 256
+    b = f.read(frame_size)
+    if not b:
+        return None
+    if frame_type == 'full':
+        b = b[4:-32]
+    return ccsds.AOSFrame.parse(b)
+    
 def main():
     if len(sys.argv) != 3:
         usage()
@@ -41,23 +44,9 @@ def main():
         usage()
         exit(1)
 
-    frame_size = 220 if frame_type == 'short' else 256
-    frames = np.fromfile(sys.argv[1], dtype = 'uint8')
-    frames = frames[:frames.size//frame_size*frame_size].reshape((-1, frame_size))
-    if frame_size == 256:
-        frames = frames[:,4:-32] # throw away syncword and RS check bytes
 
-    #  parse AOS primary headers
-    primary_headers = [AOSPrimaryHeader.parse(bytes(f)) for f in frames]
-    sc_id = np.array([p.spacecraft_id for p in primary_headers])
-    vcid = np.array([p.virtual_channel_id for p in primary_headers])
-    vcfc = np.array([p.virtual_channel_frame_count for p in primary_headers])
-
-    # State vectors are contained in the last 48 bytes of frames using
-    # spacecraft ID 245, virtual channel 1 and having virtual channel
-    # frame count equal to 22 moulo 64
-    # These frames are transmitted every 32 seconds
-    state_vector_frames = (sc_id == 245) & (vcid == 1) & (vcfc % 64 == 22)
+    f = open(sys.argv[1], 'rb')
+    frames = iter(functools.partial(read_frame, f, frame_type), None)
 
     # The unexplained correction of -3400.2 seconds below has been
     # determined experimentally by using data collected by M0EYT
@@ -66,12 +55,17 @@ def main():
     # between propagation of the first vector, and the last vector
     # in the data series
     epoch = datetime(2020, 7, 23) - timedelta(seconds = 3400.2)
+    epoch = epoch - timedelta(seconds =  0x14f * 2**32 * 1e-4)
+#    epoch = datetime(2015,12,31,16,00,00)
+    print('Using epoch', epoch)
 
-
-    for frame in frames[state_vector_frames]:
-        timestamp = epoch + timedelta(seconds = struct.unpack('>I', bytes(frame[120:124]))[0] * 1e-4)
-        state_vector = struct.unpack('>6d', bytes(frame[-6*8:]))
-        print(timestamp, *(s for s in state_vector))
+    for packet in ccsds.extract_space_packets(frames, 245, 1):
+        if ccsds.SpacePacketPrimaryHeader.parse(packet).APID == 1287:
+            timestamp_field = packet[18:][:6]
+            timestamp_value = struct.unpack('>Q', b'\x00\x00' + timestamp_field)[0]
+            timestamp = epoch + timedelta(seconds = timestamp_value * 1e-4)
+            state_vector = struct.unpack('>6d', packet[72:][:6*8])
+            print(f'[{timestamp_field.hex()}]', timestamp, *(s for s in state_vector))
 
 if __name__ == '__main__':
     main()

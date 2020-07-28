@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Copyright 2018-2019 Daniel Estevez <daniel@destevez.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+from construct import *
+
+import warnings
+
+AOSPrimaryHeader = BitStruct(
+    'transfer_frame_version_number' / BitsInteger(2),
+    'spacecraft_id' / BitsInteger(8),
+    'virtual_channel_id' / BitsInteger(6),
+    'virtual_channel_frame_count' / BitsInteger(24),
+    'replay_flag' / Flag,
+    'vc_frame_count_usage_flag' / Flag,
+    'rsvd_spare' / BitsInteger(2),
+    'vc_framecount_cycle' / BitsInteger(4)
+)
+
+AOSInsertZone = Struct(
+    'unknown1' / Hex(Int16ub),
+    'timestamp' / Int32ub, # in units of 100us
+    'unknown2' / Hex(Int16ub)
+)
+
+M_PDU_Header = BitStruct(
+    'rsv_spare' / BitsInteger(5),
+    'first_header_pointer' / BitsInteger(11)
+)
+
+AOSFrame = Struct(
+    'primary_header' / AOSPrimaryHeader,
+    'insert_zone' / AOSInsertZone,
+    'm_pdu_header' / M_PDU_Header,
+    'm_pdu_packet_zone' / GreedyBytes
+)
+
+SpacePacketPrimaryHeader = BitStruct(
+    'ccsds_version' / BitsInteger(3),
+    'packet_type' / BitsInteger(1),
+    'secondary_header_flag' / Flag,
+    'APID' / BitsInteger(11),
+    'sequence_flags' / BitsInteger(2),
+    'packet_sequence_count_or_name' / BitsInteger(14),
+    'data_length' / BitsInteger(16)
+)
+
+def check_space_packet(packet):
+    header = SpacePacketPrimaryHeader.parse(packet)
+    if header.ccsds_version != 0:
+        return False
+    
+    expected = header.data_length + SpacePacketPrimaryHeader.sizeof() + 1
+    if len(packet) != expected:
+        warnings.warn(f'Space Packet has incorrect size. Expected {expected} has {len(packet)}')
+        return False
+
+    return True        
+
+def extract_space_packets(aos_frames, sc_id, virtual_channel):
+    packet = bytearray()
+    frame_count = None
+    for frame in aos_frames:
+        if frame.primary_header.spacecraft_id != sc_id \
+          or frame.primary_header.virtual_channel_id != virtual_channel:
+            continue
+
+        frame_count_new = frame.primary_header.virtual_channel_frame_count
+        if frame_count is not None \
+          and frame_count_new != ((frame_count + 1) % 2**24):
+            warnings.warn(f'[Space Packet extractor Spacecraft {sc_id} VC {virtual_channel}] Broken stream. Last frame count {frame_count}, current frame count {frame_count_new}')
+            packet = bytearray()
+        frame_count = frame_count_new
+        
+        first = frame.m_pdu_header.first_header_pointer
+        if first == 0x7fe:
+            # only idle
+            continue
+        elif first == 0x7ff:
+            # no packet starts
+            if packet:
+                packet.extend(frame.m_pdu_packet_zone)
+            continue
+        
+        if packet:
+            packet.extend(frame.m_pdu_packet_zone[:first])
+            packet = bytes(packet)
+            if check_space_packet(packet):
+                yield packet
+
+        while True:
+            packet = bytearray(frame.m_pdu_packet_zone[first:][:SpacePacketPrimaryHeader.sizeof()])
+            if len(packet) < SpacePacketPrimaryHeader.sizeof():
+                # not full header inside frame
+                break
+            first += SpacePacketPrimaryHeader.sizeof()
+            packet_header = SpacePacketPrimaryHeader.parse(packet)
+            packet.extend(frame.m_pdu_packet_zone[first:][:packet_header.data_length + 1])
+            first += packet_header.data_length + 1
+            if first > len(frame.m_pdu_packet_zone):
+                # packet does not end in this frame
+                break
+            packet = bytes(packet)
+            if check_space_packet(packet):
+                yield packet
+            packet = bytearray()
+            if first == len(frame.m_pdu_packet_zone):
+                # packet just ends in this frame
+                break
