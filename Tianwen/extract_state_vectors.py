@@ -54,9 +54,7 @@ def main():
     # from Earth and trying to adjust the timestamp for a best fit
     # between propagation of the first vector, and the last vector
     # in the data series
-    epoch = datetime(2020, 7, 23) - timedelta(seconds = 3400.2)
-    epoch = epoch - timedelta(seconds =  0x14f * 2**32 * 1e-4)
-#    epoch = datetime(2015,12,31,16,00,00)
+    epoch = datetime(2015,12,31,16,00,00)
     print('Using epoch', epoch)
 
     for packet in ccsds.extract_space_packets(frames, 245, 1):
