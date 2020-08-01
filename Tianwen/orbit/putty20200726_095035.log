@@ -1,0 +1,1202 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2020.07.26 09:50:35 =~=~=~=~=~=~=~=~=~=~=~=
+0750:30 253.314  33.871  |   0.003   0.001 3 TIANWEN-1
+0750:40 253.353  33.846  |   0.001   0.001 3 TIANWEN-1
+0750:50 253.393  33.822  |   0.000   0.001 3 TIANWEN-1
+0751:00 253.432  33.798  |   0.003   0.002 3 TIANWEN-1
+0751:10 253.471  33.773  |   0.000  -0.001 3 TIANWEN-1
+0751:20 253.511  33.749  |  -0.000  -0.002 3 TIANWEN-1
+0751:30 253.550  33.725  |  -0.002   0.005 3 TIANWEN-1
+0751:40 253.589  33.700  |   0.003  -0.002 3 TIANWEN-1
+0751:50 253.628  33.676  |  -0.002   0.001 3 TIANWEN-1
+0752:00 253.668  33.652  |   0.001   0.002 3 TIANWEN-1
+0752:10 253.707  33.627  |  -0.003  -0.000 3 TIANWEN-1
+0752:20 253.746  33.603  |   0.002  -0.002 3 TIANWEN-1
+0752:30 253.785  33.578  |  -0.000   0.000 3 TIANWEN-1
+0752:40 253.824  33.554  |  -0.000   0.004 3 TIANWEN-1
+0752:50 253.864  33.530  |   0.003  -0.004 3 TIANWEN-1
+0753:00 253.903  33.505  |   0.001   0.001 3 TIANWEN-1
+0753:10 253.942  33.481  |  -0.000  -0.002 3 TIANWEN-1
+0753:20 253.981  33.456  |   0.001  -0.000 3 TIANWEN-1
+0753:30 254.020  33.432  |   0.001   0.000 3 TIANWEN-1
+0753:40 254.059  33.407  |  -0.001   0.003 3 TIANWEN-1
+0753:50 254.098  33.383  |  -0.001   0.003 3 TIANWEN-1
+0754:00 254.137  33.359  |   0.003  -0.001 3 TIANWEN-1
+0754:10 254.176  33.334  |   0.002   0.001 3 TIANWEN-1
+0754:20 254.215  33.310  |   0.004   0.003 3 TIANWEN-1
+0754:30 254.254  33.285  |   0.000  -0.001 3 TIANWEN-1
+0754:40 254.293  33.261  |   0.001   0.003 3 TIANWEN-1
+0754:50 254.332  33.236  |  -0.003  -0.004 3 TIANWEN-1
+
+
+Sternwarte Bochum      Telescope Control  Version 4.4c by KM, HP, JRM
+
+ Key         Action                           
+ ---------------------------------------------
+  @          Almanac                          
+  0 ... 9    Track astro object (see Almanac) 
+  P/p        Change (3) Planet                
+  X/x        Change (4) probe s/c             
+  S/s        Change (5) Star                  
+  Z/z        Change (6) satellite             
+  SPACE      Stop tracking                    
+  F/f        Change feedhorn                  
+  T/t,L/l    Set temperature, pressure +/- 5  
+  ?          List keys,  #  for more Help     
+  I/i        Software status report Long/Short
+ ---------------------------------------------
+
+  Almanac   Azimuth   Elev      Range    Doppler
+  Object      deg     deg       M km      Hz/MHz
+------------------------------------------------
+1 Sun        105.06  36.18   151.932776    1.375    
+2 Moon        60.04 -25.59     0.371560    0.681    
+3 Venus      165.14  56.65    85.160047  -44.458    
+4 TIANWEN-1  249.87  35.22     1.056336  -13.110 << 
+5 Cas A      312.16  46.84                          
+6 Es'hail-2  156.71  28.66     0.038723    0.001    
+7 Jupiter    295.87 -46.31   621.875731  -19.154    
+8 TIANWEN-2  255.82  32.15     0.918780  -12.658    
+9 Cyg A      323.89  11.90                          
+0 OSCAR-40   220.98  24.76     0.028798    9.850    
+------------------------------------------------
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0755:00 254.371  33.212  |   0.005   0.003 3 TIANWEN-1
+0755:10 254.410  33.187  |  -0.001   0.000 3 TIANWEN-1
+0755:20 254.449  33.163  |   0.001   0.003 3 TIANWEN-1
+0755:30 254.488  33.138  |  -0.005  -0.001 3 TIANWEN-1
+0755:40 254.527  33.114  |   0.003  -0.000 3 TIANWEN-1
+0755:50 254.565  33.089  |  -0.001  -0.001 3 TIANWEN-1
+0756:00 254.604  33.065  |   0.001  -0.001 3 TIANWEN-1
+0756:10 254.643  33.040  |   0.000   0.001 3 TIANWEN-1
+0756:20 254.682  33.016  |  -0.002  -0.004 3 TIANWEN-1
+0756:30 254.721  32.991  |   0.002  -0.002 3 TIANWEN-1
+0756:40 254.759  32.967  |  -0.004   0.006 3 TIANWEN-1
+0756:50 254.798  32.942  |   0.003  -0.001 3 TIANWEN-1
+0757:00 254.837  32.918  |   0.003  -0.002 3 TIANWEN-1
+0757:10 254.876  32.893  |  -0.003   0.007 3 TIANWEN-1
+0757:20 254.914  32.868  |   0.002  -0.007 3 TIANWEN-1
+0757:30 254.953  32.844  |  -0.001   0.001 3 TIANWEN-1
+0757:40 254.992  32.819  |   0.002  -0.003 3 TIANWEN-1
+0757:50 255.030  32.795  |  -0.004   0.001 3 TIANWEN-1
+0758:00 255.069  32.770  |  -0.001  -0.001 3 TIANWEN-1
+0758:10 255.107  32.746  |   0.001  -0.003 3 TIANWEN-1
+0758:20 255.146  32.721  |  -0.003   0.001 3 TIANWEN-1
+0758:30 255.184  32.696  |   0.004  -0.002 3 TIANWEN-1
+0758:40 255.223  32.672  |  -0.002   0.003 3 TIANWEN-1
+0758:50 255.262  32.647  |  -0.001   0.000 3 TIANWEN-1
+0759:00 255.300  32.622  |  -0.000   0.004 3 TIANWEN-1
+0759:10 255.339  32.598  |   0.001   0.001 3 TIANWEN-1
+0759:20 255.377  32.573  |  -0.000  -0.000 3 TIANWEN-1
+0759:30 255.416  32.549  |  -0.003   0.005 3 TIANWEN-1
+0759:40 255.454  32.524  |  -0.002  -0.003 3 TIANWEN-1
+0759:50 255.492  32.499  |   0.001   0.002 3 TIANWEN-1
+
+
+Sternwarte Bochum      Telescope Control  Version 4.4c by KM, HP, JRM
+
+ Key         Action                           
+ ---------------------------------------------
+  @          Almanac                          
+  0 ... 9    Track astro object (see Almanac) 
+  P/p        Change (3) Planet                
+  X/x        Change (4) probe s/c             
+  S/s        Change (5) Star                  
+  Z/z        Change (6) satellite             
+  SPACE      Stop tracking                    
+  F/f        Change feedhorn                  
+  T/t,L/l    Set temperature, pressure +/- 5  
+  ?          List keys,  #  for more Help     
+  I/i        Software status report Long/Short
+ ---------------------------------------------
+
+  Almanac   Azimuth   Elev      Range    Doppler
+  Object      deg     deg       M km      Hz/MHz
+------------------------------------------------
+1 Sun        106.19  36.93   151.932653    1.363    
+2 Moon        61.16 -24.95     0.371498    0.693    
+3 Venus      167.27  56.84    85.164046  -44.479    
+4 TIANWEN-1  251.04  34.48     1.057515  -13.121 << 
+5 Cas A      312.58  46.26                          
+6 Es'hail-2  156.71  28.67     0.038723    0.001    
+7 Jupiter    297.22 -47.01   621.877454  -19.145    
+8 TIANWEN-2  256.91  31.39     0.919919  -12.668    
+9 Cyg A      324.73  11.45                          
+0 OSCAR-40   221.08  24.62     0.027901   10.109    
+------------------------------------------------
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0800:00 255.531  32.475  |   0.001  -0.001 3 TIANWEN-1
+0800:10 255.569  32.450  |  -0.001  -0.002 3 TIANWEN-1
+0800:20 255.608  32.425  |   0.003   0.003 3 TIANWEN-1
+0800:30 255.646  32.401  |  -0.001  -0.000 3 TIANWEN-1
+0800:40 255.684  32.376  |  -0.002  -0.002 3 TIANWEN-1
+0800:50 255.723  32.351  |   0.002   0.001 3 TIANWEN-1
+0801:00 255.761  32.327  |   0.000   0.001 3 TIANWEN-1
+0801:10 255.799  32.302  |   0.003  -0.000 3 TIANWEN-1
+0801:20 255.838  32.277  |  -0.002  -0.001 3 TIANWEN-1
+0801:30 255.876  32.252  |  -0.001   0.000 3 TIANWEN-1
+0801:40 255.914  32.228  |  -0.000  -0.002 3 TIANWEN-1
+0801:50 255.954  32.202  |   0.026  -0.017 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1306:40
+Offset        [N/n] : AZ 4.12  EL -2.00
+ ... step [A/E,M/m] : AZ 0.10
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0801:50 255.954  32.202  |  -0.001   0.259 4 TIANWEN-1
+0802:00 255.991  32.178  |  -0.008  -0.019 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1306:57
+Offset        [N/n] : AZ 4.22  EL -2.00
+ ... step [A/E,M/m] : AZ 0.10
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:07 256.121  32.159  |   0.105  -0.014 4 TIANWEN-1
+0802:10 256.129  32.154  |   0.026   0.005 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:00
+Offset        [N/n] : AZ 4.32  EL -2.00
+ ... step [A/E,M/m] : AZ 0.10
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:10 256.231  32.152  |   0.123   0.007 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:03
+Offset        [N/n] : AZ 4.22  EL -2.00
+ ... step [A/E,M/m] : AZ 0.10
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:13 256.143  32.144  |  -0.104   0.007 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:04
+Offset        [N/n] : AZ 4.12  EL -2.00
+ ... step [A/E,M/m] : AZ 0.10
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:14 256.045  32.143  |  -0.114   0.006 3 TIANWEN-1
+0802:20 256.067  32.129  |  -0.013  -0.005 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:16
+Offset        [N/n] : AZ 4.12  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:27 256.094  32.111  |   0.044   0.000 4 TIANWEN-1
+0802:30 256.105  32.104  |   0.036   0.001 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:22
+Offset        [N/n] : AZ 4.11  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:32 256.103  32.099  |   0.003   0.002 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:23
+Offset        [N/n] : AZ 4.10  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:34 256.101  32.094  |  -0.013  -0.000 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:26
+Offset        [N/n] : AZ 4.09  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:36 256.099  32.089  |  -0.021  -0.003 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:27
+Offset        [N/n] : AZ 4.08  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:37 256.095  32.084  |  -0.023   0.000 3 TIANWEN-1
+0802:40 256.103  32.079  |  -0.016   0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:35
+Offset        [N/n] : AZ 4.07  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:45 256.114  32.066  |  -0.011  -0.003 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:37
+Offset        [N/n] : AZ 4.06  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:48 256.114  32.060  |  -0.007  -0.004 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:39
+Offset        [N/n] : AZ 4.05  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:49 256.110  32.055  |  -0.007   0.002 3 TIANWEN-1
+0802:50 256.111  32.055  |   0.002   0.004 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:40
+Offset        [N/n] : AZ 4.04  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:50 256.104  32.053  |  -0.009   0.004 5 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:48
+Offset        [N/n] : AZ 4.05  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:58 256.145  32.033  |   0.020  -0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:49
+Offset        [N/n] : AZ 4.06  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:59 256.157  32.031  |   0.023  -0.000 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:49
+Offset        [N/n] : AZ 4.07  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0802:59 256.169  32.030  |   0.025   0.001 3 TIANWEN-1
+0803:00 256.169  32.030  |   0.016   0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:56
+Offset        [N/n] : AZ 4.08  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:06 256.204  32.014  |   0.007  -0.001 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1307:58
+Offset        [N/n] : AZ 4.09  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:08 256.223  32.008  |   0.003  -0.002 3 TIANWEN-1
+0803:10 256.227  32.005  |  -0.014  -0.000 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:02
+Offset        [N/n] : AZ 4.10  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:12 256.249  31.998  |   0.005   0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:04
+Offset        [N/n] : AZ 4.11  EL -2.00
+ ... step [A/E,M/m] : AZ 0.01
+Rate          [R/r] : AZ 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:14 256.266  31.993  |   0.016  -0.001 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:08
+Offset        [N/n] : AZ 4.11  EL -2.00
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:19 256.282  31.983  |   0.008  -0.002 4 TIANWEN-1
+0803:20 256.286  31.980  |   0.003  -0.004 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:12
+Offset        [N/n] : AZ 4.11  EL -1.99
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:23 256.297  31.983  |  -0.003   0.009 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:13
+Offset        [N/n] : AZ 4.11  EL -1.98
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:23 256.300  31.991  |  -0.000   0.013 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:14
+Offset        [N/n] : AZ 4.11  EL -1.97
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:24 256.303  31.999  |  -0.001   0.017 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:14
+Offset        [N/n] : AZ 4.11  EL -1.96
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:25 256.305  32.008  |  -0.003   0.028 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:15
+Offset        [N/n] : AZ 4.11  EL -1.95
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:25 256.306  32.017  |  -0.003   0.035 4 TIANWEN-1
+0803:30 256.324  32.005  |  -0.001   0.031 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:22
+Offset        [N/n] : AZ 4.11  EL -1.94
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:32 256.335  32.008  |  -0.000   0.004 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:23
+Offset        [N/n] : AZ 4.11  EL -1.93
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:33 256.336  32.017  |   0.001   0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:23
+Offset        [N/n] : AZ 4.11  EL -1.92
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:33 256.338  32.026  |   0.003   0.003 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:24
+Offset        [N/n] : AZ 4.11  EL -1.91
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:34 256.339  32.035  |   0.003   0.004 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:24
+Offset        [N/n] : AZ 4.11  EL -1.90
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:34 256.341  32.044  |   0.011   0.007 4 TIANWEN-1
+0803:40 256.362  32.031  |  -0.001  -0.013 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:31
+Offset        [N/n] : AZ 4.11  EL -1.91
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:41 256.367  32.017  |  -0.004  -0.028 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:31
+Offset        [N/n] : AZ 4.11  EL -1.92
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:41 256.368  32.006  |  -0.003  -0.030 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:32
+Offset        [N/n] : AZ 4.11  EL -1.93
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:42 256.370  31.995  |  -0.002  -0.032 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:32
+Offset        [N/n] : AZ 4.11  EL -1.94
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:42 256.371  31.985  |  -0.002  -0.034 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:32
+Offset        [N/n] : AZ 4.11  EL -1.95
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:42 256.372  31.974  |  -0.000  -0.038 3 TIANWEN-1
+0803:50 256.400  31.956  |   0.001   0.017 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:42
+Offset        [N/n] : AZ 4.11  EL -1.96
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:52 256.408  31.941  |  -0.000   0.008 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:42
+Offset        [N/n] : AZ 4.11  EL -1.97
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:52 256.409  31.930  |   0.000   0.008 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:42
+Offset        [N/n] : AZ 4.11  EL -1.98
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:52 256.410  31.919  |   0.001   0.007 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:42
+Offset        [N/n] : AZ 4.11  EL -1.99
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:52 256.411  31.909  |   0.001   0.007 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:43
+Offset        [N/n] : AZ 4.11  EL -2.00
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0803:53 256.412  31.898  |   0.001   0.004 3 TIANWEN-1
+0804:00 256.438  31.881  |   0.001   0.009 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:51
+Offset        [N/n] : AZ 4.11  EL -2.01
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:02 256.445  31.866  |   0.000  -0.002 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:52
+Offset        [N/n] : AZ 4.11  EL -2.02
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:02 256.447  31.855  |   0.000  -0.004 5 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:52
+Offset        [N/n] : AZ 4.11  EL -2.03
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:02 256.448  31.845  |  -0.002  -0.008 5 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:52
+Offset        [N/n] : AZ 4.11  EL -2.04
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:02 256.449  31.834  |  -0.003  -0.008 5 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1308:53
+Offset        [N/n] : AZ 4.11  EL -2.05
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:03 256.450  31.823  |  -0.005  -0.008 3 TIANWEN-1
+0804:10 256.476  31.806  |   0.003   0.013 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1309:04
+Offset        [N/n] : AZ 4.11  EL -2.06
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:14 256.493  31.785  |   0.002  -0.004 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1309:04
+Offset        [N/n] : AZ 4.11  EL -2.07
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:14 256.494  31.774  |   0.001  -0.005 3 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1309:05
+Offset        [N/n] : AZ 4.11  EL -2.08
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:15 256.495  31.764  |   0.001  -0.005 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1309:05
+Offset        [N/n] : AZ 4.11  EL -2.09
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:15 256.496  31.753  |  -0.001  -0.008 4 TIANWEN-1
+
+Sternwarte Bochum  -  BoCC Software Version 4.4c by KM, HP, JRM
+---------------------------------------------------------------
+Run time            : 0:1309:05
+Offset        [N/n] : AZ 4.11  EL -2.10
+ ... step [A/E,M/m] : EL 0.01
+Rate          [R/r] : EL 0.000 deg/s
+
+TAB flag        [~] :  Objects 7 8 9 0
+Pause flag          : 0
+dUT1                : -0.21291
+
+Notaus red button normal; antenna motors ON.
+
+
+2020 Jul 26 [Sun] Bochum     8.4 GHz   20C / 1015 mb
+
+ utc     AZ_dem  EL_dem  |  del_AZ  del_EL t Obj
+-------------------------+----------------------------
+0804:15 256.498  31.742  |  -0.004  -0.011 4 TIANWEN-1
+0804:20 256.514  31.732  |  -0.000  -0.005 3 TIANWEN-1
+0804:30 256.552  31.707  |  -0.000  -0.000 3 TIANWEN-1
