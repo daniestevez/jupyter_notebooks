@@ -22,9 +22,8 @@ AOSPrimaryHeader = BitStruct(
 )
 
 AOSInsertZone = Struct(
-    'unknown1' / Hex(Int16ub),
-    'timestamp' / Int32ub, # in units of 100us
-    'unknown2' / Hex(Int16ub)
+    'timestamp' / BytesInteger(6), # in units of 100us
+    'unknown' / Hex(Int16ub)
 )
 
 M_PDU_Header = BitStruct(
@@ -49,33 +48,38 @@ SpacePacketPrimaryHeader = BitStruct(
     'data_length' / BitsInteger(16)
 )
 
-def check_space_packet(packet):
+def check_space_packet_header(packet):
+    return SpacePacketPrimaryHeader.parse(packet).ccsds_version == 0
+
+def check_space_packet_length(packet):
     header = SpacePacketPrimaryHeader.parse(packet)
-    if header.ccsds_version != 0:
-        return False
-    
     expected = header.data_length + SpacePacketPrimaryHeader.sizeof() + 1
     if len(packet) != expected:
         warnings.warn(f'Space Packet has incorrect size. Expected {expected} has {len(packet)}')
         return False
-
     return True        
 
-def extract_space_packets(aos_frames, sc_id, virtual_channel):
+def check_space_packet(packet):
+    if len(packet) < SpacePacketPrimaryHeader.sizeof():
+        return False
+    return check_space_packet_header(packet) and check_space_packet_length(packet)
+
+def extract_space_packets(aos_frames, sc_id, virtual_channel, get_timestamps = False):
     packet = bytearray()
     frame_count = None
     for frame in aos_frames:
         if frame.primary_header.spacecraft_id != sc_id \
-          or frame.primary_header.virtual_channel_id != virtual_channel:
+          or frame.primary_header.virtual_channel_id != virtual_channel\
+          or frame.m_pdu_header.rsv_spare != 0:
             continue
-
+        
         frame_count_new = frame.primary_header.virtual_channel_frame_count
         if frame_count is not None \
           and frame_count_new != ((frame_count + 1) % 2**24):
             warnings.warn(f'[Space Packet extractor Spacecraft {sc_id} VC {virtual_channel}] Broken stream. Last frame count {frame_count}, current frame count {frame_count_new}')
             packet = bytearray()
         frame_count = frame_count_new
-        
+
         first = frame.m_pdu_header.first_header_pointer
         if first == 0x7fe:
             # only idle
@@ -90,11 +94,21 @@ def extract_space_packets(aos_frames, sc_id, virtual_channel):
             packet.extend(frame.m_pdu_packet_zone[:first])
             packet = bytes(packet)
             if check_space_packet(packet):
-                yield packet
+                if get_timestamps:
+                    yield packet, timestamp
+                else:
+                    yield packet
 
         while True:
             packet = bytearray(frame.m_pdu_packet_zone[first:][:SpacePacketPrimaryHeader.sizeof()])
-            if len(packet) < SpacePacketPrimaryHeader.sizeof():
+            if get_timestamps:
+                timestamp = frame.insert_zone.timestamp
+            if len(packet) >= SpacePacketPrimaryHeader.sizeof() and not check_space_packet_header(packet):
+                # not a space packet
+                # cannot follow in this frame
+                packet = bytearray()
+                break
+            elif len(packet) < SpacePacketPrimaryHeader.sizeof():
                 # not full header inside frame
                 break
             first += SpacePacketPrimaryHeader.sizeof()
@@ -106,7 +120,10 @@ def extract_space_packets(aos_frames, sc_id, virtual_channel):
                 break
             packet = bytes(packet)
             if check_space_packet(packet):
-                yield packet
+                if get_timestamps:
+                    yield packet, timestamp
+                else:
+                    yield packet
             packet = bytearray()
             if first == len(frame.m_pdu_packet_zone):
                 # packet just ends in this frame
