@@ -1,0 +1,242 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-07-23 17:40:38
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+% Last state vector before TCM-1
+Create Spacecraft Tianwen1_preTCM;
+Tianwen1_preTCM.DateFormat = UTCGregorian;
+Tianwen1_preTCM.CoordinateSystem = SunICRF;
+Tianwen1_preTCM.Epoch = '01 Aug 2020 21:55:54.636';
+Tianwen1_preTCM.X = 100013349.64741957
+Tianwen1_preTCM.Y = -106299393.18667522
+Tianwen1_preTCM.Z = -45513509.44563319
+Tianwen1_preTCM.VX = 25.614823771720086
+Tianwen1_preTCM.VY = 18.20256808900558
+Tianwen1_preTCM.VZ = 8.53981708616221
+
+Create Spacecraft Tianwen1_deltaV;
+Tianwen1_deltaV.OrbitColor = 'White';
+Tianwen1_deltaV.DateFormat = UTCGregorian;
+Tianwen1_deltaV.CoordinateSystem = SunICRF;
+Tianwen1_deltaV.Epoch = '01 Aug 2020 21:55:54.636';
+Tianwen1_deltaV.X = 100013349.64741957
+Tianwen1_deltaV.Y = -106299393.18667522
+Tianwen1_deltaV.Z = -45513509.44563319
+Tianwen1_deltaV.VX = 25.614823771720086
+Tianwen1_deltaV.VY = 18.20256808900558
+Tianwen1_deltaV.VZ = 8.53981708616221
+
+% First state after TCM-1
+Create Spacecraft Tianwen1_postTCM;
+Tianwen1_postTCM.OrbitColor = 'Yellow';
+Tianwen1_postTCM.DateFormat = UTCGregorian;
+Tianwen1_postTCM.CoordinateSystem = SunICRF;
+Tianwen1_postTCM.Epoch = '02 Aug 2020 00:17:06.711';
+Tianwen1_postTCM.X = 100230220.21360767
+Tianwen1_postTCM.Y = -106145016.11787066
+Tianwen1_postTCM.Z = -45441035.07405791
+Tianwen1_postTCM.VX = 25.581827920522485
+Tianwen1_postTCM.VY = 18.240707152437626
+Tianwen1_postTCM.VZ = 8.567874276424218
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Sun;
+DefaultProp_ForceModel.PointMasses = {Sun, Earth, Jupiter, Mars, Luna, Saturn, Venus, Mercury, Uranus, Neptune, Pluto};
+DefaultProp_ForceModel.RelativisticCorrection = On
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = PrinceDormand45;
+DefaultProp.InitialStepSize = 60;
+DefaultProp.MinStep = 10;
+DefaultProp.MaxStep = 3600;
+
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn TCMICRF;
+TCMICRF.CoordinateSystem = SunICRF;
+TCMICRF.Element1 = -0.0009649882413675925;
+TCMICRF.Element2 = 0.005008623084034269;
+TCMICRF.Element3 = 0.013944484550062697;
+
+Create ImpulsiveBurn TCMLocal;
+TCMLocal.CoordinateSystem = Local;
+TCMLocal.Origin = Sun;
+TCMLocal.Axes = VNB;
+TCMLocal.Element1 = 0.005703070847711421;
+TCMLocal.Element2 = 0.010721239586844799;
+TCMLocal.Element3 = -0.008543779111042845;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+Create CoordinateSystem SunEcliptic;
+SunEcliptic.Origin = Sun;
+SunEcliptic.Axes = MJ2000Ec;
+
+Create CoordinateSystem MarsInertial;
+MarsInertial.Origin = Mars;
+MarsInertial.Axes = BodyInertial;
+
+Create CoordinateSystem TianwenICRF;
+TianwenICRF.Origin = Tianwen1_preTCM;
+TianwenICRF.Axes = ICRF;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView SolarSystemView;
+SolarSystemView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Earth, Sun, Mars};
+SolarSystemView.CoordinateSystem = SunEcliptic;
+SolarSystemView.DrawObject = [ true true true true ];
+SolarSystemView.DataCollectFrequency = 10;
+SolarSystemView.UpdatePlotFrequency = 50;
+SolarSystemView.NumPointsToRedraw = 0;
+SolarSystemView.ShowPlot = true;
+SolarSystemView.MaxPlotPoints = 20000;
+SolarSystemView.ShowLabels = true;
+SolarSystemView.ViewPointReference = Sun;
+SolarSystemView.ViewPointVector = [ 0 0 1 ];
+SolarSystemView.ViewDirection = Sun;
+SolarSystemView.ViewScaleFactor = 600000000;
+SolarSystemView.ViewUpCoordinateSystem = SunEcliptic;
+SolarSystemView.ViewUpAxis = Z;
+SolarSystemView.EclipticPlane = Off;
+SolarSystemView.XYPlane = On;
+SolarSystemView.WireFrame = Off;
+SolarSystemView.Axes = On;
+SolarSystemView.Grid = Off;
+SolarSystemView.SunLine = Off;
+SolarSystemView.UseInitialView = On;
+SolarSystemView.StarCount = 7000;
+SolarSystemView.EnableStars = Off;
+SolarSystemView.EnableConstellations = Off;
+
+Create OrbitView EarthView;
+GMAT EarthView.SolverIterations = Current;
+GMAT EarthView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT EarthView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT EarthView.RelativeZOrder = 930;
+GMAT EarthView.Maximized = true;
+GMAT EarthView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Earth};
+GMAT EarthView.CoordinateSystem = EarthMJ2000Eq;
+GMAT EarthView.DrawObject = [ true true ];
+GMAT EarthView.DataCollectFrequency = 10;
+GMAT EarthView.UpdatePlotFrequency = 50;
+GMAT EarthView.NumPointsToRedraw = 0;
+GMAT EarthView.ShowPlot = true;
+GMAT EarthView.MaxPlotPoints = 20000;
+GMAT EarthView.ShowLabels = true;
+GMAT EarthView.ViewPointReference = Earth;
+GMAT EarthView.ViewPointVector = [ 0 0 30000000 ];
+GMAT EarthView.ViewDirection = Earth;
+GMAT EarthView.ViewScaleFactor = 1;
+GMAT EarthView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT EarthView.ViewUpAxis = Z;
+GMAT EarthView.EclipticPlane = Off;
+GMAT EarthView.XYPlane = On;
+GMAT EarthView.WireFrame = Off;
+GMAT EarthView.Axes = On;
+GMAT EarthView.Grid = Off;
+GMAT EarthView.SunLine = Off;
+GMAT EarthView.UseInitialView = On;
+GMAT EarthView.StarCount = 7000;
+GMAT EarthView.EnableStars = Off;
+GMAT EarthView.EnableConstellations = Off;
+
+Create OrbitView MarsView;
+GMAT MarsView.SolverIterations = Current;
+GMAT MarsView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT MarsView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT MarsView.RelativeZOrder = 928;
+GMAT MarsView.Maximized = true;
+GMAT MarsView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Mars};
+GMAT MarsView.CoordinateSystem = MarsInertial;
+GMAT MarsView.DrawObject = [ true true ];
+GMAT MarsView.DataCollectFrequency = 10;
+GMAT MarsView.UpdatePlotFrequency = 50;
+GMAT MarsView.NumPointsToRedraw = 0;
+GMAT MarsView.ShowPlot = true;
+GMAT MarsView.MaxPlotPoints = 20000;
+GMAT MarsView.ShowLabels = true;
+GMAT MarsView.ViewPointReference = Mars;
+GMAT MarsView.ViewPointVector = [ 0 0 2000000 ];
+GMAT MarsView.ViewDirection = Mars;
+GMAT MarsView.ViewScaleFactor = 1;
+GMAT MarsView.ViewUpCoordinateSystem = MarsInertial;
+GMAT MarsView.ViewUpAxis = Z;
+GMAT MarsView.EclipticPlane = Off;
+GMAT MarsView.XYPlane = On;
+GMAT MarsView.WireFrame = Off;
+GMAT MarsView.Axes = On;
+GMAT MarsView.Grid = Off;
+GMAT MarsView.SunLine = Off;
+GMAT MarsView.UseInitialView = On;
+GMAT MarsView.StarCount = 7000;
+GMAT MarsView.EnableStars = Off;
+GMAT MarsView.EnableConstellations = Off;
+
+Create OrbitView TianwenView;
+GMAT TianwenView.SolverIterations = Current;
+GMAT TianwenView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
+GMAT TianwenView.Size = [ 0.9926470588235294 0.9552023121387283 ];
+GMAT TianwenView.RelativeZOrder = 928;
+GMAT TianwenView.Maximized = true;
+GMAT TianwenView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV};
+GMAT TianwenView.CoordinateSystem = TianwenICRF;
+GMAT TianwenView.DrawObject = [ true true ];
+GMAT TianwenView.DataCollectFrequency = 10;
+GMAT TianwenView.UpdatePlotFrequency = 50;
+GMAT TianwenView.NumPointsToRedraw = 0;
+GMAT TianwenView.ShowPlot = true;
+GMAT TianwenView.MaxPlotPoints = 20000;
+GMAT TianwenView.ShowLabels = true;
+GMAT TianwenView.ViewPointReference = Tianwen1_preTCM;
+GMAT TianwenView.ViewPointVector = [ 0 0 250000 ];
+GMAT TianwenView.ViewDirection = Tianwen1_preTCM;
+GMAT TianwenView.ViewScaleFactor = 1;
+GMAT TianwenView.ViewUpCoordinateSystem = TianwenICRF;
+GMAT TianwenView.ViewUpAxis = Z;
+GMAT TianwenView.EclipticPlane = Off;
+GMAT TianwenView.XYPlane = On;
+GMAT TianwenView.WireFrame = Off;
+GMAT TianwenView.Axes = On;
+GMAT TianwenView.Grid = Off;
+GMAT TianwenView.SunLine = Off;
+GMAT TianwenView.UseInitialView = On;
+GMAT TianwenView.StarCount = 7000;
+GMAT TianwenView.EnableStars = Off;
+GMAT TianwenView.EnableConstellations = Off;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_preTCM.ElapsedSecs = 0};
+Propagate DefaultProp(Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_preTCM.ElapsedSecs = 3644};
+Maneuver TCMLocal(Tianwen1_deltaV);
+Propagate DefaultProp(Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_preTCM.UTCModJulian = Tianwen1_postTCM.UTCModJulian};
+Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_postTCM.ElapsedSecs = 0};
+Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_postTCM.Mars.Periapsis};
+Write Tianwen1_postTCM.TianwenICRF.X Tianwen1_postTCM.TianwenICRF.Y Tianwen1_postTCM.TianwenICRF.Z;
