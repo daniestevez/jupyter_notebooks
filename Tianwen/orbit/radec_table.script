@@ -7,16 +7,15 @@
 
 Create Spacecraft Tianwen1;
 Tianwen1.DateFormat = UTCGregorian;
-Tianwen1.Epoch = '26 Jul 2020 10:52:47.108';
+Tianwen1.Epoch = '02 Aug 2020 21:03:08.078';
 Tianwen1.CoordinateSystem = SunICRF;
 Tianwen1.DisplayStateType = Cartesian;
-% Third set of elements
-Tianwen1.X = 85150291.38521843;
-Tianwen1.Y = -115825547.7381494;
-Tianwen1.Z = -50010362.14032;
-Tianwen1.VX = 27.6141067728233;
-Tianwen1.VY = 15.89675041632358;
-Tianwen1.VZ = 7.561247260377793;
+Tianwen1.X = 102132184.96868199
+Tianwen1.Y = -104770375.00352533
+Tianwen1.Z = -44795830.46284772
+Tianwen1.VX = 25.29849580646669
+Tianwen1.VY = 18.532513218789806
+Tianwen1.VZ = 8.692135086385246
 
 %----------------------------------------
 %---------- ForceModels
@@ -40,11 +39,11 @@ Prop.MaxStep = 60;
 Prop.MaxStepAttempts = 50;
 
 Create Propagator TenMinuteProp;
-Prop.FM = ForceModel;
-Prop.Type = PrinceDormand45;
-Prop.InitialStepSize = 600;
-Prop.MinStep = 600;
-Prop.MaxStep = 600;
+TenMinuteProp.FM = ForceModel;
+TenMinuteProp.Type = PrinceDormand45;
+TenMinuteProp.InitialStepSize = 600;
+TenMinuteProp.MinStep = 600;
+TenMinuteProp.MaxStep = 600;
 
 %----------------------------------------
 %---------- Coordinate Systems
@@ -68,5 +67,5 @@ ReportRADEC.WriteHeaders = false;
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate Prop(Tianwen1) {Tianwen1.ElapsedSecs = 432.892};
-Propagate Prop(Tianwen1) {Tianwen1.Mars.Periapsis};
+Propagate Prop(Tianwen1) {Tianwen1.ElapsedSecs = 411.922};
+Propagate TenMinuteProp(Tianwen1) {Tianwen1.Mars.Periapsis};
