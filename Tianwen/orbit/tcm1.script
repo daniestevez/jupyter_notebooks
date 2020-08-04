@@ -42,7 +42,6 @@ Tianwen1_postTCM.VX = 25.581827920522485
 Tianwen1_postTCM.VY = 18.240707152437626
 Tianwen1_postTCM.VZ = 8.567874276424218
 
-% First state after TCM-1
 Create Spacecraft Tianwen1_final;
 Tianwen1_final.OrbitColor = 'Turquoise';
 Tianwen1_final.DateFormat = UTCGregorian;
@@ -54,6 +53,18 @@ Tianwen1_final.Z = -44795830.46284772
 Tianwen1_final.VX = 25.29849580646669
 Tianwen1_final.VY = 18.532513218789806
 Tianwen1_final.VZ = 8.692135086385246
+
+Create Spacecraft Tianwen1_final2;
+Tianwen1_final2.OrbitColor = 'LimeGreen';
+Tianwen1_final2.DateFormat = UTCGregorian;
+Tianwen1_final2.CoordinateSystem = SunICRF;
+Tianwen1_final2.Epoch = '04 Aug 2020 09:12:50.191';
+Tianwen1_final2.X = 105392978.41370356
+Tianwen1_final2.Y = -102325264.67780417
+Tianwen1_final2.Z = -43650426.91335314
+Tianwen1_final2.VX = 24.795304586592014
+Tianwen1_final2.VY = 19.02974886494003
+Tianwen1_final2.VZ = 8.903738346359448
 
 %----------------------------------------
 %---------- ForceModels
@@ -119,7 +130,7 @@ TianwenICRF.Axes = ICRF;
 %----------------------------------------
 
 Create OrbitView SolarSystemView;
-SolarSystemView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Earth, Sun, Mars};
+SolarSystemView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Tianwen1_final2, Earth, Sun, Mars};
 SolarSystemView.CoordinateSystem = SunEcliptic;
 SolarSystemView.DrawObject = [ true true true true ];
 SolarSystemView.DataCollectFrequency = 10;
@@ -151,7 +162,7 @@ GMAT EarthView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT EarthView.Size = [ 0.9926470588235294 0.9552023121387283 ];
 GMAT EarthView.RelativeZOrder = 930;
 GMAT EarthView.Maximized = true;
-GMAT EarthView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Earth};
+GMAT EarthView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Tianwen1_final2, Earth};
 GMAT EarthView.CoordinateSystem = EarthMJ2000Eq;
 GMAT EarthView.DrawObject = [ true true ];
 GMAT EarthView.DataCollectFrequency = 10;
@@ -183,7 +194,7 @@ GMAT MarsView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT MarsView.Size = [ 0.9926470588235294 0.9552023121387283 ];
 GMAT MarsView.RelativeZOrder = 928;
 GMAT MarsView.Maximized = true;
-GMAT MarsView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Mars};
+GMAT MarsView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Tianwen1_final2, Mars};
 GMAT MarsView.CoordinateSystem = MarsInertial;
 GMAT MarsView.DrawObject = [ true true ];
 GMAT MarsView.DataCollectFrequency = 10;
@@ -215,7 +226,7 @@ GMAT TianwenView.UpperLeft = [ 0.1801470588235294 0.04190751445086705 ];
 GMAT TianwenView.Size = [ 0.9926470588235294 0.9552023121387283 ];
 GMAT TianwenView.RelativeZOrder = 928;
 GMAT TianwenView.Maximized = true;
-GMAT TianwenView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final};
+GMAT TianwenView.Add = {Tianwen1_preTCM, Tianwen1_postTCM, Tianwen1_deltaV, Tianwen1_final, Tianwen1_final2};
 GMAT TianwenView.CoordinateSystem = TianwenICRF;
 GMAT TianwenView.DrawObject = [ true true ];
 GMAT TianwenView.DataCollectFrequency = 10;
@@ -252,6 +263,8 @@ Maneuver TCMLocal(Tianwen1_deltaV);
 Propagate DefaultProp(Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_preTCM.UTCModJulian = Tianwen1_postTCM.UTCModJulian};
 Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_postTCM.ElapsedSecs = 0};
 Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV) {Tianwen1_postTCM.UTCModJulian = Tianwen1_final.UTCModJulian};
-Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV, Tianwen1_final) {Tianwen1_final.Mars.Periapsis};
+Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV, Tianwen1_final) {Tianwen1_postTCM.UTCModJulian = Tianwen1_final2.UTCModJulian};
+Propagate DefaultProp(Tianwen1_postTCM, Tianwen1_preTCM, Tianwen1_deltaV, Tianwen1_final, Tianwen1_final2) {Tianwen1_final2.Mars.Periapsis};
 Write Tianwen1_postTCM.TianwenICRF.X Tianwen1_postTCM.TianwenICRF.Y Tianwen1_postTCM.TianwenICRF.Z;
 Write Tianwen1_final.TianwenICRF.X Tianwen1_final.TianwenICRF.Y Tianwen1_final.TianwenICRF.Z;
+Write Tianwen1_final2.TianwenICRF.X Tianwen1_final2.TianwenICRF.Y Tianwen1_final2.TianwenICRF.Z;
