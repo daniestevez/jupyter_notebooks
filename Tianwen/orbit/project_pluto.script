@@ -1,0 +1,60 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.Epoch = '26 Jul 2020 05:07:42.671';
+Tianwen1.CoordinateSystem = SunICRF;
+Tianwen1.DisplayStateType = Cartesian;
+Tianwen1.X = 84577798.07126294
+Tianwen1.Y = -116153763.13510129
+Tianwen1.Z = -50166531.95255927
+Tianwen1.VX = 27.687506375344995
+Tianwen1.VY = 15.808077907805695
+Tianwen1.VZ = 7.52441937133873
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Sun;
+ForceModel.PointMasses = {Earth, Luna, Mercury, Venus, Jupiter, Mars, Sun, Saturn, Neptune, Uranus, Pluto};
+ForceModel.RelativisticCorrection = On;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 1;
+Prop.MinStep = 0.1;
+Prop.MaxStep = 1;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+Create CoordinateSystem SunJ2000;
+SunJ2000.Origin = Sun;
+SunJ2000.Axes = MJ2000Eq;
+
+Create ReportFile ReportXYZ;
+ReportXYZ.Filename = 'Tianwen1_cartesian.txt';
+ReportXYZ.Add = {Tianwen1.TTModJulian, Tianwen1.SunJ2000.X, Tianwen1.SunJ2000.Y, Tianwen1.SunJ2000.Z, Tianwen1.SunJ2000.VX, Tianwen1.SunJ2000.VY, Tianwen1.SunJ2000.VZ};
+ReportXYZ.WriteHeaders = false;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate BackProp Prop(Tianwen1) {Tianwen1.ElapsedDays = -3};
