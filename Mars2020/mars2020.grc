@@ -541,7 +541,7 @@ blocks:
     entags: 'True'
     grid: 'False'
     gui_hint: 1,1
-    label1: Symbols
+    label1: ASM correlation
     label10: Signal 10
     label2: Syncword correlation
     label3: Signal 3
@@ -638,7 +638,7 @@ blocks:
     entags: 'True'
     grid: 'False'
     gui_hint: 1,0
-    label1: ASM correlation
+    label1: Symbols
     label10: Signal 10
     label2: Syncword correlation
     label3: Signal 3
