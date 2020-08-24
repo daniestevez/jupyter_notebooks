@@ -109,7 +109,7 @@
 			  outputs_2019_07/gmat_2019_07_05_435_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_435_harbin_wakayama_2.nc
 
 
-# 2019-07-09 Dwingeloo (x2), Wakayama
+# 2019-07-09 Dwingeloo (x2), Shahe
 # f_offset -210 (might be wrong, DSLWP-B_PI9CAM_2019-07-09T14:30:00_435.4MHz_40ksps_complex_tagged.raw gives -900)
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:30:00_435.4MHz_40ksps_complex_tagged.raw 1562678074.565398 PI9CAM \
@@ -119,53 +119,53 @@
 			  outputs_2019_07/gmat_2019_07_09_435_pi9cam_pi9cam2_1.nc outputs_2019_07/gmat_2019_07_09_435_pi9cam_pi9cam2_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:30:00_435.4MHz_40ksps_complex_tagged.raw 1562678074.565398 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-09.raw 1562675270.203557 Wakayama \
-			  435.4e6 -210 outputs_2019_07/results_2019_07_09_435_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_09_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_09_435_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_09_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_09_435_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-09.raw 1562675270.203557 Shahe \
+			  435.4e6 -210 outputs_2019_07/results_2019_07_09_435_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_09_435_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_09_435_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_09_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_09_435_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:40:00_435.4MHz_40ksps_complex_tagged.raw 1562681922.029440 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-09.raw 1562675270.203557 Wakayama \
-			  435.4e6 -210 outputs_2019_07/results_2019_07_09_435_pi9cam2_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_09_435_pi9cam2_wakayama_1.nc outputs_2019_07/doppler_2019_07_09_435_pi9cam2_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_09_435_pi9cam2_wakayama_1.nc outputs_2019_07/gmat_2019_07_09_435_pi9cam2_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-09.raw 1562675270.203557 Shahe \
+			  435.4e6 -210 outputs_2019_07/results_2019_07_09_435_pi9cam2_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_09_435_pi9cam2_shahe_1.nc outputs_2019_07/doppler_2019_07_09_435_pi9cam2_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_09_435_pi9cam2_shahe_1.nc outputs_2019_07/gmat_2019_07_09_435_pi9cam2_shahe_2.nc
 
-# 2019-07-10 Dwingeloo, Wakayama
+# 2019-07-10 Dwingeloo, Shahe
 # f_offset -210
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-10T13:39:31_435.4MHz_40ksps_complex_tagged.raw 1562765980.433423 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-10.raw 1562765985.202346 Wakayama \
-			  435.4e6 -210 outputs_2019_07/results_2019_07_10_435_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_10_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_10_435_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_10_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_10_435_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-10.raw 1562765985.202346 Shahe \
+			  435.4e6 -210 outputs_2019_07/results_2019_07_10_435_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_10_435_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_10_435_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_10_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_10_435_pi9cam_shahe_2.nc
 
-# 2019-07-23 Dwingeloo, Wakayama
-# note: meta_B_435_Wakayama_2019-07-23.raw starts on 2019-07-22 really
+# 2019-07-23 Dwingeloo, Shahe
+# note: meta_B_435_Shahe_2019-07-23.raw starts on 2019-07-22 really
 # f_offset -210
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-23T23:11:10_435.4MHz_40ksps_complex_tagged.raw 1563923479.515347 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-24.raw 1563922876.205565 Wakayama \
-			  435.4e6 -210 outputs_2019_07/results_2019_07_23_435_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_23_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_23_435_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_23_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_23_435_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-24.raw 1563922876.205565 Shahe \
+			  435.4e6 -210 outputs_2019_07/results_2019_07_23_435_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_23_435_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_23_435_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_23_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_23_435_pi9cam_shahe_2.nc
 
-# 2019-07-28 Dwingeloo, Wakayama
+# 2019-07-28 Dwingeloo, Shahe
 # f_offset -212
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-28T03:19:42_435.4MHz_40ksps_complex_tagged.raw 1564283991.525825 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-28.raw 1564283364.196892 Wakayama \
-			  435.4e6 -212 outputs_2019_07/results_2019_07_28_435_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_28_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_28_435_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_28_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_28_435_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-28.raw 1564283364.196892 Shahe \
+			  435.4e6 -212 outputs_2019_07/results_2019_07_28_435_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_28_435_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_28_435_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_28_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_28_435_pi9cam_shahe_2.nc
 
-# 2019-07-31 Dwingeloo, Wakayama
+# 2019-07-31 Dwingeloo, Shahe
 # f_offset -225
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-31T06:29:59_435.4MHz_40ksps_complex_tagged.raw 1564554607.458337 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Wakayama_2019-07-31.raw 1564553487.203739 Wakayama \
-			  435.4e6 -225 outputs_2019_07/results_2019_07_31_435_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_31_435_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_31_435_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_31_435_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_31_435_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_435_Shahe_2019-07-31.raw 1564553487.203739 Shahe \
+			  435.4e6 -225 outputs_2019_07/results_2019_07_31_435_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_31_435_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_31_435_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_31_435_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_31_435_pi9cam_shahe_2.nc
 
 # 436MHz
 
@@ -274,7 +274,7 @@
 			  outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/doppler_2019_07_05_436_harbin_wakayama_2.nc \
 			  outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_1.nc outputs_2019_07/gmat_2019_07_05_436_harbin_wakayama_2.nc
 
-# 2019-07-09 Dwingeloo (x2), Wakayama
+# 2019-07-09 Dwingeloo (x2), Shahe
 # f_offset -259
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:30:00_436.4MHz_40ksps_complex_tagged.raw 1562678074.565398 PI9CAM \
@@ -284,50 +284,50 @@
 			  outputs_2019_07/gmat_2019_07_09_436_pi9cam_pi9cam2_1.nc outputs_2019_07/gmat_2019_07_09_436_pi9cam_pi9cam2_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:30:00_436.4MHz_40ksps_complex_tagged.raw 1562678074.565398 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-09.raw 1562675270.203557 Wakayama \
-			  436.4e6 -259 outputs_2019_07/results_2019_07_09_436_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_09_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_09_436_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_09_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_09_436_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-09.raw 1562675270.203557 Shahe \
+			  436.4e6 -259 outputs_2019_07/results_2019_07_09_436_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_09_436_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_09_436_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_09_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_09_436_pi9cam_shahe_2.nc
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-09T14:40:00_436.4MHz_40ksps_complex_tagged.raw 1562681922.029440 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-09.raw 1562675270.203557 Wakayama \
-			  436.4e6 -259 outputs_2019_07/results_2019_07_09_436_pi9cam2_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_09_436_pi9cam2_wakayama_1.nc outputs_2019_07/doppler_2019_07_09_436_pi9cam2_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_09_436_pi9cam2_wakayama_1.nc outputs_2019_07/gmat_2019_07_09_436_pi9cam2_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-09.raw 1562675270.203557 Shahe \
+			  436.4e6 -259 outputs_2019_07/results_2019_07_09_436_pi9cam2_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_09_436_pi9cam2_shahe_1.nc outputs_2019_07/doppler_2019_07_09_436_pi9cam2_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_09_436_pi9cam2_shahe_1.nc outputs_2019_07/gmat_2019_07_09_436_pi9cam2_shahe_2.nc
 
-# 2019-07-10 Dwingeloo, Wakayama
+# 2019-07-10 Dwingeloo, Shahe
 # f_offset -266
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-10T13:39:31_436.4MHz_40ksps_complex_tagged.raw 1562765980.433423 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-10.raw 1562765985.202346 Wakayama \
-			  436.4e6 -266 outputs_2019_07/results_2019_07_10_436_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_10_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_10_436_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_10_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_10_436_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-10.raw 1562765985.202346 Shahe \
+			  436.4e6 -266 outputs_2019_07/results_2019_07_10_436_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_10_436_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_10_436_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_10_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_10_436_pi9cam_shahe_2.nc
 
-# 2019-07-23 Dwingeloo, Wakayama
-# note: meta_B_435_Wakayama_2019-07-23.raw starts on 2019-07-22 really
+# 2019-07-23 Dwingeloo, Shahe
+# note: meta_B_435_Shahe_2019-07-23.raw starts on 2019-07-22 really
 # f_offset -259
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-23T23:11:10_436.4MHz_40ksps_complex_tagged.raw 1563923479.515347 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-24.raw 1563922876.205565 Wakayama \
-			  436.4e6 -259 outputs_2019_07/results_2019_07_23_436_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_23_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_23_436_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_23_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_23_436_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-24.raw 1563922876.205565 Shahe \
+			  436.4e6 -259 outputs_2019_07/results_2019_07_23_436_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_23_436_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_23_436_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_23_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_23_436_pi9cam_shahe_2.nc
 
-# 2019-07-28 Dwingeloo, Wakayama
+# 2019-07-28 Dwingeloo, Shahe
 # f_offset -261
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-28T03:19:42_436.4MHz_40ksps_complex_tagged.raw 1564283991.525825 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-28.raw 1564283364.196892 Wakayama \
-			  436.4e6 -261 outputs_2019_07/results_2019_07_28_436_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_28_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_28_436_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_28_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_28_436_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-28.raw 1564283364.196892 Shahe \
+			  436.4e6 -261 outputs_2019_07/results_2019_07_28_436_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_28_436_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_28_436_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_28_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_28_436_pi9cam_shahe_2.nc
 
-# 2019-07-31 Dwingeloo, Wakayama
+# 2019-07-31 Dwingeloo, Shahe
 # f_offset -269
 
 ./correlate_recordings.py /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/DSLWP-B_PI9CAM_2019-07-31T06:29:59_436.4MHz_40ksps_complex_tagged.raw 1564554607.458337 PI9CAM \
-			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Wakayama_2019-07-31.raw 1564553487.203739 Wakayama \
-			  436.4e6 -269 outputs_2019_07/results_2019_07_31_436_pi9cam_wakayama.npy \
-			  outputs_2019_07/doppler_2019_07_31_436_pi9cam_wakayama_1.nc outputs_2019_07/doppler_2019_07_31_436_pi9cam_wakayama_2.nc \
-			  outputs_2019_07/gmat_2019_07_31_436_pi9cam_wakayama_1.nc outputs_2019_07/gmat_2019_07_31_436_pi9cam_wakayama_2.nc
+			  /mnt/disk/dslwp/charon.camras.nl/public/dslwp-b/c64/meta_B_436_Shahe_2019-07-31.raw 1564553487.203739 Shahe \
+			  436.4e6 -269 outputs_2019_07/results_2019_07_31_436_pi9cam_shahe.npy \
+			  outputs_2019_07/doppler_2019_07_31_436_pi9cam_shahe_1.nc outputs_2019_07/doppler_2019_07_31_436_pi9cam_shahe_2.nc \
+			  outputs_2019_07/gmat_2019_07_31_436_pi9cam_shahe_1.nc outputs_2019_07/gmat_2019_07_31_436_pi9cam_shahe_2.nc
