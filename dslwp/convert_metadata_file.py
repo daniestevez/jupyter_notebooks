@@ -1,23 +1,27 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-##################################################
+
+#
+# SPDX-License-Identifier: GPL-3.0
+#
 # GNU Radio Python Flow Graph
 # Title: Convert Metadata File
-# Generated: Mon Jun 11 21:43:14 2018
-##################################################
+# GNU Radio version: 3.8.1.0
 
 from gnuradio import blocks
-from gnuradio import eng_notation
 from gnuradio import gr
-from gnuradio import gr, blocks
-from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
-from optparse import OptionParser
+import sys
+import signal
+from argparse import ArgumentParser
+from gnuradio.eng_arg import eng_float, intx
+from gnuradio import eng_notation
+from gnuradio import gr, blocks
 
 
 class convert_metadata_file(gr.top_block):
 
-    def __init__(self, infile='0', outfile='0'):
+    def __init__(self, infile='', outfile=''):
         gr.top_block.__init__(self, "Convert Metadata File")
 
         ##################################################
@@ -45,6 +49,7 @@ class convert_metadata_file(gr.top_block):
         ##################################################
         self.connect((self.blocks_file_meta_source_0, 0), (self.blocks_file_sink_1, 0))
 
+
     def get_infile(self):
         return self.infile
 
@@ -66,23 +71,35 @@ class convert_metadata_file(gr.top_block):
         self.samp_rate = samp_rate
 
 
+
+
 def argument_parser():
-    parser = OptionParser(usage="%prog: [options]", option_class=eng_option)
-    parser.add_option(
-        "", "--infile", dest="infile", type="string", default='0',
-        help="Set infile [default=%default]")
-    parser.add_option(
-        "", "--outfile", dest="outfile", type="string", default='0',
-        help="Set outfile [default=%default]")
+    parser = ArgumentParser()
+    parser.add_argument(
+        "--infile", dest="infile", type=str, default='',
+        help="Set infile [default=%(default)r]")
+    parser.add_argument(
+        "--outfile", dest="outfile", type=str, default='',
+        help="Set outfile [default=%(default)r]")
     return parser
 
 
 def main(top_block_cls=convert_metadata_file, options=None):
     if options is None:
-        options, _ = argument_parser().parse_args()
-
+        options = argument_parser().parse_args()
     tb = top_block_cls(infile=options.infile, outfile=options.outfile)
+
+    def sig_handler(sig=None, frame=None):
+        tb.stop()
+        tb.wait()
+
+        sys.exit(0)
+
+    signal.signal(signal.SIGINT, sig_handler)
+    signal.signal(signal.SIGTERM, sig_handler)
+
     tb.start()
+
     tb.wait()
 
 
