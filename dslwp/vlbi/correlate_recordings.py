@@ -20,9 +20,9 @@ GS_LOCATIONS = {
     'Wakayama' : [34.267316, 135.150097, 0.080]
 }
 
-NUM_PARAMETERS = 13
+NUM_PARAMETERS = 14
 def usage():
-    print('Usage: {} file1 file1_start_timestamp file1_groundstation file2 file2_start_timestamp file2_groundstation centre_freq tx_freq_offset results.npy doppler1.nc doppler2.nc gmat1.nc gmat2.nc'.format(sys.argv[0]), file=sys.stderr)
+    print('Usage: {} file1 file1_start_timestamp file1_groundstation file2 file2_start_timestamp file2_groundstation centre_freq tx_freq_offset results.npy doppler1.nc doppler2.nc gmat1.nc gmat2.nc timing_info.npz'.format(sys.argv[0]), file=sys.stderr)
 
 FFT_SIZE = 2**17
 CORR_WINDOW_SIZE = 200
@@ -49,10 +49,8 @@ def main():
         usage()
         return 1
 
-    start_timestamp_1 = float(sys.argv[2])
-    start_1 = np.datetime64(datetime.datetime.utcfromtimestamp(start_timestamp_1))
-    start_timestamp_2 = float(sys.argv[5])
-    start_2 = np.datetime64(datetime.datetime.utcfromtimestamp(start_timestamp_2))
+    start_1 = np.datetime64(int(sys.argv[2]), 'ns')
+    start_2 = np.datetime64(int(sys.argv[5]), 'ns')
 
     samples_1 = process.open_samples_file(sys.argv[1])
     sample_time_1 = process.compute_sample_time(samples_1, start_1)
@@ -72,9 +70,9 @@ def main():
     sample_time_1 = sample_time_1[:samples_len]
     sample_time_2 = sample_time_2[:samples_len]
 
-    print('First sample timestamp:', sample_time_1[0].compute())
+    first_sample_timestamp = sample_time_1[0].compute()
     clock_offset = sample_time_1[0].compute() - sample_time_2[0].compute()
-    print('Clock offset between 1 and 2:', clock_offset)
+    np.savez(sys.argv[14], first_sample_timestamp = first_sample_timestamp, clock_offset = clock_offset)
 
     centre_freq = float(sys.argv[7])
 
