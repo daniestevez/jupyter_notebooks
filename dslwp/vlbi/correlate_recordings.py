@@ -59,11 +59,11 @@ def main():
 
     samples_throw = int(np.round(np.abs(start_1 - start_2).astype('timedelta64[ns]').astype('float')*1e-9*process.SAMPRATE))
     if start_1 < start_2:
-        samples_1 = samples_1[samples_throw:]
-        sample_time_1 = sample_time_1[samples_throw:]
+        samples_1 = samples_1[samples_throw:].rechunk(process.SAMPLES_CHUNKSIZE)
+        sample_time_1 = sample_time_1[samples_throw:].rechunk(process.SAMPLES_CHUNKSIZE)
     else:
-        samples_2 = samples_2[samples_throw:]
-        sample_time_2 = sample_time_2[samples_throw:]
+        samples_2 = samples_2[samples_throw:].rechunk(process.SAMPLES_CHUNKSIZE)
+        sample_time_2 = sample_time_2[samples_throw:].rechunk(process.SAMPLES_CHUNKSIZE)
     samples_len = min(samples_1.size, samples_2.size)
     samples_1 = samples_1[:samples_len]
     samples_2 = samples_2[:samples_len]
