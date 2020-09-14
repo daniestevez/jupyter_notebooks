@@ -22,7 +22,12 @@ def read_meta_info(file):
         header = pmt.deserialize_str(f.read(parse_file_metadata.HEADER_LENGTH))
         info = parse_file_metadata.parse_header(header, False)
     info['st_size'] = file.stat().st_size
-    info['band'] = 435 if '435' in str(file) else 436
+    bandsname = {435 : ['_435_', '_435.4MHz_', '_435MHz'],
+                 436 : ['_436_', '_436.4MHz_', '_436MHz']}
+    isband = {k : np.any([vv in str(file) for vv in v]) for k, v in bandsname.items()}
+    if not np.any(list(isband.values())):
+        raise ValueError(f'Could not deduce band from filename: {str(file)}')
+    info['band'] = [k for k, v in isband.items() if v][0]
     return info
 
 def brackets_overlap(f1, f2):
@@ -116,7 +121,7 @@ def correlate_baseline(b):
     
     convert_to_c64(b[1])
     convert_to_c64(b[4])
-    
+
     subprocess.run([CORRELATE,
                     str(c64_filename(b[1])), rx_time_str(b[2]), b[0],
                     str(c64_filename(b[4])), rx_time_str(b[5]), b[3],
@@ -134,7 +139,7 @@ def correlate_baseline(b):
     c64_filename(b[4]).unlink()
     
 def main():
-    recordings = {'PI9CAM' : list(path.glob('*_complex_tagged.raw')) + list(path.glob('meta_B_*_Dwingeloo_*')),
+    recordings = {'PI9CAM' : list(path.glob('*_complex_tagged.raw')) + list(path.glob('meta_B_*_Dwingeloo_*')) + list(path.glob('DSLWP-B_PI9CAM_2018-11-21_*.raw')),
               'Harbin' : list(path.glob('meta_B_*_Harbin_*')),
               'Shahe' : list(path.glob('meta_B_*_Shahe_*')) + list(path.glob('meta_B_*_Beijing_*')),
               'Wakayama' : list(path.glob('meta_B_*_Wakayama_*')),
