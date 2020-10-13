@@ -22,13 +22,20 @@ Create Spacecraft Tianwen1_postTCM;
 Tianwen1_postTCM.OrbitColor = 'Yellow';
 Tianwen1_postTCM.DateFormat = UTCGregorian;
 Tianwen1_postTCM.CoordinateSystem = SunICRF;
-Tianwen1_postTCM.Epoch = '09 Oct 2020 19:09:40.777';
-Tianwen1_postTCM.X = 172401001.66836962 
-Tianwen1_postTCM.Y = 40290822.63279648
-Tianwen1_postTCM.Z = 20967750.693616968
-Tianwen1_postTCM.VX = -1.4286845530882641
-Tianwen1_postTCM.VY = 26.04901896207726
-Tianwen1_postTCM.VZ = 11.853820044831242
+%Tianwen1_postTCM.Epoch = '09 Oct 2020 19:09:40.777';
+%Tianwen1_postTCM.X = 172401001.66836962 
+%Tianwen1_postTCM.Y = 40290822.63279648
+%Tianwen1_postTCM.Z = 20967750.693616968
+%Tianwen1_postTCM.VX = -1.4286845530882641
+%Tianwen1_postTCM.VY = 26.04901896207726
+%Tianwen1_postTCM.VZ = 11.853820044831242
+Tianwen1_postTCM.Epoch = '10 Oct 2020 19:08:50.122';
+Tianwen1_postTCM.X = 172262669.5024532
+Tianwen1_postTCM.Y = 42536664.64589398
+Tianwen1_postTCM.Z = 21989467.534531824
+Tianwen1_postTCM.VX = -1.7753279668677469
+Tianwen1_postTCM.VY = 25.966616665124505
+Tianwen1_postTCM.VZ = 11.810575717885476
 
 
 %----------------------------------------
@@ -92,6 +99,6 @@ Propagate FineProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 3600};
 Propagate DefaultProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 30600};
 Toggle ReportPost On;
 Toggle ReportPre Off;
-Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -12600};
+Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -99000};
 Propagate BackProp FineProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -3600};
 Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -55800};
