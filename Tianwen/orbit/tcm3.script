@@ -21,13 +21,21 @@ Tianwen1_preTCM.VZ = 10.826177880064586
 Create Spacecraft Tianwen1_postTCM;
 Tianwen1_postTCM.DateFormat = UTCGregorian;
 Tianwen1_postTCM.CoordinateSystem = SunICRF;
-Tianwen1_postTCM.Epoch = '28 Oct 2020 19:17:45.307';
-Tianwen1_postTCM.X = 164943424.90529633
-Tianwen1_postTCM.Y = 81452904.71770315
-Tianwen1_postTCM.Z = 39619726.88243446
-Tianwen1_postTCM.VX = -7.448763265730083
-Tianwen1_postTCM.VY = 23.898555184357132
-Tianwen1_postTCM.VZ = 10.784211582451528
+%Tianwen1_postTCM.Epoch = '28 Oct 2020 19:17:45.307';
+%Tianwen1_postTCM.X = 164943424.90529633
+%Tianwen1_postTCM.Y = 81452904.71770315
+%Tianwen1_postTCM.Z = 39619726.88243446
+%Tianwen1_postTCM.VX = -7.448763265730083
+%Tianwen1_postTCM.VY = 23.898555184357132
+%Tianwen1_postTCM.VZ = 10.784211582451528
+% final state after orbit determination
+Tianwen1_postTCM.Epoch = '01 Nov 2020 19:16:18.225';
+Tianwen1_postTCM.X = 162176893.18858024
+Tianwen1_postTCM.Y = 89611204.03890982
+Tianwen1_postTCM.Z = 43297804.49442677
+Tianwen1_postTCM.VX = -8.556023611815943
+Tianwen1_postTCM.VY = 23.319737091646765
+Tianwen1_postTCM.VZ = 10.503682382842694
 
 %----------------------------------------
 %---------- ForceModels
@@ -88,8 +96,9 @@ Toggle ReportPre On;
 Propagate DefaultProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 32400};
 Propagate FineProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 7200};
 Propagate DefaultProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 20400};
-Toggle ReportPost On;
 Toggle ReportPre Off;
+Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedDays = -4};
+Toggle ReportPost On;
 Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -10800};
 Propagate BackProp FineProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -3600};
 Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -45600};
