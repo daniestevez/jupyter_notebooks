@@ -1,0 +1,94 @@
+%General Mission Analysis Tool(GMAT) Script
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+% Last state vector before TCM4
+Create Spacecraft Tianwen1_preTCM;
+Tianwen1_preTCM.DateFormat = UTCGregorian;
+Tianwen1_preTCM.CoordinateSystem = SunICRF;
+Tianwen1_preTCM.Epoch = '02 Feb 2021 23:33:29.467';
+Tianwen1_preTCM.X = 27880628.49652363
+Tianwen1_preTCM.Y = 208768162.97371268
+Tianwen1_preTCM.Z = 95601353.10978301
+Tianwen1_preTCM.VX = -21.01835332056597
+Tianwen1_preTCM.VY = 5.7193741391131505
+Tianwen1_preTCM.VZ = 2.2877327768152047
+
+% First state after TCM4
+Create Spacecraft Tianwen1_postTCM;
+Tianwen1_postTCM.DateFormat = UTCGregorian;
+Tianwen1_postTCM.CoordinateSystem = SunICRF;
+Tianwen1_postTCM.Epoch = '05 Feb 2021 17:10:01.245';
+Tianwen1_postTCM.X = 22908948.220110044
+Tianwen1_postTCM.Y = 210056989.00389823
+Tianwen1_postTCM.Z = 96113057.20404692
+Tianwen1_postTCM.VX = -21.077001254124575
+Tianwen1_postTCM.VY = 5.195109441020065
+Tianwen1_postTCM.VZ = 2.045106416887152
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Sun;
+DefaultProp_ForceModel.PointMasses = {Sun, Earth, Jupiter, Mars, Luna, Saturn, Venus, Mercury, Uranus, Neptune, Pluto};
+DefaultProp_ForceModel.RelativisticCorrection = On
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = PrinceDormand45;
+DefaultProp.InitialStepSize = 10;
+DefaultProp.MinStep = 1;
+DefaultProp.MaxStep = 60;
+
+Create Propagator FineProp;
+FineProp.FM = DefaultProp_ForceModel;
+FineProp.Type = PrinceDormand45;
+FineProp.InitialStepSize = 1;
+FineProp.MinStep = 0.1;
+FineProp.MaxStep = 1;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportPre;
+ReportPre.Filename = 'Tianwen1_preTCM4.txt';
+ReportPre.Add = {Tianwen1_preTCM.UTCModJulian, Tianwen1_preTCM.SunICRF.X, Tianwen1_preTCM.SunICRF.Y, Tianwen1_preTCM.SunICRF.Z, Tianwen1_preTCM.SunICRF.VX, Tianwen1_preTCM.SunICRF.VY, Tianwen1_preTCM.SunICRF.VZ};
+ReportPre.WriteHeaders = false;
+
+Create ReportFile ReportPost;
+ReportPost.Filename = 'Tianwen1_postTCM4.txt';
+ReportPost.Add = {Tianwen1_postTCM.UTCModJulian, Tianwen1_postTCM.SunICRF.X, Tianwen1_postTCM.SunICRF.Y, Tianwen1_postTCM.SunICRF.Z, Tianwen1_postTCM.SunICRF.VX, Tianwen1_postTCM.SunICRF.VY, Tianwen1_postTCM.SunICRF.VZ};
+ReportPost.WriteHeaders = false;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Toggle ReportPost Off;
+Toggle ReportPre On;
+Propagate DefaultProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 208800};
+Propagate FineProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 14400};
+Propagate DefaultProp(Tianwen1_preTCM) {Tianwen1_preTCM.ElapsedSecs = 14400};
+Toggle ReportPre Off;
+Toggle ReportPost On;
+Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -3600};
+Propagate BackProp FineProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -14400};
+Propagate BackProp DefaultProp(Tianwen1_postTCM) {Tianwen1_postTCM.ElapsedSecs = -28800};
