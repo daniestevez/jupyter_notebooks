@@ -1,0 +1,89 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.DisplayStateType = Cartesian;
+
+% Sun centric state vectors
+%Tianwen1.Epoch = '07 Feb 2021 20:47:51.602';
+%Tianwen1.CoordinateSystem = SunICRF;
+%Tianwen1.X = 18988200.159360874
+%Tianwen1.Y = 210984676.78580016
+%Tianwen1.Z = 96475452.65609649
+%Tianwen1.VX = -21.107541190343827
+%Tianwen1.VY = 4.788422002002578
+%Tianwen1.VZ = 1.8541584892694114
+
+
+% Mars centric state vectors
+Tianwen1.Epoch = '08 Feb 2021 22:14:25.049';
+Tianwen1.CoordinateSystem = MarsInertial;
+Tianwen1.X = -345203.0840200648
+Tianwen1.Y = 103420.7793506239
+Tianwen1.Z = -15761.456419116437
+Tianwen1.VX = 2.409386271990221
+Tianwen1.VY = -0.7794198288828312
+Tianwen1.VZ = 0.12118319008153547
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+ForceModel.CentralBody = Sun;
+ForceModel.PointMasses = {Sun, Earth, Jupiter, Mars, Luna, Saturn, Venus, Mercury, Uranus, Neptune, Pluto};
+ForceModel.Drag = None;
+ForceModel.SRP = Off;
+ForceModel.RelativisticCorrection = On;
+ForceModel.ErrorControl = RSSStep;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+Prop.FM = ForceModel;
+Prop.Type = PrinceDormand45;
+Prop.InitialStepSize = 10;
+Prop.Accuracy = 9.999999999999999e-12;
+Prop.MinStep = 1;
+Prop.MaxStep = 10;
+Prop.MaxStepAttempts = 50;
+Prop.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+SunICRF.Origin = Sun;
+SunICRF.Axes = ICRF;
+
+Create CoordinateSystem MarsInertial;
+MarsInertial.Origin = Mars;
+MarsInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportRADEC;
+ReportRADEC.SolverIterations = Current;
+ReportRADEC.Filename = 'Tianwen1_XYZ.txt';
+
+% Sun centric output
+%ReportRADEC.Add = {Tianwen1.UTCModJulian, Tianwen1.SunICRF.X, Tianwen1.SunICRF.Y, Tianwen1.SunICRF.Z};
+
+% Mars centric output
+ReportRADEC.Add = {Tianwen1.UTCModJulian, Tianwen1.MarsInertial.X, Tianwen1.MarsInertial.Y, Tianwen1.MarsInertial.Z};
+
+ReportRADEC.WriteHeaders = false;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate Prop(Tianwen1) {Tianwen1.ElapsedDays = 1.5};
