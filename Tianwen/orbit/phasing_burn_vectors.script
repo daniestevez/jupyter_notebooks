@@ -1,0 +1,100 @@
+%General Mission Analysis Tool(GMAT) Script
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+% Last state vector before plane change
+Create Spacecraft Tianwen1_pre;
+Tianwen1_pre.DateFormat = UTCGregorian;
+Tianwen1_pre.CoordinateSystem = MarsInertial;
+Tianwen1_pre.Epoch = '20 Feb 2021 10:42:16.567';
+Tianwen1_pre.X = -2667.879637832454
+Tianwen1_pre.Y = 5495.6315113980045
+Tianwen1_pre.Z = 9622.282515902038
+Tianwen1_pre.VX = 0.9689504577754409
+Tianwen1_pre.VY = -2.2615159753974448
+Tianwen1_pre.VZ = -1.0035983201559762
+
+% First state after plane change
+Create Spacecraft Tianwen1_post;
+Tianwen1_post.DateFormat = UTCGregorian;
+Tianwen1_post.CoordinateSystem = MarsInertial;
+Tianwen1_post.Epoch = '21 Feb 2021 22:32:58.245';
+Tianwen1_post.X = -31154.22134150465
+Tianwen1_post.Y = 78306.96773570323
+Tianwen1_post.Z = -19676.586765779637
+Tianwen1_post.VX = -0.06858389965119524
+Tianwen1_post.VY = 0.1499489418763738
+Tianwen1_post.VZ = 0.16767547327519577
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Mars;
+DefaultProp_ForceModel.PrimaryBodies = {Mars};
+DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Luna, Mercury, Neptune, Pluto, Saturn, Sun, Uranus, Venus};
+DefaultProp_ForceModel.Drag = None;
+DefaultProp_ForceModel.SRP = Off;
+DefaultProp_ForceModel.RelativisticCorrection = On;
+DefaultProp_ForceModel.ErrorControl = RSSStep;
+DefaultProp_ForceModel.GravityField.Mars.Degree = 80;
+DefaultProp_ForceModel.GravityField.Mars.Order = 80;
+DefaultProp_ForceModel.GravityField.Mars.StmLimit = 100;
+DefaultProp_ForceModel.GravityField.Mars.PotentialFile = 'GMM2B.cof';
+DefaultProp_ForceModel.GravityField.Mars.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = PrinceDormand45;
+DefaultProp.InitialStepSize = 10;
+DefaultProp.MinStep = 1;
+DefaultProp.MaxStep = 60;
+
+Create Propagator FineProp;
+FineProp.FM = DefaultProp_ForceModel;
+FineProp.Type = PrinceDormand45;
+FineProp.InitialStepSize = 1;
+FineProp.MinStep = 0.1;
+FineProp.MaxStep = 1;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem MarsInertial;
+MarsInertial.Origin = Mars;
+MarsInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportPre;
+ReportPre.Filename = 'Tianwen1_pre_phasing.txt';
+ReportPre.Add = {Tianwen1_pre.UTCModJulian, Tianwen1_pre.MarsInertial.X, Tianwen1_pre.MarsInertial.Y, Tianwen1_pre.MarsInertial.Z, Tianwen1_pre.MarsInertial.VX, Tianwen1_pre.MarsInertial.VY, Tianwen1_pre.MarsInertial.VZ};
+ReportPre.WriteHeaders = false;
+
+Create ReportFile ReportPost;
+ReportPost.Filename = 'Tianwen1_post_phasing.txt';
+ReportPost.Add = {Tianwen1_post.UTCModJulian, Tianwen1_post.MarsInertial.X, Tianwen1_post.MarsInertial.Y, Tianwen1_post.MarsInertial.Z, Tianwen1_post.MarsInertial.VX, Tianwen1_post.MarsInertial.VY, Tianwen1_post.MarsInertial.VZ};
+ReportPost.WriteHeaders = false;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Toggle ReportPost Off;
+Toggle ReportPre On;
+Propagate FineProp(Tianwen1_pre) {Tianwen1_pre.ElapsedSecs = 14400};
+Toggle ReportPre Off;
+Propagate BackProp FineProp(Tianwen1_post) {Tianwen1_post.ElapsedSecs = -108000};
+Toggle ReportPost On;
+Propagate BackProp FineProp(Tianwen1_post) {Tianwen1_post.ElapsedSecs = -21600};
