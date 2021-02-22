@@ -1,0 +1,160 @@
+%General Mission Analysis Tool(GMAT) Script
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1;
+Tianwen1.DateFormat = UTCGregorian;
+Tianwen1.CoordinateSystem = MarsInertial;
+Tianwen1.DisplayStateType = Cartesian;
+Tianwen1.Epoch = '21 Feb 2021 22:32:58.245';
+Tianwen1.X = -31154.22134150465
+Tianwen1.Y = 78306.96773570323
+Tianwen1.Z = -19676.586765779637
+Tianwen1.VX = -0.06858389965119524
+Tianwen1.VY = 0.1499489418763738
+Tianwen1.VZ = 0.16767547327519577
+
+Tianwen1.DryMass = 2500;
+Tianwen1.Tanks = {Tianwen1Tank};
+Tianwen1.Thrusters = {Tianwen1Thruster};
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create ChemicalTank Tianwen1Tank;
+Tianwen1Tank.FuelMass = 900;
+Tianwen1Tank.Volume = 1.25;
+
+Create ChemicalThruster Tianwen1Thruster;
+Tianwen1Thruster.CoordinateSystem = Local;
+Tianwen1Thruster.Origin = Mars;
+Tianwen1Thruster.Axes = VNB;
+Tianwen1Thruster.ThrustDirection1 = -1;
+Tianwen1Thruster.ThrustDirection2 = 0;
+Tianwen1Thruster.ThrustDirection3 = 0;
+Tianwen1Thruster.Tank = {Tianwen1Tank};
+Tianwen1Thruster.DecrementMass = true;
+Tianwen1Thruster.C1 = 3000;
+Tianwen1Thruster.K1 = 321.6;
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Mars;
+DefaultProp_ForceModel.PrimaryBodies = {Mars};
+DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Luna, Mercury, Neptune, Pluto, Saturn, Sun, Uranus, Venus};
+DefaultProp_ForceModel.Drag = None;
+DefaultProp_ForceModel.SRP = Off;
+DefaultProp_ForceModel.RelativisticCorrection = On;
+DefaultProp_ForceModel.ErrorControl = RSSStep;
+DefaultProp_ForceModel.GravityField.Mars.Degree = 80;
+DefaultProp_ForceModel.GravityField.Mars.Order = 80;
+DefaultProp_ForceModel.GravityField.Mars.StmLimit = 100;
+DefaultProp_ForceModel.GravityField.Mars.PotentialFile = 'GMM2B.cof';
+DefaultProp_ForceModel.GravityField.Mars.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = PrinceDormand78;
+DefaultProp.InitialStepSize = 10;
+DefaultProp.Accuracy = 9.999999999999999e-12;
+DefaultProp.MinStep = 1;
+DefaultProp.MaxStep = 50;
+DefaultProp.MaxStepAttempts = 50;
+DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create FiniteBurn Tianwen1Finite;
+Tianwen1Finite.Thrusters = {Tianwen1Thruster};
+
+Create ImpulsiveBurn TianwenImpulse;
+TianwenImpulse.CoordinateSystem = Local;
+TianwenImpulse.Origin = Mars;
+TianwenImpulse.Axes = VNB;
+TianwenImpulse.Element1 = -0.0409; %-0.04105;
+TianwenImpulse.Element2 = 0;
+TianwenImpulse.Element3 = 0;
+
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem MarsInertial;
+MarsInertial.Origin = Mars;
+MarsInertial.Axes = BodyInertial;
+
+Create CoordinateSystem MarsMJ2000Eq;
+MarsMJ2000Eq.Origin = Mars;
+MarsMJ2000Eq.Axes = MJ2000Eq;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView TopOrbitView;
+TopOrbitView.Add = {Tianwen1, Mars, Sun};
+TopOrbitView.CoordinateSystem = MarsInertial;
+TopOrbitView.ViewPointReference = Mars;
+TopOrbitView.ViewPointVector = [ 0 0 200000 ];
+TopOrbitView.ViewDirection = Mars;
+TopOrbitView.ViewUpCoordinateSystem = MarsInertial;
+TopOrbitView.ViewUpAxis = Z;
+TopOrbitView.EclipticPlane = Off;
+TopOrbitView.XYPlane = Off;
+TopOrbitView.Grid = Off;
+TopOrbitView.EnableConstellations = Off;
+TopOrbitView.MaxPlotPoints = 100000;
+
+Create OrbitView FrontOrbitView;
+FrontOrbitView.Add = {Tianwen1, Mars, Sun, Earth};
+FrontOrbitView.CoordinateSystem = MarsInertial;
+FrontOrbitView.ViewPointReference = Mars;
+FrontOrbitView.ViewPointVector = [ 50000 -20000 20000 ];
+FrontOrbitView.ViewDirection = Mars;
+FrontOrbitView.ViewUpCoordinateSystem = MarsInertial;
+FrontOrbitView.ViewUpAxis = Z;
+FrontOrbitView.EclipticPlane = Off;
+FrontOrbitView.XYPlane = Off;
+FrontOrbitView.Grid = Off;
+FrontOrbitView.EnableConstellations = Off;
+FrontOrbitView.MaxPlotPoints = 100000;
+
+Create GroundTrackPlot GroundTrackPlot1;
+GroundTrackPlot1.Add = {Tianwen1};
+GroundTrackPlot1.CentralBody = Mars;
+GroundTrackPlot1.MaxPlotPoints = 100000;
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+
+
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Apoapsis};
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
+
+Maneuver TianwenImpulse(Tianwen1);
+
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Apoapsis};
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
+Propagate DefaultProp(Tianwen1) {Tianwen1.ElapsedDays = 10};
+Propagate DefaultProp(Tianwen1) {Tianwen1.Mars.Periapsis};
+
+
+
+
