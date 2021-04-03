@@ -36,7 +36,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 800e3
+    value: 1.2e6
   states:
     bus_sink: false
     bus_source: false
@@ -60,7 +60,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '2000000'
+    value: 2000000*4
   states:
     bus_sink: false
     bus_source: false
@@ -84,7 +84,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '''00010101010100001011010011110101100001010001111111100000111100111101110100100011100111111101100110000101101001101101010110001011110001100111011101100000010011110111110011'''
+    value: '''000011001011001001000010100101001000111101001011110010011001000001111111101100000010101101000101101011111001000110010111110011101111111011110001100010011001100110001100101001011011100010100111101000011110011101001111001100000000011010111111001101101010111'''
   states:
     bus_sink: false
     bus_source: false
@@ -116,14 +116,14 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: samp_rate
+    samp_rate: 2e6
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 352.0]
+    coordinate: [40, 356.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_0
@@ -141,7 +141,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 380.0]
+    coordinate: [848, 380.0]
     rotation: 0
     state: enabled
 - name: blocks_file_sink_0_0
@@ -159,7 +159,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 468.0]
+    coordinate: [848, 468.0]
     rotation: 0
     state: enabled
 - name: blocks_file_source_0
@@ -197,7 +197,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [320, 264.0]
+    coordinate: [264, 264.0]
     rotation: 0
     state: true
 - name: epy_block_0
@@ -228,7 +228,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    threshold: '1.2'
+    threshold: '4.5'
   states:
     _io_cache: ('Sparser', 'blk', [('threshold', '1.0')], [('0', 'complex', 1)], [('0',
       'complex', 1), ('1', 'int', 1)], 'Embedded Python Block example - a simple multiply
@@ -236,7 +236,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [544, 400.0]
+    coordinate: [656, 400.0]
     rotation: 0
     state: enabled
 - name: fir_filter_xxx_0
@@ -255,7 +255,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 268.0]
+    coordinate: [640, 268.0]
     rotation: 0
     state: true
 - name: import_0
@@ -358,25 +358,46 @@ blocks:
     width8: '1'
     width9: '1'
     ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
+    ymax: '20'
+    ymin: '-20'
     yunit: '""'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [840, 260.0]
+    coordinate: [944, 260.0]
+    rotation: 0
+    state: true
+- name: rational_resampler_xxx_0
+  id: rational_resampler_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: '1'
+    fbw: '0'
+    interp: '4'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    taps: ''
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 252.0]
     rotation: 0
     state: true
 
 connections:
 - [analog_sig_source_x_0, '0', blocks_multiply_conjugate_cc_0, '1']
 - [blocks_file_source_0, '0', blocks_multiply_conjugate_cc_0, '0']
-- [blocks_multiply_conjugate_cc_0, '0', fir_filter_xxx_0, '0']
+- [blocks_multiply_conjugate_cc_0, '0', rational_resampler_xxx_0, '0']
 - [epy_block_0, '0', blocks_file_sink_0, '0']
 - [epy_block_0, '1', blocks_file_sink_0_0, '0']
 - [fir_filter_xxx_0, '0', epy_block_0, '0']
 - [fir_filter_xxx_0, '0', qtgui_time_sink_x_0, '0']
+- [rational_resampler_xxx_0, '0', fir_filter_xxx_0, '0']
 
 metadata:
   file_format: 1
