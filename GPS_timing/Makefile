@@ -1,0 +1,11 @@
+CPPFLAGS=-D_RTLDLL -DNO_STRICT -DTRACE -DENAGLO -DENAQZS -DENAGAL -DENACMP -DENAIRN -DNFREQ=3 -DNEXOBS=3 -DEXTLEX -DQT_NO_DEBUG
+CFLAGS=-Wall -O3
+LDLIBS=-lm
+
+all: compute
+
+compute: compute.o
+	$(CC) $(LDFLAGS) $^ -o $@ $(LOADLIBES) $(LDLIBS) -lRTKLib
+
+clean:
+	rm -f compute *.o
