@@ -1,7 +1,6 @@
 %General Mission Analysis Tool(GMAT) Script
 %Created: 2022-08-05 23:15:21
 
-
 %----------------------------------------
 %---------- Spacecraft
 %----------------------------------------
@@ -38,6 +37,8 @@ Create Spacecraft Eshail2;
 %MEAN_MOTION_DDOT = 0
 %
 %GMAT Eshail2.DateFormat = UTCGregorian;
+%GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
+%GMAT Eshail2.DisplayStateType = Keplerian;
 %GMAT Eshail2.Epoch = '05 Aug 2022 18:32:42.732';
 %GMAT Eshail2.SMA = 42164.79643866292;
 %GMAT Eshail2.ECC = .0001738
@@ -46,17 +47,65 @@ Create Spacecraft Eshail2;
 %GMAT Eshail2.AOP = 78.3235
 %GMAT Eshail2.TA = 87.9470
 
-% Solution from OD (range-rate + "GPS" ECEF constraints)
+% Solution from OD (before 08 Aug 2020 07:20)
+%GMAT Eshail2.DateFormat = UTCModJulian;
+%GMAT Eshail2.Epoch = '29798.5';
+%GMAT Eshail2.CoordinateSystem = EarthTODEq;
+%GMAT Eshail2.DisplayStateType = Keplerian;
+%GMAT Eshail2.SMA = 42164.8770087;
+%GMAT Eshail2.ECC = 0.000446640208305;
+%GMAT Eshail2.INC = 0.0959220290594;
+%GMAT Eshail2.RAAN = 250.664012052;
+%GMAT Eshail2.AOP = 278.974315647;
+%GMAT Eshail2.TA = 171.942299815;
+
+% Solution from OD (after 08 Aug 2022 07:35:00)
+%GMAT Eshail2.DateFormat = UTCModJulian;
+%GMAT Eshail2.Epoch = '29801.5';
+%GMAT Eshail2.CoordinateSystem = EarthTODEq;
+%GMAT Eshail2.DisplayStateType = Keplerian;
+%GMAT Eshail2.SMA = 42164.8731498
+%GMAT Eshail2.ECC = 0.000558097833888
+%GMAT Eshail2.INC = 0.178397754162
+%GMAT Eshail2.RAAN = 256.801816098
+%GMAT Eshail2.AOP = 278.663647084
+%GMAT Eshail2.TA = 169.113612973
+
+% Solution from OD (2022-08-25 - 2022-08-29)
+%GMAT Eshail2.DateFormat = UTCModJulian;
+%GMAT Eshail2.Epoch = '29818.5';
+%GMAT Eshail2.CoordinateSystem = EarthTODEq;
+%GMAT Eshail2.DisplayStateType = Keplerian;
+%GMAT Eshail2.SMA = 42166.587885
+%GMAT Eshail2.ECC = 0.000581833618384
+%GMAT Eshail2.INC = 0.233554075239
+%GMAT Eshail2.RAAN = 239.064244771
+%GMAT Eshail2.AOP = 293.010579081
+%GMAT Eshail2.TA = 189.792543093
+
+% Solution from OD (2022-08-28 - 2022-08-01)
 GMAT Eshail2.DateFormat = UTCModJulian;
-GMAT Eshail2.Epoch = '29798.5';
-GMAT Eshail2.CoordinateSystem = EarthMJ2000Eq;
+GMAT Eshail2.Epoch = '29821.5';
+GMAT Eshail2.CoordinateSystem = EarthTODEq;
 GMAT Eshail2.DisplayStateType = Keplerian;
-GMAT Eshail2.SMA = 42162.56138119999;
-GMAT Eshail2.ECC = 0.0004584083251553041;
-GMAT Eshail2.INC = 0.04439641847167956;
-GMAT Eshail2.RAAN = 140.236781219;
-GMAT Eshail2.AOP = 29.40313884451632;
-GMAT Eshail2.TA = 171.6576522989836;
+GMAT Eshail2.SMA = 42166.81179810001;
+GMAT Eshail2.ECC = 0.000708018678030946;
+GMAT Eshail2.INC = 0.2970901195497594;
+GMAT Eshail2.RAAN = 241.0669871629997;
+GMAT Eshail2.AOP = 287.320954407033;
+GMAT Eshail2.TA = 196.5539383759674;
+
+% Solution from OD (2022-08-30 - 2022-08-03)
+%GMAT Eshail2.DateFormat = UTCModJulian;
+%GMAT Eshail2.Epoch = '29823.5';
+%GMAT Eshail2.CoordinateSystem = EarthTODEq;
+%GMAT Eshail2.DisplayStateType = Keplerian;
+%GMAT Eshail2.SMA = 42166.4603338
+%GMAT Eshail2.ECC = 0.000800545512616
+%GMAT Eshail2.INC = 0.328007685923
+%GMAT Eshail2.RAAN = 239.161428295
+%GMAT Eshail2.AOP = 285.050915386
+%GMAT Eshail2.TA = 202.695022465
 
 GMAT Eshail2.DryMass = 5000;
 GMAT Eshail2.Cd = 2.2;
@@ -179,7 +228,6 @@ GMAT Bochum.Location1 = 51.42691872997474;
 GMAT Bochum.Location2 = 7.192815514232117;
 GMAT Bochum.Location3 = 0.1;
 GMAT Bochum.Id = '90001';
-
 GMAT Bochum.AddHardware = {BochumTX, BochumAntenna};
 GMAT Bochum.IonosphereModel = 'None';
 GMAT Bochum.TroposphereModel = 'None';
@@ -188,7 +236,7 @@ GMAT Bochum.Temperature = 295.1;
 GMAT Bochum.Pressure = 1013.5;
 GMAT Bochum.Humidity = 55;
 GMAT Bochum.MinimumElevationAngle = 0;
-GMAT Bochum.ErrorModels = {Range, RangeRate};
+GMAT Bochum.ErrorModels = {RangeRate};
 
 Create GroundStation EA4GPZ;
 GMAT EA4GPZ.OrbitColor = Thistle;
@@ -208,7 +256,10 @@ GMAT EA4GPZ.Temperature = 295.1;
 GMAT EA4GPZ.Pressure = 1013.5;
 GMAT EA4GPZ.Humidity = 55;
 GMAT EA4GPZ.MinimumElevationAngle = 0;
-GMAT EA4GPZ.ErrorModels = {Range, RangeRate};
+GMAT EA4GPZ.ErrorModels = {RangeRate};
+
+
+
 
 
 %----------------------------------------
@@ -239,22 +290,28 @@ GMAT DefaultProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
 Create Propagator DefaultProp;
 GMAT DefaultProp.FM = DefaultProp_ForceModel;
 GMAT DefaultProp.Type = PrinceDormand78;
-GMAT DefaultProp.InitialStepSize = 50;
+GMAT DefaultProp.InitialStepSize = 25;
 GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
 GMAT DefaultProp.MinStep = 0;
-GMAT DefaultProp.MaxStep = 100;
+GMAT DefaultProp.MaxStep = 25;
 GMAT DefaultProp.MaxStepAttempts = 50;
 GMAT DefaultProp.StopIfAccuracyIsViolated = true;
 
 %----------------------------------------
-%---------- ErrorModels
+%---------- Coordinate Systems
 %----------------------------------------
 
-Create ErrorModel Range;
-GMAT Range.Type = 'Range';
-GMAT Range.NoiseSigma = 0.01;
-GMAT Range.Bias = 0;
-GMAT Range.BiasSigma = 1e+70;
+Create CoordinateSystem EarthTODEq;
+GMAT EarthTODEq.Origin = Earth;
+GMAT EarthTODEq.Axes = TODEq;
+
+Create CoordinateSystem EarthMODEq;
+GMAT EarthMODEq.Origin = Earth;
+GMAT EarthMODEq.Axes = MODEq;
+
+%----------------------------------------
+%---------- ErrorModels
+%----------------------------------------
 
 Create ErrorModel RangeRate;
 GMAT RangeRate.Type = 'RangeRate';
@@ -278,8 +335,21 @@ GMAT af.ObservedObjects = {All};
 GMAT af.Trackers = {All};
 GMAT af.DataTypes = {'All'};
 GMAT af.EpochFormat = 'UTCGregorian';
-GMAT af.InitialEpoch = '01 Jan 2022 00:00:00';
-GMAT af.FinalEpoch = '08 Aug 2022 07:25:00';
+% Before station-keeping
+%GMAT af.InitialEpoch = '01 Jan 2022 00:00:00';
+%GMAT af.FinalEpoch = '08 Aug 2022 07:20:00';
+% After station-keeping
+%GMAT af.InitialEpoch = '08 Aug 2022 07:35:00';
+%GMAT af.FinalEpoch = '01 Jan 2023 00:00:00';
+%
+%GMAT af.InitialEpoch = '25 Aug 2022 00:00:00';
+%GMAT af.FinalEpoch = '29 Aug 2022 00:00:00';
+%
+GMAT af.InitialEpoch = '28 Aug 2022 00:00:00';
+GMAT af.FinalEpoch = '01 Sep 2022 00:00:00';
+%
+%GMAT af.InitialEpoch = '30 Aug 2022 00:00:00';
+%GMAT af.FinalEpoch = '02 Sep 2022 20:35:00';
 GMAT af.ThinMode = 'Frequency';
 GMAT af.ThinningFrequency = 1;
 GMAT af.RecordNumbers = {'All'};
@@ -290,7 +360,7 @@ GMAT af.RecordNumbers = {'All'};
 
 Create TrackingFileSet TrackingData;
 GMAT TrackingData.AddTrackingConfig = {'{{Bochum,Eshail2,EA4GPZ},RangeRate}'};
-GMAT TrackingData.FileName = {'/home/daniel/gmat/qo100.gmd'};
+GMAT TrackingData.FileName = {'/home/daniel/gmat/qo100_29816.gmd'};
 GMAT TrackingData.UseLightTime = true;
 GMAT TrackingData.UseRelativityCorrection = true;
 GMAT TrackingData.UseETminusTAI = true;
@@ -301,20 +371,6 @@ GMAT TrackingData.SimTDRSNode4Frequency = 2000;
 GMAT TrackingData.SimTDRSNode4FrequencyBand = 1;
 GMAT TrackingData.SimTDRSSmarId = 0;
 GMAT TrackingData.SimTDRSDataFlag = 0;
-
-Create TrackingFileSet TrackingDataRange;
-GMAT TrackingDataRange.AddTrackingConfig = {'{{Bochum,Eshail2,EA4GPZ},Range}'};
-GMAT TrackingDataRange.FileName = {'/home/daniel/gmat/qo100_range.gmd'};
-GMAT TrackingDataRange.UseLightTime = true;
-GMAT TrackingDataRange.UseRelativityCorrection = true;
-GMAT TrackingDataRange.UseETminusTAI = true;
-GMAT TrackingDataRange.AberrationCorrection = 'None';
-GMAT TrackingDataRange.SimRangeModuloConstant = 1e+18;
-GMAT TrackingDataRange.SimDopplerCountInterval = 1;
-GMAT TrackingDataRange.SimTDRSNode4Frequency = 2000;
-GMAT TrackingDataRange.SimTDRSNode4FrequencyBand = 1;
-GMAT TrackingDataRange.SimTDRSSmarId = 0;
-GMAT TrackingDataRange.SimTDRSDataFlag = 0;
 
 Create TrackingFileSet GPSData;
 GMAT GPSData.AddTrackingConfig = {'{{Eshail2.GPSReceiver},GPS_PosVec}'};
@@ -334,21 +390,16 @@ GMAT GPSData.SimTDRSDataFlag = 0;
 %---------- Solvers
 %----------------------------------------
 
-Create Simulator sim;
-GMAT sim.AddData = {TrackingDataRange};
-GMAT sim.Propagator = DefaultProp
-GMAT sim.EpochFormat = UTCGregorian;
-GMAT sim.InitialEpoch = '05 Aug 2022 20:00:00.000';
-GMAT sim.FinalEpoch = '08 Aug 2022 07:30:00.000';
-GMAT sim.MeasurementTimeStep = 100;
-GMAT sim.AddNoise = On;
-
 Create Simulator simGPS;
 GMAT simGPS.AddData = {GPSData};
 GMAT simGPS.Propagator = DefaultProp
 GMAT simGPS.EpochFormat = UTCGregorian;
-GMAT simGPS.InitialEpoch = '05 Aug 2022 20:00:00.000';
-GMAT simGPS.FinalEpoch = '08 Aug 2022 07:30:00.000';
+% For MJD 29797
+%GMAT simGPS.InitialEpoch = '05 Aug 2022 20:30:00.000';
+%GMAT simGPS.FinalEpoch = '11 Aug 2022 18:20:00.000';
+% For MJD 29816
+GMAT simGPS.InitialEpoch = '24 Aug 2022 15:00:00.000';
+GMAT simGPS.FinalEpoch = '03 Sep 2022 00:00:00.000';
 GMAT simGPS.MeasurementTimeStep = 300;
 GMAT simGPS.AddNoise = On;
 
@@ -390,5 +441,11 @@ BeginMissionSequence;
 
 % Then run estimation. The epoch is in the middle of the observed
 % segment.
-Propagate DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29798.5};
-RunEstimator bat;
+%Propagate BackProp DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29798.5};
+%Propagate DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29801.5};
+Propagate BackProp DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29818.5};
+%Propagate DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29821.5};
+%Propagate DefaultProp(Eshail2) {Eshail2.UTCModJulian = 29823.5};
+%Propagate DefaultProp(Eshail2) {Eshail2.ElapsedSecs = 0};
+%RunEstimator bat;
+
