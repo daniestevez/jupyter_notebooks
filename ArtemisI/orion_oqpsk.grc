@@ -9,7 +9,7 @@ options:
     description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
-    generate_options: qt_gui
+    generate_options: no_gui
     hier_block_src_path: '.:'
     id: orion_oqpsk
     max_nouts: '0'
@@ -127,12 +127,30 @@ blocks:
       polarization)
     short_id: ''
     type: str
-    value: /home/daniel/Artemis1/Orion_2022-11-16T14:14:09.425062_0
+    value: /home/daniel/Artemis1/Orion_2022-11-16T16:22:25.503183_0
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
     coordinate: [1184, 20.0]
+    rotation: 0
+    state: true
+- name: blocks_add_xx_0
+  id: blocks_add_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [680, 200.0]
     rotation: 0
     state: true
 - name: blocks_complex_to_float_0
@@ -411,6 +429,24 @@ blocks:
     coordinate: [192, 908.0]
     rotation: 0
     state: true
+- name: blocks_multiply_const_vxx_2
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: power_ratio * np.exp(1j * np.deg2rad(phase_difference))
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 316.0]
+    rotation: 0
+    state: true
 - name: blocks_multiply_xx_0
   id: blocks_multiply_xx
   parameters:
@@ -428,24 +464,25 @@ blocks:
     bus_structure: null
     coordinate: [1184, 264.0]
     rotation: 0
-    state: true
-- name: blocks_null_sink_0
-  id: blocks_null_sink
+    state: disabled
+- name: blocks_sub_xx_0
+  id: blocks_sub_xx
   parameters:
     affinity: ''
     alias: ''
-    bus_structure_sink: '[[0,],]'
     comment: ''
-    num_inputs: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [688, 320.0]
-    rotation: 180
-    state: true
+    coordinate: [704, 288.0]
+    rotation: 0
+    state: disabled
 - name: blocks_throttle_0
   id: blocks_throttle
   parameters:
@@ -464,7 +501,7 @@ blocks:
     bus_structure: null
     coordinate: [432, 196.0]
     rotation: 0
-    state: enabled
+    state: bypassed
 - name: digital_costas_loop_cc_0_0_0
   id: digital_costas_loop_cc
   parameters:
@@ -543,70 +580,6 @@ blocks:
     coordinate: [688, 1164.0]
     rotation: 0
     state: true
-- name: epy_block_0
-  id: epy_block
-  parameters:
-    _source_code: "\"\"\"\nAuto-polarization\n\"\"\"\n\nimport numpy as np\nfrom gnuradio\
-      \ import gr\n\n\nclass blk(gr.sync_block):\n    \"\"\"Auto-polarization\"\"\"\
-      \n\n    def __init__(self, fft_size=1024, fft_avg=1,\n                     iir_weight\
-      \ = 1e-2): # only default arguments here\n        gr.sync_block.__init__(\n\
-      \            self,\n            name='Auto-polarization',   # will show up in\
-      \ GRC\n            in_sig=[np.complex64]*2,\n            out_sig=[np.complex64]*2\n\
-      \        )\n        # if an attribute with the same name as a parameter is found,\n\
-      \        # a callback is registered (properties work, too).\n        self.fft_size\
-      \ = fft_size\n        self.fft_avg = fft_avg\n        self.set_output_multiple(fft_size\
-      \ * fft_avg)\n        self.iir_weight = iir_weight\n        self.noise_ampl\
-      \ = np.ones(2)\n        self.sig_ampl = np.ones(2)\n        self.phase = 0\n\
-      \n    def work(self, input_items, output_items):\n        x = np.array([inp.reshape((-1,\
-      \ self.fft_avg, self.fft_size))\n                          for inp in input_items])\n\
-      \        # axes for x are:\n        # (channel: 2, block, fft_num: fft_avg,\
-      \ fft_bin: fft_size)\n\n        fx = np.fft.fft(x)\n        fx_sq_avg = np.average(np.abs(fx)**2,\
-      \ axis = 2)\n        noise_ampl = np.sqrt(np.median(fx_sq_avg, axis = 2))\n\n\
-      \        fx_sq_avg_ch_max = np.max(fx_sq_avg/noise_ampl[...,np.newaxis]**2,\
-      \ axis = 0)\n        peak_idx = np.argmax(fx_sq_avg_ch_max, axis = 1)\n\n  \
-      \      f_cross = np.average(fx[0] * np.conjugate(fx[1]), axis = 1)\n       \
-      \ phase = np.angle(f_cross[np.arange(f_cross.shape[0]),\n                  \
-      \                   peak_idx])\n        sig_ampl = fx_sq_avg[:,np.arange(fx_sq_avg.shape[1]),peak_idx]\
-      \ #- noise_ampl\n        sig_ampl = np.sqrt(np.clip(sig_ampl, 0, np.inf))\n\n\
-      \        # update IIR filters\n        for j in range(x.shape[1]):\n       \
-      \     noise_ampl[:,j] = (1-self.iir_weight)*self.noise_ampl \\\n           \
-      \   + self.iir_weight*noise_ampl[:,j]\n            self.noise_ampl = noise_ampl[:,j]\n\
-      \            sig_ampl[:,j] = (1-self.iir_weight)*self.sig_ampl \\\n        \
-      \      + self.iir_weight*sig_ampl[:,j]\n            self.sig_ampl = sig_ampl[:,j]\n\
-      \            phase_diff = phase[j] - self.phase\n            phase_diff = (phase_diff\
-      \ + np.pi) % (2*np.pi) - np.pi\n            phase[j] = self.phase + self.iir_weight*phase_diff\n\
-      \            self.phase = (phase[j] + np.pi) % (2*np.pi) - np.pi\n\n       \
-      \ tau = np.log10(sig_ampl[0]/noise_ampl[0]+1e-6) \\\n          - np.log10(sig_ampl[1]/noise_ampl[1]+1e-6)\n\
-      \        tau = 20*tau/6*0.5 + 0.5\n        tau = np.clip(tau, 0, 1)\n      \
-      \  # note tau = 1 if sig[0] is 6dB stronger than sig[1] and\n        # tau =\
-      \ 0 if sig[0] is 6dB weaker than sig[1]\n        a_phase = (tau - 1) * phase\n\
-      \        b_phase = tau * phase\n        # note -a_phase + b_phase = phase\n\
-      \        \n        alpha = (np.exp(1j*a_phase) * sig_ampl[0] / noise_ampl[0])[:,np.newaxis]\n\
-      \        beta = (np.exp(1j*b_phase) * sig_ampl[1] / noise_ampl[1])[:,np.newaxis]\n\
-      \n        y = x.reshape((x.shape[0], x.shape[1], self.fft_avg * self.fft_size))\n\
-      \        y = y / noise_ampl[...,np.newaxis] * np.sqrt(self.fft_size)\n     \
-      \   output_items[0][:] = (alpha * y[0] + beta * y[1]).ravel()\n        output_items[1][:]\
-      \ = (np.conjugate(beta) * y[0] - np.conjugate(alpha) * y[1]).ravel()\n     \
-      \   return len(output_items[0])\n"
-    affinity: ''
-    alias: ''
-    comment: ''
-    fft_avg: int(0.1*samp_rate/2048)
-    fft_size: '2048'
-    iir_weight: '0.1'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-  states:
-    _io_cache: ('Auto-polarization', 'blk', [('fft_size', '1024'), ('fft_avg', '1'),
-      ('iir_weight', '0.01')], [('0', 'complex', 1), ('1', 'complex', 1)], [('0',
-      'complex', 1), ('1', 'complex', 1)], 'Auto-polarization', ['fft_avg', 'fft_size',
-      'iir_weight'])
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [640, 236.0]
-    rotation: 0
-    state: enabled
 - name: fir_filter_xxx_0_0
   id: fir_filter_xxx
   parameters:
@@ -644,7 +617,7 @@ blocks:
     bus_structure: null
     coordinate: [568, 820.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: fir_filter_xxx_1_0
   id: fir_filter_xxx
   parameters:
@@ -663,7 +636,7 @@ blocks:
     bus_structure: null
     coordinate: [568, 900.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: freq_xlating_fir_filter_xxx_0
   id: freq_xlating_fir_filter_xxx
   parameters:
@@ -683,7 +656,7 @@ blocks:
     bus_structure: null
     coordinate: [856, 276.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: import_0
   id: import
   parameters:
@@ -735,6 +708,40 @@ blocks:
     coordinate: [216, 444.0]
     rotation: 0
     state: enabled
+- name: phase_difference
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: eng_float
+    value: '-14.3'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [864, 84.0]
+    rotation: 0
+    state: true
+- name: power_ratio
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: eng_float
+    value: '0.45'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 84.0]
+    rotation: 0
+    state: true
 - name: qtgui_const_sink_x_0
   id: qtgui_const_sink_x
   parameters:
@@ -826,7 +833,7 @@ blocks:
     bus_structure: null
     coordinate: [1392, 716.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
@@ -877,7 +884,7 @@ blocks:
     legend: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: '"Signal PSD (after auto-polarization)"'
+    name: '"Signal PSD"'
     nconnections: '2'
     norm_window: 'False'
     showports: 'False'
@@ -899,15 +906,15 @@ blocks:
     width8: '1'
     width9: '1'
     wintype: window.WIN_BLACKMAN_hARRIS
-    ymax: '-15'
-    ymin: '-40'
+    ymax: '-70'
+    ymin: '-90'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
     coordinate: [1000, 168.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_freq_sink_x_0_0
   id: qtgui_freq_sink_x
   parameters:
@@ -980,15 +987,15 @@ blocks:
     width8: '1'
     width9: '1'
     wintype: window.WIN_BLACKMAN_hARRIS
-    ymax: '70'
-    ymin: '20'
+    ymax: '-170'
+    ymin: '-220'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
     coordinate: [1320, 284.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -1085,7 +1092,7 @@ blocks:
     bus_structure: null
     coordinate: [856, 748.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: satellites_rms_agc_0_0
   id: satellites_rms_agc
   parameters:
@@ -1177,6 +1184,8 @@ blocks:
     state: true
 
 connections:
+- [blocks_add_xx_0, '0', freq_xlating_fir_filter_xxx_0, '0']
+- [blocks_add_xx_0, '0', qtgui_freq_sink_x_0, '0']
 - [blocks_complex_to_float_0, '0', blocks_interleave_0, '0']
 - [blocks_complex_to_float_0, '0', blocks_multiply_const_vxx_1, '0']
 - [blocks_complex_to_float_0, '1', blocks_delay_0, '0']
@@ -1196,20 +1205,20 @@ connections:
 - [blocks_interleave_0_0, '0', fir_filter_xxx_1_0, '0']
 - [blocks_interleave_0_0, '0', satellites_sync_to_pdu_soft_0_1, '0']
 - [blocks_interleaved_short_to_complex_0, '0', blocks_throttle_0, '0']
-- [blocks_interleaved_short_to_complex_0_0, '0', epy_block_0, '1']
+- [blocks_interleaved_short_to_complex_0_0, '0', blocks_multiply_const_vxx_2, '0']
 - [blocks_multiply_const_vxx_0, '0', satellites_sync_to_pdu_soft_0_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', satellites_sync_to_pdu_soft_0_0_0, '0']
 - [blocks_multiply_const_vxx_1, '0', blocks_interleave_0_0, '1']
+- [blocks_multiply_const_vxx_2, '0', blocks_add_xx_0, '1']
+- [blocks_multiply_const_vxx_2, '0', blocks_sub_xx_0, '1']
 - [blocks_multiply_xx_0, '0', qtgui_freq_sink_x_0_0, '0']
-- [blocks_throttle_0, '0', epy_block_0, '0']
+- [blocks_sub_xx_0, '0', qtgui_freq_sink_x_0, '1']
+- [blocks_throttle_0, '0', blocks_add_xx_0, '0']
+- [blocks_throttle_0, '0', blocks_sub_xx_0, '0']
 - [digital_costas_loop_cc_0_0_0, '0', blocks_complex_to_float_0_0, '0']
 - [digital_symbol_sync_xx_0_0_0, '0', blocks_complex_to_float_0, '0']
 - [digital_symbol_sync_xx_0_0_0, '0', qtgui_const_sink_x_0, '0']
 - [dslwp_ccsds_pseudo_randomizer_0, out, pdu_pdu_to_tagged_stream_0, pdus]
-- [epy_block_0, '0', freq_xlating_fir_filter_xxx_0, '0']
-- [epy_block_0, '0', qtgui_freq_sink_x_0, '0']
-- [epy_block_0, '1', blocks_null_sink_0, '0']
-- [epy_block_0, '1', qtgui_freq_sink_x_0, '1']
 - [fir_filter_xxx_0_0, '0', digital_symbol_sync_xx_0_0_0, '0']
 - [fir_filter_xxx_1, '0', qtgui_time_sink_x_0, '1']
 - [fir_filter_xxx_1_0, '0', qtgui_time_sink_x_0, '2']
