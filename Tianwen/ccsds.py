@@ -68,19 +68,32 @@ def extract_space_packets(aos_frames, sc_id, virtual_channel, get_timestamps = F
     packet = bytearray()
     frame_count = None
     for frame in aos_frames:
+        version = frame.primary_header.transfer_frame_version_number
+
         if frame.primary_header.spacecraft_id != sc_id \
-          or frame.primary_header.virtual_channel_id != virtual_channel\
-          or frame.m_pdu_header.rsv_spare != 0:
+          or (version == 1 and frame.m_pdu_header.rsv_spare != 0) \
+          or frame.primary_header.virtual_channel_id != virtual_channel:
+            continue
+
+        if version == 1:
+            # AOS
+            frame_count_len = 24
+            first = frame.m_pdu_header.first_header_pointer
+        elif version == 0:
+            # TM
+            frame_count_len = 8
+            first = frame.primary_header.first_header_pointer
+        else:
+            warnings.warn(f'[Space Packet extractor Spacecraft {sc_id} VC {virtual_channel}] Unknown transfer frame version number {version}')
             continue
         
         frame_count_new = frame.primary_header.virtual_channel_frame_count
         if frame_count is not None \
-          and frame_count_new != ((frame_count + 1) % 2**24):
+          and frame_count_new != ((frame_count + 1) % 2**frame_count_len):
             warnings.warn(f'[Space Packet extractor Spacecraft {sc_id} VC {virtual_channel}] Broken stream. Last frame count {frame_count}, current frame count {frame_count_new}')
             packet = bytearray()
         frame_count = frame_count_new
 
-        first = frame.m_pdu_header.first_header_pointer
         if first == 0x7fe:
             # only idle
             continue
