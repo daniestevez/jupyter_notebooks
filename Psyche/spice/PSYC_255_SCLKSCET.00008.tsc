@@ -1,0 +1,188 @@
+KPL/SCLK
+
+FILENAME = "PSYC_255_SCLKSCET.00008.tsc"
+CREATION_DATE = "25-Oct-2023"
+
+
+Psyche Spacecraft Clock Kernel (SCLK)
+=================================================================
+
+This file is a SPICE spacecraft clock (SCLK) kernel
+containing information required for time conversions
+involving the on-board Psyche spacecraft clock ('SCLK').
+ 
+Version
+--------------------------------------------------------
+
+Version History of Psyche Seed Kernel:
+
+Version 1.0 -- October 19, 2023 
+For Psyche the SCLK = 0 is at 2000-001T11:58:55.816 UTC, or 
+0 TDB seconds past J2000 TDB.
+
+The sub-seconds is set to a maximum of 65,536 ticks in the
+"SCLK01_MODULI_255" parameter.  That was chosen for this SCLK
+kernel because all downlink packet secondary headers will
+include a 16-bit sub-seconds field with least significant bit
+resolution of 2^-16 second, so a tick is assumed to represent
+an interval of 2^-16 second.
+
+
+The end of the first partition is currently defined as the value
+in ticks of the maximum value of the spacecraft clock.
+ 
+Usage
+--------------------------------------------------------
+  
+This file is used by the SPICE system as follows: programs that
+make use of this SCLK kernel must 'load' the kernel, normally
+during program initialization.  Loading the kernel associates
+the data items with their names in a data structure called the
+'kernel pool'.  The SPICELIB routine FURNSH loads text kernel
+files, such as this one, into the pool as shown below:
+
+        FORTRAN:
+
+                  CALL FURNSH ( SCLK_kernel_name )
+
+        C:
+
+                  furnsh_c ( SCLK_kernel_name );
+
+Once loaded, the SCLK time conversion routines will be able to
+access the necessary data located in this kernel for their
+designed purposes.
+
+
+SCLK Format
+--------------------------------------------------------
+
+     The on-board clock, the conversion for which is provided by this SCLK
+     file, consists of two fields:
+
+          SSSSSSSSSS-FFFFF
+
+     where:
+
+          SSSSSSSSSS -- count of on-board seconds
+
+          FFFFF      -- count of fractions of a second with one fraction
+                        being 1/65536 of a second; normally this field value
+                        is within 0..65535 range.
+
+
+References
+--------------------------------------------------------
+ 
+         1.   "SCLK Required Reading"
+
+
+Inquiries
+--------------------------------------------------------
+
+     If you have any questions regarding this file contact NAIF  at JPL
+
+           Matt Barnes
+           (818) 354-5942
+           Matthew.J.Barnes@jpl.nasa.gov
+
+           Boris Semenov
+           (818) 354-8136
+           Boris.Semenov@jpl.nasa.gov
+
+
+SCLK Kernel Data
+--------------------------------------------------------
+
+The Psyche spacecraft clock is represented by the SPICE
+type 1 SCLK kernel.  It uses TDT, Terrestrial Dynamical Time,
+as its parallel time system.
+
+\begindata
+
+SCLK_KERNEL_ID              = ( @2023-10-19T12:50:00 )
+SCLK_DATA_TYPE_255          = (        1 )
+SCLK01_TIME_SYSTEM_255      = (        2 )
+
+
+\begintext
+
+In a particular partition of the Psyche spacecraft clock,
+the clock read-out consists of two separate stages:
+
+                           1/18424652:24251
+
+The first stage, an unsigned 32 bit field, represents the spacecraft
+clock seconds count.  The second, an unsigned 16 bit field, represents
+counts of 2^-16 second increments of the spacecraft clock.
+
+The following keywords and their values establish this structure:
+
+\begindata
+
+SCLK_DATA_TYPE_255          = ( 1 )
+SCLK01_TIME_SYSTEM_255      = ( 2 )
+SCLK01_N_FIELDS_255         = ( 2 )
+SCLK01_MODULI_255           = ( 4294967296       65536 )
+SCLK01_OFFSETS_255          = ( 0 0 )
+SCLK01_OUTPUT_DELIM_255     = ( 2 )
+
+\begintext
+
+This concludes the invariant portion of the SCLK kernel data.
+The remaining sections of the kernel may require updates as the clock
+correlation coefficients evolve in time.  The first section below
+establishes the clock partitions.  The data in this section consists
+of two parallel arrays, which denote the start and end values in ticks
+of each partition of the spacecraft clock.
+
+SPICE utilizes these two arrays to map from spacecraft clock ticks,
+determined with the usual modulo arithmetic, to encoded SCLK--the
+internal, monotonically increasing sequence used to tag various
+data sources with spacecraft clock.
+
+\begindata
+
+SCLK_PARTITION_START_255    = ( 0.00000000000000e+00 )
+
+SCLK_PARTITION_END_255      = ( 2.81474976710655e+14 )
+
+\begintext
+
+The remaining section of the SCLK kernel defines the clock correlation
+coefficients.  Each line contains a 'coefficient triple':
+
+   Encoded SCLK at which Rate is introduced.
+   Corresponding TDT Epoch at which Rate is introduced.
+   Rate in TDT (seconds) / most significant clock count (~seconds).
+
+SPICE uses linear extrapolation to convert between the parallel
+time scale (TDT) and encoded SCLK.  The triples are stored in the array
+defined below.
+
+The first time triplet below was entered manually and represents
+the approximate time (in TDT) at which SCLK = zero.
+
+The second time triplet below was entered manually and represents
+the SCLK and TDT times based on the nominal correlation at lift-off 
+time. The rate of the second triplet was set to connect to the 
+third triplet.
+
+The third time triplet below was entered manually and represents
+the SCLK and TDT times of the first time correlation packet in
+the first post-launch set generated by the spacecraft. The rate was
+set to nominal.
+
+\begindata
+
+SCLK01_COEFFICIENTS_255   = (
+                   0     @01-JAN-2000-12:00:00.000000     1.00000000000
+      49183384666112     @13-OCT-2023-14:21:32.000000     0.99998029367
+      49187036200960     @14-OCT-2023-05:50:08.902000     1.00000000000
+      49189419679744     @14-OCT-2023-15:56:17.895080     0.99999970249
+      49195532156928     @15-OCT-2023-17:50:46.867332     0.99999986991
+      49214365040640     @19-OCT-2023-01:40:13.829948     0.99999989882
+      49247084740608     @24-OCT-2023-20:21:16.779435     0.99999989882
+
+)
+\begintext
