@@ -1,26 +1,657 @@
 {
-  "annotations": [],
-  "captures": [
-    {
-      "core:datetime": "2023-07-20T11:39:48.680Z",
-      "core:frequency": 1876954000.0,
-      "core:length": 4210688,
-      "sdrangel:sample_rate": 7680000,
-      "sdrangel:tsms": 1689853188680
-    }
-  ],
-  "global": {
-    "core:author": "SDRangel",
-    "core:datatype": "ci32_le",
-    "core:description": "SDRangel SigMF I/Q recording file",
-    "core:hw": "PlutoSDR",
-    "core:recorder": "SDRangel",
-    "core:sample_rate": 7680000.0,
-    "core:version": "0.0.2",
-    "sdrangel:arch": "x86_64",
-    "sdrangel:os": "Ubuntu 22.04.2 LTS",
-    "sdrangel:qt_version": "5.15.3",
-    "sdrangel:rx_bits": 24,
-    "sdrangel:version": "7.13.0-19-g91f484445"
-  }
+    "global": {
+        "core:author": "SDRangel",
+        "core:datatype": "ci32_le",
+        "core:description": "SDRangel SigMF I/Q recording file",
+        "core:hw": "PlutoSDR",
+        "core:recorder": "SDRangel",
+        "core:sample_rate": 7680000.0,
+        "core:sha512": "0bcd162b7fbcdd14b97088518cc682a26777e71a943cd7363dc917ab33b2900a91dc16ca04b0a8247468136aee28db475f1d03333bf36f47296b2264d565d869",
+        "core:version": "0.0.2",
+        "sdrangel:arch": "x86_64",
+        "sdrangel:os": "Ubuntu 22.04.2 LTS",
+        "sdrangel:qt_version": "5.15.3",
+        "sdrangel:rx_bits": 24,
+        "sdrangel:version": "7.13.0-19-g91f484445"
+    },
+    "captures": [
+        {
+            "core:datetime": "2023-07-20T11:39:48.680Z",
+            "core:frequency": 1876954000.0,
+            "core:length": 4210688,
+            "core:sample_start": 0,
+            "sdrangel:sample_rate": 7680000,
+            "sdrangel:tsms": 1689853188680
+        }
+    ],
+    "annotations": [
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 0",
+            "core:sample_count": 76800,
+            "core:sample_start": 69301
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 70401
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 70949
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 71497
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 1",
+            "core:sample_count": 76800,
+            "core:sample_start": 146101
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 147201
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 147749
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 148297
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 2",
+            "core:sample_count": 76800,
+            "core:sample_start": 222901
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 224001
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 224549
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 225097
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 12th subcarrier is active",
+            "core:freq_lower_edge": 1875011518.88,
+            "core:freq_upper_edge": 1879511518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 240457
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 3",
+            "core:sample_count": 76800,
+            "core:sample_start": 299700
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 300800
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 301348
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 301896
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 317256
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 319452
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 324936
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 327132
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 4",
+            "core:sample_count": 76800,
+            "core:sample_start": 376500
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 377600
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 378148
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 378696
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 5",
+            "core:sample_count": 76800,
+            "core:sample_start": 453300
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 454400
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 454948
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 455496
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 6",
+            "core:sample_count": 76800,
+            "core:sample_start": 530100
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 531200
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 531748
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 532296
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 7",
+            "core:sample_count": 76800,
+            "core:sample_start": 606899
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 607999
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 608547
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 609095
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 8",
+            "core:sample_count": 76800,
+            "core:sample_start": 683699
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 684799
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 685347
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 685895
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 9",
+            "core:sample_count": 76800,
+            "core:sample_start": 760499
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 761599
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 762147
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 762695
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 10",
+            "core:sample_count": 76800,
+            "core:sample_start": 837299
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 838399
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 838947
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 839495
+        },
+        {
+            "core:freq_lower_edge": 1875566518.88,
+            "core:freq_upper_edge": 1876646518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PDCCH",
+            "core:sample_count": 1100,
+            "core:sample_start": 844979
+        },
+        {
+            "core:freq_lower_edge": 1877726518.88,
+            "core:freq_upper_edge": 1878806518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PDCCH",
+            "core:sample_count": 1100,
+            "core:sample_start": 844979
+        },
+        {
+            "core:comment": "PDSCH DM-RS",
+            "core:freq_lower_edge": 1875026518.88,
+            "core:freq_upper_edge": 1876466518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:sample_count": 548,
+            "core:sample_start": 846079
+        },
+        {
+            "core:freq_lower_edge": 1875026518.88,
+            "core:freq_upper_edge": 1876466518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PDSCH",
+            "core:sample_count": 6580,
+            "core:sample_start": 846079
+        },
+        {
+            "core:comment": "PDSCH DM-RS",
+            "core:freq_lower_edge": 1875026518.88,
+            "core:freq_upper_edge": 1876466518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:sample_count": 552,
+            "core:sample_start": 848819
+        },
+        {
+            "core:comment": "PDSCH DM-RS",
+            "core:freq_lower_edge": 1875026518.88,
+            "core:freq_upper_edge": 1876466518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:sample_count": 548,
+            "core:sample_start": 851015
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 12th subcarrier is active",
+            "core:freq_lower_edge": 1875011518.88,
+            "core:freq_upper_edge": 1879511518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 854855
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 11",
+            "core:sample_count": 76800,
+            "core:sample_start": 914098
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 915198
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 915746
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 916294
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 931654
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 933850
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 939334
+        },
+        {
+            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "???",
+            "core:sample_count": 548,
+            "core:sample_start": 941530
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 12",
+            "core:sample_count": 76800,
+            "core:sample_start": 990898
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 991998
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 992546
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 993094
+        },
+        {
+            "core:freq_lower_edge": 1874074000.0,
+            "core:freq_upper_edge": 1879834000.0,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "Frame 13",
+            "core:sample_count": 76800,
+            "core:sample_start": 1067698
+        },
+        {
+            "core:comment": "NID1 = 0",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PSS",
+            "core:sample_count": 548,
+            "core:sample_start": 1068798
+        },
+        {
+            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:freq_lower_edge": 1875146518.88,
+            "core:freq_upper_edge": 1878761518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "PBCH",
+            "core:sample_count": 1644,
+            "core:sample_start": 1069346
+        },
+        {
+            "core:comment": "NID1 = 0\nNID2 = 1\nNcellID = 1",
+            "core:freq_lower_edge": 1875986518.88,
+            "core:freq_upper_edge": 1877891518.88,
+            "core:generator": "destevez Jupyter notebook",
+            "core:label": "SSS",
+            "core:sample_count": 548,
+            "core:sample_start": 1069894
+        }
+    ]
 }
