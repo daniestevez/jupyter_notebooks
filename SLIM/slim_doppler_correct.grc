@@ -1,0 +1,289 @@
+options:
+  parameters:
+    author: Daniel Estevez
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: no_gui
+    hier_block_src_path: '.:'
+    id: slim_doppler_correct
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: run
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: SLIM Doppler correct
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: decim
+  id: variable
+  parameters:
+    comment: ''
+    value: '30'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1024, 20.0]
+    rotation: 0
+    state: true
+- name: decim2
+  id: variable
+  parameters:
+    comment: ''
+    value: '16'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1112, 20.0]
+    rotation: 0
+    state: true
+- name: freq
+  id: variable
+  parameters:
+    comment: ''
+    value: -21e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [920, 20.0]
+    rotation: 0
+    state: true
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '1152000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [216, 12.0]
+    rotation: 0
+    state: enabled
+- name: start_time
+  id: variable
+  parameters:
+    comment: ''
+    value: '''2024-01-19T14:51:51Z'''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [528, 20.0]
+    rotation: 0
+    state: true
+- name: start_time_unix
+  id: variable
+  parameters:
+    comment: ''
+    value: datetime.datetime.fromisoformat(start_time).timestamp()
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [760, 20.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: SLIM_2024-01-19_14-51-51_38400SPS_corrected.c64
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1168, 204.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: SLIM_2024-01-19_14-51-51_2400SPS_corrected.c64
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1000, 412.0]
+    rotation: 0
+    state: true
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: 2024-01-19_14-51-51_1152000SPS_2212021000Hz.s16
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: short
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [32, 172.0]
+    rotation: 0
+    state: true
+- name: blocks_interleaved_short_to_complex_0
+  id: blocks_interleaved_short_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale_factor: 2**15
+    swap: 'False'
+    vector_input: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [256, 196.0]
+    rotation: 0
+    state: true
+- name: freq_xlating_fir_filter_xxx_0
+  id: freq_xlating_fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    center_freq: freq
+    comment: ''
+    decim: decim
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    taps: firdes.low_pass(1, 1, 0.5/decim, 0.05/decim)
+    type: ccf
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [896, 196.0]
+    rotation: 0
+    state: true
+- name: import_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import datetime
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [352, 20.0]
+    rotation: 0
+    state: true
+- name: low_pass_filter_0
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: ''
+    cutoff_freq: 0.5/decim2
+    decim: decim2
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: '1'
+    type: fir_filter_ccf
+    width: 0.025/decim2
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 380.0]
+    rotation: 0
+    state: true
+- name: satellites_doppler_correction_0
+  id: satellites_doppler_correction
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    file: SLIM-doppler-Bochum-2024-01-19.txt
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    t0: start_time_unix
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [456, 188.0]
+    rotation: 0
+    state: true
+- name: satellites_doppler_correction_0_0
+  id: satellites_doppler_correction
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    file: SLIM-doppler-Usuda-2024-01-19.txt
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    t0: start_time_unix
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 188.0]
+    rotation: 0
+    state: true
+
+connections:
+- [blocks_file_source_0, '0', blocks_interleaved_short_to_complex_0, '0']
+- [blocks_interleaved_short_to_complex_0, '0', satellites_doppler_correction_0, '0']
+- [freq_xlating_fir_filter_xxx_0, '0', blocks_file_sink_0, '0']
+- [freq_xlating_fir_filter_xxx_0, '0', low_pass_filter_0, '0']
+- [low_pass_filter_0, '0', blocks_file_sink_0_0, '0']
+- [satellites_doppler_correction_0, '0', satellites_doppler_correction_0_0, '0']
+- [satellites_doppler_correction_0_0, '0', freq_xlating_fir_filter_xxx_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.8.0
