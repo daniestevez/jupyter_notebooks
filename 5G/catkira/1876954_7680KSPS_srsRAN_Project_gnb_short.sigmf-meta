@@ -131,11 +131,11 @@
             "core:sample_start": 225097
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 12th subcarrier is active",
-            "core:freq_lower_edge": 1875011518.88,
-            "core:freq_upper_edge": 1879511518.88,
+            "core:comment": "nID = 1, row 2, density 1, noCDM, k0 = 11, l0 = 4, ns = 2",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS",
             "core:sample_count": 548,
             "core:sample_start": 240457
         },
@@ -175,38 +175,38 @@
             "core:sample_start": 301896
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 4, ns = 2",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 317256
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 8, ns = 2",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 319452
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 4, ns = 3",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 324936
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 8, ns = 3",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 327132
         },
@@ -504,11 +504,11 @@
             "core:sample_start": 851015
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 12th subcarrier is active",
-            "core:freq_lower_edge": 1875011518.88,
-            "core:freq_upper_edge": 1879511518.88,
+            "core:comment": "nID = 1, row 2, density 1, noCDM, k0 = 11, l0 = 4, ns = 2",
+            "core:freq_lower_edge": 1874846518.88,
+            "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS",
             "core:sample_count": 548,
             "core:sample_start": 854855
         },
@@ -548,38 +548,38 @@
             "core:sample_start": 916294
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 4, ns = 2",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 931654
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 8, ns = 2",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 933850
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 4, ns = 3",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 939334
         },
         {
-            "core:comment": "Unknown signal\nSome kind of reference signal?\nOnly every 4th subcarrier is active",
+            "core:comment": "nID = 1, row 1, density 3, noCDM, k0 = 0, l0 = 8, ns = 3",
             "core:freq_lower_edge": 1874846518.88,
             "core:freq_upper_edge": 1879346518.88,
             "core:generator": "destevez Jupyter notebook",
-            "core:label": "???",
+            "core:label": "CSI-RS (TRS)",
             "core:sample_count": 548,
             "core:sample_start": 941530
         },
