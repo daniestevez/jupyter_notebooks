@@ -1,0 +1,2143 @@
+2024-04-28T09:26:16.587655 [UE     ] [I] Using binary srsue with arguments: ue.conf 
+2024-04-28T09:26:16.608693 [UE     ] [I] Built in Release mode using 23.04.0.
+2024-04-28T09:26:17.323472 [PDCP   ] [I] Init SRB1 with bearer ID: 1
+2024-04-28T09:26:17.323472 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:26:17.323473 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:26:17.323474 [PDCP   ] [I] Add SRB1 (lcid=1, sn_len=5bits)
+2024-04-28T09:26:17.324003 [PDCP   ] [I] TX SRB1 PDU, SN=0, integrity=none, encryption=none
+    0000: 00 20 00 40 2f 1d b1 1c a4 08 0e 82 02 17 ec 01
+    0010: e2 20 00 02 34 8c 5b 2c a0 05 e0 e0 00 08 04 03
+2024-04-28T09:26:17.360744 [PDCP   ] [I] SRB1 Rx PDU SN=0 (11 B, integrity=none, encryption=none)
+    0000: 00 08 00 18 3a a8 08 00 00 00 00
+2024-04-28T09:26:17.360744 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 0, SN 0
+2024-04-28T09:26:17.360745 [PDCP   ] [D] SRB1 Rx SDU SN=0
+    0000: 00 08 00 18 3a a8 08 00 00 00 00
+2024-04-28T09:26:17.360762 [PDCP   ] [I] TX SRB1 PDU, SN=1, integrity=none, encryption=none
+    0000: 01 48 01 60 ea c1 01 22 02 02 06 4a 8e c1 00 00
+    0010: 00 00 00
+2024-04-28T09:26:17.381438 [PDCP   ] [I] SRB1 Rx PDU SN=1 (44 B, integrity=none, encryption=none)
+    0000: 01 08 01 20 3a 90 03 e6 01 89 0e 48 39 d2 23 2e
+    0010: fa ba 06 1d b6 49 68 85 ab a1 c3 22 13 d4 00 06
+2024-04-28T09:26:17.381439 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 1, SN 1
+2024-04-28T09:26:17.381439 [PDCP   ] [D] SRB1 Rx SDU SN=1
+    0000: 01 08 01 20 3a 90 03 e6 01 89 0e 48 39 d2 23 2e
+    0010: fa ba 06 1d b6 49 68 85 ab a1 c3 22 13 d4 00 06
+2024-04-28T09:26:17.381462 [PDCP   ] [I] TX SRB1 PDU, SN=2, integrity=none, encryption=none
+    0000: 02 48 01 60 ea 61 02 35 24 fb 30 4c fa 3f 20 00
+    0010: 00 00 00
+2024-04-28T09:26:17.401207 [PDCP   ] [I] SRB1 Rx PDU SN=2 (21 B, integrity=none, encryption=none)
+    0000: 02 08 00 69 ba 3e 41 a7 c0 00 3a e9 08 00 17 83
+    0010: 80 00 00 00 00
+2024-04-28T09:26:17.401208 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 2, SN 2
+2024-04-28T09:26:17.401208 [PDCP   ] [D] SRB1 Rx SDU SN=2
+    0000: 02 08 00 69 ba 3e 41 a7 c0 00 3a e9 08 00 17 83
+    0010: 80 00 00 00 00
+2024-04-28T09:26:17.401289 [PDCP   ] [I] TX SRB1 PDU, SN=3, integrity=none, encryption=none
+    0000: 03 48 01 08 e3 dd 02 e8 40 0d 11 c0 00 00 00 00
+2024-04-28T09:26:17.422902 [PDCP   ] [I] SRB1 Rx PDU SN=3 (8 B, integrity=none, encryption=none)
+    0000: 03 30 02 20 5f 3d 72 40
+2024-04-28T09:26:17.422903 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 3, SN 3
+2024-04-28T09:26:17.422903 [PDCP   ] [D] SRB1 Rx SDU SN=3
+    0000: 03 30 02 20 5f 3d 72 40
+2024-04-28T09:26:17.422920 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:26:17.422920 [PDCP   ] [D] K_rrc_enc
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.422920 [PDCP   ] [D] K_up_enc
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:17.422921 [PDCP   ] [D] K_rrc_int
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.422921 [PDCP   ] [D] K_up_int
+    0000: 55 16 11 75 4b 4a c6 1d 99 94 21 34 3e 32 e2 3a
+    0010: 5a 76 11 c6 73 2e 36 ff 84 f6 0f 41 0c 21 94 07
+2024-04-28T09:26:17.422921 [PDCP   ] [D] Enabled integrity. LCID=1, integrity=tx/rx
+2024-04-28T09:26:17.422926 [PDCP   ] [D] Integrity gen input: COUNT 4, Bearer ID 1, Direction Uplink
+2024-04-28T09:26:17.422926 [PDCP   ] [D] Integrity gen key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.422926 [PDCP   ] [D] Integrity gen input msg:
+    0000: 04 28 00
+2024-04-28T09:26:17.422927 [PDCP   ] [D] MAC (generated)
+    0000: 5b 77 1f ad
+2024-04-28T09:26:17.422927 [PDCP   ] [I] TX SRB1 PDU, SN=4, integrity=tx/rx, encryption=none
+    0000: 04 28 00 5b 77 1f ad
+2024-04-28T09:26:17.422928 [PDCP   ] [D] Enabled encryption. LCID=1, encryption=tx/rx
+2024-04-28T09:26:17.443709 [PDCP   ] [I] SRB1 Rx PDU SN=4 (8 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 04 a5 58 6c 1d ce be 9c
+2024-04-28T09:26:17.443709 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 4, SN 4
+2024-04-28T09:26:17.443710 [PDCP   ] [D] Cipher decrypt input: COUNT: 4, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:17.443710 [PDCP   ] [D] Cipher decrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.443710 [PDCP   ] [D] Cipher decrypt input msg
+    0000: a5 58 6c 1d ce be 9c
+2024-04-28T09:26:17.443711 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 38 00 00 b6 26 a8 04
+2024-04-28T09:26:17.443711 [PDCP   ] [D] SRB1 Rx SDU SN=4
+    0000: 04 38 00 00 b6 26 a8 04
+2024-04-28T09:26:17.443712 [PDCP   ] [D] Integrity check input - COUNT 4, Bearer ID 1, Direction Downlink
+2024-04-28T09:26:17.443712 [PDCP   ] [D] Integrity check key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.443713 [PDCP   ] [D] MAC match (expected):
+    0000: b6 26 a8 04
+2024-04-28T09:26:17.443713 [PDCP   ] [D] MAC match (found):
+    0000: b6 26 a8 04
+2024-04-28T09:26:17.443713 [PDCP   ] [D] Integrity check input msg (Bytes=4):
+    0000: 04 38 00 00
+2024-04-28T09:26:17.443713 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 04 38 00 00
+2024-04-28T09:26:17.443729 [PDCP   ] [D] Integrity gen input: COUNT 5, Bearer ID 1, Direction Uplink
+2024-04-28T09:26:17.443729 [PDCP   ] [D] Integrity gen key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.443729 [PDCP   ] [D] Integrity gen input msg:
+    0000: 05 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00
+2024-04-28T09:26:17.443730 [PDCP   ] [D] MAC (generated)
+    0000: b3 e8 bd cd
+2024-04-28T09:26:17.443730 [PDCP   ] [D] Cipher encrypt input: COUNT: 5, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:17.443730 [PDCP   ] [D] Cipher encrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.443731 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00 b3
+    0010: e8 bd cd
+2024-04-28T09:26:17.443731 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 58 69 34 15 61 7e c0 cc 65 17 1a 88 bc 73 c8 40
+    0010: 01 9c e8
+2024-04-28T09:26:17.443732 [PDCP   ] [I] TX SRB1 PDU, SN=5, integrity=tx/rx, encryption=tx/rx
+    0000: 05 58 69 34 15 61 7e c0 cc 65 17 1a 88 bc 73 c8
+    0010: 40 01 9c e8
+2024-04-28T09:26:17.464396 [PDCP   ] [I] SRB1 Rx PDU SN=5 (112 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 05 d7 1d f9 f4 19 67 37 ae 1b 17 d0 8e c6 45 9a
+    0010: 69 8d ad ca 6b af a8 d3 42 2a 84 66 1e 1c 2c 34
+2024-04-28T09:26:17.464396 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 5, SN 5
+2024-04-28T09:26:17.464397 [PDCP   ] [D] Cipher decrypt input: COUNT: 5, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:17.464397 [PDCP   ] [D] Cipher decrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.464397 [PDCP   ] [D] Cipher decrypt input msg
+    0000: d7 1d f9 f4 19 67 37 ae 1b 17 d0 8e c6 45 9a 69
+    0010: 8d ad ca 6b af a8 d3 42 2a 84 66 1e 1c 2c 34 47
+2024-04-28T09:26:17.464398 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 20 16 10 80 00 00 06 8b 02 80 12 89 d3 48 7e b0
+    0010: c0 5d 9d f5 a6 3f 7e c6 3a 9d 24 e5 df 21 c4 28
+2024-04-28T09:26:17.464398 [PDCP   ] [D] SRB1 Rx SDU SN=5
+    0000: 05 20 16 10 80 00 00 06 8b 02 80 12 89 d3 48 7e
+    0010: b0 c0 5d 9d f5 a6 3f 7e c6 3a 9d 24 e5 df 21 c4
+2024-04-28T09:26:17.464399 [PDCP   ] [D] Integrity check input - COUNT 5, Bearer ID 1, Direction Downlink
+2024-04-28T09:26:17.464399 [PDCP   ] [D] Integrity check key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.464400 [PDCP   ] [D] MAC match (expected):
+    0000: 91 73 df 87
+2024-04-28T09:26:17.464400 [PDCP   ] [D] MAC match (found):
+    0000: 91 73 df 87
+2024-04-28T09:26:17.464400 [PDCP   ] [D] Integrity check input msg (Bytes=108):
+    0000: 05 20 16 10 80 00 00 06 8b 02 80 12 89 d3 48 7e
+    0010: b0 c0 5d 9d f5 a6 3f 7e c6 3a 9d 24 e5 df 21 c4
+2024-04-28T09:26:17.464400 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 05 20 16 10 80 00 00 06 8b 02 80 12 89 d3 48 7e
+    0010: b0 c0 5d 9d f5 a6 3f 7e c6 3a 9d 24 e5 df 21 c4
+2024-04-28T09:26:17.464495 [PDCP   ] [I] Init SRB2 with bearer ID: 2
+2024-04-28T09:26:17.464496 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:26:17.464496 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:26:17.464497 [PDCP   ] [I] Add SRB2 (lcid=2, sn_len=5bits)
+2024-04-28T09:26:17.464498 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:26:17.464498 [PDCP   ] [D] K_rrc_enc
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.464498 [PDCP   ] [D] K_up_enc
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:17.464498 [PDCP   ] [D] K_rrc_int
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.464499 [PDCP   ] [D] K_up_int
+    0000: 55 16 11 75 4b 4a c6 1d 99 94 21 34 3e 32 e2 3a
+    0010: 5a 76 11 c6 73 2e 36 ff 84 f6 0f 41 0c 21 94 07
+2024-04-28T09:26:17.464499 [PDCP   ] [D] Enabled integrity. LCID=2, integrity=tx/rx
+2024-04-28T09:26:17.464499 [PDCP   ] [D] Enabled encryption. LCID=2, encryption=tx/rx
+2024-04-28T09:26:17.465015 [PDCP   ] [I] Init DRB1 with bearer ID: 1
+2024-04-28T09:26:17.465015 [PDCP   ] [I] SN len bits: 12, SN len bytes: 2, reordering window: 2048, Maximum SN: 4095, discard timer: -1 ms
+2024-04-28T09:26:17.465015 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:26:17.465016 [PDCP   ] [I] Add DRB1 (lcid=3, sn_len=12bits)
+2024-04-28T09:26:17.465016 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:26:17.465016 [PDCP   ] [D] K_rrc_enc
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.465016 [PDCP   ] [D] K_up_enc
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:17.465016 [PDCP   ] [D] K_rrc_int
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.465016 [PDCP   ] [D] K_up_int
+    0000: 55 16 11 75 4b 4a c6 1d 99 94 21 34 3e 32 e2 3a
+    0010: 5a 76 11 c6 73 2e 36 ff 84 f6 0f 41 0c 21 94 07
+2024-04-28T09:26:17.465016 [PDCP   ] [D] Enabled encryption. LCID=3, encryption=none
+2024-04-28T09:26:17.465028 [PDCP   ] [D] Integrity gen input: COUNT 6, Bearer ID 1, Direction Uplink
+2024-04-28T09:26:17.465028 [PDCP   ] [D] Integrity gen key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.465028 [PDCP   ] [D] Integrity gen input msg:
+    0000: 06 10 00
+2024-04-28T09:26:17.465029 [PDCP   ] [D] MAC (generated)
+    0000: 31 2c 31 dc
+2024-04-28T09:26:17.465029 [PDCP   ] [D] Cipher encrypt input: COUNT: 6, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:17.465029 [PDCP   ] [D] Cipher encrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.465029 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 10 00 31 2c 31 dc
+2024-04-28T09:26:17.465029 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 84 18 fd ee f9 dd
+2024-04-28T09:26:17.465030 [PDCP   ] [I] TX SRB1 PDU, SN=6, integrity=tx/rx, encryption=tx/rx
+    0000: 06 84 18 fd ee f9 dd
+2024-04-28T09:26:17.467495 [PDCP   ] [D] Integrity gen input: COUNT 0, Bearer ID 2, Direction Uplink
+2024-04-28T09:26:17.467496 [PDCP   ] [D] Integrity gen key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.467496 [PDCP   ] [D] Integrity gen input msg:
+    0000: 00 48 01 a4 f9 61 63 56 00 2e db f3 8d 6a 2f 7a
+    0010: 60
+2024-04-28T09:26:17.467496 [PDCP   ] [D] MAC (generated)
+    0000: 89 da 96 3b
+2024-04-28T09:26:17.467497 [PDCP   ] [D] Cipher encrypt input: COUNT: 0, Bearer ID: 2, Direction Uplink
+2024-04-28T09:26:17.467497 [PDCP   ] [D] Cipher encrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.467497 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 48 01 a4 f9 61 63 56 00 2e db f3 8d 6a 2f 7a 60
+    0010: 89 da 96 3b
+2024-04-28T09:26:17.467497 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 0e b8 29 8b 40 78 cc 4d ab b5 24 15 35 e0 da 78
+    0010: 6a 2f 59 2f
+2024-04-28T09:26:17.467498 [PDCP   ] [I] TX SRB2 PDU, SN=0, integrity=tx/rx, encryption=tx/rx
+    0000: 00 0e b8 29 8b 40 78 cc 4d ab b5 24 15 35 e0 da
+    0010: 78 6a 2f 59 2f
+2024-04-28T09:26:17.667750 [PDCP   ] [I] SRB2 Rx PDU SN=0 (59 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 00 f8 30 b3 35 25 b2 b5 df 03 14 08 c2 a9 9d 8f
+    0010: 6c 5e 67 b4 6d b0 d6 bb 53 a0 63 d1 49 d0 5e d3
+2024-04-28T09:26:17.667750 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 0, SN 0
+2024-04-28T09:26:17.667751 [PDCP   ] [D] Cipher decrypt input: COUNT: 0, Bearer ID: 2, Direction Downlink
+2024-04-28T09:26:17.667752 [PDCP   ] [D] Cipher decrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:26:17.667752 [PDCP   ] [D] Cipher decrypt input msg
+    0000: f8 30 b3 35 25 b2 b5 df 03 14 08 c2 a9 9d 8f 6c
+    0010: 5e 67 b4 6d b0 d6 bb 53 a0 63 d1 49 d0 5e d3 71
+2024-04-28T09:26:17.667753 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 08 01 99 3f 8f 12 f6 18 10 ad 7b 80 47 00 ad 5d
+    0010: cd a1 24 f1 18 b1 ba 04 9a 97 39 78 56 8e d5 52
+2024-04-28T09:26:17.667754 [PDCP   ] [D] SRB2 Rx SDU SN=0
+    0000: 00 08 01 99 3f 8f 12 f6 18 10 ad 7b 80 47 00 ad
+    0010: 5d cd a1 24 f1 18 b1 ba 04 9a 97 39 78 56 8e d5
+2024-04-28T09:26:17.667755 [PDCP   ] [D] Integrity check input - COUNT 0, Bearer ID 2, Direction Downlink
+2024-04-28T09:26:17.667755 [PDCP   ] [D] Integrity check key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:26:17.667756 [PDCP   ] [D] MAC match (expected):
+    0000: 50 d8 c0 76
+2024-04-28T09:26:17.667756 [PDCP   ] [D] MAC match (found):
+    0000: 50 d8 c0 76
+2024-04-28T09:26:17.667756 [PDCP   ] [D] Integrity check input msg (Bytes=55):
+    0000: 00 08 01 99 3f 8f 12 f6 18 10 ad 7b 80 47 00 ad
+    0010: 5d cd a1 24 f1 18 b1 ba 04 9a 97 39 78 56 8e d5
+2024-04-28T09:26:17.667757 [PDCP   ] [D] SRB2: Integrity verification successful
+    0000: 00 08 01 99 3f 8f 12 f6 18 10 ad 7b 80 47 00 ad
+    0010: 5d cd a1 24 f1 18 b1 ba 04 9a 97 39 78 56 8e d5
+2024-04-28T09:26:21.071019 [PDCP   ] [I] DRB1 Rx PDU SN=0 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 00 20 8c d2 dc a5 d5 c1 55 72 fc 09 f4 8c a8
+    0010: 61 89 86 cf ea cc 24 4e 42 6e 48 e8 18 e6 0a 97
+2024-04-28T09:26:21.071021 [PDCP   ] [D] Cipher decrypt input: COUNT: 0, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:21.071022 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:21.071022 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 20 8c d2 dc a5 d5 c1 55 72 fc 09 f4 8c a8 61 89
+    0010: 86 cf ea cc 24 4e 42 6e 48 e8 18 e6 0a 97 0c 7e
+2024-04-28T09:26:21.071024 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 af c7 40 00 40 01 32 be ac 10 00 01
+    0010: ac 10 00 02 08 00 52 b4 00 08 00 01 3d 16 2e 66
+2024-04-28T09:26:21.071025 [PDCP   ] [D] DRB1 Rx PDU SN=0
+    0000: 45 00 00 54 af c7 40 00 40 01 32 be ac 10 00 01
+    0010: ac 10 00 02 08 00 52 b4 00 08 00 01 3d 16 2e 66
+2024-04-28T09:26:21.071158 [PDCP   ] [D] Cipher encrypt input: COUNT: 0, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:21.071158 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:21.071159 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 13 4b 00 00 40 01 0f 3b ac 10 00 02
+    0010: ac 10 00 01 00 00 5a b4 00 08 00 01 3d 16 2e 66
+2024-04-28T09:26:21.071159 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 29 92 de 6b e6 b7 1c 1b e6 1c 84 61 68 47 a6 05
+    0010: 8c a9 10 85 07 98 66 9f 8a ca f2 c9 8d 4c b4 4b
+2024-04-28T09:26:21.071160 [PDCP   ] [I] TX DRB1 PDU, SN=0, integrity=none, encryption=tx/rx
+    0000: 80 00 29 92 de 6b e6 b7 1c 1b e6 1c 84 61 68 47
+    0010: a6 05 8c a9 10 85 07 98 66 9f 8a ca f2 c9 8d 4c
+2024-04-28T09:26:22.071800 [PDCP   ] [I] DRB1 Rx PDU SN=1 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 01 4b ee 11 e7 c7 fe 8c 61 6a 4a f2 60 c1 92
+    0010: 6b 08 2f cf eb 4f 1b 1b 99 98 07 06 23 26 0f e0
+2024-04-28T09:26:22.071801 [PDCP   ] [D] Cipher decrypt input: COUNT: 1, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:22.071801 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:22.071802 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 4b ee 11 e7 c7 fe 8c 61 6a 4a f2 60 c1 92 6b 08
+    0010: 2f cf eb 4f 1b 1b 99 98 07 06 23 26 0f e0 8c 2e
+2024-04-28T09:26:22.071803 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b0 9b 40 00 40 01 31 ea ac 10 00 01
+    0010: ac 10 00 02 08 00 5e b1 00 08 00 02 3e 16 2e 66
+2024-04-28T09:26:22.071803 [PDCP   ] [D] DRB1 Rx PDU SN=1
+    0000: 45 00 00 54 b0 9b 40 00 40 01 31 ea ac 10 00 01
+    0010: ac 10 00 02 08 00 5e b1 00 08 00 02 3e 16 2e 66
+2024-04-28T09:26:22.071927 [PDCP   ] [D] Cipher encrypt input: COUNT: 1, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:22.071928 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:22.071928 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 13 7f 00 00 40 01 0f 07 ac 10 00 02
+    0010: ac 10 00 01 00 00 66 b1 00 08 00 02 3e 16 2e 66
+2024-04-28T09:26:22.071929 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 92 77 32 77 63 ce 19 be 7d 4a 20 00 c5 e7 aa 2e
+    0010: 14 f8 2d 8e 53 ec 20 33 fb e8 25 21 4d 46 9f 55
+2024-04-28T09:26:22.071929 [PDCP   ] [I] TX DRB1 PDU, SN=1, integrity=none, encryption=tx/rx
+    0000: 80 01 92 77 32 77 63 ce 19 be 7d 4a 20 00 c5 e7
+    0010: aa 2e 14 f8 2d 8e 53 ec 20 33 fb e8 25 21 4d 46
+2024-04-28T09:26:23.072704 [PDCP   ] [I] DRB1 Rx PDU SN=2 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 02 24 a0 fd 1f e0 c0 27 40 7f 58 c2 19 9d 26
+    0010: cb da 8d f9 82 42 f5 76 f2 96 c9 55 64 9e 22 bc
+2024-04-28T09:26:23.072706 [PDCP   ] [D] Cipher decrypt input: COUNT: 2, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:23.072707 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:23.072707 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 24 a0 fd 1f e0 c0 27 40 7f 58 c2 19 9d 26 cb da
+    0010: 8d f9 82 42 f5 76 f2 96 c9 55 64 9e 22 bc 73 e2
+2024-04-28T09:26:23.072709 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b0 c4 40 00 40 01 31 c1 ac 10 00 01
+    0010: ac 10 00 02 08 00 1d ae 00 08 00 03 3f 16 2e 66
+2024-04-28T09:26:23.072709 [PDCP   ] [D] DRB1 Rx PDU SN=2
+    0000: 45 00 00 54 b0 c4 40 00 40 01 31 c1 ac 10 00 01
+    0010: ac 10 00 02 08 00 1d ae 00 08 00 03 3f 16 2e 66
+2024-04-28T09:26:23.072834 [PDCP   ] [D] Cipher encrypt input: COUNT: 2, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:23.072834 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:23.072835 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 13 ab 00 00 40 01 0e db ac 10 00 02
+    0010: ac 10 00 01 00 00 25 ae 00 08 00 03 3f 16 2e 66
+2024-04-28T09:26:23.072835 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 0e de 97 b1 e2 f9 07 e7 7d 46 35 c7 58 55 ba 55
+    0010: 79 4b 72 20 54 8c f1 2d c6 1b 02 24 8e 76 e3 4c
+2024-04-28T09:26:23.072836 [PDCP   ] [I] TX DRB1 PDU, SN=2, integrity=none, encryption=tx/rx
+    0000: 80 02 0e de 97 b1 e2 f9 07 e7 7d 46 35 c7 58 55
+    0010: ba 55 79 4b 72 20 54 8c f1 2d c6 1b 02 24 8e 76
+2024-04-28T09:26:24.072876 [PDCP   ] [I] DRB1 Rx PDU SN=3 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 03 9a 04 5f c0 d3 6a 37 9a 90 72 79 f1 7c e5
+    0010: 04 f4 39 83 0a 36 32 dc 33 4c fd 7c 81 1a 1a f1
+2024-04-28T09:26:24.072879 [PDCP   ] [D] Cipher decrypt input: COUNT: 3, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:24.072879 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:24.072880 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 9a 04 5f c0 d3 6a 37 9a 90 72 79 f1 7c e5 04 f4
+    0010: 39 83 0a 36 32 dc 33 4c fd 7c 81 1a 1a f1 b5 d3
+2024-04-28T09:26:24.072881 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b1 67 40 00 40 01 31 1e ac 10 00 01
+    0010: ac 10 00 02 08 00 e4 aa 00 08 00 04 40 16 2e 66
+2024-04-28T09:26:24.072882 [PDCP   ] [D] DRB1 Rx PDU SN=3
+    0000: 45 00 00 54 b1 67 40 00 40 01 31 1e ac 10 00 01
+    0010: ac 10 00 02 08 00 e4 aa 00 08 00 04 40 16 2e 66
+2024-04-28T09:26:24.073007 [PDCP   ] [D] Cipher encrypt input: COUNT: 3, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:24.073007 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:24.073007 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 13 cd 00 00 40 01 0e b9 ac 10 00 02
+    0010: ac 10 00 01 00 00 ec aa 00 08 00 04 40 16 2e 66
+2024-04-28T09:26:24.073008 [PDCP   ] [D] Cipher encrypt output msg
+    0000: a0 0c f1 8c 32 e8 06 b6 3c ae 5e 5e d7 84 fc d0
+    0010: 7c 00 b4 ac 7c fb 45 e0 0c 56 c5 f7 93 ed df d3
+2024-04-28T09:26:24.073008 [PDCP   ] [I] TX DRB1 PDU, SN=3, integrity=none, encryption=tx/rx
+    0000: 80 03 a0 0c f1 8c 32 e8 06 b6 3c ae 5e 5e d7 84
+    0010: fc d0 7c 00 b4 ac 7c fb 45 e0 0c 56 c5 f7 93 ed
+2024-04-28T09:26:25.074177 [PDCP   ] [I] DRB1 Rx PDU SN=4 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 04 b0 79 d0 cc 45 5c eb a5 09 87 71 f7 d1 3a
+    0010: aa 20 8a a5 18 d1 35 eb 04 8b 03 58 05 3f 6a c3
+2024-04-28T09:26:25.074179 [PDCP   ] [D] Cipher decrypt input: COUNT: 4, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:25.074179 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:25.074180 [PDCP   ] [D] Cipher decrypt input msg
+    0000: b0 79 d0 cc 45 5c eb a5 09 87 71 f7 d1 3a aa 20
+    0010: 8a a5 18 d1 35 eb 04 8b 03 58 05 3f 6a c3 7c c4
+2024-04-28T09:26:25.074182 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b1 fd 40 00 40 01 30 88 ac 10 00 01
+    0010: ac 10 00 02 08 00 7c a3 00 08 00 05 41 16 2e 66
+2024-04-28T09:26:25.074183 [PDCP   ] [D] DRB1 Rx PDU SN=4
+    0000: 45 00 00 54 b1 fd 40 00 40 01 30 88 ac 10 00 01
+    0010: ac 10 00 02 08 00 7c a3 00 08 00 05 41 16 2e 66
+2024-04-28T09:26:25.074311 [PDCP   ] [D] Cipher encrypt input: COUNT: 4, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:25.074311 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:25.074312 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 14 76 00 00 40 01 0e 10 ac 10 00 02
+    0010: ac 10 00 01 00 00 84 a3 00 08 00 05 41 16 2e 66
+2024-04-28T09:26:25.074312 [PDCP   ] [D] Cipher encrypt output msg
+    0000: e4 fe 09 d1 48 a9 9f 36 e8 c9 31 cd 55 40 46 2b
+    0010: 61 9a d4 00 8a f3 66 fb 76 5c ad c9 3c 15 bd 05
+2024-04-28T09:26:25.074313 [PDCP   ] [I] TX DRB1 PDU, SN=4, integrity=none, encryption=tx/rx
+    0000: 80 04 e4 fe 09 d1 48 a9 9f 36 e8 c9 31 cd 55 40
+    0010: 46 2b 61 9a d4 00 8a f3 66 fb 76 5c ad c9 3c 15
+2024-04-28T09:26:26.075751 [PDCP   ] [I] DRB1 Rx PDU SN=5 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 05 45 27 8e da 31 f4 cb 92 7f 82 f0 5b 2f 6f
+    0010: 71 d5 7e 3e 6b 1d ee 90 e9 6d f1 2e a4 7b 36 7b
+2024-04-28T09:26:26.075753 [PDCP   ] [D] Cipher decrypt input: COUNT: 5, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:26.075753 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:26.075754 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 45 27 8e da 31 f4 cb 92 7f 82 f0 5b 2f 6f 71 d5
+    0010: 7e 3e 6b 1d ee 90 e9 6d f1 2e a4 7b 36 7b ec d0
+2024-04-28T09:26:26.075756 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b3 07 40 00 40 01 2f 7e ac 10 00 01
+    0010: ac 10 00 02 08 00 2d 9f 00 08 00 06 42 16 2e 66
+2024-04-28T09:26:26.075756 [PDCP   ] [D] DRB1 Rx PDU SN=5
+    0000: 45 00 00 54 b3 07 40 00 40 01 2f 7e ac 10 00 01
+    0010: ac 10 00 02 08 00 2d 9f 00 08 00 06 42 16 2e 66
+2024-04-28T09:26:26.075891 [PDCP   ] [D] Cipher encrypt input: COUNT: 5, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:26.075891 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:26.075891 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 14 bb 00 00 40 01 0d cb ac 10 00 02
+    0010: ac 10 00 01 00 00 35 9f 00 08 00 06 42 16 2e 66
+2024-04-28T09:26:26.075892 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 24 0e 3a 74 b6 4f 09 9a 9b 71 fe 57 cf bb 23 3a
+    0010: f0 4c fb b0 34 6d cb d6 cc d5 40 a5 72 1f 31 b1
+2024-04-28T09:26:26.075892 [PDCP   ] [I] TX DRB1 PDU, SN=5, integrity=none, encryption=tx/rx
+    0000: 80 05 24 0e 3a 74 b6 4f 09 9a 9b 71 fe 57 cf bb
+    0010: 23 3a f0 4c fb b0 34 6d cb d6 cc d5 40 a5 72 1f
+2024-04-28T09:26:27.076289 [PDCP   ] [I] DRB1 Rx PDU SN=6 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 06 70 2b fa eb 29 ad e2 db 94 60 18 4a ad da
+    0010: 5f 10 a0 26 f1 76 43 e9 39 92 64 10 a3 80 3c e8
+2024-04-28T09:26:27.076291 [PDCP   ] [D] Cipher decrypt input: COUNT: 6, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:27.076291 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:27.076292 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 70 2b fa eb 29 ad e2 db 94 60 18 4a ad da 5f 10
+    0010: a0 26 f1 76 43 e9 39 92 64 10 a3 80 3c e8 45 38
+2024-04-28T09:26:27.076292 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b3 ed 40 00 40 01 2e 98 ac 10 00 01
+    0010: ac 10 00 02 08 00 7b 98 00 08 00 07 43 16 2e 66
+2024-04-28T09:26:27.076293 [PDCP   ] [D] DRB1 Rx PDU SN=6
+    0000: 45 00 00 54 b3 ed 40 00 40 01 2e 98 ac 10 00 01
+    0010: ac 10 00 02 08 00 7b 98 00 08 00 07 43 16 2e 66
+2024-04-28T09:26:27.076412 [PDCP   ] [D] Cipher encrypt input: COUNT: 6, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:27.076412 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:27.076413 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 15 a4 00 00 40 01 0c e2 ac 10 00 02
+    0010: ac 10 00 01 00 00 83 98 00 08 00 07 43 16 2e 66
+2024-04-28T09:26:27.076413 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 21 4d fd bc 01 73 67 2d b3 82 1b ee d8 d0 04 aa
+    0010: 0c 26 53 84 3a 7d 25 31 70 a2 55 f4 23 9c 30 11
+2024-04-28T09:26:27.076413 [PDCP   ] [I] TX DRB1 PDU, SN=6, integrity=none, encryption=tx/rx
+    0000: 80 06 21 4d fd bc 01 73 67 2d b3 82 1b ee d8 d0
+    0010: 04 aa 0c 26 53 84 3a 7d 25 31 70 a2 55 f4 23 9c
+2024-04-28T09:26:28.077769 [PDCP   ] [I] DRB1 Rx PDU SN=7 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 07 9c d6 6e 7a e5 01 4a a1 5b 27 56 a3 f3 61
+    0010: 89 39 a8 e1 6e 14 10 67 ac bc f7 de 89 19 5f 76
+2024-04-28T09:26:28.077771 [PDCP   ] [D] Cipher decrypt input: COUNT: 7, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:28.077771 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:28.077772 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 9c d6 6e 7a e5 01 4a a1 5b 27 56 a3 f3 61 89 39
+    0010: a8 e1 6e 14 10 67 ac bc f7 de 89 19 5f 76 31 1a
+2024-04-28T09:26:28.077774 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b4 91 40 00 40 01 2d f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 71 93 00 08 00 08 44 16 2e 66
+2024-04-28T09:26:28.077774 [PDCP   ] [D] DRB1 Rx PDU SN=7
+    0000: 45 00 00 54 b4 91 40 00 40 01 2d f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 71 93 00 08 00 08 44 16 2e 66
+2024-04-28T09:26:28.077899 [PDCP   ] [D] Cipher encrypt input: COUNT: 7, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:28.077899 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:28.077900 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 16 b1 00 00 40 01 0b d5 ac 10 00 02
+    0010: ac 10 00 01 00 00 79 93 00 08 00 08 44 16 2e 66
+2024-04-28T09:26:28.077900 [PDCP   ] [D] Cipher encrypt output msg
+    0000: af cf 55 dc 12 90 e5 70 b5 69 b1 9c 91 7e d5 04
+    0010: 61 ca 97 65 73 80 44 c7 e9 be e2 18 f7 b1 db d0
+2024-04-28T09:26:28.077902 [PDCP   ] [I] TX DRB1 PDU, SN=7, integrity=none, encryption=tx/rx
+    0000: 80 07 af cf 55 dc 12 90 e5 70 b5 69 b1 9c 91 7e
+    0010: d5 04 61 ca 97 65 73 80 44 c7 e9 be e2 18 f7 b1
+2024-04-28T09:26:29.079708 [PDCP   ] [I] DRB1 Rx PDU SN=8 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 08 fa ef d7 62 4a c6 b8 11 f9 ed 63 b7 7f e2
+    0010: d4 6e c9 90 46 fb 5c 97 0f 3d 44 3d 9d 2d 6a 8e
+2024-04-28T09:26:29.079709 [PDCP   ] [D] Cipher decrypt input: COUNT: 8, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:29.079710 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:29.079710 [PDCP   ] [D] Cipher decrypt input msg
+    0000: fa ef d7 62 4a c6 b8 11 f9 ed 63 b7 7f e2 d4 6e
+    0010: c9 90 46 fb 5c 97 0f 3d 44 3d 9d 2d 6a 8e 2a d3
+2024-04-28T09:26:29.079712 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b4 e3 40 00 40 01 2d a2 ac 10 00 01
+    0010: ac 10 00 02 08 00 ab 8c 00 08 00 09 45 16 2e 66
+2024-04-28T09:26:29.079712 [PDCP   ] [D] DRB1 Rx PDU SN=8
+    0000: 45 00 00 54 b4 e3 40 00 40 01 2d a2 ac 10 00 01
+    0010: ac 10 00 02 08 00 ab 8c 00 08 00 09 45 16 2e 66
+2024-04-28T09:26:29.079840 [PDCP   ] [D] Cipher encrypt input: COUNT: 8, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:29.079840 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:29.079840 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 17 05 00 00 40 01 0b 81 ac 10 00 02
+    0010: ac 10 00 01 00 00 b3 8c 00 08 00 09 45 16 2e 66
+2024-04-28T09:26:29.079841 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 8f 5a 0a 3e ab 32 19 3e 0c 23 65 c9 8c 3a 8b a6
+    0010: f3 29 2b 59 5b fc fa 7b 04 59 9b 1c 33 49 85 f4
+2024-04-28T09:26:29.079841 [PDCP   ] [I] TX DRB1 PDU, SN=8, integrity=none, encryption=tx/rx
+    0000: 80 08 8f 5a 0a 3e ab 32 19 3e 0c 23 65 c9 8c 3a
+    0010: 8b a6 f3 29 2b 59 5b fc fa 7b 04 59 9b 1c 33 49
+2024-04-28T09:26:30.080286 [PDCP   ] [I] DRB1 Rx PDU SN=9 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 09 c7 03 15 fb 2f b6 90 3f 64 cf 81 bf 28 03
+    0010: 03 36 56 9d 3c e9 15 d8 1c fe 75 83 f0 43 a1 73
+2024-04-28T09:26:30.080289 [PDCP   ] [D] Cipher decrypt input: COUNT: 9, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:30.080289 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:30.080289 [PDCP   ] [D] Cipher decrypt input msg
+    0000: c7 03 15 fb 2f b6 90 3f 64 cf 81 bf 28 03 03 36
+    0010: 56 9d 3c e9 15 d8 1c fe 75 83 f0 43 a1 73 78 02
+2024-04-28T09:26:30.080291 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b5 95 40 00 40 01 2c f0 ac 10 00 01
+    0010: ac 10 00 02 08 00 3e 89 00 08 00 0a 46 16 2e 66
+2024-04-28T09:26:30.080291 [PDCP   ] [D] DRB1 Rx PDU SN=9
+    0000: 45 00 00 54 b5 95 40 00 40 01 2c f0 ac 10 00 01
+    0010: ac 10 00 02 08 00 3e 89 00 08 00 0a 46 16 2e 66
+2024-04-28T09:26:30.080422 [PDCP   ] [D] Cipher encrypt input: COUNT: 9, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:30.080422 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:30.080423 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 17 96 00 00 40 01 0a f0 ac 10 00 02
+    0010: ac 10 00 01 00 00 46 89 00 08 00 0a 46 16 2e 66
+2024-04-28T09:26:30.080423 [PDCP   ] [D] Cipher encrypt output msg
+    0000: f3 bc 54 f9 d8 e3 0d 0f 71 5a 1b 5b 0f 42 db ed
+    0010: 7c 01 58 42 8d d3 35 5a c8 0a 14 9f 61 b6 d1 ea
+2024-04-28T09:26:30.080424 [PDCP   ] [I] TX DRB1 PDU, SN=9, integrity=none, encryption=tx/rx
+    0000: 80 09 f3 bc 54 f9 d8 e3 0d 0f 71 5a 1b 5b 0f 42
+    0010: db ed 7c 01 58 42 8d d3 35 5a c8 0a 14 9f 61 b6
+2024-04-28T09:26:30.107562 [PDCP   ] [D] Cipher encrypt input: COUNT: 10, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:30.107563 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:30.107563 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 17 9e 40 00 40 01 ca e7 ac 10 00 02
+    0010: ac 10 00 01 08 00 b5 66 1f a5 00 01 46 16 2e 66
+2024-04-28T09:26:30.107564 [PDCP   ] [D] Cipher encrypt output msg
+    0000: e5 f8 a5 ae e6 af 76 42 3d 35 2e 64 3e 5d b4 bf
+    0010: 82 46 c2 43 97 a4 6f d4 a4 ff 97 34 03 ac 95 3b
+2024-04-28T09:26:30.107565 [PDCP   ] [I] TX DRB1 PDU, SN=10, integrity=none, encryption=tx/rx
+    0000: 80 0a e5 f8 a5 ae e6 af 76 42 3d 35 2e 64 3e 5d
+    0010: b4 bf 82 46 c2 43 97 a4 6f d4 a4 ff 97 34 03 ac
+2024-04-28T09:26:30.132302 [PDCP   ] [I] DRB1 Rx PDU SN=10 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0a 9d f7 ad f4 a7 4c 40 60 50 3c b9 b0 a7 3b
+    0010: 83 cf ca 55 2f 83 df 7c d6 fc 02 6b 76 69 a7 b5
+2024-04-28T09:26:30.132304 [PDCP   ] [D] Cipher decrypt input: COUNT: 10, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:30.132304 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:30.132304 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 9d f7 ad f4 a7 4c 40 60 50 3c b9 b0 a7 3b 83 cf
+    0010: ca 55 2f 83 df 7c d6 fc 02 6b 76 69 a7 b5 3a 10
+2024-04-28T09:26:30.132306 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b5 a5 00 00 40 01 6c e0 ac 10 00 01
+    0010: ac 10 00 02 00 00 bd 66 1f a5 00 01 46 16 2e 66
+2024-04-28T09:26:30.132306 [PDCP   ] [D] DRB1 Rx PDU SN=10
+    0000: 45 00 00 54 b5 a5 00 00 40 01 6c e0 ac 10 00 01
+    0010: ac 10 00 02 00 00 bd 66 1f a5 00 01 46 16 2e 66
+2024-04-28T09:26:31.108982 [PDCP   ] [D] Cipher encrypt input: COUNT: 11, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:31.108982 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:31.108983 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 18 ae 40 00 40 01 c9 d7 ac 10 00 02
+    0010: ac 10 00 01 08 00 0e 60 1f a5 00 02 47 16 2e 66
+2024-04-28T09:26:31.108985 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 89 8d 26 e5 0a 21 8a 6c 6e 24 f7 c2 a6 83 9f 6c
+    0010: 97 4b d3 a3 6a e0 8a 6a ef 51 c2 37 63 3e b5 a5
+2024-04-28T09:26:31.108986 [PDCP   ] [I] TX DRB1 PDU, SN=11, integrity=none, encryption=tx/rx
+    0000: 80 0b 89 8d 26 e5 0a 21 8a 6c 6e 24 f7 c2 a6 83
+    0010: 9f 6c 97 4b d3 a3 6a e0 8a 6a ef 51 c2 37 63 3e
+2024-04-28T09:26:31.130072 [PDCP   ] [I] DRB1 Rx PDU SN=11 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0b e0 84 ad da 54 f5 2a 59 b1 db 22 ab 19 ae
+    0010: ce 8c bb 0b bb 9c 47 c7 af d7 4b 86 21 a6 f9 6c
+2024-04-28T09:26:31.130074 [PDCP   ] [D] Cipher decrypt input: COUNT: 11, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:31.130074 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:31.130074 [PDCP   ] [D] Cipher decrypt input msg
+    0000: e0 84 ad da 54 f5 2a 59 b1 db 22 ab 19 ae ce 8c
+    0010: bb 0b bb 9c 47 c7 af d7 4b 86 21 a6 f9 6c 40 03
+2024-04-28T09:26:31.130076 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b6 5c 00 00 40 01 6c 29 ac 10 00 01
+    0010: ac 10 00 02 00 00 16 60 1f a5 00 02 47 16 2e 66
+2024-04-28T09:26:31.130077 [PDCP   ] [D] DRB1 Rx PDU SN=11
+    0000: 45 00 00 54 b6 5c 00 00 40 01 6c 29 ac 10 00 01
+    0010: ac 10 00 02 00 00 16 60 1f a5 00 02 47 16 2e 66
+2024-04-28T09:26:32.110206 [PDCP   ] [D] Cipher encrypt input: COUNT: 12, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:32.110206 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:32.110207 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 18 f1 40 00 40 01 c9 94 ac 10 00 02
+    0010: ac 10 00 01 08 00 76 5a 1f a5 00 03 48 16 2e 66
+2024-04-28T09:26:32.110209 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 6e 9a 8d 41 9a 21 89 4a d1 42 cb 96 1d 1b 7a 06
+    0010: d8 2e 92 8c fc 32 77 67 43 52 ac 78 11 b6 0f b4
+2024-04-28T09:26:32.110210 [PDCP   ] [I] TX DRB1 PDU, SN=12, integrity=none, encryption=tx/rx
+    0000: 80 0c 6e 9a 8d 41 9a 21 89 4a d1 42 cb 96 1d 1b
+    0010: 7a 06 d8 2e 92 8c fc 32 77 67 43 52 ac 78 11 b6
+2024-04-28T09:26:32.143293 [PDCP   ] [I] DRB1 Rx PDU SN=12 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0c 3d 5f ba f2 44 52 ee c3 10 f2 82 0b 4c d0
+    0010: 06 1b 13 1f b9 08 24 30 27 02 65 6b e8 57 9d 19
+2024-04-28T09:26:32.143295 [PDCP   ] [D] Cipher decrypt input: COUNT: 12, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:32.143295 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:32.143295 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 3d 5f ba f2 44 52 ee c3 10 f2 82 0b 4c d0 06 1b
+    0010: 13 1f b9 08 24 30 27 02 65 6b e8 57 9d 19 20 af
+2024-04-28T09:26:32.143298 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b6 5e 00 00 40 01 6c 27 ac 10 00 01
+    0010: ac 10 00 02 00 00 7e 5a 1f a5 00 03 48 16 2e 66
+2024-04-28T09:26:32.143298 [PDCP   ] [D] DRB1 Rx PDU SN=12
+    0000: 45 00 00 54 b6 5e 00 00 40 01 6c 27 ac 10 00 01
+    0010: ac 10 00 02 00 00 7e 5a 1f a5 00 03 48 16 2e 66
+2024-04-28T09:26:33.111417 [PDCP   ] [D] Cipher encrypt input: COUNT: 13, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:33.111418 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:33.111419 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 19 6d 40 00 40 01 c9 18 ac 10 00 02
+    0010: ac 10 00 01 08 00 cd 54 1f a5 00 04 49 16 2e 66
+2024-04-28T09:26:33.111420 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 51 36 f1 5b 1c 58 fb e8 76 c9 70 a6 fa 58 be 46
+    0010: 1e 46 61 a8 a6 d7 f9 00 17 41 57 ca 07 61 fc c6
+2024-04-28T09:26:33.111421 [PDCP   ] [I] TX DRB1 PDU, SN=13, integrity=none, encryption=tx/rx
+    0000: 80 0d 51 36 f1 5b 1c 58 fb e8 76 c9 70 a6 fa 58
+    0010: be 46 1e 46 61 a8 a6 d7 f9 00 17 41 57 ca 07 61
+2024-04-28T09:26:33.135538 [PDCP   ] [I] DRB1 Rx PDU SN=13 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0d 3a 4c 0d ad 80 ce ea 7a 0d be 0b e6 4e 63
+    0010: 9a 95 a1 72 88 ed 57 d6 b9 d7 ea 32 c1 a6 c5 27
+2024-04-28T09:26:33.135540 [PDCP   ] [D] Cipher decrypt input: COUNT: 13, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:33.135540 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:33.135541 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 3a 4c 0d ad 80 ce ea 7a 0d be 0b e6 4e 63 9a 95
+    0010: a1 72 88 ed 57 d6 b9 d7 ea 32 c1 a6 c5 27 92 bf
+2024-04-28T09:26:33.135542 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b6 cd 00 00 40 01 6b b8 ac 10 00 01
+    0010: ac 10 00 02 00 00 d5 54 1f a5 00 04 49 16 2e 66
+2024-04-28T09:26:33.135542 [PDCP   ] [D] DRB1 Rx PDU SN=13
+    0000: 45 00 00 54 b6 cd 00 00 40 01 6b b8 ac 10 00 01
+    0010: ac 10 00 02 00 00 d5 54 1f a5 00 04 49 16 2e 66
+2024-04-28T09:26:34.112373 [PDCP   ] [D] Cipher encrypt input: COUNT: 14, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:34.112374 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:34.112374 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1a 92 40 00 40 01 c7 f3 ac 10 00 02
+    0010: ac 10 00 01 08 00 09 50 1f a5 00 05 4a 16 2e 66
+2024-04-28T09:26:34.112376 [PDCP   ] [D] Cipher encrypt output msg
+    0000: e5 cf c9 f2 70 d1 a6 86 eb 43 b1 15 f0 62 96 2b
+    0010: 33 2c 5c 66 87 b2 7d b5 2c b8 1f e6 54 c9 43 63
+2024-04-28T09:26:34.112377 [PDCP   ] [I] TX DRB1 PDU, SN=14, integrity=none, encryption=tx/rx
+    0000: 80 0e e5 cf c9 f2 70 d1 a6 86 eb 43 b1 15 f0 62
+    0010: 96 2b 33 2c 5c 66 87 b2 7d b5 2c b8 1f e6 54 c9
+2024-04-28T09:26:34.148728 [PDCP   ] [I] DRB1 Rx PDU SN=14 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0e 4f c8 15 ed 26 86 37 93 db fc 85 8c 4c 7d
+    0010: 81 b5 49 24 62 90 7c 04 1d 92 37 d7 1d a4 12 bc
+2024-04-28T09:26:34.148729 [PDCP   ] [D] Cipher decrypt input: COUNT: 14, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:34.148729 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:34.148730 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 4f c8 15 ed 26 86 37 93 db fc 85 8c 4c 7d 81 b5
+    0010: 49 24 62 90 7c 04 1d 92 37 d7 1d a4 12 bc 3c d0
+2024-04-28T09:26:34.148731 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b7 5d 00 00 40 01 6b 28 ac 10 00 01
+    0010: ac 10 00 02 00 00 11 50 1f a5 00 05 4a 16 2e 66
+2024-04-28T09:26:34.148731 [PDCP   ] [D] DRB1 Rx PDU SN=14
+    0000: 45 00 00 54 b7 5d 00 00 40 01 6b 28 ac 10 00 01
+    0010: ac 10 00 02 00 00 11 50 1f a5 00 05 4a 16 2e 66
+2024-04-28T09:26:35.112920 [PDCP   ] [D] Cipher encrypt input: COUNT: 15, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:35.112920 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:35.112921 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1b 32 40 00 40 01 c7 53 ac 10 00 02
+    0010: ac 10 00 01 08 00 c4 4c 1f a5 00 06 4b 16 2e 66
+2024-04-28T09:26:35.112922 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 29 52 e3 de 60 b4 8c bf 52 fc 93 15 4c c7 81 b5
+    0010: cf f5 ea a5 54 0a f4 36 5f f7 2d 00 0f 30 f6 bd
+2024-04-28T09:26:35.112923 [PDCP   ] [I] TX DRB1 PDU, SN=15, integrity=none, encryption=tx/rx
+    0000: 80 0f 29 52 e3 de 60 b4 8c bf 52 fc 93 15 4c c7
+    0010: 81 b5 cf f5 ea a5 54 0a f4 36 5f f7 2d 00 0f 30
+2024-04-28T09:26:35.141214 [PDCP   ] [I] DRB1 Rx PDU SN=15 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 0f 53 b0 e0 8f 36 97 75 52 5c 34 61 c3 2f 37
+    0010: 91 c6 18 c7 9a d8 9f bf af 08 5b 08 65 38 b2 59
+2024-04-28T09:26:35.141216 [PDCP   ] [D] Cipher decrypt input: COUNT: 15, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:35.141216 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:35.141217 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 53 b0 e0 8f 36 97 75 52 5c 34 61 c3 2f 37 91 c6
+    0010: 18 c7 9a d8 9f bf af 08 5b 08 65 38 b2 59 1d 1a
+2024-04-28T09:26:35.141218 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b7 ba 00 00 40 01 6a cb ac 10 00 01
+    0010: ac 10 00 02 00 00 cc 4c 1f a5 00 06 4b 16 2e 66
+2024-04-28T09:26:35.141219 [PDCP   ] [D] DRB1 Rx PDU SN=15
+    0000: 45 00 00 54 b7 ba 00 00 40 01 6a cb ac 10 00 01
+    0010: ac 10 00 02 00 00 cc 4c 1f a5 00 06 4b 16 2e 66
+2024-04-28T09:26:36.114326 [PDCP   ] [D] Cipher encrypt input: COUNT: 16, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:36.114326 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:36.114327 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1c 4a 40 00 40 01 c6 3b ac 10 00 02
+    0010: ac 10 00 01 08 00 5e 46 1f a5 00 07 4c 16 2e 66
+2024-04-28T09:26:36.114329 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 8d 10 fc 80 33 1f c6 c4 f5 8b b5 a3 cb 5b df 86
+    0010: 97 4e 8b 21 88 fc ec cf 0f c0 be a7 bf 6b 9c 51
+2024-04-28T09:26:36.114330 [PDCP   ] [I] TX DRB1 PDU, SN=16, integrity=none, encryption=tx/rx
+    0000: 80 10 8d 10 fc 80 33 1f c6 c4 f5 8b b5 a3 cb 5b
+    0010: df 86 97 4e 8b 21 88 fc ec cf 0f c0 be a7 bf 6b
+2024-04-28T09:26:36.133953 [PDCP   ] [I] DRB1 Rx PDU SN=16 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 10 e9 a8 70 cf 00 5e 7c 61 95 46 4b ee 73 1c
+    0010: fb 26 3a c7 db 66 ec f0 ba 44 e7 fd 08 d3 11 0b
+2024-04-28T09:26:36.133955 [PDCP   ] [D] Cipher decrypt input: COUNT: 16, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:36.133955 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:36.133956 [PDCP   ] [D] Cipher decrypt input msg
+    0000: e9 a8 70 cf 00 5e 7c 61 95 46 4b ee 73 1c fb 26
+    0010: 3a c7 db 66 ec f0 ba 44 e7 fd 08 d3 11 0b 32 4b
+2024-04-28T09:26:36.133958 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b8 27 00 00 40 01 6a 5e ac 10 00 01
+    0010: ac 10 00 02 00 00 66 46 1f a5 00 07 4c 16 2e 66
+2024-04-28T09:26:36.133958 [PDCP   ] [D] DRB1 Rx PDU SN=16
+    0000: 45 00 00 54 b8 27 00 00 40 01 6a 5e ac 10 00 01
+    0010: ac 10 00 02 00 00 66 46 1f a5 00 07 4c 16 2e 66
+2024-04-28T09:26:37.115634 [PDCP   ] [D] Cipher encrypt input: COUNT: 17, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:37.115634 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:37.115635 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1c 8d 40 00 40 01 c5 f8 ac 10 00 02
+    0010: ac 10 00 01 08 00 03 40 1f a5 00 08 4d 16 2e 66
+2024-04-28T09:26:37.115636 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 09 5c 26 99 06 a9 fe 99 39 0c 18 a0 59 07 93 d6
+    0010: 80 bb 2a 5d f1 59 d8 fa 9c d0 4b 48 11 7b 2a c1
+2024-04-28T09:26:37.115637 [PDCP   ] [I] TX DRB1 PDU, SN=17, integrity=none, encryption=tx/rx
+    0000: 80 11 09 5c 26 99 06 a9 fe 99 39 0c 18 a0 59 07
+    0010: 93 d6 80 bb 2a 5d f1 59 d8 fa 9c d0 4b 48 11 7b
+2024-04-28T09:26:37.147010 [PDCP   ] [I] DRB1 Rx PDU SN=17 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 11 a8 10 0e 5a b3 76 b1 7c fc 34 e2 42 bb 3d
+    0010: bc 0a 25 3a 97 0f 57 9a c6 5e ff 4c 9b 28 bb 0c
+2024-04-28T09:26:37.147012 [PDCP   ] [D] Cipher decrypt input: COUNT: 17, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:37.147012 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:37.147013 [PDCP   ] [D] Cipher decrypt input msg
+    0000: a8 10 0e 5a b3 76 b1 7c fc 34 e2 42 bb 3d bc 0a
+    0010: 25 3a 97 0f 57 9a c6 5e ff 4c 9b 28 bb 0c 02 80
+2024-04-28T09:26:37.147014 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b9 0d 00 00 40 01 69 78 ac 10 00 01
+    0010: ac 10 00 02 00 00 0b 40 1f a5 00 08 4d 16 2e 66
+2024-04-28T09:26:37.147015 [PDCP   ] [D] DRB1 Rx PDU SN=17
+    0000: 45 00 00 54 b9 0d 00 00 40 01 69 78 ac 10 00 01
+    0010: ac 10 00 02 00 00 0b 40 1f a5 00 08 4d 16 2e 66
+2024-04-28T09:26:38.117111 [PDCP   ] [D] Cipher encrypt input: COUNT: 18, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:38.117111 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:38.117112 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1d 66 40 00 40 01 c5 1f ac 10 00 02
+    0010: ac 10 00 01 08 00 79 39 1f a5 00 09 4e 16 2e 66
+2024-04-28T09:26:38.117114 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 41 be 3e 43 fa 87 87 2a 7e d1 98 01 25 c1 92 1d
+    0010: 94 23 ad 90 25 c7 79 ce 23 58 ce d0 7a 93 c5 9b
+2024-04-28T09:26:38.117115 [PDCP   ] [I] TX DRB1 PDU, SN=18, integrity=none, encryption=tx/rx
+    0000: 80 12 41 be 3e 43 fa 87 87 2a 7e d1 98 01 25 c1
+    0010: 92 1d 94 23 ad 90 25 c7 79 ce 23 58 ce d0 7a 93
+2024-04-28T09:26:38.140711 [PDCP   ] [I] DRB1 Rx PDU SN=18 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 12 84 a4 4c ff dc c8 80 4b 2f 7a bc 02 5a 70
+    0010: 26 f3 89 bc a6 24 a9 f1 5c a9 16 ad 96 ef 95 1e
+2024-04-28T09:26:38.140713 [PDCP   ] [D] Cipher decrypt input: COUNT: 18, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:38.140713 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:38.140713 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 84 a4 4c ff dc c8 80 4b 2f 7a bc 02 5a 70 26 f3
+    0010: 89 bc a6 24 a9 f1 5c a9 16 ad 96 ef 95 1e 4e ff
+2024-04-28T09:26:38.140715 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 b9 c1 00 00 40 01 68 c4 ac 10 00 01
+    0010: ac 10 00 02 00 00 81 39 1f a5 00 09 4e 16 2e 66
+2024-04-28T09:26:38.140715 [PDCP   ] [D] DRB1 Rx PDU SN=18
+    0000: 45 00 00 54 b9 c1 00 00 40 01 68 c4 ac 10 00 01
+    0010: ac 10 00 02 00 00 81 39 1f a5 00 09 4e 16 2e 66
+2024-04-28T09:26:39.118424 [PDCP   ] [D] Cipher encrypt input: COUNT: 19, Bearer ID: 1, Direction Uplink
+2024-04-28T09:26:39.118424 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:39.118425 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 1d 8c 40 00 40 01 c4 f9 ac 10 00 02
+    0010: ac 10 00 01 08 00 47 33 1f a5 00 0a 4f 16 2e 66
+2024-04-28T09:26:39.118428 [PDCP   ] [D] Cipher encrypt output msg
+    0000: d6 26 b2 48 00 4e 69 0e 26 ae 43 c9 dc 32 37 45
+    0010: c2 fa 62 fb 5f 0d 5e 28 77 5f 9d 2f bb 9b 6b 24
+2024-04-28T09:26:39.118429 [PDCP   ] [I] TX DRB1 PDU, SN=19, integrity=none, encryption=tx/rx
+    0000: 80 13 d6 26 b2 48 00 4e 69 0e 26 ae 43 c9 dc 32
+    0010: 37 45 c2 fa 62 fb 5f 0d 5e 28 77 5f 9d 2f bb 9b
+2024-04-28T09:26:39.156916 [PDCP   ] [I] DRB1 Rx PDU SN=19 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 13 a0 9c 48 73 5b 36 40 bf 9a 4f 26 f7 44 e0
+    0010: 6c 07 5c be 36 24 45 e7 3b 3f 72 85 bf 0f 17 0e
+2024-04-28T09:26:39.156918 [PDCP   ] [D] Cipher decrypt input: COUNT: 19, Bearer ID: 1, Direction Downlink
+2024-04-28T09:26:39.156918 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 3a 44 43 6c 7b c0 3f 46 e3 29 0a d3 79 e7 da
+    0010: 99 64 23 91 8a ec cd a0 3b 34 8a c3 73 1c 01 77
+2024-04-28T09:26:39.156919 [PDCP   ] [D] Cipher decrypt input msg
+    0000: a0 9c 48 73 5b 36 40 bf 9a 4f 26 f7 44 e0 6c 07
+    0010: 5c be 36 24 45 e7 3b 3f 72 85 bf 0f 17 0e 7a 9f
+2024-04-28T09:26:39.156920 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 ba ee 00 00 40 01 67 97 ac 10 00 01
+    0010: ac 10 00 02 00 00 4f 33 1f a5 00 0a 4f 16 2e 66
+2024-04-28T09:26:39.156921 [PDCP   ] [D] DRB1 Rx PDU SN=19
+    0000: 45 00 00 54 ba ee 00 00 40 01 67 97 ac 10 00 01
+    0010: ac 10 00 02 00 00 4f 33 1f a5 00 0a 4f 16 2e 66
+2024-04-28T09:27:10.240352 [PDCP   ] [I] SRB1 Rx PDU SN=6 (7 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 06 76 9b 02 94 32 9f
+2024-04-28T09:27:10.240353 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 6, SN 6
+2024-04-28T09:27:10.240354 [PDCP   ] [D] Cipher decrypt input: COUNT: 6, Bearer ID: 1, Direction Downlink
+2024-04-28T09:27:10.240355 [PDCP   ] [D] Cipher decrypt key:
+    0000: 24 3c 96 ed 13 64 12 2c 77 dd 8c 66 c1 79 f7 da
+    0010: 16 40 6d 3d af 93 b1 2d 95 e6 3e db 8e 5d 56 78
+2024-04-28T09:27:10.240355 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 76 9b 02 94 32 9f
+2024-04-28T09:27:10.240357 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 28 02 15 bc 86 5f
+2024-04-28T09:27:10.240357 [PDCP   ] [D] SRB1 Rx SDU SN=6
+    0000: 06 28 02 15 bc 86 5f
+2024-04-28T09:27:10.240359 [PDCP   ] [D] Integrity check input - COUNT 6, Bearer ID 1, Direction Downlink
+2024-04-28T09:27:10.240360 [PDCP   ] [D] Integrity check key:
+    0000: 6e 5a 3d ea fc 74 08 70 91 30 dc e5 84 fc 5f 25
+    0010: c8 35 cc b7 4c af 2d 64 64 69 f2 38 eb 0b b1 4f
+2024-04-28T09:27:10.240361 [PDCP   ] [D] MAC match (expected):
+    0000: 15 bc 86 5f
+2024-04-28T09:27:10.240361 [PDCP   ] [D] MAC match (found):
+    0000: 15 bc 86 5f
+2024-04-28T09:27:10.240361 [PDCP   ] [D] Integrity check input msg (Bytes=3):
+    0000: 06 28 02
+2024-04-28T09:27:10.240362 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 06 28 02
+2024-04-28T09:27:10.302600 [PDCP   ] [D] Reset DRB1
+2024-04-28T09:27:10.302601 [PDCP   ] [D] Reset SRB2
+2024-04-28T09:27:10.302601 [PDCP   ] [D] Reset SRB1
+2024-04-28T09:28:39.295856 [PDCP   ] [I] Init SRB1 with bearer ID: 1
+2024-04-28T09:28:39.295856 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:28:39.295857 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:28:39.295858 [PDCP   ] [I] Add SRB1 (lcid=1, sn_len=5bits)
+2024-04-28T09:28:39.295953 [PDCP   ] [I] TX SRB1 PDU, SN=0, integrity=none, encryption=none
+    0000: 00 20 00 09 8e 05 18 0e 00 00 00 00
+2024-04-28T09:28:39.333113 [PDCP   ] [I] SRB1 Rx PDU SN=0 (8 B, integrity=none, encryption=none)
+    0000: 00 30 02 20 39 ab f6 25
+2024-04-28T09:28:39.333114 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 0, SN 0
+2024-04-28T09:28:39.333115 [PDCP   ] [D] SRB1 Rx SDU SN=0
+    0000: 00 30 02 20 39 ab f6 25
+2024-04-28T09:28:39.333131 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:28:39.333131 [PDCP   ] [D] K_rrc_enc
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.333131 [PDCP   ] [D] K_up_enc
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:39.333132 [PDCP   ] [D] K_rrc_int
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.333132 [PDCP   ] [D] K_up_int
+    0000: 98 3d 81 fa ad 44 eb 43 5f f8 71 3f c0 21 d0 1c
+    0010: 8c 16 e5 a7 28 8f b3 d1 29 a1 a2 e9 63 96 e8 26
+2024-04-28T09:28:39.333132 [PDCP   ] [D] Enabled integrity. LCID=1, integrity=tx/rx
+2024-04-28T09:28:39.333137 [PDCP   ] [D] Integrity gen input: COUNT 1, Bearer ID 1, Direction Uplink
+2024-04-28T09:28:39.333138 [PDCP   ] [D] Integrity gen key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.333138 [PDCP   ] [D] Integrity gen input msg:
+    0000: 01 28 00
+2024-04-28T09:28:39.333138 [PDCP   ] [D] MAC (generated)
+    0000: 71 6e ca d9
+2024-04-28T09:28:39.333139 [PDCP   ] [I] TX SRB1 PDU, SN=1, integrity=tx/rx, encryption=none
+    0000: 01 28 00 71 6e ca d9
+2024-04-28T09:28:39.333141 [PDCP   ] [D] Enabled encryption. LCID=1, encryption=tx/rx
+2024-04-28T09:28:39.353735 [PDCP   ] [I] SRB1 Rx PDU SN=1 (8 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 01 80 77 ac 5b ed b3 5e
+2024-04-28T09:28:39.353735 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 1, SN 1
+2024-04-28T09:28:39.353736 [PDCP   ] [D] Cipher decrypt input: COUNT: 1, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:39.353736 [PDCP   ] [D] Cipher decrypt key:
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.353737 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 80 77 ac 5b ed b3 5e
+2024-04-28T09:28:39.353738 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 38 00 00 c7 82 91 8d
+2024-04-28T09:28:39.353739 [PDCP   ] [D] SRB1 Rx SDU SN=1
+    0000: 01 38 00 00 c7 82 91 8d
+2024-04-28T09:28:39.353740 [PDCP   ] [D] Integrity check input - COUNT 1, Bearer ID 1, Direction Downlink
+2024-04-28T09:28:39.353740 [PDCP   ] [D] Integrity check key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.353740 [PDCP   ] [D] MAC match (expected):
+    0000: c7 82 91 8d
+2024-04-28T09:28:39.353741 [PDCP   ] [D] MAC match (found):
+    0000: c7 82 91 8d
+2024-04-28T09:28:39.353741 [PDCP   ] [D] Integrity check input msg (Bytes=4):
+    0000: 01 38 00 00
+2024-04-28T09:28:39.353741 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 01 38 00 00
+2024-04-28T09:28:39.353760 [PDCP   ] [D] Integrity gen input: COUNT 2, Bearer ID 1, Direction Uplink
+2024-04-28T09:28:39.353760 [PDCP   ] [D] Integrity gen key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.353760 [PDCP   ] [D] Integrity gen input msg:
+    0000: 02 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00
+2024-04-28T09:28:39.353760 [PDCP   ] [D] MAC (generated)
+    0000: 29 70 d7 a5
+2024-04-28T09:28:39.353761 [PDCP   ] [D] Cipher encrypt input: COUNT: 2, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:39.353761 [PDCP   ] [D] Cipher encrypt key:
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.353762 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00 29
+    0010: 70 d7 a5
+2024-04-28T09:28:39.353762 [PDCP   ] [D] Cipher encrypt output msg
+    0000: c2 d8 ca 77 1d fb 6d 43 75 b6 71 b5 b3 14 e7 b8
+    0010: 9e 85 60
+2024-04-28T09:28:39.353763 [PDCP   ] [I] TX SRB1 PDU, SN=2, integrity=tx/rx, encryption=tx/rx
+    0000: 02 c2 d8 ca 77 1d fb 6d 43 75 b6 71 b5 b3 14 e7
+    0010: b8 9e 85 60
+2024-04-28T09:28:39.373417 [PDCP   ] [I] SRB1 Rx PDU SN=2 (37 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 02 6b 58 d2 82 2b 36 f6 ae 6f 12 b3 57 89 4d 0f
+    0010: 56 72 38 18 79 64 76 a4 98 1f cc 0a 6a e4 1f d4
+2024-04-28T09:28:39.373417 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 2, SN 2
+2024-04-28T09:28:39.373418 [PDCP   ] [D] Cipher decrypt input: COUNT: 2, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:39.373419 [PDCP   ] [D] Cipher decrypt key:
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.373419 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 6b 58 d2 82 2b 36 f6 ae 6f 12 b3 57 89 4d 0f 56
+    0010: 72 38 18 79 64 76 a4 98 1f cc 0a 6a e4 1f d4 93
+2024-04-28T09:28:39.373420 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be 3a
+    0010: 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f 80
+2024-04-28T09:28:39.373421 [PDCP   ] [D] SRB1 Rx SDU SN=2
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:28:39.373421 [PDCP   ] [D] Integrity check input - COUNT 2, Bearer ID 1, Direction Downlink
+2024-04-28T09:28:39.373422 [PDCP   ] [D] Integrity check key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.373422 [PDCP   ] [D] MAC match (expected):
+    0000: be 79 29 69
+2024-04-28T09:28:39.373422 [PDCP   ] [D] MAC match (found):
+    0000: be 79 29 69
+2024-04-28T09:28:39.373422 [PDCP   ] [D] Integrity check input msg (Bytes=33):
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:28:39.373423 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:28:39.373505 [PDCP   ] [I] Init SRB2 with bearer ID: 2
+2024-04-28T09:28:39.373506 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:28:39.373506 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:28:39.373507 [PDCP   ] [I] Add SRB2 (lcid=2, sn_len=5bits)
+2024-04-28T09:28:39.373508 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:28:39.373508 [PDCP   ] [D] K_rrc_enc
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.373508 [PDCP   ] [D] K_up_enc
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:39.373509 [PDCP   ] [D] K_rrc_int
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.373509 [PDCP   ] [D] K_up_int
+    0000: 98 3d 81 fa ad 44 eb 43 5f f8 71 3f c0 21 d0 1c
+    0010: 8c 16 e5 a7 28 8f b3 d1 29 a1 a2 e9 63 96 e8 26
+2024-04-28T09:28:39.373510 [PDCP   ] [D] Enabled integrity. LCID=2, integrity=tx/rx
+2024-04-28T09:28:39.373510 [PDCP   ] [D] Enabled encryption. LCID=2, encryption=tx/rx
+2024-04-28T09:28:39.373632 [PDCP   ] [I] Init DRB1 with bearer ID: 1
+2024-04-28T09:28:39.373633 [PDCP   ] [I] SN len bits: 12, SN len bytes: 2, reordering window: 2048, Maximum SN: 4095, discard timer: -1 ms
+2024-04-28T09:28:39.373633 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:28:39.373634 [PDCP   ] [I] Add DRB1 (lcid=3, sn_len=12bits)
+2024-04-28T09:28:39.373634 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:28:39.373634 [PDCP   ] [D] K_rrc_enc
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.373634 [PDCP   ] [D] K_up_enc
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:39.373634 [PDCP   ] [D] K_rrc_int
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.373635 [PDCP   ] [D] K_up_int
+    0000: 98 3d 81 fa ad 44 eb 43 5f f8 71 3f c0 21 d0 1c
+    0010: 8c 16 e5 a7 28 8f b3 d1 29 a1 a2 e9 63 96 e8 26
+2024-04-28T09:28:39.373635 [PDCP   ] [D] Enabled encryption. LCID=3, encryption=none
+2024-04-28T09:28:39.373651 [PDCP   ] [D] Integrity gen input: COUNT 3, Bearer ID 1, Direction Uplink
+2024-04-28T09:28:39.373651 [PDCP   ] [D] Integrity gen key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:28:39.373652 [PDCP   ] [D] Integrity gen input msg:
+    0000: 03 10 00
+2024-04-28T09:28:39.373652 [PDCP   ] [D] MAC (generated)
+    0000: d8 51 cb 52
+2024-04-28T09:28:39.373652 [PDCP   ] [D] Cipher encrypt input: COUNT: 3, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:39.373652 [PDCP   ] [D] Cipher encrypt key:
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:28:39.373653 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 10 00 d8 51 cb 52
+2024-04-28T09:28:39.373653 [PDCP   ] [D] Cipher encrypt output msg
+    0000: bf fe 05 58 16 26
+2024-04-28T09:28:39.373653 [PDCP   ] [I] TX SRB1 PDU, SN=3, integrity=tx/rx, encryption=tx/rx
+    0000: 03 bf fe 05 58 16 26
+2024-04-28T09:28:39.577043 [PDCP   ] [I] DRB1 Rx PDU SN=0 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 00 0b 9d 5c ff 4c 33 ed 7e 6c 91 48 16 62 21
+    0010: 29 f4 83 a4 5e c6 96 c8 cb bb 0c bb 84 08 ac 94
+2024-04-28T09:28:39.577046 [PDCP   ] [D] Cipher decrypt input: COUNT: 0, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:39.577046 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:39.577046 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 0b 9d 5c ff 4c 33 ed 7e 6c 91 48 16 62 21 29 f4
+    0010: 83 a4 5e c6 96 c8 cb bb 0c bb 84 08 ac 94 98 1e
+2024-04-28T09:28:39.577048 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 08 13 40 00 40 01 da 72 ac 10 00 01
+    0010: ac 10 00 02 08 00 4e 34 00 09 00 01 c7 16 2e 66
+2024-04-28T09:28:39.577048 [PDCP   ] [D] DRB1 Rx PDU SN=0
+    0000: 45 00 00 54 08 13 40 00 40 01 da 72 ac 10 00 01
+    0010: ac 10 00 02 08 00 4e 34 00 09 00 01 c7 16 2e 66
+2024-04-28T09:28:39.577176 [PDCP   ] [D] Cipher encrypt input: COUNT: 0, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:39.577176 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:39.577176 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 3f 2c 00 00 40 01 e3 59 ac 10 00 02
+    0010: ac 10 00 01 00 00 56 34 00 09 00 01 c7 16 2e 66
+2024-04-28T09:28:39.577177 [PDCP   ] [D] Cipher encrypt output msg
+    0000: b1 16 cc 6d a5 fe 98 de d9 17 57 a0 28 dd 68 77
+    0010: e5 ed ff b1 84 ea 3c 16 01 07 be 2e 7c 7c 32 05
+2024-04-28T09:28:39.577177 [PDCP   ] [I] TX DRB1 PDU, SN=0, integrity=none, encryption=tx/rx
+    0000: 80 00 b1 16 cc 6d a5 fe 98 de d9 17 57 a0 28 dd
+    0010: 68 77 e5 ed ff b1 84 ea 3c 16 01 07 be 2e 7c 7c
+2024-04-28T09:28:40.168148 [PDCP   ] [I] DRB1 Rx PDU SN=1 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 01 db 56 5d 76 06 cd 10 46 03 39 cf 8c d0 11
+    0010: 34 2b 7e 45 27 b6 e6 c7 e9 39 96 e1 c5 a5 9b 4c
+2024-04-28T09:28:40.168150 [PDCP   ] [D] Cipher decrypt input: COUNT: 1, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:40.168150 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:40.168151 [PDCP   ] [D] Cipher decrypt input msg
+    0000: db 56 5d 76 06 cd 10 46 03 39 cf 8c d0 11 34 2b
+    0010: 7e 45 27 b6 e6 c7 e9 39 96 e1 c5 a5 9b 4c 57 83
+2024-04-28T09:28:40.168153 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 08 e0 40 00 40 01 d9 a5 ac 10 00 01
+    0010: ac 10 00 02 08 00 ce 34 00 09 00 02 c8 16 2e 66
+2024-04-28T09:28:40.168154 [PDCP   ] [D] DRB1 Rx PDU SN=1
+    0000: 45 00 00 54 08 e0 40 00 40 01 d9 a5 ac 10 00 01
+    0010: ac 10 00 02 08 00 ce 34 00 09 00 02 c8 16 2e 66
+2024-04-28T09:28:40.168289 [PDCP   ] [D] Cipher encrypt input: COUNT: 1, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:40.168289 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:40.168290 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 3f 4f 00 00 40 01 e3 36 ac 10 00 02
+    0010: ac 10 00 01 00 00 d6 34 00 09 00 02 c8 16 2e 66
+2024-04-28T09:28:40.168290 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 91 d6 47 f0 c1 52 03 ca 3f 97 a9 64 d4 f8 cd f5
+    0010: 14 89 35 b2 e2 6c 0f 68 a0 e9 78 b3 6d 35 70 ed
+2024-04-28T09:28:40.168291 [PDCP   ] [I] TX DRB1 PDU, SN=1, integrity=none, encryption=tx/rx
+    0000: 80 01 91 d6 47 f0 c1 52 03 ca 3f 97 a9 64 d4 f8
+    0010: cd f5 14 89 35 b2 e2 6c 0f 68 a0 e9 78 b3 6d 35
+2024-04-28T09:28:41.169475 [PDCP   ] [I] DRB1 Rx PDU SN=2 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 02 81 02 e3 41 fa 5c 5a 0e f2 31 a7 6f 5a da
+    0010: 3a f2 0d 63 a7 f6 31 e4 bf 6c 2f 83 dd d0 dd 73
+2024-04-28T09:28:41.169477 [PDCP   ] [D] Cipher decrypt input: COUNT: 2, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:41.169477 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:41.169478 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 81 02 e3 41 fa 5c 5a 0e f2 31 a7 6f 5a da 3a f2
+    0010: 0d 63 a7 f6 31 e4 bf 6c 2f 83 dd d0 dd 73 81 d5
+2024-04-28T09:28:41.169480 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 09 90 40 00 40 01 d8 f5 ac 10 00 01
+    0010: ac 10 00 02 08 00 37 32 00 09 00 03 c9 16 2e 66
+2024-04-28T09:28:41.169480 [PDCP   ] [D] DRB1 Rx PDU SN=2
+    0000: 45 00 00 54 09 90 40 00 40 01 d8 f5 ac 10 00 01
+    0010: ac 10 00 02 08 00 37 32 00 09 00 03 c9 16 2e 66
+2024-04-28T09:28:41.169615 [PDCP   ] [D] Cipher encrypt input: COUNT: 2, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:41.169615 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:41.169616 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 3f d6 00 00 40 01 e2 af ac 10 00 02
+    0010: ac 10 00 01 00 00 3f 32 00 09 00 03 c9 16 2e 66
+2024-04-28T09:28:41.169617 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 29 2c d5 c1 9d bb 4d a8 85 88 3a 91 a7 46 93 35
+    0010: 99 8c 68 f7 52 c1 8b 1e af 6f f0 2a c3 9d 10 db
+2024-04-28T09:28:41.169617 [PDCP   ] [I] TX DRB1 PDU, SN=2, integrity=none, encryption=tx/rx
+    0000: 80 02 29 2c d5 c1 9d bb 4d a8 85 88 3a 91 a7 46
+    0010: 93 35 99 8c 68 f7 52 c1 8b 1e af 6f f0 2a c3 9d
+2024-04-28T09:28:42.168684 [PDCP   ] [I] DRB1 Rx PDU SN=3 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 03 d4 69 e0 f3 0d c8 6a 9e e2 87 5b 73 85 a2
+    0010: b2 23 5f 20 28 ab c7 90 1f 94 69 88 e5 d1 ab 42
+2024-04-28T09:28:42.168687 [PDCP   ] [D] Cipher decrypt input: COUNT: 3, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:42.168687 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:42.168687 [PDCP   ] [D] Cipher decrypt input msg
+    0000: d4 69 e0 f3 0d c8 6a 9e e2 87 5b 73 85 a2 b2 23
+    0010: 5f 20 28 ab c7 90 1f 94 69 88 e5 d1 ab 42 5c 75
+2024-04-28T09:28:42.168690 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0a 9d 40 00 40 01 d7 e8 ac 10 00 01
+    0010: ac 10 00 02 08 00 55 34 00 09 00 04 ca 16 2e 66
+2024-04-28T09:28:42.168691 [PDCP   ] [D] DRB1 Rx PDU SN=3
+    0000: 45 00 00 54 0a 9d 40 00 40 01 d7 e8 ac 10 00 01
+    0010: ac 10 00 02 08 00 55 34 00 09 00 04 ca 16 2e 66
+2024-04-28T09:28:42.168816 [PDCP   ] [D] Cipher encrypt input: COUNT: 3, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:42.168817 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:42.168817 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 40 dd 00 00 40 01 e1 a8 ac 10 00 02
+    0010: ac 10 00 01 00 00 5d 34 00 09 00 04 ca 16 2e 66
+2024-04-28T09:28:42.168818 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 87 35 bc 07 76 89 38 06 3f 61 00 ef 9e 36 c1 97
+    0010: ca d6 43 57 e7 5f 9d 93 04 3f d7 db c7 f3 d5 b7
+2024-04-28T09:28:42.168819 [PDCP   ] [I] TX DRB1 PDU, SN=3, integrity=none, encryption=tx/rx
+    0000: 80 03 87 35 bc 07 76 89 38 06 3f 61 00 ef 9e 36
+    0010: c1 97 ca d6 43 57 e7 5f 9d 93 04 3f d7 db c7 f3
+2024-04-28T09:28:43.167719 [PDCP   ] [I] DRB1 Rx PDU SN=4 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 04 a8 f9 89 fb b1 c5 d2 91 17 90 2a fd 66 45
+    0010: 71 6b 30 66 0a 1e e9 0c f0 5d ad bd 39 44 04 97
+2024-04-28T09:28:43.167721 [PDCP   ] [D] Cipher decrypt input: COUNT: 4, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:43.167722 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:43.167722 [PDCP   ] [D] Cipher decrypt input msg
+    0000: a8 f9 89 fb b1 c5 d2 91 17 90 2a fd 66 45 71 6b
+    0010: 30 66 0a 1e e9 0c f0 5d ad bd 39 44 04 97 c7 a6
+2024-04-28T09:28:43.167724 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0b 91 40 00 40 01 d6 f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 1a 35 00 09 00 05 cb 16 2e 66
+2024-04-28T09:28:43.167725 [PDCP   ] [D] DRB1 Rx PDU SN=4
+    0000: 45 00 00 54 0b 91 40 00 40 01 d6 f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 1a 35 00 09 00 05 cb 16 2e 66
+2024-04-28T09:28:43.167855 [PDCP   ] [D] Cipher encrypt input: COUNT: 4, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:43.167856 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:43.167856 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 41 fe 00 00 40 01 e0 87 ac 10 00 02
+    0010: ac 10 00 01 00 00 22 35 00 09 00 05 cb 16 2e 66
+2024-04-28T09:28:43.167857 [PDCP   ] [D] Cipher encrypt output msg
+    0000: c5 41 59 cb 68 a5 17 71 d7 a6 bb 44 4f 02 b0 25
+    0010: 68 9c 56 fa 44 59 95 d2 54 b7 16 3d 0a 58 17 11
+2024-04-28T09:28:43.167857 [PDCP   ] [I] TX DRB1 PDU, SN=4, integrity=none, encryption=tx/rx
+    0000: 80 04 c5 41 59 cb 68 a5 17 71 d7 a6 bb 44 4f 02
+    0010: b0 25 68 9c 56 fa 44 59 95 d2 54 b7 16 3d 0a 58
+2024-04-28T09:28:44.168424 [PDCP   ] [I] DRB1 Rx PDU SN=5 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 05 0a b8 b7 00 51 4d ba fb 50 d6 8e 73 2f ca
+    0010: 1d ed a7 e6 17 d4 c6 fd 33 71 8f 49 5e d3 40 55
+2024-04-28T09:28:44.168426 [PDCP   ] [D] Cipher decrypt input: COUNT: 5, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:44.168426 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:44.168427 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 0a b8 b7 00 51 4d ba fb 50 d6 8e 73 2f ca 1d ed
+    0010: a7 e6 17 d4 c6 fd 33 71 8f 49 5e d3 40 55 56 2d
+2024-04-28T09:28:44.168429 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0c 82 40 00 40 01 d6 03 ac 10 00 01
+    0010: ac 10 00 02 08 00 ec 30 00 09 00 06 cc 16 2e 66
+2024-04-28T09:28:44.168430 [PDCP   ] [D] DRB1 Rx PDU SN=5
+    0000: 45 00 00 54 0c 82 40 00 40 01 d6 03 ac 10 00 01
+    0010: ac 10 00 02 08 00 ec 30 00 09 00 06 cc 16 2e 66
+2024-04-28T09:28:44.168564 [PDCP   ] [D] Cipher encrypt input: COUNT: 5, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:44.168564 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:44.168564 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 42 9e 00 00 40 01 df e7 ac 10 00 02
+    0010: ac 10 00 01 00 00 f4 30 00 09 00 06 cc 16 2e 66
+2024-04-28T09:28:44.168565 [PDCP   ] [D] Cipher encrypt output msg
+    0000: cf 31 3b 6c ab 1b d7 3b 73 ca 8f a1 ee d0 74 fe
+    0010: e7 25 e2 2d c2 87 1c 5e b5 d4 81 df bb d0 32 9c
+2024-04-28T09:28:44.168565 [PDCP   ] [I] TX DRB1 PDU, SN=5, integrity=none, encryption=tx/rx
+    0000: 80 05 cf 31 3b 6c ab 1b d7 3b 73 ca 8f a1 ee d0
+    0010: 74 fe e7 25 e2 2d c2 87 1c 5e b5 d4 81 df bb d0
+2024-04-28T09:28:45.168896 [PDCP   ] [I] DRB1 Rx PDU SN=6 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 06 06 24 53 21 da f6 70 1f 11 92 95 fe 9b fd
+    0010: 93 2d a1 d6 7a 76 3e 87 77 d7 ba 3e aa 9b a3 5c
+2024-04-28T09:28:45.168898 [PDCP   ] [D] Cipher decrypt input: COUNT: 6, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:45.168898 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:45.168898 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 06 24 53 21 da f6 70 1f 11 92 95 fe 9b fd 93 2d
+    0010: a1 d6 7a 76 3e 87 77 d7 ba 3e aa 9b a3 5c a0 f7
+2024-04-28T09:28:45.168900 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0c 91 40 00 40 01 d5 f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 42 2e 00 09 00 07 cd 16 2e 66
+2024-04-28T09:28:45.168901 [PDCP   ] [D] DRB1 Rx PDU SN=6
+    0000: 45 00 00 54 0c 91 40 00 40 01 d5 f4 ac 10 00 01
+    0010: ac 10 00 02 08 00 42 2e 00 09 00 07 cd 16 2e 66
+2024-04-28T09:28:45.169033 [PDCP   ] [D] Cipher encrypt input: COUNT: 6, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:45.169033 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:45.169033 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 43 42 00 00 40 01 df 43 ac 10 00 02
+    0010: ac 10 00 01 00 00 4a 2e 00 09 00 07 cd 16 2e 66
+2024-04-28T09:28:45.169034 [PDCP   ] [D] Cipher encrypt output msg
+    0000: b8 e5 e0 14 76 1e d9 6b df 1f 2e 49 f6 ee 7a c2
+    0010: 7b a3 33 80 ca 8f 81 8c 94 42 ee c0 fa ea 7d 62
+2024-04-28T09:28:45.169034 [PDCP   ] [I] TX DRB1 PDU, SN=6, integrity=none, encryption=tx/rx
+    0000: 80 06 b8 e5 e0 14 76 1e d9 6b df 1f 2e 49 f6 ee
+    0010: 7a c2 7b a3 33 80 ca 8f 81 8c 94 42 ee c0 fa ea
+2024-04-28T09:28:46.169301 [PDCP   ] [I] DRB1 Rx PDU SN=7 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 07 38 13 e9 ee d8 05 34 17 4b ad 48 0e 1e e1
+    0010: cf 92 1a d2 03 be fe 3c fb 6a 87 8c 21 d1 8c 44
+2024-04-28T09:28:46.169303 [PDCP   ] [D] Cipher decrypt input: COUNT: 7, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:46.169304 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:46.169304 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 38 13 e9 ee d8 05 34 17 4b ad 48 0e 1e e1 cf 92
+    0010: 1a d2 03 be fe 3c fb 6a 87 8c 21 d1 8c 44 18 01
+2024-04-28T09:28:46.169306 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0d 69 40 00 40 01 d5 1c ac 10 00 01
+    0010: ac 10 00 02 08 00 2f 2e 00 09 00 08 ce 16 2e 66
+2024-04-28T09:28:46.169307 [PDCP   ] [D] DRB1 Rx PDU SN=7
+    0000: 45 00 00 54 0d 69 40 00 40 01 d5 1c ac 10 00 01
+    0010: ac 10 00 02 08 00 2f 2e 00 09 00 08 ce 16 2e 66
+2024-04-28T09:28:46.169435 [PDCP   ] [D] Cipher encrypt input: COUNT: 7, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:46.169435 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:46.169435 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 43 c8 00 00 40 01 de bd ac 10 00 02
+    0010: ac 10 00 01 00 00 37 2e 00 09 00 08 ce 16 2e 66
+2024-04-28T09:28:46.169436 [PDCP   ] [D] Cipher encrypt output msg
+    0000: e6 f1 59 05 f5 b5 26 65 f2 83 1e 0f 6b df e2 f0
+    0010: ce 98 1d c9 45 06 c5 ae 0b d1 eb 85 66 0d dc e3
+2024-04-28T09:28:46.169436 [PDCP   ] [I] TX DRB1 PDU, SN=7, integrity=none, encryption=tx/rx
+    0000: 80 07 e6 f1 59 05 f5 b5 26 65 f2 83 1e 0f 6b df
+    0010: e2 f0 ce 98 1d c9 45 06 c5 ae 0b d1 eb 85 66 0d
+2024-04-28T09:28:47.169494 [PDCP   ] [I] DRB1 Rx PDU SN=8 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 08 27 ae fd 0a 3f 0d 14 a8 79 ef 10 7e ef f8
+    0010: 62 4c ad 78 3a 0d 92 6d 01 5b d8 15 64 0e 6c b0
+2024-04-28T09:28:47.169496 [PDCP   ] [D] Cipher decrypt input: COUNT: 8, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:47.169496 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:47.169497 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 27 ae fd 0a 3f 0d 14 a8 79 ef 10 7e ef f8 62 4c
+    0010: ad 78 3a 0d 92 6d 01 5b d8 15 64 0e 6c b0 7e 3f
+2024-04-28T09:28:47.169499 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0d 7e 40 00 40 01 d5 07 ac 10 00 01
+    0010: ac 10 00 02 08 00 72 29 00 09 00 09 cf 16 2e 66
+2024-04-28T09:28:47.169499 [PDCP   ] [D] DRB1 Rx PDU SN=8
+    0000: 45 00 00 54 0d 7e 40 00 40 01 d5 07 ac 10 00 01
+    0010: ac 10 00 02 08 00 72 29 00 09 00 09 cf 16 2e 66
+2024-04-28T09:28:47.169629 [PDCP   ] [D] Cipher encrypt input: COUNT: 8, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:47.169629 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:47.169630 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 44 59 00 00 40 01 de 2c ac 10 00 02
+    0010: ac 10 00 01 00 00 7a 29 00 09 00 09 cf 16 2e 66
+2024-04-28T09:28:47.169630 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 22 51 5f 7a 3d b7 c1 87 b4 b7 25 e9 be 69 8a 9e
+    0010: e9 ab c6 4f f6 1e 88 43 3e d9 c1 a2 52 4f 27 e7
+2024-04-28T09:28:47.169631 [PDCP   ] [I] TX DRB1 PDU, SN=8, integrity=none, encryption=tx/rx
+    0000: 80 08 22 51 5f 7a 3d b7 c1 87 b4 b7 25 e9 be 69
+    0010: 8a 9e e9 ab c6 4f f6 1e 88 43 3e d9 c1 a2 52 4f
+2024-04-28T09:28:48.170688 [PDCP   ] [I] DRB1 Rx PDU SN=9 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 09 79 33 7c 7d c7 32 9c 6c bb e2 f3 20 92 58
+    0010: 63 44 17 5c 8c 48 77 97 63 35 db d7 ea 90 44 57
+2024-04-28T09:28:48.170690 [PDCP   ] [D] Cipher decrypt input: COUNT: 9, Bearer ID: 1, Direction Downlink
+2024-04-28T09:28:48.170691 [PDCP   ] [D] Cipher decrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:48.170691 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 79 33 7c 7d c7 32 9c 6c bb e2 f3 20 92 58 63 44
+    0010: 17 5c 8c 48 77 97 63 35 db d7 ea 90 44 57 81 23
+2024-04-28T09:28:48.170693 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 0d cb 40 00 40 01 d4 ba ac 10 00 01
+    0010: ac 10 00 02 08 00 e7 25 00 09 00 0a d0 16 2e 66
+2024-04-28T09:28:48.170694 [PDCP   ] [D] DRB1 Rx PDU SN=9
+    0000: 45 00 00 54 0d cb 40 00 40 01 d4 ba ac 10 00 01
+    0010: ac 10 00 02 08 00 e7 25 00 09 00 0a d0 16 2e 66
+2024-04-28T09:28:48.170828 [PDCP   ] [D] Cipher encrypt input: COUNT: 9, Bearer ID: 1, Direction Uplink
+2024-04-28T09:28:48.170828 [PDCP   ] [D] Cipher encrypt key:
+    0000: 40 77 6b b0 45 42 ca a1 cf eb 86 d9 1f e7 d9 2a
+    0010: 54 06 e0 f9 05 e7 fe 25 ad bf 4e 98 a6 61 35 e7
+2024-04-28T09:28:48.170829 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 44 d5 00 00 40 01 dd b0 ac 10 00 02
+    0010: ac 10 00 01 00 00 ef 25 00 09 00 0a d0 16 2e 66
+2024-04-28T09:28:48.170829 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 3d 2e 80 d8 2d f9 12 3f 57 ad 03 4e a8 02 3d f6
+    0010: 82 ff fe 0d da d2 ac 0d 1c 06 ec 3f 9d 20 cd 98
+2024-04-28T09:28:48.170830 [PDCP   ] [I] TX DRB1 PDU, SN=9, integrity=none, encryption=tx/rx
+    0000: 80 09 3d 2e 80 d8 2d f9 12 3f 57 ad 03 4e a8 02
+    0010: 3d f6 82 ff fe 0d da d2 ac 0d 1c 06 ec 3f 9d 20
+2024-04-28T09:29:19.295209 [PDCP   ] [I] SRB1 Rx PDU SN=3 (7 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 03 b3 66 36 ca a6 37
+2024-04-28T09:29:19.295210 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 3, SN 3
+2024-04-28T09:29:19.295211 [PDCP   ] [D] Cipher decrypt input: COUNT: 3, Bearer ID: 1, Direction Downlink
+2024-04-28T09:29:19.295211 [PDCP   ] [D] Cipher decrypt key:
+    0000: 8c ca cc 5c 66 b4 13 fe 60 7c 60 1f 59 06 b8 87
+    0010: 6e 4e 8f 24 95 d6 a7 29 8b 97 85 19 7c 2c 2f d1
+2024-04-28T09:29:19.295211 [PDCP   ] [D] Cipher decrypt input msg
+    0000: b3 66 36 ca a6 37
+2024-04-28T09:29:19.295212 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 28 02 38 3a 65 c6
+2024-04-28T09:29:19.295213 [PDCP   ] [D] SRB1 Rx SDU SN=3
+    0000: 03 28 02 38 3a 65 c6
+2024-04-28T09:29:19.295214 [PDCP   ] [D] Integrity check input - COUNT 3, Bearer ID 1, Direction Downlink
+2024-04-28T09:29:19.295214 [PDCP   ] [D] Integrity check key:
+    0000: 22 ca 2e 6f 3d 56 98 6e f2 2d cd 60 d4 57 1b cd
+    0010: 98 11 9e 28 c9 f1 de de d0 02 93 0c e7 ce e9 31
+2024-04-28T09:29:19.295215 [PDCP   ] [D] MAC match (expected):
+    0000: 38 3a 65 c6
+2024-04-28T09:29:19.295216 [PDCP   ] [D] MAC match (found):
+    0000: 38 3a 65 c6
+2024-04-28T09:29:19.295216 [PDCP   ] [D] Integrity check input msg (Bytes=3):
+    0000: 03 28 02
+2024-04-28T09:29:19.295216 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 03 28 02
+2024-04-28T09:29:19.357388 [PDCP   ] [D] Reset DRB1
+2024-04-28T09:29:19.357389 [PDCP   ] [D] Reset SRB2
+2024-04-28T09:29:19.357389 [PDCP   ] [D] Reset SRB1
+2024-04-28T09:30:48.214835 [PDCP   ] [I] Init SRB1 with bearer ID: 1
+2024-04-28T09:30:48.214835 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:30:48.214836 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:30:48.214837 [PDCP   ] [I] Add SRB1 (lcid=1, sn_len=5bits)
+2024-04-28T09:30:48.214938 [PDCP   ] [I] TX SRB1 PDU, SN=0, integrity=none, encryption=none
+    0000: 00 20 00 09 8e 07 e3 0c 00 00 00 00
+2024-04-28T09:30:48.251897 [PDCP   ] [I] SRB1 Rx PDU SN=0 (8 B, integrity=none, encryption=none)
+    0000: 00 30 02 20 49 12 45 9c
+2024-04-28T09:30:48.251898 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 0, SN 0
+2024-04-28T09:30:48.251898 [PDCP   ] [D] SRB1 Rx SDU SN=0
+    0000: 00 30 02 20 49 12 45 9c
+2024-04-28T09:30:48.251913 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:30:48.251914 [PDCP   ] [D] K_rrc_enc
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.251914 [PDCP   ] [D] K_up_enc
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:48.251914 [PDCP   ] [D] K_rrc_int
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.251914 [PDCP   ] [D] K_up_int
+    0000: 8a bf 15 d5 c7 3f dc af 37 20 d9 62 fe b7 6e 90
+    0010: 8a 4b fb 2c f4 51 b4 2d 81 32 d3 c5 88 5a 82 a1
+2024-04-28T09:30:48.251915 [PDCP   ] [D] Enabled integrity. LCID=1, integrity=tx/rx
+2024-04-28T09:30:48.251918 [PDCP   ] [D] Integrity gen input: COUNT 1, Bearer ID 1, Direction Uplink
+2024-04-28T09:30:48.251918 [PDCP   ] [D] Integrity gen key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.251918 [PDCP   ] [D] Integrity gen input msg:
+    0000: 01 28 00
+2024-04-28T09:30:48.251919 [PDCP   ] [D] MAC (generated)
+    0000: 7f c9 f1 bf
+2024-04-28T09:30:48.251919 [PDCP   ] [I] TX SRB1 PDU, SN=1, integrity=tx/rx, encryption=none
+    0000: 01 28 00 7f c9 f1 bf
+2024-04-28T09:30:48.251920 [PDCP   ] [D] Enabled encryption. LCID=1, encryption=tx/rx
+2024-04-28T09:30:48.271619 [PDCP   ] [I] SRB1 Rx PDU SN=1 (8 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 01 01 0a de 7d 6b 45 09
+2024-04-28T09:30:48.271619 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 1, SN 1
+2024-04-28T09:30:48.271620 [PDCP   ] [D] Cipher decrypt input: COUNT: 1, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:48.271620 [PDCP   ] [D] Cipher decrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.271620 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 01 0a de 7d 6b 45 09
+2024-04-28T09:30:48.271621 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 38 00 00 b5 62 8b 05
+2024-04-28T09:30:48.271621 [PDCP   ] [D] SRB1 Rx SDU SN=1
+    0000: 01 38 00 00 b5 62 8b 05
+2024-04-28T09:30:48.271622 [PDCP   ] [D] Integrity check input - COUNT 1, Bearer ID 1, Direction Downlink
+2024-04-28T09:30:48.271622 [PDCP   ] [D] Integrity check key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.271622 [PDCP   ] [D] MAC match (expected):
+    0000: b5 62 8b 05
+2024-04-28T09:30:48.271623 [PDCP   ] [D] MAC match (found):
+    0000: b5 62 8b 05
+2024-04-28T09:30:48.271623 [PDCP   ] [D] Integrity check input msg (Bytes=4):
+    0000: 01 38 00 00
+2024-04-28T09:30:48.271623 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 01 38 00 00
+2024-04-28T09:30:48.271640 [PDCP   ] [D] Integrity gen input: COUNT 2, Bearer ID 1, Direction Uplink
+2024-04-28T09:30:48.271640 [PDCP   ] [D] Integrity gen key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.271640 [PDCP   ] [D] Integrity gen input msg:
+    0000: 02 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00
+2024-04-28T09:30:48.271640 [PDCP   ] [D] MAC (generated)
+    0000: 82 76 bf d4
+2024-04-28T09:30:48.271641 [PDCP   ] [D] Cipher encrypt input: COUNT: 2, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:48.271641 [PDCP   ] [D] Cipher encrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.271641 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 38 01 00 b8 18 00 00 18 00 0f 30 20 80 00 00 82
+    0010: 76 bf d4
+2024-04-28T09:30:48.271642 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 84 78 f2 e2 94 84 cd 3c 27 83 b4 0d 67 96 bf ad
+    0010: d5 61 ef
+2024-04-28T09:30:48.271642 [PDCP   ] [I] TX SRB1 PDU, SN=2, integrity=tx/rx, encryption=tx/rx
+    0000: 02 84 78 f2 e2 94 84 cd 3c 27 83 b4 0d 67 96 bf
+    0010: ad d5 61 ef
+2024-04-28T09:30:48.293442 [PDCP   ] [I] SRB1 Rx PDU SN=2 (37 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 02 07 61 26 0e 7b f9 74 c4 0d 81 f8 a1 8f 60 38
+    0010: 37 e7 0b 56 c6 38 4e e5 28 fe 61 9e be a3 7b 15
+2024-04-28T09:30:48.293442 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 2, SN 2
+2024-04-28T09:30:48.293443 [PDCP   ] [D] Cipher decrypt input: COUNT: 2, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:48.293443 [PDCP   ] [D] Cipher decrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.293443 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 07 61 26 0e 7b f9 74 c4 0d 81 f8 a1 8f 60 38 37
+    0010: e7 0b 56 c6 38 4e e5 28 fe 61 9e be a3 7b 15 e3
+2024-04-28T09:30:48.293444 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be 3a
+    0010: 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f 80
+2024-04-28T09:30:48.293444 [PDCP   ] [D] SRB1 Rx SDU SN=2
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:30:48.293445 [PDCP   ] [D] Integrity check input - COUNT 2, Bearer ID 1, Direction Downlink
+2024-04-28T09:30:48.293445 [PDCP   ] [D] Integrity check key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.293445 [PDCP   ] [D] MAC match (expected):
+    0000: 99 32 23 e4
+2024-04-28T09:30:48.293446 [PDCP   ] [D] MAC match (found):
+    0000: 99 32 23 e4
+2024-04-28T09:30:48.293446 [PDCP   ] [D] Integrity check input msg (Bytes=33):
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:30:48.293446 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 02 20 12 10 80 00 00 06 8b 02 81 89 f0 7d 40 be
+    0010: 3a 43 c7 33 cb 83 33 21 83 4c 00 02 64 08 00 0f
+2024-04-28T09:30:48.293507 [PDCP   ] [I] Init SRB2 with bearer ID: 2
+2024-04-28T09:30:48.293508 [PDCP   ] [I] SN len bits: 5, SN len bytes: 1, reordering window: 0, Maximum SN: 31, discard timer: -1 ms
+2024-04-28T09:30:48.293508 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:30:48.293509 [PDCP   ] [I] Add SRB2 (lcid=2, sn_len=5bits)
+2024-04-28T09:30:48.293510 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:30:48.293510 [PDCP   ] [D] K_rrc_enc
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.293511 [PDCP   ] [D] K_up_enc
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:48.293511 [PDCP   ] [D] K_rrc_int
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.293511 [PDCP   ] [D] K_up_int
+    0000: 8a bf 15 d5 c7 3f dc af 37 20 d9 62 fe b7 6e 90
+    0010: 8a 4b fb 2c f4 51 b4 2d 81 32 d3 c5 88 5a 82 a1
+2024-04-28T09:30:48.293511 [PDCP   ] [D] Enabled integrity. LCID=2, integrity=tx/rx
+2024-04-28T09:30:48.293512 [PDCP   ] [D] Enabled encryption. LCID=2, encryption=tx/rx
+2024-04-28T09:30:48.293783 [PDCP   ] [I] Init DRB1 with bearer ID: 1
+2024-04-28T09:30:48.293784 [PDCP   ] [I] SN len bits: 12, SN len bytes: 2, reordering window: 2048, Maximum SN: 4095, discard timer: -1 ms
+2024-04-28T09:30:48.293784 [PDCP   ] [I] Status Report Required: False
+2024-04-28T09:30:48.293784 [PDCP   ] [I] Add DRB1 (lcid=3, sn_len=12bits)
+2024-04-28T09:30:48.293785 [PDCP   ] [I] Configuring security with 128-EIA2 and 128-EEA2
+2024-04-28T09:30:48.293785 [PDCP   ] [D] K_rrc_enc
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.293785 [PDCP   ] [D] K_up_enc
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:48.293785 [PDCP   ] [D] K_rrc_int
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.293785 [PDCP   ] [D] K_up_int
+    0000: 8a bf 15 d5 c7 3f dc af 37 20 d9 62 fe b7 6e 90
+    0010: 8a 4b fb 2c f4 51 b4 2d 81 32 d3 c5 88 5a 82 a1
+2024-04-28T09:30:48.293785 [PDCP   ] [D] Enabled encryption. LCID=3, encryption=none
+2024-04-28T09:30:48.293799 [PDCP   ] [D] Integrity gen input: COUNT 3, Bearer ID 1, Direction Uplink
+2024-04-28T09:30:48.293799 [PDCP   ] [D] Integrity gen key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:30:48.293799 [PDCP   ] [D] Integrity gen input msg:
+    0000: 03 10 00
+2024-04-28T09:30:48.293800 [PDCP   ] [D] MAC (generated)
+    0000: 94 1a 66 f1
+2024-04-28T09:30:48.293800 [PDCP   ] [D] Cipher encrypt input: COUNT: 3, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:48.293800 [PDCP   ] [D] Cipher encrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:30:48.293800 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 10 00 94 1a 66 f1
+2024-04-28T09:30:48.293801 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 37 b6 c7 75 6d 7f
+2024-04-28T09:30:48.293801 [PDCP   ] [I] TX SRB1 PDU, SN=3, integrity=tx/rx, encryption=tx/rx
+    0000: 03 37 b6 c7 75 6d 7f
+2024-04-28T09:30:48.389538 [PDCP   ] [D] Cipher encrypt input: COUNT: 0, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:48.389539 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:48.389540 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 a9 b9 40 00 40 01 38 cc ac 10 00 02
+    0010: ac 10 00 01 08 00 ce 04 20 c6 00 01 48 17 2e 66
+2024-04-28T09:30:48.389541 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 81 5d 45 4f 54 37 6e d7 d6 a2 89 00 71 d8 af 17
+    0010: e1 2c 94 cb b3 44 b3 09 7f 5a 9e f1 b6 0d 9b 12
+2024-04-28T09:30:48.389542 [PDCP   ] [I] TX DRB1 PDU, SN=0, integrity=none, encryption=tx/rx
+    0000: 80 00 81 5d 45 4f 54 37 6e d7 d6 a2 89 00 71 d8
+    0010: af 17 e1 2c 94 cb b3 44 b3 09 7f 5a 9e f1 b6 0d
+2024-04-28T09:30:48.416939 [PDCP   ] [I] DRB1 Rx PDU SN=0 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 00 0a b2 55 94 33 32 89 25 91 d7 01 aa 21 73
+    0010: 84 b6 2c 7b 7a c3 78 b7 a1 52 04 9a eb 74 c3 a5
+2024-04-28T09:30:48.416940 [PDCP   ] [D] Cipher decrypt input: COUNT: 0, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:48.416940 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:48.416941 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 0a b2 55 94 33 32 89 25 91 d7 01 aa 21 73 84 b6
+    0010: 2c 7b 7a c3 78 b7 a1 52 04 9a eb 74 c3 a5 44 22
+2024-04-28T09:30:48.416942 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3c b2 00 00 40 01 e5 d3 ac 10 00 01
+    0010: ac 10 00 02 00 00 d6 04 20 c6 00 01 48 17 2e 66
+2024-04-28T09:30:48.416943 [PDCP   ] [D] DRB1 Rx PDU SN=0
+    0000: 45 00 00 54 3c b2 00 00 40 01 e5 d3 ac 10 00 01
+    0010: ac 10 00 02 00 00 d6 04 20 c6 00 01 48 17 2e 66
+2024-04-28T09:30:49.190871 [PDCP   ] [D] Cipher encrypt input: COUNT: 1, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:49.190871 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:49.190872 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 aa 4d 40 00 40 01 38 38 ac 10 00 02
+    0010: ac 10 00 01 08 00 6d fe 20 c6 00 02 49 17 2e 66
+2024-04-28T09:30:49.190874 [PDCP   ] [D] Cipher encrypt output msg
+    0000: b8 6c 98 00 88 e4 31 ad 81 1f 0a 2e 5f f9 dc fb
+    0010: 9e 87 a0 c1 7d 1a 1a d1 a9 e5 4f 3e 19 d4 20 7c
+2024-04-28T09:30:49.190875 [PDCP   ] [I] TX DRB1 PDU, SN=1, integrity=none, encryption=tx/rx
+    0000: 80 01 b8 6c 98 00 88 e4 31 ad 81 1f 0a 2e 5f f9
+    0010: dc fb 9e 87 a0 c1 7d 1a 1a d1 a9 e5 4f 3e 19 d4
+2024-04-28T09:30:49.226392 [PDCP   ] [I] DRB1 Rx PDU SN=1 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 01 1f f4 b8 2b 93 a2 55 8b fe 63 ee 7b 00 44
+    0010: 68 f5 c5 20 a4 74 79 d6 00 4a 65 c7 21 2e aa 3f
+2024-04-28T09:30:49.226394 [PDCP   ] [D] Cipher decrypt input: COUNT: 1, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:49.226394 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:49.226395 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 1f f4 b8 2b 93 a2 55 8b fe 63 ee 7b 00 44 68 f5
+    0010: c5 20 a4 74 79 d6 00 4a 65 c7 21 2e aa 3f 02 47
+2024-04-28T09:30:49.226396 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3d 64 00 00 40 01 e5 21 ac 10 00 01
+    0010: ac 10 00 02 00 00 75 fe 20 c6 00 02 49 17 2e 66
+2024-04-28T09:30:49.226396 [PDCP   ] [D] DRB1 Rx PDU SN=1
+    0000: 45 00 00 54 3d 64 00 00 40 01 e5 21 ac 10 00 01
+    0010: ac 10 00 02 00 00 75 fe 20 c6 00 02 49 17 2e 66
+2024-04-28T09:30:50.192309 [PDCP   ] [D] Cipher encrypt input: COUNT: 2, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:50.192309 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:50.192310 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 aa 5d 40 00 40 01 38 28 ac 10 00 02
+    0010: ac 10 00 01 08 00 9d f7 20 c6 00 03 4a 17 2e 66
+2024-04-28T09:30:50.192312 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 4c cb 5e 8f 47 b7 80 ef 14 ba 0a 70 a5 70 02 dc
+    0010: 4a 15 27 27 b4 16 61 a8 00 83 3e 54 f9 72 c9 c8
+2024-04-28T09:30:50.192313 [PDCP   ] [I] TX DRB1 PDU, SN=2, integrity=none, encryption=tx/rx
+    0000: 80 02 4c cb 5e 8f 47 b7 80 ef 14 ba 0a 70 a5 70
+    0010: 02 dc 4a 15 27 27 b4 16 61 a8 00 83 3e 54 f9 72
+2024-04-28T09:30:50.222958 [PDCP   ] [I] DRB1 Rx PDU SN=2 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 02 62 e8 94 2c 3a 23 f6 2f a5 d1 5f a0 29 e4
+    0010: 45 cf 4e 06 67 04 43 8c e7 47 08 90 ed ae 6e 78
+2024-04-28T09:30:50.222960 [PDCP   ] [D] Cipher decrypt input: COUNT: 2, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:50.222960 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:50.222960 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 62 e8 94 2c 3a 23 f6 2f a5 d1 5f a0 29 e4 45 cf
+    0010: 4e 06 67 04 43 8c e7 47 08 90 ed ae 6e 78 2d 8f
+2024-04-28T09:30:50.222961 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3d 67 00 00 40 01 e5 1e ac 10 00 01
+    0010: ac 10 00 02 00 00 a5 f7 20 c6 00 03 4a 17 2e 66
+2024-04-28T09:30:50.222962 [PDCP   ] [D] DRB1 Rx PDU SN=2
+    0000: 45 00 00 54 3d 67 00 00 40 01 e5 1e ac 10 00 01
+    0010: ac 10 00 02 00 00 a5 f7 20 c6 00 03 4a 17 2e 66
+2024-04-28T09:30:51.193199 [PDCP   ] [D] Cipher encrypt input: COUNT: 3, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:51.193199 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:51.193200 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 aa d9 40 00 40 01 37 ac ac 10 00 02
+    0010: ac 10 00 01 08 00 50 f3 20 c6 00 04 4b 17 2e 66
+2024-04-28T09:30:51.193202 [PDCP   ] [D] Cipher encrypt output msg
+    0000: f0 66 6a f5 f1 03 3d 8f d5 56 df f8 36 fd d3 ce
+    0010: c7 ac 6c 27 64 97 c7 0a 04 22 49 bf 94 56 3d 22
+2024-04-28T09:30:51.193203 [PDCP   ] [I] TX DRB1 PDU, SN=3, integrity=none, encryption=tx/rx
+    0000: 80 03 f0 66 6a f5 f1 03 3d 8f d5 56 df f8 36 fd
+    0010: d3 ce c7 ac 6c 27 64 97 c7 0a 04 22 49 bf 94 56
+2024-04-28T09:30:51.220014 [PDCP   ] [I] DRB1 Rx PDU SN=3 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 03 a0 f7 e3 e6 08 f0 2d 18 21 6e 3c d4 09 db
+    0010: 66 ab 97 ec 16 ab 73 77 b0 bb fd bb 17 93 0d 87
+2024-04-28T09:30:51.220015 [PDCP   ] [D] Cipher decrypt input: COUNT: 3, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:51.220016 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:51.220016 [PDCP   ] [D] Cipher decrypt input msg
+    0000: a0 f7 e3 e6 08 f0 2d 18 21 6e 3c d4 09 db 66 ab
+    0010: 97 ec 16 ab 73 77 b0 bb fd bb 17 93 0d 87 29 96
+2024-04-28T09:30:51.220016 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3e 8c 00 00 40 01 e3 f9 ac 10 00 01
+    0010: ac 10 00 02 00 00 58 f3 20 c6 00 04 4b 17 2e 66
+2024-04-28T09:30:51.220017 [PDCP   ] [D] DRB1 Rx PDU SN=3
+    0000: 45 00 00 54 3e 8c 00 00 40 01 e3 f9 ac 10 00 01
+    0010: ac 10 00 02 00 00 58 f3 20 c6 00 04 4b 17 2e 66
+2024-04-28T09:30:52.195133 [PDCP   ] [D] Cipher encrypt input: COUNT: 4, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:52.195134 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:52.195134 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 ab 74 40 00 40 01 37 11 ac 10 00 02
+    0010: ac 10 00 01 08 00 c5 ea 20 c6 00 05 4c 17 2e 66
+2024-04-28T09:30:52.195136 [PDCP   ] [D] Cipher encrypt output msg
+    0000: e2 c0 66 ca ad 90 ba 87 8b b4 88 20 07 34 6b 9e
+    0010: 37 4d 52 73 4d d8 48 c7 5c 6d e0 86 d2 38 ca d8
+2024-04-28T09:30:52.195137 [PDCP   ] [I] TX DRB1 PDU, SN=4, integrity=none, encryption=tx/rx
+    0000: 80 04 e2 c0 66 ca ad 90 ba 87 8b b4 88 20 07 34
+    0010: 6b 9e 37 4d 52 73 4d d8 48 c7 5c 6d e0 86 d2 38
+2024-04-28T09:30:52.216925 [PDCP   ] [I] DRB1 Rx PDU SN=4 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 04 f6 b3 5d 90 80 16 06 35 b7 5d 20 33 23 fe
+    0010: f8 28 49 12 e6 ed 7a b7 62 05 ce 6f f9 1f 68 5a
+2024-04-28T09:30:52.216927 [PDCP   ] [D] Cipher decrypt input: COUNT: 4, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:52.216927 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:52.216927 [PDCP   ] [D] Cipher decrypt input msg
+    0000: f6 b3 5d 90 80 16 06 35 b7 5d 20 33 23 fe f8 28
+    0010: 49 12 e6 ed 7a b7 62 05 ce 6f f9 1f 68 5a 9d fa
+2024-04-28T09:30:52.216928 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3e a7 00 00 40 01 e3 de ac 10 00 01
+    0010: ac 10 00 02 00 00 cd ea 20 c6 00 05 4c 17 2e 66
+2024-04-28T09:30:52.216929 [PDCP   ] [D] DRB1 Rx PDU SN=4
+    0000: 45 00 00 54 3e a7 00 00 40 01 e3 de ac 10 00 01
+    0010: ac 10 00 02 00 00 cd ea 20 c6 00 05 4c 17 2e 66
+2024-04-28T09:30:53.197000 [PDCP   ] [D] Cipher encrypt input: COUNT: 5, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:53.197001 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:53.197001 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 ac 1c 40 00 40 01 36 69 ac 10 00 02
+    0010: ac 10 00 01 08 00 40 e2 20 c6 00 06 4d 17 2e 66
+2024-04-28T09:30:53.197003 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 99 c0 7c 0c 66 2e 1d a1 f8 5c 90 cc 71 4b 54 4d
+    0010: 8c 7c 5f a3 de 3e 53 cd fb 0c 56 3a 95 8b c4 ee
+2024-04-28T09:30:53.197004 [PDCP   ] [I] TX DRB1 PDU, SN=5, integrity=none, encryption=tx/rx
+    0000: 80 05 99 c0 7c 0c 66 2e 1d a1 f8 5c 90 cc 71 4b
+    0010: 54 4d 8c 7c 5f a3 de 3e 53 cd fb 0c 56 3a 95 8b
+2024-04-28T09:30:53.234434 [PDCP   ] [I] DRB1 Rx PDU SN=5 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 05 93 ca 70 35 2b 8f 83 84 52 74 82 79 73 49
+    0010: 2e 3a 54 68 1c d0 b4 18 6d 3f c5 49 31 33 1c 8d
+2024-04-28T09:30:53.234435 [PDCP   ] [D] Cipher decrypt input: COUNT: 5, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:53.234436 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:53.234436 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 93 ca 70 35 2b 8f 83 84 52 74 82 79 73 49 2e 3a
+    0010: 54 68 1c d0 b4 18 6d 3f c5 49 31 33 1c 8d b1 b0
+2024-04-28T09:30:53.234437 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3f 8e 00 00 40 01 e2 f7 ac 10 00 01
+    0010: ac 10 00 02 00 00 48 e2 20 c6 00 06 4d 17 2e 66
+2024-04-28T09:30:53.234437 [PDCP   ] [D] DRB1 Rx PDU SN=5
+    0000: 45 00 00 54 3f 8e 00 00 40 01 e2 f7 ac 10 00 01
+    0010: ac 10 00 02 00 00 48 e2 20 c6 00 06 4d 17 2e 66
+2024-04-28T09:30:54.198505 [PDCP   ] [D] Cipher encrypt input: COUNT: 6, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:54.198505 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:54.198506 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 ad 2e 40 00 40 01 35 57 ac 10 00 02
+    0010: ac 10 00 01 08 00 6f db 20 c6 00 07 4e 17 2e 66
+2024-04-28T09:30:54.198508 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 34 a9 63 e0 52 19 3e 74 fa aa ed 52 65 73 09 5f
+    0010: c1 61 0d f7 a1 52 a2 f6 19 3e 36 c3 c4 44 50 f5
+2024-04-28T09:30:54.198509 [PDCP   ] [I] TX DRB1 PDU, SN=6, integrity=none, encryption=tx/rx
+    0000: 80 06 34 a9 63 e0 52 19 3e 74 fa aa ed 52 65 73
+    0010: 09 5f c1 61 0d f7 a1 52 a2 f6 19 3e 36 c3 c4 44
+2024-04-28T09:30:54.231213 [PDCP   ] [I] DRB1 Rx PDU SN=6 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 06 06 28 84 58 75 0e d9 36 55 55 6d 37 64 1a
+    0010: 06 96 a6 fd 1b d9 ed 73 29 c3 87 7b d9 41 7d 3d
+2024-04-28T09:30:54.231214 [PDCP   ] [D] Cipher decrypt input: COUNT: 6, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:54.231214 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:54.231215 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 06 28 84 58 75 0e d9 36 55 55 6d 37 64 1a 06 96
+    0010: a6 fd 1b d9 ed 73 29 c3 87 7b d9 41 7d 3d 60 cc
+2024-04-28T09:30:54.231215 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 3f 91 00 00 40 01 e2 f4 ac 10 00 01
+    0010: ac 10 00 02 00 00 77 db 20 c6 00 07 4e 17 2e 66
+2024-04-28T09:30:54.231216 [PDCP   ] [D] DRB1 Rx PDU SN=6
+    0000: 45 00 00 54 3f 91 00 00 40 01 e2 f4 ac 10 00 01
+    0010: ac 10 00 02 00 00 77 db 20 c6 00 07 4e 17 2e 66
+2024-04-28T09:30:55.200358 [PDCP   ] [D] Cipher encrypt input: COUNT: 7, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:55.200358 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:55.200359 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 ad ec 40 00 40 01 34 99 ac 10 00 02
+    0010: ac 10 00 01 08 00 6d d3 20 c6 00 08 4f 17 2e 66
+2024-04-28T09:30:55.200361 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 85 7b 5a 61 e4 8f 94 5e 9b 0b b0 f5 f2 e4 7d 6e
+    0010: 87 0c 3f 1e aa e3 d1 c1 59 2c ab c5 8c 03 b5 e6
+2024-04-28T09:30:55.200362 [PDCP   ] [I] TX DRB1 PDU, SN=7, integrity=none, encryption=tx/rx
+    0000: 80 07 85 7b 5a 61 e4 8f 94 5e 9b 0b b0 f5 f2 e4
+    0010: 7d 6e 87 0c 3f 1e aa e3 d1 c1 59 2c ab c5 8c 03
+2024-04-28T09:30:55.227442 [PDCP   ] [I] DRB1 Rx PDU SN=7 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 07 77 9c 85 51 53 1e ac 7b d3 6a 95 b5 a9 b8
+    0010: ef fe bd da a8 77 cc 96 f3 df 34 35 60 ad 5b 3c
+2024-04-28T09:30:55.227443 [PDCP   ] [D] Cipher decrypt input: COUNT: 7, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:55.227444 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:55.227444 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 77 9c 85 51 53 1e ac 7b d3 6a 95 b5 a9 b8 ef fe
+    0010: bd da a8 77 cc 96 f3 df 34 35 60 ad 5b 3c c5 cb
+2024-04-28T09:30:55.227445 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 40 3c 00 00 40 01 e2 49 ac 10 00 01
+    0010: ac 10 00 02 00 00 75 d3 20 c6 00 08 4f 17 2e 66
+2024-04-28T09:30:55.227446 [PDCP   ] [D] DRB1 Rx PDU SN=7
+    0000: 45 00 00 54 40 3c 00 00 40 01 e2 49 ac 10 00 01
+    0010: ac 10 00 02 00 00 75 d3 20 c6 00 08 4f 17 2e 66
+2024-04-28T09:30:56.201527 [PDCP   ] [D] Cipher encrypt input: COUNT: 8, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:56.201527 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:56.201528 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 ae f3 40 00 40 01 33 92 ac 10 00 02
+    0010: ac 10 00 01 08 00 9b cd 20 c6 00 09 50 17 2e 66
+2024-04-28T09:30:56.201530 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 5f 43 18 4f 57 6c b6 e3 81 77 12 a3 bb 09 fd e5
+    0010: d4 38 ea 82 0d 49 9e 43 90 8d 1a 3a 69 9f bd 3e
+2024-04-28T09:30:56.201531 [PDCP   ] [I] TX DRB1 PDU, SN=8, integrity=none, encryption=tx/rx
+    0000: 80 08 5f 43 18 4f 57 6c b6 e3 81 77 12 a3 bb 09
+    0010: fd e5 d4 38 ea 82 0d 49 9e 43 90 8d 1a 3a 69 9f
+2024-04-28T09:30:56.224497 [PDCP   ] [I] DRB1 Rx PDU SN=8 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 08 f4 9f 66 73 80 33 67 de 5a 64 80 7a c0 57
+    0010: d0 02 0e ab 3f 2d c4 e0 4b 7d ac e2 ee 97 fe 0a
+2024-04-28T09:30:56.224498 [PDCP   ] [D] Cipher decrypt input: COUNT: 8, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:56.224498 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:56.224499 [PDCP   ] [D] Cipher decrypt input msg
+    0000: f4 9f 66 73 80 33 67 de 5a 64 80 7a c0 57 d0 02
+    0010: 0e ab 3f 2d c4 e0 4b 7d ac e2 ee 97 fe 0a 17 69
+2024-04-28T09:30:56.224499 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 40 95 00 00 40 01 e1 f0 ac 10 00 01
+    0010: ac 10 00 02 00 00 a3 cd 20 c6 00 09 50 17 2e 66
+2024-04-28T09:30:56.224500 [PDCP   ] [D] DRB1 Rx PDU SN=8
+    0000: 45 00 00 54 40 95 00 00 40 01 e1 f0 ac 10 00 01
+    0010: ac 10 00 02 00 00 a3 cd 20 c6 00 09 50 17 2e 66
+2024-04-28T09:30:57.202281 [PDCP   ] [D] Cipher encrypt input: COUNT: 9, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:57.202282 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:57.202283 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 00 54 af f0 40 00 40 01 32 95 ac 10 00 02
+    0010: ac 10 00 01 08 00 8a c9 20 c6 00 0a 51 17 2e 66
+2024-04-28T09:30:57.202285 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 38 89 e8 a8 95 ac 62 52 25 80 e0 60 10 d0 27 7e
+    0010: 67 f6 98 38 51 6f fa b6 a5 27 b3 81 3d fd e6 3a
+2024-04-28T09:30:57.202286 [PDCP   ] [I] TX DRB1 PDU, SN=9, integrity=none, encryption=tx/rx
+    0000: 80 09 38 89 e8 a8 95 ac 62 52 25 80 e0 60 10 d0
+    0010: 27 7e 67 f6 98 38 51 6f fa b6 a5 27 b3 81 3d fd
+2024-04-28T09:30:57.221488 [PDCP   ] [I] DRB1 Rx PDU SN=9 (86 B, integrity=none, encryption=tx/rx)
+    0000: 80 09 b1 2f 90 12 05 1c bc 85 c9 1a 02 9a e9 22
+    0010: 52 1f c1 7c f4 72 c6 cb 46 1e 67 8f b9 ad c2 86
+2024-04-28T09:30:57.221489 [PDCP   ] [D] Cipher decrypt input: COUNT: 9, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:57.221489 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:57.221490 [PDCP   ] [D] Cipher decrypt input msg
+    0000: b1 2f 90 12 05 1c bc 85 c9 1a 02 9a e9 22 52 1f
+    0010: c1 7c f4 72 c6 cb 46 1e 67 8f b9 ad c2 86 d2 5d
+2024-04-28T09:30:57.221490 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 00 54 41 83 00 00 40 01 e1 02 ac 10 00 01
+    0010: ac 10 00 02 00 00 92 c9 20 c6 00 0a 51 17 2e 66
+2024-04-28T09:30:57.221491 [PDCP   ] [D] DRB1 Rx PDU SN=9
+    0000: 45 00 00 54 41 83 00 00 40 01 e1 02 ac 10 00 01
+    0010: ac 10 00 02 00 00 92 c9 20 c6 00 0a 51 17 2e 66
+2024-04-28T09:30:57.232937 [PDCP   ] [I] DRB1 Rx PDU SN=10 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0a 5f 32 8f ad fa 4e 4d 8b 3a 03 c1 79 9a 5a
+    0010: 99 42 15 cb f7 e9 53 3f ee 60 00 a2 0a 1f a1 b4
+2024-04-28T09:30:57.232938 [PDCP   ] [D] Cipher decrypt input: COUNT: 10, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:57.232938 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:57.232938 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 5f 32 8f ad fa 4e 4d 8b 3a 03 c1 79 9a 5a 99 42
+    0010: 15 cb f7 e9 53 3f ee 60 00 a2 0a 1f a1 b4 7e ed
+2024-04-28T09:30:57.232941 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 41 85 40 00 40 01 9b 8e ac 10 00 01
+    0010: ac 10 00 02 08 00 3d ba 00 0a 00 01 51 17 2e 66
+2024-04-28T09:30:57.232941 [PDCP   ] [D] DRB1 Rx PDU SN=10
+    0000: 45 00 05 c6 41 85 40 00 40 01 9b 8e ac 10 00 01
+    0010: ac 10 00 02 08 00 3d ba 00 0a 00 01 51 17 2e 66
+2024-04-28T09:30:57.233059 [PDCP   ] [D] Cipher encrypt input: COUNT: 10, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:57.233059 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:57.233059 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 af f3 00 00 40 01 6d 20 ac 10 00 02
+    0010: ac 10 00 01 00 00 45 ba 00 0a 00 01 51 17 2e 66
+2024-04-28T09:30:57.233062 [PDCP   ] [D] Cipher encrypt output msg
+    0000: f9 0d b2 ca b6 71 50 97 b7 10 72 50 e4 39 80 4f
+    0010: 1a 00 58 99 e1 2a 62 2a 38 47 b6 b2 50 f9 9a a8
+2024-04-28T09:30:57.233062 [PDCP   ] [I] TX DRB1 PDU, SN=10, integrity=none, encryption=tx/rx
+    0000: 80 0a f9 0d b2 ca b6 71 50 97 b7 10 72 50 e4 39
+    0010: 80 4f 1a 00 58 99 e1 2a 62 2a 38 47 b6 b2 50 f9
+2024-04-28T09:30:58.232939 [PDCP   ] [I] DRB1 Rx PDU SN=11 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0b af 27 0b 46 17 07 ea 0d 48 3b ad 29 e4 c5
+    0010: 93 03 a8 f3 ea 5b b6 a5 4c 79 84 a5 0f a7 38 f2
+2024-04-28T09:30:58.232941 [PDCP   ] [D] Cipher decrypt input: COUNT: 11, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:58.232941 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:58.232941 [PDCP   ] [D] Cipher decrypt input msg
+    0000: af 27 0b 46 17 07 ea 0d 48 3b ad 29 e4 c5 93 03
+    0010: a8 f3 ea 5b b6 a5 4c 79 84 a5 0f a7 38 f2 31 06
+2024-04-28T09:30:58.232944 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 42 2e 40 00 40 01 9a e5 ac 10 00 01
+    0010: ac 10 00 02 08 00 33 b6 00 0a 00 02 52 17 2e 66
+2024-04-28T09:30:58.232944 [PDCP   ] [D] DRB1 Rx PDU SN=11
+    0000: 45 00 05 c6 42 2e 40 00 40 01 9a e5 ac 10 00 01
+    0010: ac 10 00 02 08 00 33 b6 00 0a 00 02 52 17 2e 66
+2024-04-28T09:30:58.233067 [PDCP   ] [D] Cipher encrypt input: COUNT: 11, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:58.233067 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:58.233067 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b0 f6 00 00 40 01 6c 1d ac 10 00 02
+    0010: ac 10 00 01 00 00 3b b6 00 0a 00 02 52 17 2e 66
+2024-04-28T09:30:58.233069 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 2f d7 9d dd aa a5 31 18 3c e1 a6 3b 5d 02 30 88
+    0010: 5e dd 99 e5 4a a5 e5 da 60 13 85 ef 5b 7f 9c b8
+2024-04-28T09:30:58.233070 [PDCP   ] [I] TX DRB1 PDU, SN=11, integrity=none, encryption=tx/rx
+    0000: 80 0b 2f d7 9d dd aa a5 31 18 3c e1 a6 3b 5d 02
+    0010: 30 88 5e dd 99 e5 4a a5 e5 da 60 13 85 ef 5b 7f
+2024-04-28T09:30:59.235161 [PDCP   ] [I] DRB1 Rx PDU SN=12 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0c 76 23 f5 f8 d8 00 06 b3 8f a6 3a 44 87 03
+    0010: 1e 66 28 ba c6 9e 50 2d f4 fa 86 c6 86 f0 8f f8
+2024-04-28T09:30:59.235163 [PDCP   ] [D] Cipher decrypt input: COUNT: 12, Bearer ID: 1, Direction Downlink
+2024-04-28T09:30:59.235163 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:59.235163 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 76 23 f5 f8 d8 00 06 b3 8f a6 3a 44 87 03 1e 66
+    0010: 28 ba c6 9e 50 2d f4 fa 86 c6 86 f0 8f f8 e2 e5
+2024-04-28T09:30:59.235167 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 43 35 40 00 40 01 99 de ac 10 00 01
+    0010: ac 10 00 02 08 00 fa af 00 0a 00 03 53 17 2e 66
+2024-04-28T09:30:59.235167 [PDCP   ] [D] DRB1 Rx PDU SN=12
+    0000: 45 00 05 c6 43 35 40 00 40 01 99 de ac 10 00 01
+    0010: ac 10 00 02 08 00 fa af 00 0a 00 03 53 17 2e 66
+2024-04-28T09:30:59.235290 [PDCP   ] [D] Cipher encrypt input: COUNT: 12, Bearer ID: 1, Direction Uplink
+2024-04-28T09:30:59.235290 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:30:59.235291 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b1 be 00 00 40 01 6b 55 ac 10 00 02
+    0010: ac 10 00 01 00 00 02 b0 00 0a 00 03 53 17 2e 66
+2024-04-28T09:30:59.235293 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 1d 0c ed 88 b1 1f b5 8a cd e3 c4 20 0d 58 a8 de
+    0010: e0 66 cf cf 4b 43 54 56 8f c4 2e 56 18 d3 93 22
+2024-04-28T09:30:59.235294 [PDCP   ] [I] TX DRB1 PDU, SN=12, integrity=none, encryption=tx/rx
+    0000: 80 0c 1d 0c ed 88 b1 1f b5 8a cd e3 c4 20 0d 58
+    0010: a8 de e0 66 cf cf 4b 43 54 56 8f c4 2e 56 18 d3
+2024-04-28T09:31:00.235783 [PDCP   ] [I] DRB1 Rx PDU SN=13 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0d 72 4e be 93 15 38 f4 da 60 47 2e 16 6c 94
+    0010: 78 62 77 23 04 d7 e5 4e ed 30 6f 71 0d b3 e9 90
+2024-04-28T09:31:00.235786 [PDCP   ] [D] Cipher decrypt input: COUNT: 13, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:00.235786 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:00.235787 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 72 4e be 93 15 38 f4 da 60 47 2e 16 6c 94 78 62
+    0010: 77 23 04 d7 e5 4e ed 30 6f 71 0d b3 e9 90 46 4d
+2024-04-28T09:31:00.235790 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 43 5a 40 00 40 01 99 b9 ac 10 00 01
+    0010: ac 10 00 02 08 00 74 ac 00 0a 00 04 54 17 2e 66
+2024-04-28T09:31:00.235790 [PDCP   ] [D] DRB1 Rx PDU SN=13
+    0000: 45 00 05 c6 43 5a 40 00 40 01 99 b9 ac 10 00 01
+    0010: ac 10 00 02 08 00 74 ac 00 0a 00 04 54 17 2e 66
+2024-04-28T09:31:00.235913 [PDCP   ] [D] Cipher encrypt input: COUNT: 13, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:00.235914 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:00.235914 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b2 22 00 00 40 01 6a f1 ac 10 00 02
+    0010: ac 10 00 01 00 00 7c ac 00 0a 00 04 54 17 2e 66
+2024-04-28T09:31:00.235917 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 69 1f e4 6b 72 4c 5e 09 95 cd 01 2c 16 f7 49 75
+    0010: c4 2a 9b ee 2a 32 f2 fe 57 db d0 96 e3 52 77 79
+2024-04-28T09:31:00.235917 [PDCP   ] [I] TX DRB1 PDU, SN=13, integrity=none, encryption=tx/rx
+    0000: 80 0d 69 1f e4 6b 72 4c 5e 09 95 cd 01 2c 16 f7
+    0010: 49 75 c4 2a 9b ee 2a 32 f2 fe 57 db d0 96 e3 52
+2024-04-28T09:31:01.236913 [PDCP   ] [I] DRB1 Rx PDU SN=14 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0e ee 2c 76 04 8e ee d7 30 3e a7 f4 a3 8c 78
+    0010: 64 97 56 79 c2 53 19 53 1f c8 54 8b ec 38 98 d4
+2024-04-28T09:31:01.236916 [PDCP   ] [D] Cipher decrypt input: COUNT: 14, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:01.236916 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:01.236917 [PDCP   ] [D] Cipher decrypt input msg
+    0000: ee 2c 76 04 8e ee d7 30 3e a7 f4 a3 8c 78 64 97
+    0010: 56 79 c2 53 19 53 1f c8 54 8b ec 38 98 d4 3f 11
+2024-04-28T09:31:01.236920 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 44 6f 40 00 40 01 98 a4 ac 10 00 01
+    0010: ac 10 00 02 08 00 22 a7 00 0a 00 05 55 17 2e 66
+2024-04-28T09:31:01.236920 [PDCP   ] [D] DRB1 Rx PDU SN=14
+    0000: 45 00 05 c6 44 6f 40 00 40 01 98 a4 ac 10 00 01
+    0010: ac 10 00 02 08 00 22 a7 00 0a 00 05 55 17 2e 66
+2024-04-28T09:31:01.237047 [PDCP   ] [D] Cipher encrypt input: COUNT: 14, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:01.237047 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:01.237048 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b2 37 00 00 40 01 6a dc ac 10 00 02
+    0010: ac 10 00 01 00 00 2a a7 00 0a 00 05 55 17 2e 66
+2024-04-28T09:31:01.237050 [PDCP   ] [D] Cipher encrypt output msg
+    0000: d0 49 03 c3 04 58 08 81 4e c7 e9 6a 5f 8a de 53
+    0010: e0 29 d5 f2 24 bb 69 e4 c7 6f 15 d6 dc 6e 08 8a
+2024-04-28T09:31:01.237050 [PDCP   ] [I] TX DRB1 PDU, SN=14, integrity=none, encryption=tx/rx
+    0000: 80 0e d0 49 03 c3 04 58 08 81 4e c7 e9 6a 5f 8a
+    0010: de 53 e0 29 d5 f2 24 bb 69 e4 c7 6f 15 d6 dc 6e
+2024-04-28T09:31:02.237810 [PDCP   ] [I] DRB1 Rx PDU SN=15 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 0f ca 21 a7 58 47 6e df 64 91 bd 78 2f d6 c2
+    0010: e5 c6 dd c4 3c c2 d8 7f 55 11 a2 03 1b 4f 39 b7
+2024-04-28T09:31:02.237811 [PDCP   ] [D] Cipher decrypt input: COUNT: 15, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:02.237812 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:02.237812 [PDCP   ] [D] Cipher decrypt input msg
+    0000: ca 21 a7 58 47 6e df 64 91 bd 78 2f d6 c2 e5 c6
+    0010: dd c4 3c c2 d8 7f 55 11 a2 03 1b 4f 39 b7 c7 0d
+2024-04-28T09:31:02.237815 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 44 f8 40 00 40 01 98 1b ac 10 00 01
+    0010: ac 10 00 02 08 00 6a a0 00 0a 00 06 56 17 2e 66
+2024-04-28T09:31:02.237816 [PDCP   ] [D] DRB1 Rx PDU SN=15
+    0000: 45 00 05 c6 44 f8 40 00 40 01 98 1b ac 10 00 01
+    0010: ac 10 00 02 08 00 6a a0 00 0a 00 06 56 17 2e 66
+2024-04-28T09:31:02.237948 [PDCP   ] [D] Cipher encrypt input: COUNT: 15, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:02.237948 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:02.237949 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b3 10 00 00 40 01 6a 03 ac 10 00 02
+    0010: ac 10 00 01 00 00 72 a0 00 0a 00 06 56 17 2e 66
+2024-04-28T09:31:02.237953 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 90 9d f7 9f 3f 70 fd 48 f7 6b ab 78 24 66 8d 1b
+    0010: e7 79 f6 b7 5c ca 91 a0 a9 a1 4a 23 3f cf de c1
+2024-04-28T09:31:02.237954 [PDCP   ] [I] TX DRB1 PDU, SN=15, integrity=none, encryption=tx/rx
+    0000: 80 0f 90 9d f7 9f 3f 70 fd 48 f7 6b ab 78 24 66
+    0010: 8d 1b e7 79 f6 b7 5c ca 91 a0 a9 a1 4a 23 3f cf
+2024-04-28T09:31:03.239644 [PDCP   ] [I] DRB1 Rx PDU SN=16 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 10 de 1b 53 91 39 fb d8 94 42 da 1e b8 de 93
+    0010: 79 ea d4 2a a0 ed ca 6e 03 77 b6 5d 13 f4 f0 22
+2024-04-28T09:31:03.239646 [PDCP   ] [D] Cipher decrypt input: COUNT: 16, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:03.239647 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:03.239647 [PDCP   ] [D] Cipher decrypt input msg
+    0000: de 1b 53 91 39 fb d8 94 42 da 1e b8 de 93 79 ea
+    0010: d4 2a a0 ed ca 6e 03 77 b6 5d 13 f4 f0 22 d3 bd
+2024-04-28T09:31:03.239651 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 45 3e 40 00 40 01 97 d5 ac 10 00 01
+    0010: ac 10 00 02 08 00 c7 9a 00 0a 00 07 57 17 2e 66
+2024-04-28T09:31:03.239651 [PDCP   ] [D] DRB1 Rx PDU SN=16
+    0000: 45 00 05 c6 45 3e 40 00 40 01 97 d5 ac 10 00 01
+    0010: ac 10 00 02 08 00 c7 9a 00 0a 00 07 57 17 2e 66
+2024-04-28T09:31:03.239780 [PDCP   ] [D] Cipher encrypt input: COUNT: 16, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:03.239780 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:03.239781 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b3 44 00 00 40 01 69 cf ac 10 00 02
+    0010: ac 10 00 01 00 00 cf 9a 00 0a 00 07 57 17 2e 66
+2024-04-28T09:31:03.239784 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 86 00 93 66 28 0f 5d 5a cc cb 2b 22 c4 f0 81 6c
+    0010: 4a 2f 23 5d be 2c 3d 2b 4e 73 a2 c8 13 21 4e 89
+2024-04-28T09:31:03.239785 [PDCP   ] [I] TX DRB1 PDU, SN=16, integrity=none, encryption=tx/rx
+    0000: 80 10 86 00 93 66 28 0f 5d 5a cc cb 2b 22 c4 f0
+    0010: 81 6c 4a 2f 23 5d be 2c 3d 2b 4e 73 a2 c8 13 21
+2024-04-28T09:31:04.240289 [PDCP   ] [I] DRB1 Rx PDU SN=17 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 11 cc 08 a1 23 ef ee ec 43 b4 f3 77 4c a9 bf
+    0010: 4c 27 d0 1c 21 de a3 0d ad 69 98 bd 96 e0 26 73
+2024-04-28T09:31:04.240291 [PDCP   ] [D] Cipher decrypt input: COUNT: 17, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:04.240291 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:04.240292 [PDCP   ] [D] Cipher decrypt input msg
+    0000: cc 08 a1 23 ef ee ec 43 b4 f3 77 4c a9 bf 4c 27
+    0010: d0 1c 21 de a3 0d ad 69 98 bd 96 e0 26 73 17 77
+2024-04-28T09:31:04.240295 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 46 36 40 00 40 01 96 dd ac 10 00 01
+    0010: ac 10 00 02 08 00 21 97 00 0a 00 08 58 17 2e 66
+2024-04-28T09:31:04.240296 [PDCP   ] [D] DRB1 Rx PDU SN=17
+    0000: 45 00 05 c6 46 36 40 00 40 01 96 dd ac 10 00 01
+    0010: ac 10 00 02 08 00 21 97 00 0a 00 08 58 17 2e 66
+2024-04-28T09:31:04.240423 [PDCP   ] [D] Cipher encrypt input: COUNT: 17, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:04.240423 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:04.240423 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b3 61 00 00 40 01 69 b2 ac 10 00 02
+    0010: ac 10 00 01 00 00 29 97 00 0a 00 08 58 17 2e 66
+2024-04-28T09:31:04.240426 [PDCP   ] [D] Cipher encrypt output msg
+    0000: d1 e4 df 07 e8 61 c7 ae 5d fd b1 87 60 54 89 1f
+    0010: 6f b9 ed 66 77 23 e0 d5 e6 39 30 9f 05 5a 37 da
+2024-04-28T09:31:04.240426 [PDCP   ] [I] TX DRB1 PDU, SN=17, integrity=none, encryption=tx/rx
+    0000: 80 11 d1 e4 df 07 e8 61 c7 ae 5d fd b1 87 60 54
+    0010: 89 1f 6f b9 ed 66 77 23 e0 d5 e6 39 30 9f 05 5a
+2024-04-28T09:31:05.240704 [PDCP   ] [I] DRB1 Rx PDU SN=18 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 12 7f a3 04 90 cb f8 90 f2 c2 fd b5 2b a0 f7
+    0010: 27 07 35 14 2f 83 b0 a0 78 57 56 be e6 2c 57 f2
+2024-04-28T09:31:05.240707 [PDCP   ] [D] Cipher decrypt input: COUNT: 18, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:05.240707 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:05.240708 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 7f a3 04 90 cb f8 90 f2 c2 fd b5 2b a0 f7 27 07
+    0010: 35 14 2f 83 b0 a0 78 57 56 be e6 2c 57 f2 f7 7d
+2024-04-28T09:31:05.240712 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 46 ad 40 00 40 01 96 66 ac 10 00 01
+    0010: ac 10 00 02 08 00 9a 90 00 0a 00 09 59 17 2e 66
+2024-04-28T09:31:05.240712 [PDCP   ] [D] DRB1 Rx PDU SN=18
+    0000: 45 00 05 c6 46 ad 40 00 40 01 96 66 ac 10 00 01
+    0010: ac 10 00 02 08 00 9a 90 00 0a 00 09 59 17 2e 66
+2024-04-28T09:31:05.240843 [PDCP   ] [D] Cipher encrypt input: COUNT: 18, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:05.240843 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:05.240844 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b4 67 00 00 40 01 68 ac ac 10 00 02
+    0010: ac 10 00 01 00 00 a2 90 00 0a 00 09 59 17 2e 66
+2024-04-28T09:31:05.240846 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 00 4b 23 6b 2f 30 2e 7d 31 5b 6d c7 05 80 cb a6
+    0010: cf 28 f0 4a 04 98 f7 09 98 e2 eb f4 c8 da d5 fa
+2024-04-28T09:31:05.240847 [PDCP   ] [I] TX DRB1 PDU, SN=18, integrity=none, encryption=tx/rx
+    0000: 80 12 00 4b 23 6b 2f 30 2e 7d 31 5b 6d c7 05 80
+    0010: cb a6 cf 28 f0 4a 04 98 f7 09 98 e2 eb f4 c8 da
+2024-04-28T09:31:06.241001 [PDCP   ] [I] DRB1 Rx PDU SN=19 (1480 B, integrity=none, encryption=tx/rx)
+    0000: 80 13 63 96 ac 56 0a 60 27 30 2a 3f f0 a9 de 2c
+    0010: f8 3e 09 ae 85 b5 11 6c 23 4e 41 e3 d8 1e 95 4f
+2024-04-28T09:31:06.241003 [PDCP   ] [D] Cipher decrypt input: COUNT: 19, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:06.241003 [PDCP   ] [D] Cipher decrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:06.241003 [PDCP   ] [D] Cipher decrypt input msg
+    0000: 63 96 ac 56 0a 60 27 30 2a 3f f0 a9 de 2c f8 3e
+    0010: 09 ae 85 b5 11 6c 23 4e 41 e3 d8 1e 95 4f 75 bc
+2024-04-28T09:31:06.241007 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 45 00 05 c6 47 ac 40 00 40 01 95 67 ac 10 00 01
+    0010: ac 10 00 02 08 00 1d 8f 00 0a 00 0a 5a 17 2e 66
+2024-04-28T09:31:06.241007 [PDCP   ] [D] DRB1 Rx PDU SN=19
+    0000: 45 00 05 c6 47 ac 40 00 40 01 95 67 ac 10 00 01
+    0010: ac 10 00 02 08 00 1d 8f 00 0a 00 0a 5a 17 2e 66
+2024-04-28T09:31:06.241137 [PDCP   ] [D] Cipher encrypt input: COUNT: 19, Bearer ID: 1, Direction Uplink
+2024-04-28T09:31:06.241137 [PDCP   ] [D] Cipher encrypt key:
+    0000: d5 aa 71 48 2a 6a 06 07 37 f1 be bc 20 71 b6 55
+    0010: 39 23 bc 75 c6 fd 9c f2 d3 39 96 ff ac cd 24 ea
+2024-04-28T09:31:06.241138 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 45 00 05 c6 b4 de 00 00 40 01 68 35 ac 10 00 02
+    0010: ac 10 00 01 00 00 25 8f 00 0a 00 0a 5a 17 2e 66
+2024-04-28T09:31:06.241140 [PDCP   ] [D] Cipher encrypt output msg
+    0000: 90 bd 08 a7 54 08 0c 07 d8 45 2f 12 99 e4 15 bd
+    0010: af e3 f0 31 92 8f a1 70 21 ef dc af b9 90 97 35
+2024-04-28T09:31:06.241141 [PDCP   ] [I] TX DRB1 PDU, SN=19, integrity=none, encryption=tx/rx
+    0000: 80 13 90 bd 08 a7 54 08 0c 07 d8 45 2f 12 99 e4
+    0010: 15 bd af e3 f0 31 92 8f a1 70 21 ef dc af b9 90
+2024-04-28T09:31:17.600727 [PDCP   ] [D] Integrity gen input: COUNT 0, Bearer ID 2, Direction Uplink
+2024-04-28T09:31:17.600727 [PDCP   ] [D] Integrity gen key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:31:17.600727 [PDCP   ] [D] Integrity gen input msg:
+    0000: 00 48 02 a2 f6 02 bc b6 a0 80 e8 a1 21 7e c0 1e
+    0010: 22 00 00 23 44 57 a5 d8 80
+2024-04-28T09:31:17.600728 [PDCP   ] [D] MAC (generated)
+    0000: 08 1d 75 b6
+2024-04-28T09:31:17.600728 [PDCP   ] [D] Cipher encrypt input: COUNT: 0, Bearer ID: 2, Direction Uplink
+2024-04-28T09:31:17.600728 [PDCP   ] [D] Cipher encrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:31:17.600729 [PDCP   ] [D] Cipher encrypt input msg
+    0000: 48 02 a2 f6 02 bc b6 a0 80 e8 a1 21 7e c0 1e 22
+    0010: 00 00 23 44 57 a5 d8 80 08 1d 75 b6
+2024-04-28T09:31:17.600730 [PDCP   ] [D] Cipher encrypt output msg
+    0000: ab 58 a7 3f b3 d3 6e f2 37 a3 98 3f 77 e4 18 ff
+    0010: 15 73 1b 28 75 31 e1 7e c1 e5 ce 28
+2024-04-28T09:31:17.600730 [PDCP   ] [I] TX SRB2 PDU, SN=0, integrity=tx/rx, encryption=tx/rx
+    0000: 00 ab 58 a7 3f b3 d3 6e f2 37 a3 98 3f 77 e4 18
+    0010: ff 15 73 1b 28 75 31 e1 7e c1 e5 ce 28
+2024-04-28T09:31:17.631743 [PDCP   ] [I] SRB1 Rx PDU SN=3 (7 B, integrity=tx/rx, encryption=tx/rx)
+    0000: 03 af dd d1 8e 85 b8
+2024-04-28T09:31:17.631744 [PDCP   ] [D] RX SRB PDU. Next_PDCP_RX_SN 3, SN 3
+2024-04-28T09:31:17.631745 [PDCP   ] [D] Cipher decrypt input: COUNT: 3, Bearer ID: 1, Direction Downlink
+2024-04-28T09:31:17.631745 [PDCP   ] [D] Cipher decrypt key:
+    0000: e9 b8 06 da 95 83 1a e4 20 c7 86 08 bc 83 15 7c
+    0010: 0b 0b 51 64 ad b2 f4 68 19 19 02 cd 5c fa e8 87
+2024-04-28T09:31:17.631745 [PDCP   ] [D] Cipher decrypt input msg
+    0000: af dd d1 8e 85 b8
+2024-04-28T09:31:17.631746 [PDCP   ] [D] Cipher decrypt output msg
+    0000: 28 02 ed 63 2e 62
+2024-04-28T09:31:17.631746 [PDCP   ] [D] SRB1 Rx SDU SN=3
+    0000: 03 28 02 ed 63 2e 62
+2024-04-28T09:31:17.631747 [PDCP   ] [D] Integrity check input - COUNT 3, Bearer ID 1, Direction Downlink
+2024-04-28T09:31:17.631747 [PDCP   ] [D] Integrity check key:
+    0000: 79 cf 02 61 f7 16 48 24 7b fa 8f 5a 0c e8 d4 99
+    0010: d0 41 df cb 8f f4 d1 a6 fa a6 8d ed 42 70 22 52
+2024-04-28T09:31:17.631747 [PDCP   ] [D] MAC match (expected):
+    0000: ed 63 2e 62
+2024-04-28T09:31:17.631747 [PDCP   ] [D] MAC match (found):
+    0000: ed 63 2e 62
+2024-04-28T09:31:17.631748 [PDCP   ] [D] Integrity check input msg (Bytes=3):
+    0000: 03 28 02
+2024-04-28T09:31:17.631748 [PDCP   ] [D] SRB1: Integrity verification successful
+    0000: 03 28 02
+2024-04-28T09:31:17.693911 [PDCP   ] [D] Reset DRB1
+2024-04-28T09:31:17.693911 [PDCP   ] [D] Reset SRB2
+2024-04-28T09:31:17.693912 [PDCP   ] [D] Reset SRB1

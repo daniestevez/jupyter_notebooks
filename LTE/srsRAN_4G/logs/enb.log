@@ -1,0 +1,17 @@
+2024-04-28T09:26:12.800758 [ENB    ] [I] Using binary srsenb with arguments: enb.conf 
+2024-04-28T09:26:12.824183 [ENB    ] [I] Built in Release mode using 23.04.0.
+2024-04-28T09:26:12.824829 [ENB    ] [I] Using sync queue size of one for ZMQ based radio.
+2024-04-28T09:26:12.867358 [COMN   ] [D] [    0] Successfully bound to address 127.0.1.1:2152
+2024-04-28T09:26:12.867365 [COMN   ] [D] [    0] RxSockets: socket fd=8 has been registered.
+2024-04-28T09:26:12.867377 [COMN   ] [D] [    0] Opened SCTP socket=9
+2024-04-28T09:26:12.867382 [COMN   ] [D] [    0] Setting RTO_INFO options on SCTP socket. Association 0, Initial RTO 3000, Minimum RTO 1000, Maximum RTO 6000
+2024-04-28T09:26:12.867384 [COMN   ] [D] [    0] Setting SCTP_INITMSG options on SCTP socket. Max attempts 3, Max init attempts timeout 5000
+2024-04-28T09:26:12.867391 [COMN   ] [D] [    0] Successfully bound to address 127.0.1.1:0
+2024-04-28T09:26:12.869661 [COMN   ] [D] [    0] RxSockets: socket fd=9 has been registered.
+2024-04-28T09:28:39.367405 [RRC    ] [W] Not adding NAS message to connection reconfiguration. E-RAB id 5
+2024-04-28T09:30:48.285862 [RRC    ] [W] Not adding NAS message to connection reconfiguration. E-RAB id 5
+2024-04-28T09:31:28.941323 [COMN   ] [D] [    0] RxSockets: Closing rx socket handler thread
+2024-04-28T09:31:28.942143 [COMN   ] [D] [    0] RxSockets: closed.
+2024-04-28T09:31:28.942208 [COMN   ] [D] [    0] Socket=9 was closed.
+2024-04-28T09:31:28.945064 [COMN   ] [D] [    0] Socket=-1 could not be closed.
+2024-04-28T09:31:28.945631 [COMN   ] [D] [    0] Socket=-1 could not be closed.

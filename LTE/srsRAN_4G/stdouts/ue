@@ -1,0 +1,54 @@
+$ sudo srsue ue.conf
+Active RF plugins: libsrsran_rf_uhd.so libsrsran_rf_soapy.so libsrsran_rf_blade.so libsrsran_rf_zmq.so
+Inactive RF plugins: 
+Reading configuration file ue.conf...
+
+Built in Release mode using 23.04.0.
+
+Opening 1 channels in RF device=zmq with args=tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
+Supported RF device list: UHD soapy bladeRF zmq file
+CHx base_srate=23.04e6
+CHx id=ue
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+CH0 rx_port=tcp://localhost:2000
+CH0 tx_port=tcp://*:2001
+Waiting PHY to initialize ... done!
+Attaching UE...
+Starting plot for worker_id=0
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+Current sample rate is 1.92 MHz with a base rate of 23.04 MHz (x12 decimation)
+.QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+
+Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CP=Normal, CFO=-0.2 KHz
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Current sample rate is 11.52 MHz with a base rate of 23.04 MHz (x2 decimation)
+Found PLMN:  Id=00101, TAC=7
+Random Access Transmission: seq=9, tti=341, ra-rnti=0x2
+RRC Connected
+Random Access Complete.     c-rnti=0x46, ta=0
+Network attach successful. IP: 172.16.0.2
+Software Radio Systems RAN (srsRAN) 28/4/2024 9:26:17 TZ:0
+Received RRC Connection Release (releaseCause: other)
+RRC IDLE
+S-TMSI match in paging message
+Service Request with cause mt-Access.
+Random Access Transmission: seq=14, tti=4301, ra-rnti=0x2
+RRC Connected
+Random Access Complete.     c-rnti=0x47, ta=0
+Service Request successful.
+Received RRC Connection Release (releaseCause: other)
+RRC IDLE
+Service Request with cause mo-Data.
+Random Access Transmission: seq=49, tti=5921, ra-rnti=0x2
+RRC Connected
+Random Access Complete.     c-rnti=0x48, ta=0
+Service Request successful.
+^CStopping ..
+Received RRC Connection Release (releaseCause: other)
+RRC IDLE
+Saving MAC PCAP (DLT=149) to /tmp/ue_mac.pcap
+Saving NAS PCAP file (DLT=148) to /tmp/ue_nas.pcap 
+Couldn't stop after 5s. Forcing exit.
+Saving NAS PCAP file (DLT=148) to /tmp/ue_nas.pcap 
+Killed
+﻿
