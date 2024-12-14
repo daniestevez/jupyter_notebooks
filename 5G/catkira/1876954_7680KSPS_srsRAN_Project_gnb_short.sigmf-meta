@@ -43,7 +43,7 @@
             "core:sample_start": 70401
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 886\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -78,7 +78,7 @@
             "core:sample_start": 147201
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 887\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -113,7 +113,7 @@
             "core:sample_start": 224001
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 888\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -157,7 +157,7 @@
             "core:sample_start": 300800
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 889\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -228,7 +228,7 @@
             "core:sample_start": 377600
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 890\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -263,7 +263,7 @@
             "core:sample_start": 454400
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 891\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -298,7 +298,7 @@
             "core:sample_start": 531200
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 892\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -333,7 +333,7 @@
             "core:sample_start": 607999
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 893\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -368,7 +368,7 @@
             "core:sample_start": 684799
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 894\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -403,7 +403,7 @@
             "core:sample_start": 761599
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 895\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xdc', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -438,7 +438,7 @@
             "core:sample_start": 838399
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 896\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xe0', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -530,7 +530,7 @@
             "core:sample_start": 915198
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 897\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xe0', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -601,7 +601,7 @@
             "core:sample_start": 991998
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 898\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xe0', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -623,7 +623,7 @@
             "core:freq_upper_edge": 1879834000.0,
             "core:generator": "destevez Jupyter notebook",
             "core:label": "Frame 13",
-            "core:sample_count": 76800,
+            "core:sample_count": 32574,
             "core:sample_start": 1067698
         },
         {
@@ -636,7 +636,7 @@
             "core:sample_start": 1068798
         },
         {
-            "core:comment": "NcellID = 1\nIssb = 0",
+            "core:comment": "NcellID = 1\nIssb = 0\nSFN = 899\nhalf-frame = 0\n\nMIB\n{'message': ('mib',\n             {'cellBarred': 'notBarred',\n              'dmrs-TypeA-Position': 'pos2',\n              'intraFreqReselection': 'notAllowed',\n              'pdcch-ConfigSIB1': {'controlResourceSetZero': 0,\n                                   'searchSpaceZero': 0},\n              'spare': (b'\\x00', 1),\n              'ssb-SubcarrierOffset': 8,\n              'subCarrierSpacingCommon': 'scs15or60',\n              'systemFrameNumber': (b'\\xe0', 6)})}",
             "core:freq_lower_edge": 1875146518.88,
             "core:freq_upper_edge": 1878761518.88,
             "core:generator": "destevez Jupyter notebook",
