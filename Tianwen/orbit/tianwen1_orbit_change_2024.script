@@ -1,0 +1,332 @@
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1_new;
+GMAT Tianwen1_new.DateFormat = UTCGregorian;
+GMAT Tianwen1_new.Epoch = '19 Dec 2024 21:15:03.998';
+
+GMAT Tianwen1_new.CoordinateSystem = MarsInertial;
+
+GMAT Tianwen1_new.DisplayStateType = Cartesian;
+GMAT Tianwen1_new.X = -705.8100617299788;
+GMAT Tianwen1_new.Y = 23.97878164321946;
+GMAT Tianwen1_new.Z = 3778.314844019696;
+GMAT Tianwen1_new.VX = -3.707915047671444;
+GMAT Tianwen1_new.VY = -1.276693336357529;
+GMAT Tianwen1_new.VZ = -1.46514271481704;
+GMAT Tianwen1_new.DryMass = 850;
+GMAT Tianwen1_new.Cd = 2.2;
+GMAT Tianwen1_new.Cr = 1.8;
+GMAT Tianwen1_new.DragArea = 15;
+GMAT Tianwen1_new.SRPArea = 1;
+GMAT Tianwen1_new.SPADDragScaleFactor = 1;
+GMAT Tianwen1_new.SPADSRPScaleFactor = 1;
+GMAT Tianwen1_new.AtmosDensityScaleFactor = 1;
+GMAT Tianwen1_new.ExtendedMassPropertiesModel = 'None';
+GMAT Tianwen1_new.NAIFId = -10028001;
+GMAT Tianwen1_new.NAIFIdReferenceFrame = -9028001;
+GMAT Tianwen1_new.OrbitColor = Red;
+GMAT Tianwen1_new.TargetColor = Teal;
+GMAT Tianwen1_new.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Tianwen1_new.CdSigma = 1e+70;
+GMAT Tianwen1_new.CrSigma = 1e+70;
+GMAT Tianwen1_new.Id = 'SatId';
+GMAT Tianwen1_new.Attitude = CoordinateSystemFixed;
+GMAT Tianwen1_new.SPADSRPInterpolationMethod = Bilinear;
+GMAT Tianwen1_new.SPADSRPScaleFactorSigma = 1e+70;
+GMAT Tianwen1_new.SPADDragInterpolationMethod = Bilinear;
+GMAT Tianwen1_new.SPADDragScaleFactorSigma = 1e+70;
+GMAT Tianwen1_new.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT Tianwen1_new.ModelFile = 'aura.3ds';
+GMAT Tianwen1_new.ModelOffsetX = 0;
+GMAT Tianwen1_new.ModelOffsetY = 0;
+GMAT Tianwen1_new.ModelOffsetZ = 0;
+GMAT Tianwen1_new.ModelRotationX = 0;
+GMAT Tianwen1_new.ModelRotationY = 0;
+GMAT Tianwen1_new.ModelRotationZ = 0;
+GMAT Tianwen1_new.ModelScale = 1;
+GMAT Tianwen1_new.AttitudeDisplayStateType = 'Quaternion';
+GMAT Tianwen1_new.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Tianwen1_new.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Tianwen1_new.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1_old;
+GMAT Tianwen1_old.DateFormat = UTCGregorian;
+GMAT Tianwen1_old.Epoch = '18 Dec 2024 23:24:53.892';
+
+GMAT Tianwen1_old.CoordinateSystem = MarsInertial;
+
+GMAT Tianwen1_old.DisplayStateType = Cartesian;
+GMAT Tianwen1_old.X = 4138.192797433121;
+GMAT Tianwen1_old.Y = 1565.165195862828;
+GMAT Tianwen1_old.Z = 3704.175680474208;
+GMAT Tianwen1_old.VX = -2.859961044944273;
+GMAT Tianwen1_old.VY = -0.843672300233806;
+GMAT Tianwen1_old.VZ = 1.068322912495951;
+GMAT Tianwen1_old.DryMass = 850;
+GMAT Tianwen1_old.Cd = 2.2;
+GMAT Tianwen1_old.Cr = 1.8;
+GMAT Tianwen1_old.DragArea = 15;
+GMAT Tianwen1_old.SRPArea = 1;
+GMAT Tianwen1_old.SPADDragScaleFactor = 1;
+GMAT Tianwen1_old.SPADSRPScaleFactor = 1;
+GMAT Tianwen1_old.AtmosDensityScaleFactor = 1;
+GMAT Tianwen1_old.ExtendedMassPropertiesModel = 'None';
+GMAT Tianwen1_old.NAIFId = -10028001;
+GMAT Tianwen1_old.NAIFIdReferenceFrame = -9028001;
+GMAT Tianwen1_old.OrbitColor = [0 255 255];
+GMAT Tianwen1_old.TargetColor = Teal;
+GMAT Tianwen1_old.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Tianwen1_old.CdSigma = 1e+70;
+GMAT Tianwen1_old.CrSigma = 1e+70;
+GMAT Tianwen1_old.Id = 'SatId';
+GMAT Tianwen1_old.Attitude = CoordinateSystemFixed;
+GMAT Tianwen1_old.SPADSRPInterpolationMethod = Bilinear;
+GMAT Tianwen1_old.SPADSRPScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old.SPADDragInterpolationMethod = Bilinear;
+GMAT Tianwen1_old.SPADDragScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old.ModelFile = 'aura.3ds';
+GMAT Tianwen1_old.ModelOffsetX = 0;
+GMAT Tianwen1_old.ModelOffsetY = 0;
+GMAT Tianwen1_old.ModelOffsetZ = 0;
+GMAT Tianwen1_old.ModelRotationX = 0;
+GMAT Tianwen1_old.ModelRotationY = 0;
+GMAT Tianwen1_old.ModelRotationZ = 0;
+GMAT Tianwen1_old.ModelScale = 1;
+GMAT Tianwen1_old.AttitudeDisplayStateType = 'Quaternion';
+GMAT Tianwen1_old.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Tianwen1_old.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Tianwen1_old.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Tianwen1_old_burn;
+GMAT Tianwen1_old_burn.DateFormat = UTCGregorian;
+GMAT Tianwen1_old_burn.Epoch = '18 Dec 2024 23:24:53.892';
+
+GMAT Tianwen1_old_burn.CoordinateSystem = MarsInertial;
+
+GMAT Tianwen1_old_burn.DisplayStateType = Cartesian;
+GMAT Tianwen1_old_burn.X = 4138.192797433121;
+GMAT Tianwen1_old_burn.Y = 1565.165195862828;
+GMAT Tianwen1_old_burn.Z = 3704.175680474208;
+GMAT Tianwen1_old_burn.VX = -2.859961044944273;
+GMAT Tianwen1_old_burn.VY = -0.843672300233806;
+GMAT Tianwen1_old_burn.VZ = 1.068322912495951;
+GMAT Tianwen1_old_burn.DryMass = 850;
+GMAT Tianwen1_old_burn.Cd = 2.2;
+GMAT Tianwen1_old_burn.Cr = 1.8;
+GMAT Tianwen1_old_burn.DragArea = 15;
+GMAT Tianwen1_old_burn.SRPArea = 1;
+GMAT Tianwen1_old_burn.SPADDragScaleFactor = 1;
+GMAT Tianwen1_old_burn.SPADSRPScaleFactor = 1;
+GMAT Tianwen1_old_burn.AtmosDensityScaleFactor = 1;
+GMAT Tianwen1_old_burn.ExtendedMassPropertiesModel = 'None';
+GMAT Tianwen1_old_burn.NAIFId = -10028001;
+GMAT Tianwen1_old_burn.NAIFIdReferenceFrame = -9028001;
+GMAT Tianwen1_old_burn.OrbitColor = [255 255 0];
+GMAT Tianwen1_old_burn.TargetColor = Teal;
+GMAT Tianwen1_old_burn.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Tianwen1_old_burn.CdSigma = 1e+70;
+GMAT Tianwen1_old_burn.CrSigma = 1e+70;
+GMAT Tianwen1_old_burn.Id = 'SatId';
+GMAT Tianwen1_old_burn.Attitude = CoordinateSystemFixed;
+GMAT Tianwen1_old_burn.SPADSRPInterpolationMethod = Bilinear;
+GMAT Tianwen1_old_burn.SPADSRPScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old_burn.SPADDragInterpolationMethod = Bilinear;
+GMAT Tianwen1_old_burn.SPADDragScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old_burn.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT Tianwen1_old_burn.ModelFile = 'aura.3ds';
+GMAT Tianwen1_old_burn.ModelOffsetX = 0;
+GMAT Tianwen1_old_burn.ModelOffsetY = 0;
+GMAT Tianwen1_old_burn.ModelOffsetZ = 0;
+GMAT Tianwen1_old_burn.ModelRotationX = 0;
+GMAT Tianwen1_old_burn.ModelRotationY = 0;
+GMAT Tianwen1_old_burn.ModelRotationZ = 0;
+GMAT Tianwen1_old_burn.ModelScale = 1;
+GMAT Tianwen1_old_burn.AttitudeDisplayStateType = 'Quaternion';
+GMAT Tianwen1_old_burn.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Tianwen1_old_burn.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Tianwen1_old_burn.EulerAngleSequence = '321';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel ForceModel;
+GMAT ForceModel.CentralBody = Mars;
+GMAT ForceModel.PrimaryBodies = {Mars};
+GMAT ForceModel.PointMasses = {Earth, Jupiter, Luna, Mercury, Neptune, Pluto, Saturn, Sun, Uranus, Venus};
+GMAT ForceModel.Drag = None;
+GMAT ForceModel.SRP = Off;
+GMAT ForceModel.RelativisticCorrection = On;
+GMAT ForceModel.ErrorControl = RSSStep;
+GMAT ForceModel.GravityField.Mars.Degree = 50;
+GMAT ForceModel.GravityField.Mars.Order = 50;
+GMAT ForceModel.GravityField.Mars.StmLimit = 100;
+GMAT ForceModel.GravityField.Mars.PotentialFile = 'Mars50c.cof';
+GMAT ForceModel.GravityField.Mars.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Prop;
+GMAT Prop.FM = ForceModel;
+GMAT Prop.Type = PrinceDormand45;
+GMAT Prop.InitialStepSize = 10;
+GMAT Prop.Accuracy = 9.999999999999999e-12;
+GMAT Prop.MinStep = 1;
+GMAT Prop.MaxStep = 10;
+GMAT Prop.MaxStepAttempts = 50;
+GMAT Prop.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn ImpulsiveBurn1;
+GMAT ImpulsiveBurn1.CoordinateSystem = Local;
+GMAT ImpulsiveBurn1.Origin = Mars;
+GMAT ImpulsiveBurn1.Axes = VNB;
+GMAT ImpulsiveBurn1.Element1 = 0.001;
+GMAT ImpulsiveBurn1.Element2 = 0;
+GMAT ImpulsiveBurn1.Element3 = 0;
+GMAT ImpulsiveBurn1.DecrementMass = false;
+GMAT ImpulsiveBurn1.Isp = 300;
+GMAT ImpulsiveBurn1.GravitationalAccel = 9.81;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunICRF;
+GMAT SunICRF.Origin = Sun;
+GMAT SunICRF.Axes = ICRF;
+
+Create CoordinateSystem MarsInertial;
+GMAT MarsInertial.Origin = Mars;
+GMAT MarsInertial.Axes = BodyInertial;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create DifferentialCorrector DefaultDC;
+GMAT DefaultDC.ShowProgress = true;
+GMAT DefaultDC.ReportStyle = Normal;
+GMAT DefaultDC.ReportFile = 'DifferentialCorrectorDefaultDC.data';
+GMAT DefaultDC.MaximumIterations = 25;
+GMAT DefaultDC.DerivativeMethod = ForwardDifference;
+GMAT DefaultDC.Algorithm = NewtonRaphson;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView OrbitView1;
+GMAT OrbitView1.SolverIterations = Current;
+GMAT OrbitView1.UpperLeft = [ 0.225765306122449 0.04384724186704385 ];
+GMAT OrbitView1.Size = [ 0.9974489795918368 0.9533239038189534 ];
+GMAT OrbitView1.RelativeZOrder = 636;
+GMAT OrbitView1.Maximized = true;
+GMAT OrbitView1.Add = {Tianwen1_new, Tianwen1_old, Tianwen1_old_burn, Mars};
+GMAT OrbitView1.CoordinateSystem = MarsInertial;
+GMAT OrbitView1.DrawObject = [ true true true true ];
+GMAT OrbitView1.DataCollectFrequency = 1;
+GMAT OrbitView1.UpdatePlotFrequency = 50;
+GMAT OrbitView1.NumPointsToRedraw = 0;
+GMAT OrbitView1.ShowPlot = true;
+GMAT OrbitView1.MaxPlotPoints = 1000000;
+GMAT OrbitView1.ShowLabels = true;
+GMAT OrbitView1.ViewPointReference = Mars;
+GMAT OrbitView1.ViewPointVector = [ 0 -35000 0 ];
+GMAT OrbitView1.ViewDirection = Mars;
+GMAT OrbitView1.ViewScaleFactor = 1;
+GMAT OrbitView1.ViewUpCoordinateSystem = MarsInertial;
+GMAT OrbitView1.ViewUpAxis = Z;
+GMAT OrbitView1.EclipticPlane = Off;
+GMAT OrbitView1.XYPlane = Off;
+GMAT OrbitView1.WireFrame = Off;
+GMAT OrbitView1.Axes = On;
+GMAT OrbitView1.Grid = Off;
+GMAT OrbitView1.SunLine = Off;
+GMAT OrbitView1.UseInitialView = On;
+GMAT OrbitView1.StarCount = 7000;
+GMAT OrbitView1.EnableStars = On;
+GMAT OrbitView1.EnableConstellations = Off;
+
+Create GroundTrackPlot GroundTrackPlot1;
+GMAT GroundTrackPlot1.SolverIterations = Current;
+GMAT GroundTrackPlot1.UpperLeft = [ 0.225765306122449 0.04384724186704385 ];
+GMAT GroundTrackPlot1.Size = [ 0.9974489795918368 0.9533239038189534 ];
+GMAT GroundTrackPlot1.RelativeZOrder = 631;
+GMAT GroundTrackPlot1.Maximized = true;
+GMAT GroundTrackPlot1.Add = {Tianwen1_new, Tianwen1_old};
+GMAT GroundTrackPlot1.DataCollectFrequency = 1;
+GMAT GroundTrackPlot1.UpdatePlotFrequency = 1000;
+GMAT GroundTrackPlot1.NumPointsToRedraw = 0;
+GMAT GroundTrackPlot1.ShowPlot = true;
+GMAT GroundTrackPlot1.MaxPlotPoints = 1000000;
+GMAT GroundTrackPlot1.CentralBody = Mars;
+GMAT GroundTrackPlot1.TextureMap = 'Mars_JPLCaltechUSGS.jpg';
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Toggle 'Toggle ground track off' GroundTrackPlot1 Off;
+Propagate 'Propagate to periapsis' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old_burn.Mars.Periapsis};
+Propagate 'Propagate to apoapsis' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old_burn.Mars.Apoapsis};
+Propagate 'Propagate to periapsis' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old_burn.Mars.Periapsis};
+Propagate 'Propagate to periapsis' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old_burn.Mars.Periapsis};
+Target 'Periapsis raise' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Vary 'Vary delta-V' DefaultDC(ImpulsiveBurn1.Element1 = 0.009639999999999999, {Perturbation = 0.0001, Lower = 0.0, Upper = 0.1, MaxStep = 0.01, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Maneuver 'Prograde impulsive burn' ImpulsiveBurn1(Tianwen1_old_burn);
+   Propagate 'Propagate to apoapsis' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old_burn.Mars.Apoapsis};
+   Achieve 'Achieve RMAG' DefaultDC(Tianwen1_old_burn.Mars.RMAG = 14448.608978485, {Tolerance = 0.01});
+EndTarget;  % For targeter DefaultDC
+Propagate 'Propagate to common time' Prop(Tianwen1_old, Tianwen1_old_burn) {Tianwen1_old.UTCModJulian = 30664.3854629398}; % propagate to common epoch
+Propagate 'Instant propagate' Prop(Tianwen1_new, Tianwen1_old, Tianwen1_old_burn) {Tianwen1_new.ElapsedSecs = 0};
+Propagate 'Propagate to new apoapsis' Prop(Tianwen1_new, Tianwen1_old, Tianwen1_old_burn) {Tianwen1_new.Mars.Apoapsis};
+Toggle 'Toggle orbit view off' OrbitView1 Off;
+Toggle 'Toggle ground track on' GroundTrackPlot1 On;
+Propagate 'Propagate 10 days' Prop(Tianwen1_new, Tianwen1_old, Tianwen1_old_burn) {Tianwen1_new.ElapsedDays = 10};
+
+
+
+
+
+
+
+
+
