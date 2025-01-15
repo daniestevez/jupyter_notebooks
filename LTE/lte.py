@@ -555,7 +555,7 @@ def maxss(a, b):
 
 
 def llr_demod(symbols, noise_sigma, constellation):
-    dists = -np.abs(symbols - constellation[:, np.newaxis]) / (2 * noise_sigma**2)
+    dists = -np.abs(symbols - constellation[:, np.newaxis])**2 / (2 * noise_sigma**2)
     bits_per_symbol = round(np.log2(len(constellation)))
     llrs = np.empty((symbols.size, bits_per_symbol))
     for j in range(bits_per_symbol):
