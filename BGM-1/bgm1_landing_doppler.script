@@ -1,0 +1,248 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2025-03-03 11:40:56
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DefaultSC;
+GMAT DefaultSC.DateFormat = UTCGregorian;
+GMAT DefaultSC.Epoch = '02 Mar 2025 07:30:00.000';
+GMAT DefaultSC.CoordinateSystem = MareCrisiumTopo;
+GMAT DefaultSC.DisplayStateType = Cartesian;
+GMAT DefaultSC.X = 0;
+GMAT DefaultSC.Y = 0;
+GMAT DefaultSC.Z = -0;
+GMAT DefaultSC.VX = 0;
+GMAT DefaultSC.VY = 0;
+GMAT DefaultSC.VZ = 0;
+GMAT DefaultSC.DryMass = 850;
+GMAT DefaultSC.Cd = 2.2;
+GMAT DefaultSC.Cr = 1.8;
+GMAT DefaultSC.DragArea = 15;
+GMAT DefaultSC.SRPArea = 1;
+GMAT DefaultSC.SPADDragScaleFactor = 1;
+GMAT DefaultSC.SPADSRPScaleFactor = 1;
+GMAT DefaultSC.AtmosDensityScaleFactor = 1;
+GMAT DefaultSC.ExtendedMassPropertiesModel = 'None';
+GMAT DefaultSC.NAIFId = -10000001;
+GMAT DefaultSC.NAIFIdReferenceFrame = -9000001;
+GMAT DefaultSC.OrbitColor = Red;
+GMAT DefaultSC.TargetColor = Teal;
+GMAT DefaultSC.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT DefaultSC.CdSigma = 1e+70;
+GMAT DefaultSC.CrSigma = 1e+70;
+GMAT DefaultSC.Id = 'SatId';
+GMAT DefaultSC.Attitude = CoordinateSystemFixed;
+GMAT DefaultSC.SPADSRPInterpolationMethod = Bilinear;
+GMAT DefaultSC.SPADSRPScaleFactorSigma = 1e+70;
+GMAT DefaultSC.SPADDragInterpolationMethod = Bilinear;
+GMAT DefaultSC.SPADDragScaleFactorSigma = 1e+70;
+GMAT DefaultSC.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT DefaultSC.ModelFile = 'aura.3ds';
+GMAT DefaultSC.ModelOffsetX = 0;
+GMAT DefaultSC.ModelOffsetY = 0;
+GMAT DefaultSC.ModelOffsetZ = 0;
+GMAT DefaultSC.ModelRotationX = 0;
+GMAT DefaultSC.ModelRotationY = 0;
+GMAT DefaultSC.ModelRotationZ = 0;
+GMAT DefaultSC.ModelScale = 1;
+GMAT DefaultSC.AttitudeDisplayStateType = 'Quaternion';
+GMAT DefaultSC.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT DefaultSC.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultSC.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation MareCrisium;
+GMAT MareCrisium.OrbitColor = Thistle;
+GMAT MareCrisium.TargetColor = DarkGray;
+GMAT MareCrisium.CentralBody = Luna;
+GMAT MareCrisium.StateType = Spherical;
+GMAT MareCrisium.HorizonReference = Sphere;
+GMAT MareCrisium.Location1 = 18.562;
+GMAT MareCrisium.Location2 = 61.810;
+GMAT MareCrisium.Location3 = -3.65;
+GMAT MareCrisium.Id = 'MareCrisium';
+GMAT MareCrisium.IonosphereModel = 'None';
+GMAT MareCrisium.TroposphereModel = 'None';
+GMAT MareCrisium.DataSource = 'Constant';
+GMAT MareCrisium.Temperature = 295.1;
+GMAT MareCrisium.Pressure = 1013.5;
+GMAT MareCrisium.Humidity = 55;
+GMAT MareCrisium.MinimumElevationAngle = 0;
+
+Create GroundStation Bochum;
+GMAT Bochum.OrbitColor = Thistle;
+GMAT Bochum.TargetColor = DarkGray;
+GMAT Bochum.CentralBody = Earth;
+GMAT Bochum.StateType = Cartesian;
+GMAT Bochum.HorizonReference = Sphere;
+GMAT Bochum.Location1 = 3953.642;
+GMAT Bochum.Location2 = 498.938;
+GMAT Bochum.Location3 = 4963.304;
+GMAT Bochum.Id = 'Bochum';
+GMAT Bochum.IonosphereModel = 'None';
+GMAT Bochum.TroposphereModel = 'None';
+GMAT Bochum.DataSource = 'Constant';
+GMAT Bochum.Temperature = 295.1;
+GMAT Bochum.Pressure = 1013.5;
+GMAT Bochum.Humidity = 55;
+GMAT Bochum.MinimumElevationAngle = 7;
+
+Create GroundStation Dwingeloo;
+GMAT Dwingeloo.OrbitColor = Thistle;
+GMAT Dwingeloo.TargetColor = DarkGray;
+GMAT Dwingeloo.CentralBody = Earth;
+GMAT Dwingeloo.StateType = Cartesian;
+GMAT Dwingeloo.HorizonReference = Sphere;
+GMAT Dwingeloo.Location1 = 3839.303;
+GMAT Dwingeloo.Location2 = 430.396;
+GMAT Dwingeloo.Location3 = 5057.937;
+GMAT Dwingeloo.Id = 'Dwingeloo';
+GMAT Dwingeloo.IonosphereModel = 'None';
+GMAT Dwingeloo.TroposphereModel = 'None';
+GMAT Dwingeloo.DataSource = 'Constant';
+GMAT Dwingeloo.Temperature = 295.1;
+GMAT Dwingeloo.Pressure = 1013.5;
+GMAT Dwingeloo.Humidity = 55;
+GMAT Dwingeloo.MinimumElevationAngle = 7;
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PrimaryBodies = {Earth};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = Off;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = None;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Degree = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Order = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 10;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
+GMAT DefaultProp.MinStep = 10;
+GMAT DefaultProp.MaxStep = 10;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem BochumTopo;
+GMAT BochumTopo.Origin = Bochum;
+GMAT BochumTopo.Axes = Topocentric;
+
+Create CoordinateSystem MareCrisiumTopo;
+GMAT MareCrisiumTopo.Origin = MareCrisium;
+GMAT MareCrisiumTopo.Axes = Topocentric;
+
+Create CoordinateSystem DwingelooTopo;
+GMAT DwingelooTopo.Origin = Dwingeloo;
+GMAT DwingelooTopo.Axes = Topocentric;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView DefaultOrbitView;
+GMAT DefaultOrbitView.SolverIterations = Current;
+GMAT DefaultOrbitView.UpperLeft = [ 0.144047619047619 0.03555045871559633 ];
+GMAT DefaultOrbitView.Size = [ 0.9976190476190476 0.9621559633027523 ];
+GMAT DefaultOrbitView.RelativeZOrder = 307;
+GMAT DefaultOrbitView.Maximized = true;
+GMAT DefaultOrbitView.Add = {DefaultSC, Earth, Luna};
+GMAT DefaultOrbitView.CoordinateSystem = MareCrisiumTopo;
+GMAT DefaultOrbitView.DrawObject = [ true true true ];
+GMAT DefaultOrbitView.DataCollectFrequency = 1;
+GMAT DefaultOrbitView.UpdatePlotFrequency = 50;
+GMAT DefaultOrbitView.NumPointsToRedraw = 0;
+GMAT DefaultOrbitView.ShowPlot = true;
+GMAT DefaultOrbitView.MaxPlotPoints = 20000;
+GMAT DefaultOrbitView.ShowLabels = true;
+GMAT DefaultOrbitView.ViewPointReference = Luna;
+GMAT DefaultOrbitView.ViewPointVector = [ 30000 0 0 ];
+GMAT DefaultOrbitView.ViewDirection = Luna;
+GMAT DefaultOrbitView.ViewScaleFactor = 1;
+GMAT DefaultOrbitView.ViewUpCoordinateSystem = MareCrisiumTopo;
+GMAT DefaultOrbitView.ViewUpAxis = Z;
+GMAT DefaultOrbitView.EclipticPlane = Off;
+GMAT DefaultOrbitView.XYPlane = On;
+GMAT DefaultOrbitView.WireFrame = Off;
+GMAT DefaultOrbitView.Axes = On;
+GMAT DefaultOrbitView.Grid = Off;
+GMAT DefaultOrbitView.SunLine = Off;
+GMAT DefaultOrbitView.UseInitialView = On;
+GMAT DefaultOrbitView.StarCount = 7000;
+GMAT DefaultOrbitView.EnableStars = On;
+GMAT DefaultOrbitView.EnableConstellations = On;
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+GMAT DefaultGroundTrackPlot.SolverIterations = Current;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.144047619047619 0.03555045871559633 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.9976190476190476 0.9621559633027523 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 332;
+GMAT DefaultGroundTrackPlot.Maximized = true;
+GMAT DefaultGroundTrackPlot.Add = {Bochum, DefaultSC, Dwingeloo};
+GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
+GMAT DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+GMAT DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+GMAT DefaultGroundTrackPlot.ShowPlot = true;
+GMAT DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+GMAT DefaultGroundTrackPlot.CentralBody = Earth;
+GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+Create XYPlot XYPlot1;
+GMAT XYPlot1.SolverIterations = Current;
+GMAT XYPlot1.UpperLeft = [ 0.144047619047619 0.03555045871559633 ];
+GMAT XYPlot1.Size = [ 0.9976190476190476 0.9621559633027523 ];
+GMAT XYPlot1.RelativeZOrder = 327;
+GMAT XYPlot1.Maximized = true;
+GMAT XYPlot1.XVariable = Bochum.UTCModJulian;
+GMAT XYPlot1.YVariables = {MareCrisium.BochumTopo.X, DefaultSC.BochumTopo.X, Luna.BochumTopo.X};
+GMAT XYPlot1.ShowGrid = true;
+GMAT XYPlot1.ShowPlot = true;
+
+Create ReportFile ReportFile1;
+GMAT ReportFile1.SolverIterations = Current;
+GMAT ReportFile1.UpperLeft = [ 0 0 ];
+GMAT ReportFile1.Size = [ 0 0 ];
+GMAT ReportFile1.RelativeZOrder = 0;
+GMAT ReportFile1.Maximized = false;
+GMAT ReportFile1.Filename = 'MareCrisiumCoords.txt';
+GMAT ReportFile1.Precision = 16;
+GMAT ReportFile1.Add = {Bochum.UTCModJulian, MareCrisium.BochumTopo.X, MareCrisium.BochumTopo.Y, MareCrisium.BochumTopo.Z, MareCrisium.BochumTopo.VX, MareCrisium.BochumTopo.VY, MareCrisium.BochumTopo.VZ, MareCrisium.DwingelooTopo.X, MareCrisium.DwingelooTopo.Y, MareCrisium.DwingelooTopo.Z, MareCrisium.DwingelooTopo.VX, MareCrisium.DwingelooTopo.VY, MareCrisium.DwingelooTopo.VZ, Bochum.MareCrisiumTopo.X, Bochum.MareCrisiumTopo.Y, Bochum.MareCrisiumTopo.Z};
+GMAT ReportFile1.WriteHeaders = true;
+GMAT ReportFile1.LeftJustify = On;
+GMAT ReportFile1.ZeroFill = Off;
+GMAT ReportFile1.FixedWidth = true;
+GMAT ReportFile1.Delimiter = ' ';
+GMAT ReportFile1.ColumnWidth = 23;
+GMAT ReportFile1.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(DefaultSC) {DefaultSC.ElapsedSecs = 7200};
