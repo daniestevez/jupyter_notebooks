@@ -4,10 +4,11 @@
         "core:datatype": "ci32_le",
         "core:description": "SDRangel SigMF I/Q recording file",
         "core:hw": "PlutoSDR",
+        "core:num_channels": 1,
         "core:recorder": "SDRangel",
         "core:sample_rate": 7680000.0,
         "core:sha512": "0bcd162b7fbcdd14b97088518cc682a26777e71a943cd7363dc917ab33b2900a91dc16ca04b0a8247468136aee28db475f1d03333bf36f47296b2264d565d869",
-        "core:version": "0.0.2",
+        "core:version": "1.2.3",
         "sdrangel:arch": "x86_64",
         "sdrangel:os": "Ubuntu 22.04.2 LTS",
         "sdrangel:qt_version": "5.15.3",
@@ -456,6 +457,7 @@
             "core:sample_start": 839495
         },
         {
+            "core:comment": "DCI format 1_0 (aggregation level 4) SI-RNTI\n\nFrequency domain assignment: first RB 0, number of RBs 8\nTime domain assignment: 0\nVRB to PRB mapping: 0\nMCS: 5\nRV: 0\nSystem information indicator: 0",
             "core:freq_lower_edge": 1875566518.88,
             "core:freq_upper_edge": 1876646518.88,
             "core:generator": "destevez Jupyter notebook",
@@ -464,6 +466,7 @@
             "core:sample_start": 844979
         },
         {
+            "core:comment": "DCI format 1_0 (aggregation level 4) SI-RNTI\n\nFrequency domain assignment: first RB 0, number of RBs 8\nTime domain assignment: 0\nVRB to PRB mapping: 0\nMCS: 5\nRV: 0\nSystem information indicator: 0",
             "core:freq_lower_edge": 1877726518.88,
             "core:freq_upper_edge": 1878806518.88,
             "core:generator": "destevez Jupyter notebook",
